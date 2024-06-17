@@ -1,0 +1,11 @@
+org/cruk/clarity/api/cache/RestCallTrackingAspect.class
+org/cruk/clarity/api/cache/CacheStatefulBehaviour.class
+org/cruk/clarity/api/cache/RestCallTrackingAspectTest.class
+org/cruk/clarity/api/cache/ClarityAPICache.class
+org/cruk/clarity/api/cache/unittests/ClarityClientCacheTestConfiguration.class
+org/cruk/clarity/api/cache/internal/CacheElementWrapper.class
+org/cruk/clarity/api/cache/ClarityAPICache$1.class
+org/cruk/clarity/api/cache/spring/ClarityClientCacheConfiguration.class
+org/cruk/clarity/api/cache/unittests/CRUKCICheck.class
+module-info.class
+org/cruk/clarity/api/cache/ClarityAPICacheTest.class

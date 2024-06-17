@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.cruk.clarity.api.playback.ClarityAPIPlaybackAspectTest
+-------------------------------------------------------------------------------
+Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.204 s -- in org.cruk.clarity.api.playback.ClarityAPIPlaybackAspectTest

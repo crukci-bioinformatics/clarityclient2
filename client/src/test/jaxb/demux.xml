@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<art:demux xmlns:art="http://genologics.com/ri/artifact" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/2-2661168/demux">
+    <artifact name="SLX-9792" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/2-2661168"/>
+    <demux>
+        <pool-step name="Accept SLX" uri="https://limsdev.cruk.cam.ac.uk/api/v2/steps/122-262635"/>
+        <artifacts>
+            <artifact name="29P" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A63PA1">
+                <samples>
+                    <sample limsid="DOP4584A63" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A63"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D701-D501"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="32P" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A69PA1">
+                <samples>
+                    <sample limsid="DOP4584A69" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A69"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D701-D507"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="31C" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A68PA1">
+                <samples>
+                    <sample limsid="DOP4584A68" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A68"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D701-D506"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="33P" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A71PA1">
+                <samples>
+                    <sample limsid="DOP4584A71" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A71"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D709-D501"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="32C" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A70PA1">
+                <samples>
+                    <sample limsid="DOP4584A70" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A70"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D701-D508"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="30P" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A65PA1">
+                <samples>
+                    <sample limsid="DOP4584A65" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A65"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D701-D503"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="29C" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A64PA1">
+                <samples>
+                    <sample limsid="DOP4584A64" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A64"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D701-D502"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="31P" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A67PA1">
+                <samples>
+                    <sample limsid="DOP4584A67" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A67"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D701-D505"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="30C" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A66PA1">
+                <samples>
+                    <sample limsid="DOP4584A66" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A66"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D701-D504"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="36P" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A77PA1">
+                <samples>
+                    <sample limsid="DOP4584A77" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A77"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D709-D507"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="35C" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A76PA1">
+                <samples>
+                    <sample limsid="DOP4584A76" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A76"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D709-D506"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="37P" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A79PA1">
+                <samples>
+                    <sample limsid="DOP4584A79" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A79"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D710-D501"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="36C" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A78PA1">
+                <samples>
+                    <sample limsid="DOP4584A78" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A78"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D709-D508"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="34P" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A73PA1">
+                <samples>
+                    <sample limsid="DOP4584A73" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A73"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D709-D503"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="33C" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A72PA1">
+                <samples>
+                    <sample limsid="DOP4584A72" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A72"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D709-D502"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="35P" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A75PA1">
+                <samples>
+                    <sample limsid="DOP4584A75" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A75"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D709-D505"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="34C" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A74PA1">
+                <samples>
+                    <sample limsid="DOP4584A74" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A74"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D709-D504"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="40C" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A86PA1">
+                <samples>
+                    <sample limsid="DOP4584A86" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A86"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D710-D508"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="44P" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A87PA1">
+                <samples>
+                    <sample limsid="DOP4584A87" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A87"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D711-D507"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="39C" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A84PA1">
+                <samples>
+                    <sample limsid="DOP4584A84" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A84"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D710-D506"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="40P" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A85PA1">
+                <samples>
+                    <sample limsid="DOP4584A85" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A85"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D710-D507"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="38C" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A82PA1">
+                <samples>
+                    <sample limsid="DOP4584A82" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A82"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D710-D504"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="39P" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A83PA1">
+                <samples>
+                    <sample limsid="DOP4584A83" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A83"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D710-D505"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="37C" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A80PA1">
+                <samples>
+                    <sample limsid="DOP4584A80" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A80"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D710-D502"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="38P" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A81PA1">
+                <samples>
+                    <sample limsid="DOP4584A81" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A81"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D710-D503"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="48C" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A92PA1">
+                <samples>
+                    <sample limsid="DOP4584A92" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A92"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D712-D506"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="45C" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A90PA1">
+                <samples>
+                    <sample limsid="DOP4584A90" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A90"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D712-D502"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="48P" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A91PA1">
+                <samples>
+                    <sample limsid="DOP4584A91" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A91"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D712-D505"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="44C" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A88PA1">
+                <samples>
+                    <sample limsid="DOP4584A88" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A88"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D711-D508"/>
+                </reagent-labels>
+            </artifact>
+            <artifact name="45P" uri="https://limsdev.cruk.cam.ac.uk/api/v2/artifacts/DOP4584A89PA1">
+                <samples>
+                    <sample limsid="DOP4584A89" uri="https://limsdev.cruk.cam.ac.uk/api/v2/samples/DOP4584A89"/>
+                </samples>
+                <reagent-labels>
+                    <reagent-label name="D712-D501"/>
+                </reagent-labels>
+            </artifact>
+        </artifacts>
+    </demux>
+</art:demux>

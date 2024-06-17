@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.cruk.clarity.api.record.ClarityAPIRecordingAspectTest
+-------------------------------------------------------------------------------
+Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.623 s -- in org.cruk.clarity.api.record.ClarityAPIRecordingAspectTest
