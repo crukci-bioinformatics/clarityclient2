@@ -1,2 +1,0 @@
---patch-module
-org.cruk.clarity.api.recorder=/home/bowers01/work/ee10/clarityclient2/recorder/src/main/java, /home/bowers01/work/ee10/clarityclient2/recorder/target/generated-sources/annotations

@@ -1,4 +1,0 @@
---patch-module
-org.cruk.clarity.api=_
---add-reads
-org.cruk.clarity.api=ALL-UNNAMED

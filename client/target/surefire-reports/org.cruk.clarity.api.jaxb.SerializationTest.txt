@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: org.cruk.clarity.api.jaxb.SerializationTest
--------------------------------------------------------------------------------
-Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.355 s -- in org.cruk.clarity.api.jaxb.SerializationTest

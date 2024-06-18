@@ -143,7 +143,6 @@ public class ClarityClientConfiguration
     {
         var factory = new HttpComponentsClientHttpRequestFactoryBasicAuth(clarityHttpClient());
         factory.setCredentialsProvider(clarityCredentialsProvider());
-        // factory.setBufferRequestBody(false);
         return factory;
     }
 

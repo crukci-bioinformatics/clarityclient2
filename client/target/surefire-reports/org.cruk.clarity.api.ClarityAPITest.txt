@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: org.cruk.clarity.api.ClarityAPITest
--------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s -- in org.cruk.clarity.api.ClarityAPITest

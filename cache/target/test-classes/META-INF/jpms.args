@@ -1,2 +1,0 @@
---patch-module
-org.cruk.clarity.api.cache=/home/bowers01/work/ee10/clarityclient2/cache/src/main/java, /home/bowers01/work/ee10/clarityclient2/cache/target/generated-sources/annotations

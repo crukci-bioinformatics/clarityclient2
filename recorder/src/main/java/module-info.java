@@ -34,6 +34,8 @@ module org.cruk.clarity.api.recorder
     exports org.cruk.clarity.api.record.spring;
     exports org.cruk.clarity.api.search;
 
+    exports org.cruk.clarity.api.search.internal to jakarta.xml.bind;
+
     opens org.cruk.clarity.api.playback.spring to spring.core;
     opens org.cruk.clarity.api.record.spring to spring.core;
     opens org.cruk.clarity.api.search to spring.core, jakarta.xml.bind;

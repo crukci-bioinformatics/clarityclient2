@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: org.cruk.clarity.api.ClarityAPIPaginatedBatchTest
--------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.766 s -- in org.cruk.clarity.api.ClarityAPIPaginatedBatchTest
