@@ -141,9 +141,7 @@ public class ClarityClientConfiguration
     @Bean
     public ClientHttpRequestFactory clarityClientHttpRequestFactory()
     {
-        var factory = new HttpComponentsClientHttpRequestFactoryBasicAuth(clarityHttpClient());
-        factory.setCredentialsProvider(clarityCredentialsProvider());
-        return factory;
+        return new HttpComponentsClientHttpRequestFactoryBasicAuth(clarityHttpClient(), clarityCredentialsProvider());
     }
 
     @Bean

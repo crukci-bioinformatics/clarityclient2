@@ -34,8 +34,6 @@ import org.apache.hc.core5.http.HttpHost;
 import org.apache.hc.core5.http.protocol.HttpContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 
@@ -133,8 +131,6 @@ implements AuthenticatingClientHttpRequestFactory
      *
      * @param credentialsProvider The authentication credentials provider.
      */
-    @Autowired
-    @Qualifier("clarityCredentialsProvider")
     public void setCredentialsProvider(CredentialsProvider credentialsProvider)
     {
         context.setCredentialsProvider(credentialsProvider);
@@ -196,9 +192,9 @@ implements AuthenticatingClientHttpRequestFactory
 
         this.credentials = credentials;
 
-        if (credentials != null)
+        if (credentials != null && getCredentialsProvider() instanceof CredentialsStore store)
         {
-            ((CredentialsStore)getCredentialsProvider()).setCredentials(authenticationScope, credentials);
+            store.setCredentials(authenticationScope, credentials);
         }
     }
 }
