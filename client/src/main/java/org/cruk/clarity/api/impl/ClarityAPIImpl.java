@@ -226,9 +226,9 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
     private boolean initialisationComplete;
 
     /**
-     * The root URL to the Clarity server.
+     * The root URI to the Clarity server.
      */
-    protected URL serverAddress;
+    protected URI serverAddress;
 
     /**
      * The root path for all API calls to Clarity server.
@@ -487,6 +487,54 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
     @Override
     public URL getServer()
     {
+        if (serverAddress == null)
+        {
+            throw new IllegalStateException("Server address has not been set.");
+        }
+
+        try
+        {
+            return serverAddress.toURL();
+        }
+        catch (MalformedURLException e)
+        {
+            throw new InvalidURIException(e);
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    @Deprecated
+    public void setServer(URL serverAddress)
+    {
+        if (serverAddress == null)
+        {
+            throw new IllegalArgumentException("serverAddress cannot be set to null");
+        }
+
+        try
+        {
+            setServerURI(serverAddress.toURI());
+        }
+        catch (URISyntaxException e)
+        {
+            throw new InvalidURIException(e);
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public URI getServerURI()
+    {
+        if (serverAddress == null)
+        {
+            throw new IllegalStateException("Server address has not been set.");
+        }
+
         return serverAddress;
     }
 
@@ -494,7 +542,7 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
      * {@inheritDoc}
      */
     @Override
-    public void setServer(URL serverAddress)
+    public void setServerURI(URI serverAddress)
     {
         if (serverAddress == null)
         {
@@ -511,7 +559,7 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
 
         httpRequestFactory.setCredentials(serverAddress, apiCredentials);
 
-        String addr = serverAddress.toExternalForm();
+        String addr = serverAddress.toString();
         addr = org.springframework.util.StringUtils.trimTrailingCharacter(addr, '/');
 
         apiRoot = addr + API_PATH_BASE;

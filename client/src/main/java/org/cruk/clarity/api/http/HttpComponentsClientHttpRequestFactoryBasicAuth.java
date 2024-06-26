@@ -166,14 +166,14 @@ implements AuthenticatingClientHttpRequestFactory
     }
 
     @Override
-    public void setCredentials(URL url, Credentials credentials)
+    public void setCredentials(URI uri, Credentials credentials)
     {
-        if (url == null)
+        if (uri == null)
         {
-            throw new IllegalArgumentException("url cannot be set to null");
+            throw new IllegalArgumentException("uri cannot be set to null");
         }
 
-        setCredentials(new HttpHost(url.getProtocol(), url.getHost(), url.getPort()), credentials);
+        setCredentials(new HttpHost(uri.getScheme(), uri.getHost(), uri.getPort()), credentials);
     }
 
     @Override

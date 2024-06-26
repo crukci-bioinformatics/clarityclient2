@@ -18,6 +18,7 @@
 
 package org.cruk.clarity.api.http;
 
+import java.net.URI;
 import java.net.URL;
 
 import org.apache.hc.client5.http.auth.Credentials;
@@ -50,12 +51,12 @@ public interface AuthenticatingClientHttpRequestFactory extends ClientHttpReques
     /**
      * Set the credentials based on the protocol, host and port in the URL.
      *
-     * @param url The URL of the HTTP server.
+     * @param uri The URI of the HTTP server.
      * @param credentials The credentials to use, or null to reset.
      *
-     * @throws IllegalArgumentException if {@code url} is null.
+     * @throws IllegalArgumentException if {@code uri} is null.
      */
-    void setCredentials(URL url, Credentials credentials);
+    void setCredentials(URI uri, Credentials credentials);
 
     /**
      * Set the credentials based on the HTTP host specification.

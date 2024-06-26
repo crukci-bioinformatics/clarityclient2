@@ -50,7 +50,8 @@ import com.genologics.ri.Locatable;
  */
 @Configuration
 @EnableAspectJAutoProxy(proxyTargetClass = false)  // See the note at the bottom of the class about proxies.
-@ComponentScan({"org.cruk.clarity.api.debugging",
+@ComponentScan({"org.cruk.clarity.api.automation.impl",
+                "org.cruk.clarity.api.debugging",
                 "org.cruk.clarity.api.http",
                 "org.cruk.clarity.api.impl",
                 "org.cruk.clarity.api.jaxb"})

@@ -105,7 +105,10 @@ public interface ClarityAPI
      * @return The server base URL.
      *
      * @throws IllegalStateException if the API has not been configured.
+     *
+     * @deprecated Use {@link #getServerURI()} to get the URI instead.
      */
+    @Deprecated
     URL getServer();
 
     /**
@@ -115,8 +118,31 @@ public interface ClarityAPI
      * no path.
      *
      * @throws IllegalArgumentException if {@code serverAddress} is null.
+     *
+     * @deprecated Use {@link #setServerURI(URI)} to set the URI instead.
      */
+    @Deprecated
     void setServer(URL serverAddress);
+
+    /**
+     * Get the base URI of the Clarity server. This does not include the path to the API,
+     * just the protocol, host and port.
+     *
+     * @return The server base URI.
+     *
+     * @throws IllegalStateException if the API has not been configured.
+     */
+    URI getServerURI();
+
+    /**
+     * Set the base URI to the Clarity server.
+     *
+     * @param serverAddress The base URI. Should just be the protocol, host and port with
+     * no path.
+     *
+     * @throws IllegalArgumentException if {@code serverAddress} is null.
+     */
+    void setServerURI(URI serverAddress);
 
     /**
      * Get the base address of the REST API. This is the server base address plus the
