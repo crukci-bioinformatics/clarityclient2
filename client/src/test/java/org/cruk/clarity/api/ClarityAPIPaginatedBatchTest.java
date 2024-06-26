@@ -33,8 +33,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Constructor;
-import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -104,9 +104,9 @@ public class ClarityAPIPaginatedBatchTest
     }
 
     @PostConstruct
-    public void setupAPI() throws MalformedURLException, IOException
+    public void setupAPI() throws URISyntaxException, IOException
     {
-        localApi.setServer(new URL("http://lims.cri.camres.org:8080"));
+        localApi.setServerURI(new URI("http://lims.cri.camres.org:8080"));
 
         pageFiles = new File[] {
                 new File("src/test/xml/multipagefetch-1.xml"),
@@ -139,7 +139,7 @@ public class ClarityAPIPaginatedBatchTest
 
 
         localApi.setRestClient(restMock);
-        localApi.setServer(new URL("http://lims.cri.camres.org:8080"));
+        localApi.setServerURI(new URI("http://lims.cri.camres.org:8080"));
 
         Map<String, Object> terms = new HashMap<>();
         terms.put("projectname", "Run 1030");
@@ -169,7 +169,7 @@ public class ClarityAPIPaginatedBatchTest
 
         localApi.setHttpClient(mockHttpClient);
         localApi.setRestClient(restTemplate);
-        localApi.setServer(new URL("http://lims.cri.camres.org:8080"));
+        localApi.setServerURI(new URI("http://lims.cri.camres.org:8080"));
 
         final URI pageOne = new URI("http://lims.cri.camres.org:8080/api/v2/samples?projectname=Run%201030");
         final URI pageTwo = new URI("http://lims.cri.camres.org:8080/api/v2/samples?start-index=500&projectname=Run+1030");
@@ -232,7 +232,7 @@ public class ClarityAPIPaginatedBatchTest
         // Should get as far as response 3 in this test.
 
         localApi.setRestClient(restMock);
-        localApi.setServer(new URL("http://lims.cri.camres.org:8080"));
+        localApi.setServerURI(new URI("http://lims.cri.camres.org:8080"));
 
         var links = localApi.listSome(Sample.class, 0, 750);
 
@@ -257,7 +257,7 @@ public class ClarityAPIPaginatedBatchTest
 
         localApi.setHttpClient(mockHttpClient);
         localApi.setRestClient(restTemplate);
-        localApi.setServer(new URL("http://lims.cri.camres.org:8080"));
+        localApi.setServerURI(new URI("http://lims.cri.camres.org:8080"));
 
         URI pageOne = new URI("http://lims.cri.camres.org:8080/api/v2/samples?start-index=0");
         URI pageTwo = new URI("http://lims.cri.camres.org:8080/api/v2/samples?start-index=500&projectname=Run+1030");

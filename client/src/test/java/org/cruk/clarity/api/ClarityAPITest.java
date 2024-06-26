@@ -94,7 +94,7 @@ public class ClarityAPITest
             // Correct.
         }
 
-        api.setServer(new URL(URI_BASE));
+        api.setServerURI(new URI(URI_BASE));
 
         // Simple case
 
@@ -196,7 +196,7 @@ public class ClarityAPITest
             // Correct.
         }
 
-        api.setServer(new URL(URI_BASE));
+        api.setServerURI(new URI(URI_BASE));
 
         // Valid.
 
@@ -237,7 +237,7 @@ public class ClarityAPITest
             // Correct.
         }
 
-        api.setServer(new URL(URI_BASE));
+        api.setServerURI(new URI(URI_BASE));
 
         try
         {

@@ -26,9 +26,8 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URI;
-import java.net.URL;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -97,10 +96,10 @@ public class ClarityAPIPlaybackAspectTest
     }
 
     @PostConstruct
-    public void completeWiring() throws MalformedURLException
+    public void completeWiring() throws URISyntaxException
     {
         // To prove it's from the recording.
-        api.setServer(new URL("http://localhost"));
+        api.setServerURI(new URI("http://localhost"));
 
         aspect.setMessageDirectory(messageDirectory);
         aspect.setUpdatesDirectory(updateDirectory);

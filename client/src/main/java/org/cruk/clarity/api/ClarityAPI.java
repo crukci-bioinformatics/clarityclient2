@@ -202,7 +202,7 @@ public interface ClarityAPI
      * of the following:
      *
      * <ul>
-     * <li>{@code api.server} - The base URL of the Clarity REST API (see {@link #setServer(URL)}).</li>
+     * <li>{@code api.server} - The base URL of the Clarity REST API (see {@link #setServerURI(URI)}).</li>
      * <li>{@code api.user} - The user to access the API as (see {@link #setCredentials(String, String)}).</li>
      * <li>{@code api.pass} - The password for {@code api.user}.</li>
      * <li>{@code filestore.server} - The host name for the file store (see {@link #setFilestoreServer(String)}).</li>

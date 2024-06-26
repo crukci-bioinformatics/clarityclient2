@@ -34,9 +34,8 @@ import java.io.File;
 import java.io.InputStream;
 import java.io.PushbackInputStream;
 import java.io.StringWriter;
-import java.net.MalformedURLException;
 import java.net.URI;
-import java.net.URL;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -108,7 +107,7 @@ public class ClarityAPIBatchOperationTest
     }
 
     @PostConstruct
-    public void setup() throws MalformedURLException
+    public void setup() throws URISyntaxException
     {
         var impl = new ClarityAPIImpl();
         impl.setRestClient(restTemplate);
@@ -116,7 +115,7 @@ public class ClarityAPIBatchOperationTest
         impl.setJaxbConfig(jaxbClasses);
         api = impl;
 
-        api.setServer(new URL("http://limsdev.cri.camres.org:8080"));
+        api.setServerURI(new URI("http://limsdev.cri.camres.org:8080"));
     }
 
     @Test

@@ -698,11 +698,11 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
                 {
                     try
                     {
-                        setServer(new URL(apiServer));
+                        setServerURI(new URI(apiServer));
                     }
-                    catch (MalformedURLException e)
+                    catch (URISyntaxException e)
                     {
-                        throw new InvalidURIException("The server address is not a valid URL: ", e);
+                        throw new InvalidURIException("The server address is not a valid URI: ", e);
                     }
                 }
                 if (isNotBlank(apiUser))
