@@ -83,7 +83,6 @@ import org.springframework.http.client.ClientHttpRequest;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.integration.sftp.session.DefaultSftpSessionFactory;
 import org.springframework.integration.sftp.session.SftpSession;
-import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -127,7 +126,6 @@ import com.genologics.ri.stepconfiguration.ProtocolStep;
  * actual calls.
  *
  * @see RestTemplate
- * @see Jaxb2Marshaller
  * @see HttpClient
  */
 @Service("clarityAPI")

@@ -19,7 +19,6 @@
 package org.cruk.clarity.api.http;
 
 import java.net.URI;
-import java.net.URL;
 
 import org.apache.hc.client5.http.auth.AuthCache;
 import org.apache.hc.client5.http.auth.AuthScope;
