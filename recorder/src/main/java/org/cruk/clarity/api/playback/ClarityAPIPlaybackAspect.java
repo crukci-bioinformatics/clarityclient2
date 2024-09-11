@@ -689,7 +689,7 @@ public class ClarityAPIPlaybackAspect
             }
             else
             {
-                logger.error("Update message directory {} does not exist. Cannot write updated entity.", messageDirectory.getAbsolutePath());
+                logger.error("Update message directory {} does not exist. Cannot write updated entity.", updatesDirectory.getAbsolutePath());
             }
         }
     }

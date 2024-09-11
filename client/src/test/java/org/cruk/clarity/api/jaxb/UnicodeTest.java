@@ -136,7 +136,7 @@ public class UnicodeTest
         }
         catch (ResourceAccessException e)
         {
-            assumeTrue(false, api.getServer() + " is not available.");
+            assumeTrue(false, api.getServerURI() + " is not available.");
         }
     }
 }
