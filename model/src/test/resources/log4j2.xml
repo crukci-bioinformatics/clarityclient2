@@ -11,7 +11,7 @@
     </Appenders>
 
     <Loggers>
-        <Logger name="org.cruk.clarity.model" level="ERROR"/>
+        <Logger name="com.genologics.ri" level="ERROR"/>
 
         <Root level="ERROR">
             <AppenderRef ref="console"/>

@@ -34,7 +34,7 @@
         @XmlNs(prefix = "xmime", namespaceURI = "http://www.w3.org/2005/05/xmlmime"),
         @XmlNs(prefix = "ri", namespaceURI = ROOT_NAMESPACE)
     })
-@XmlJavaTypeAdapter(type = java.net.URI.class, value = org.cruk.clarity.model.jaxb.URIAdapter.class)
+@XmlJavaTypeAdapter(type = java.net.URI.class, value = com.genologics.ri.jaxb.URIAdapter.class)
 package com.genologics.ri;
 
 import static com.genologics.ri.Namespaces.ROOT_NAMESPACE;

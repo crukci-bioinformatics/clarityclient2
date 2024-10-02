@@ -29,7 +29,7 @@ open module org.cruk.clarity.api
     provides ClarityAPI with ClarityAPIImpl;
     provides ClarityProcessAutomation with ClarityProcessAutomationImpl;
 
-    requires transitive org.cruk.clarity.model;
+    requires transitive com.genologics.ri;
 
     requires transitive jakarta.annotation;
     requires transitive jakarta.xml.bind;

@@ -34,7 +34,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import org.cruk.clarity.model.jaxb.LongTimestampAdapter;
+import com.genologics.ri.jaxb.LongTimestampAdapter;
 
 import com.genologics.ri.ClarityEntity;
 import com.genologics.ri.LimsEntity;

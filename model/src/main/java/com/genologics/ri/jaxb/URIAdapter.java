@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.cruk.clarity.model.jaxb;
+package com.genologics.ri.jaxb;
 
 import java.net.URI;
 import java.net.URISyntaxException;

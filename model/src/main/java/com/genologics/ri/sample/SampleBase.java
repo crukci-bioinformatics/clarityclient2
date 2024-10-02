@@ -37,7 +37,7 @@ import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import org.cruk.clarity.model.jaxb.ShortDateAdapter;
+import com.genologics.ri.jaxb.ShortDateAdapter;
 
 import com.genologics.ri.ExternalId;
 import com.genologics.ri.LimsEntityLinkable;

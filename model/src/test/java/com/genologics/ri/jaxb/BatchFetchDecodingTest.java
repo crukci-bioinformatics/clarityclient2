@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.cruk.clarity.model.jaxb;
+package com.genologics.ri.jaxb;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -24,7 +24,6 @@ import java.io.File;
 
 import javax.xml.transform.stream.StreamSource;
 
-import org.cruk.clarity.model.unittests.ClarityModelTestConfiguration;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -35,6 +34,7 @@ import com.genologics.ri.artifact.ArtifactBatchFetchResult;
 import com.genologics.ri.container.ContainerBatchFetchResult;
 import com.genologics.ri.file.ClarityFileBatchFetchResult;
 import com.genologics.ri.sample.SampleBatchFetchResult;
+import com.genologics.ri.unittests.ClarityModelTestConfiguration;
 
 @SpringJUnitConfig(classes = ClarityModelTestConfiguration.class)
 public class BatchFetchDecodingTest

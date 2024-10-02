@@ -19,4 +19,4 @@
 /**
  * Classes to aid the JAXB object mapping process.
  */
-package org.cruk.clarity.model.jaxb;
+package com.genologics.ri.jaxb;

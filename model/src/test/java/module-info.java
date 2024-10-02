@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-open module org.cruk.clarity.model
+open module com.genologics.ri
 {
     requires jakarta.activation;
     //requires static jakarta.annotation;

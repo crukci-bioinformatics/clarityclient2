@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.cruk.clarity.model.jaxb;
+package com.genologics.ri.jaxb;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.apache.commons.lang3.StringUtils.isBlank;
@@ -44,7 +44,6 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.ClassUtils;
-import org.cruk.clarity.model.unittests.ClarityModelTestConfiguration;
 import org.custommonkey.xmlunit.DetailedDiff;
 import org.custommonkey.xmlunit.Diff;
 import org.custommonkey.xmlunit.Difference;
@@ -110,6 +109,7 @@ import com.genologics.ri.step.StepCreation;
 import com.genologics.ri.step.StepDetails;
 import com.genologics.ri.step.StepSetup;
 import com.genologics.ri.stepconfiguration.ProtocolStep;
+import com.genologics.ri.unittests.ClarityModelTestConfiguration;
 import com.genologics.ri.version.Versions;
 import com.genologics.ri.workflowconfiguration.Workflow;
 import com.genologics.ri.workflowconfiguration.Workflows;

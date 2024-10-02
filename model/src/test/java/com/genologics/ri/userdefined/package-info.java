@@ -2,7 +2,7 @@
         namespace = UDF_NAMESPACE,
         elementFormDefault = XmlNsForm.UNQUALIFIED,
         xmlns = @XmlNs(prefix = "udf", namespaceURI = UDF_NAMESPACE))
-@XmlJavaTypeAdapter(type = java.net.URI.class, value = org.cruk.clarity.model.jaxb.URIAdapter.class)
+@XmlJavaTypeAdapter(type = java.net.URI.class, value = com.genologics.ri.jaxb.URIAdapter.class)
 package com.genologics.ri.userdefined;
 
 import static com.genologics.ri.Namespaces.UDF_NAMESPACE;

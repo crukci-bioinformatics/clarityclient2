@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.cruk.clarity.model.unittests;
+package com.genologics.ri.unittests;
 
 import static jakarta.xml.bind.Marshaller.JAXB_ENCODING;
 import static jakarta.xml.bind.Marshaller.JAXB_FORMATTED_OUTPUT;
@@ -37,7 +37,7 @@ import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import com.genologics.ri.Locatable;
 
 @Configuration
-@ComponentScan({"org.cruk.clarity.model.jaxb"})
+@ComponentScan({"com.genologics.ri.jaxb"})
 @SuppressWarnings("exports")
 public class ClarityModelTestConfiguration
 {

@@ -2,7 +2,7 @@
         namespace = QUEUE_NAMESPACE,
         elementFormDefault = XmlNsForm.UNQUALIFIED,
         xmlns = @XmlNs(prefix = "que", namespaceURI = QUEUE_NAMESPACE))
-@XmlJavaTypeAdapter(type = java.net.URI.class, value = org.cruk.clarity.model.jaxb.URIAdapter.class)
+@XmlJavaTypeAdapter(type = java.net.URI.class, value = com.genologics.ri.jaxb.URIAdapter.class)
 package com.genologics.ri.queue;
 
 import static com.genologics.ri.Namespaces.QUEUE_NAMESPACE;

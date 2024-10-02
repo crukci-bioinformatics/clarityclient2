@@ -19,7 +19,7 @@
 /**
  * The Clarity model classes for Clarity 6+.
  */
-open module org.cruk.clarity.model
+open module com.genologics.ri
 {
     //requires static jakarta.annotation;
     requires static jakarta.xml.bind;
@@ -63,5 +63,5 @@ open module org.cruk.clarity.model
     exports com.genologics.ri.version;
     exports com.genologics.ri.workflowconfiguration;
 
-    exports org.cruk.clarity.model.jaxb;
+    exports com.genologics.ri.jaxb;
 }

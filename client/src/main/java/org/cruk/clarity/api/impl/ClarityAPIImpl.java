@@ -483,6 +483,7 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
      * {@inheritDoc}
      */
     @Override
+    @Deprecated
     public URL getServer()
     {
         if (serverAddress == null)
