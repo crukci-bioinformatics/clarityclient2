@@ -23,13 +23,14 @@ import org.cruk.clarity.api.search.ClarityClientSearchConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.ComponentScan.Filter;
 
 /**
  * Spring configuration for playback.
  */
 @Configuration
 @EnableAspectJAutoProxy
-@ComponentScan(basePackageClasses = ClarityAPIPlaybackAspect.class)
+@ComponentScan(basePackageClasses = ClarityAPIPlaybackAspect.class, excludeFilters = @Filter(Configuration.class))
 public class ClarityClientPlaybackConfiguration extends ClarityClientSearchConfiguration
 {
     public ClarityClientPlaybackConfiguration()

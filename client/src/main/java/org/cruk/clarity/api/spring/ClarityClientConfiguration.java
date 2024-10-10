@@ -30,6 +30,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.http.MediaType;
 import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.converter.FormHttpMessageConverter;
@@ -50,11 +51,12 @@ import com.genologics.ri.Locatable;
  */
 @Configuration
 @EnableAspectJAutoProxy(proxyTargetClass = false)  // See the note at the bottom of the class about proxies.
-@ComponentScan({"org.cruk.clarity.api.automation.impl",
-                "org.cruk.clarity.api.debugging",
-                "org.cruk.clarity.api.http",
-                "org.cruk.clarity.api.impl",
-                "org.cruk.clarity.api.jaxb"})
+@ComponentScan(basePackages = { "org.cruk.clarity.api.automation.impl",
+                                "org.cruk.clarity.api.debugging",
+                                "org.cruk.clarity.api.http",
+                                "org.cruk.clarity.api.impl",
+                                "org.cruk.clarity.api.jaxb" },
+               excludeFilters = @Filter(Configuration.class))
 @SuppressWarnings("exports")
 public class ClarityClientConfiguration
 {

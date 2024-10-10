@@ -12,6 +12,7 @@ import org.ehcache.config.builders.ResourcePoolsBuilder;
 import org.ehcache.config.units.EntryUnit;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
@@ -38,7 +39,7 @@ import com.genologics.ri.workflowconfiguration.Workflow;
 
 @Configuration
 @EnableAspectJAutoProxy(proxyTargetClass = false)
-@ComponentScan("org.cruk.clarity.api.cache")
+@ComponentScan(basePackages = "org.cruk.clarity.api.cache", excludeFilters = @Filter(Configuration.class))
 public class ClarityClientCacheConfiguration
 {
     protected CacheConfiguration<String, CacheElementWrapper> smallMedium;

@@ -23,13 +23,14 @@ import org.cruk.clarity.api.search.ClarityClientSearchConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.ComponentScan.Filter;
 
 /**
  * Spring configuration for recording.
  */
 @Configuration
 @EnableAspectJAutoProxy
-@ComponentScan(basePackageClasses = ClarityAPIRecordingAspect.class)
+@ComponentScan(basePackageClasses = ClarityAPIRecordingAspect.class, excludeFilters = @Filter(Configuration.class))
 public class ClarityClientRecordConfiguration extends ClarityClientSearchConfiguration
 {
     public ClarityClientRecordConfiguration()

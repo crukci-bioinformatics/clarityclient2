@@ -37,7 +37,7 @@ import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import com.genologics.ri.Locatable;
 
 @Configuration
-@ComponentScan({"com.genologics.ri.jaxb"})
+@ComponentScan("com.genologics.ri.jaxb")
 @SuppressWarnings("exports")
 public class ClarityModelTestConfiguration
 {
