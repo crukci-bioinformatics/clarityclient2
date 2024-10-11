@@ -22,45 +22,38 @@ that most operations rarely hit the same objects from two different people
 out of date information. The cache can be tuned or disabled as required by
 the application.
 
+The caching functionality has been moved out of the main client code into a separate
+module with the update to version two of the client. This allows it to only be
+included when it is wanted, which in turn saves the main client from having the
+dependency on _Ehcache_ . The cache artifact is `clarity-client2-cache`
+and it is in the module `org.cruk.clarity.api.cache` .
+
 ### Enabling the cache
 
 The cache is essentially an aspect around the main `ClarityAPI`
 implementation. It is configured with Spring and can be enabled for an
-application by adding a file to Spring's application context path:
-
-```
-/org/cruk/clarity/api/clarity-cache-context.xml
-```
-
-This configuration does require the general
-`/org/cruk/clarity/api/clarity-client-context.xml` configuration
-to be in Spring's application context path as it depends on beans defined
-there.
-
-`clarity-cache-context.xml` is provided in the client's JAR file.
+application by including the Spring configuration class
+`org.cruk.clarity.api.cache.spring.ClarityClientCacheConfiguration`
+into the Spring context. No further configuration is necessary unless the
+defaults need changing. The base client configuration class
+`org.cruk.clarity.api.spring.ClarityClientConfiguration` must also
+be present.
 
 ### Tuning the cache
 
-The cache is controlled by the file:
+The cache is controlled by the definitions in the `ClarityClientCacheConfiguration`
+class. There are some definitions for size and time of caches that are set in
+this class; these give size ("small", "medium" and "large") and time to live
+("short", "medium" and "long") combinations. The actual caches for the various
+entities of the API are defined in the method `clarityCacheManager` that
+creates the cache manager bean.
 
-```
-/org/cruk/clarity/api/ehcache.xml
-```
-
-This file is also provided in the client's JAR file. It provides caches
-for different entities that can be individually tuned for each class in
-the API. Any class that does not have a specific cache defined goes into
-the catch-all cache _com.genologics.ri.LimsEntity_.
-
-  If you do need to change the cache configuration, make a new
-`org/cruk/clarity/api/ehcache.xml` that appears in a folder or JAR
-before the client's JAR file in the class path.
-
-As of release 2.31, the implementation of EhCache used has been moved
-from version 2 to version 3. This has resulted in a change in how the
-_ehcache.xml_ file is structured. The file in this project provides an
-example, and the full documentation can be found on the
-(EhCache web site)[https://www.ehcache.org/documentation/3.0/xml.html].
+One can change these default definitions by creating a subclass of
+`ClarityClientCacheConfiguration`. One way to change the shape of the caches
+as defined is to provide new combinations of the size and time to live definitions
+in the subclass' constructor. The other is to override the `clarityCacheManager`
+method to define a different cache manager. One would use the subclass in the Spring
+application context instead of `ClarityClientCacheConfiguration` itself.
 
 ### Bulk fetch, create and update operations
 
@@ -70,7 +63,7 @@ in an operation. This is a number that minimises the request time per object.
 For example, if one tries fetching 10,000 artifacts in one call to the
 API's "`.../artifacts/batch/retrieve`" end point it will take longer than
 making 20 calls for 500 artifacts (500 per call is the optimum number given
-by Genologics, though testing has shown this can vary between installations).
+by Illumina, though testing has shown this can vary between installations).
 
 As of release 2.22, the client library will batch bulk operations with
 large numbers of objects into one or more calls to the relevant API end point
@@ -106,9 +99,8 @@ artifact in the cache is returned regardless of its version or the mode of
 cache operation.
 
 The default mode is `LATEST`, which is the way the cache behaved in
-releases of the client before 2.22. Modes can be set in the Spring
-configuration (`clarity-cache-context.xml`) or programmatically on
-the `ClarityAPICache` bean using the `setStatefulBehaviour` method.
+releases of the client before 2.22. Modes can be set on
+the `clarityApiCacheAspect` bean using the `setStatefulBehaviour` method.
 
 ### Overriding the cache behaviour for a single fetch
 

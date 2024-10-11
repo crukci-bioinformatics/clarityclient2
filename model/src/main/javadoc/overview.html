@@ -5,18 +5,11 @@ Java client for Clarity's REST API.
 </p>
 
 <p>
-It wraps a REST client to allow Java objects to be used for working with
-the Clarity system. The object to XML translations are handled automatically,
-as are the HTTP exchanges. It requires the Spring framework and uses many of
-its features.
-</p>
-
-<p>
-The model classes were originally generated from Genologics' XSD schema
+This module contains the model classes originally generated from Genologics' XSD schema
 documents. They are embellished with interfaces to distinguish between the
-actual entities and the links to those entities. The classes as presented here
-should allow users of this client to work with the Clarity API with minimal
-overhead.
+actual entities and the links to those entities. They are annotated with
+JAXB annotations to allow that mechanism to marshal and unmarshal the XML
+documents into Java objects.
 </p>
 
 <p>
@@ -24,22 +17,9 @@ The XSD files are packaged with this project: all rights to these belong
 to Genologics (now Illumina).
 </p>
 
-<p>
-To use the client, create a Spring application context including the file
-<code>org/cruk/clarity/api/clarity-client-context.xml</code>, from which
-you can obtain the bean "<code>clarityAPI</code>". If you wish to use the
-caching facility, also add the file
-<code>org/cruk/clarity/api/clarity-cache-context.xml</code> to the
-application context path.
-</p>
-
-
 @author Richard Bowers (richard.bowers@cruk.cam.ac.uk)
 
-@see <a href="https://genologics.zendesk.com/hc/en-us/requests" target="_top">Genologics Developer Documentation</a>
-@see <a href="https://spring.io/" target="_top">The Spring Framework</a>
-@see <a href="https://www.oracle.com/technical-resources/articles/javase/jaxb.html" target="_top">Java Architecture for XML Binding (JAXB)</a>
-@see <a href="http://hc.apache.org/httpcomponents-client-4.5.x/" target="_top">Apache HTTP Components</a>
-@see <a href="https://www.ehcache.org" target="_top">EhCache</a>
-
+@see <a href="https://d10e8rzir0haj8.cloudfront.net/6.2/REST.html" target="_top">Genologics Developer Documentation</a>
+@see <a href="https://eclipse-ee4j.github.io/jaxb-ri/" target="_top">Java Architecture for XML Binding (JAXB)</a>
+  
 </body>

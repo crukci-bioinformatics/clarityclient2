@@ -25,7 +25,6 @@ import org.cruk.clarity.api.automation.ClarityProcessAutomation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpStatus;
@@ -103,7 +102,6 @@ public class ClarityProcessAutomationImpl implements ClarityProcessAutomation
      * @param api The Clarity API.
      */
     @Autowired
-    @Qualifier("clarityAPI")
     public void setClarityAPI(ClarityAPI api)
     {
         this.api = api;

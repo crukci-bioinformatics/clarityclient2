@@ -15,7 +15,7 @@ See the "Bulk Fetch, Create and Update Operations" section of the
 Uploading files to the file store with the HTTP mechanism will fail if
 the process the files are being attached to has completed. It seems this is a
 deliberate restriction in the
-[files/limsid/upload](https://d10e8rzir0haj8.cloudfront.net/6.0/rest.version.files.limsid.upload.html)
+[files/limsid/upload](https://d10e8rzir0haj8.cloudfront.net/6.2/rest.version.files.limsid.upload.html)
 end point. The older mechanism of uploading to the file store with SFTP does
 not have this restriction and so, where possible, this method is preferred
 (HTTP uploads are deactivated in the client by default).

@@ -16,4 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+/**
+ * Internal classes for the implementation of storing and retrieving searches.
+ */
 package org.cruk.clarity.api.search.internal;

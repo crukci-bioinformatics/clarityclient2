@@ -7,10 +7,11 @@ need to run protocol steps automatically.
 
 ### Spring Configuration
 
-The main class of the library, `ClarityProcessAutomation`, can be used
+The automation functionality is provided through the interface `ClarityProcessAutomation`.
+The main class of the library, `ClarityProcessAutomationImpl`, can be used
 as a simple Java class (just create an instance) or can be injected into other
-classes by Spring. There is a bean definition in `clarity-client-context.xml`
-with the id "`clarityAutomation`".
+classes by Spring. The implementation class does have a default prototype scope
+definition with the bean " _clarityProcessAutomation_ ".
 
 ### Basic Usage
 
@@ -21,10 +22,10 @@ to run a protocol step from beginning to end.
 #### Start the Process
 
 The `beginProcessStep` method starts a process. It needs to be given a completed
-[`StepCreation`](https://d10e8rzir0haj8.cloudfront.net/6.0/data_stp.html#step-creation)
+[`StepCreation`](https://d10e8rzir0haj8.cloudfront.net/6.2/data_stp.html#step-creation)
 object, which will provide the inputs to the process (which must be in the step's queue)
 and the container type the outputs will be put into. If all is well, the call will return
-a [`ProcessStep`](https://d10e8rzir0haj8.cloudfront.net/6.0/data_stp.html#step) object.
+a [`ProcessStep`](https://d10e8rzir0haj8.cloudfront.net/6.2/data_stp.html#step) object.
 
 #### Wait for the Process to have started
 

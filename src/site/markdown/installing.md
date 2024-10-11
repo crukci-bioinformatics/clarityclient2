@@ -5,17 +5,34 @@ in your class path.
 
 ### With Maven
 
-  The client can be added as a dependency to your POM:
+The client and, optionally, the cache should be added as dependencies to your POM.
+(The model classes will be included as a transitive dependency of the client.)
+You may also wish into include the record and playback classes, though these should
+only ever be included in the `test` scope.
 
 ```XML
 <dependency>
     <groupId>org.cruk.clarity</groupId>
-    <artifactId>clarity-client</artifactId>
+    <artifactId>clarity-client2</artifactId>
     <version>...</version>
+</dependency>
+<dependency>
+    <groupId>org.cruk.clarity</groupId>
+    <artifactId>clarity-client2-cache</artifactId>
+    <version>...</version>
+</dependency>
+<dependency>
+    <groupId>org.cruk.clarity</groupId>
+    <artifactId>clarity-client2-recorder</artifactId>
+    <version>...</version>
+    <scope>test</scope>
 </dependency>
 ```
 
 (Obviously, update the version number as later versions appear.)
+
+
+#### CRUK-CI Maven Repository
 
 We here at CRUK-CI's bioinformatics group host a Maven repository for
 our code. You can let Maven do the work and fetch the client from us if
@@ -34,7 +51,7 @@ you add our repository's details to your POM:
 </repository>
 ```
 
-If you are not running in an EE8 container, you will also need to provide
+Outside of an Java enterprise container you will also need to provide
 a JAXB implementation in your final code. This should be one of the Jakarta EE 10
 implementations, namely a Glassfish implementation version 4.x.x:
 
@@ -46,6 +63,9 @@ implementations, namely a Glassfish implementation version 4.x.x:
     <scope>runtime</scope>
 </dependency>
 ```
+
+There will also need to be an implementation of the SLF4J API suitable
+for your chosen means of logging.
 
 ### Without Maven
 

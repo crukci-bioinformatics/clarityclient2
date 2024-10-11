@@ -3,12 +3,12 @@
 All the work of the client goes through the `ClarityAPI` interface.
 [Take a look at its Javadoc for details of the operations it offers.](apidocs/org.cruk.clarity.api/org/cruk/clarity/api/ClarityAPI.html)
 You should also consult the
-[Clarity Developer documentation](https://d10e8rzir0haj8.cloudfront.net/6.0/REST.html)
+[Clarity Developer documentation](https://d10e8rzir0haj8.cloudfront.net/6.2/REST.html)
 for what operations are supported by the API and what they do.
 
 Before you can start making calls to the API, you need to set the client
-up with the URL of the Clarity API and credentials to access it. The
-`setServer` method sets the base URL for API calls and should be set as the
+up with the URI of the Clarity API and credentials to access it. The
+`setServerURI` method sets the base URI for API calls and should be set as the
 base of any other Clarity URL. Don't include the "`/api/v2`" root of the
 path in this URL, just the base up to and including the port.
 The credentials need to be the user name and password of a
@@ -18,14 +18,14 @@ Operations that use the file store (`uploadFile` and
 `deleteAndRemoveFile`) also need the credentials to access the file store
 set. This is the user name of the file store owner (usually "_glsftp_") and its
 password. The file store host is, by default, taken to be the same as the
-LIMS server. If it is on a different host, this needs to be set explicitly
+Clarity server. If it is on a different host, this needs to be set explicitly
 with a call to `setFilestoreServer`.
 
 The API client can also be configured with a properties file with a call
 to `setConfiguration` or at construction time (this needs a tweaking of
 the Spring configuration). The properties file should contain:
 
-* `api.server` - The root URL for the LIMS API.
+* `api.server` - The root URI for the LIMS API.
 * `api.user` - User name for the account to access the API.
 * `api.pass` - The password for the user given in <api.user>.
 * `filestore.server` - The host name of the file store server.

@@ -24,28 +24,25 @@ throughout this tool.
 5. Optional transparent caching mechanism.
 6. Debugging classes to show traffic and timings between the client and server.
 
-## Clarity 6
+## Clarity Client version 2
 
-The 2.31 and later versions of the library has been updated to work with Clarity 6,
-supporting version 2.31+ of the Clarity API. The opportunity has been taken to
-move things on with the client with this release. -It is now based on Java 11- and
-is packaged with Java's module information. It has also provided a sensible time
-to do some repackaging, reflecting Genologics' disappearance as a separate company
-after its purchase by and absorbtion into Illumina.
+Version 2 of the client is a port of the original project updated to work
+with Jakarta EE10. It is written for Java 17 and has embraced the Java 9+
+module system. It is also refactored to be a multi-module project for Maven
+with the model classes derived from the XML schemas now in their own artefact
+and the cache also moved into its own artefact, allowing a more modular
+use of the code. The artifacts and modules are:
 
-1. Anything in the packages below `org.cruk.genologics` is now under `org.cruk.clarity`.
-2. `GenologicsAPI` is now `ClarityAPI`, with the implementation classes also renamed.
-3. `com.genologics.ri.process.GenologicsProcess` is now `com.genologics.ri.process.ClarityProcess`.
-4. `com.genologics.ri.file.GenologicsFile` is now `com.genologics.ri.file.ClarityFile`.
-5. The Spring XML files are renamed from `genologics-*.xml` to `clarity-*.xml`.
-6. Any Spring beans in the configuration files prefixed with "genologics" are now prefixed with "clarity", for example `clarityAPIBase`.
+1. `clarity-client2-model`: The model classes derived from the schemas and
+annotated for serialisation with JAXB. The Java module for these classes is
+`com.genologics.ri`.
+2. `clarity-client2`: The main client classes, Java module `org.cruk.clarity.api`.
+3. `clarity-client2-cache`: The caching classes and configuration,
+Java module `org.cruk.clarity.api.cache`.
+4. `clarity-client2-recorder`: The recording and playback classes to support
+repeatable unit tests, Java module `org.cruk.clarity.api.recorder`.
 
 The client has kept the `com.genologics.ri` namespace for the model classes because
-that namespace is still what is used in the XSD files provided by Illumina.
-
-### Jakarta EE 10
-
-The EE 10 version of the code is based on Java 17 and Jakarta EE 10. This is the
-code on the "master" branch in GitHub. The Java EE 8 version is on the "ee8" branch.
-We are moving all our code to EE 10 so the EE 8 branch may not be maintained beyond
-API version 2.31.
+that namespace is still what is used in the XSD files provided by Illumina. It follows
+from the namespace that the Java module for these classes is therefore
+`com.genologics.ri`.

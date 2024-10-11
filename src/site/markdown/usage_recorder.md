@@ -5,36 +5,36 @@ https://crukci-bioinformatics.github.io/clarityclient
 
 ### Spring Configuration
 
-The main Spring configuration file for the Clarity client is:
+You need to configure the code to include the main client configuration
+class plus either the recording or playback configuration classes.
 
-```
-/org/cruk/clarity/api/clarity-client-context.xml
-```
+Thus for recording:
 
-You will need to add one of the wrappers to your application context path
-to activate the wrapper. For recording messages from a server, also include:
-
-```
-/org/cruk/clarity/api/clarity-record-context.xml
-```
-
-To use prerecorded messages, include:
-
-```
-/org/cruk/clarity/api/clarity-playback-context.xml
+```Java
+@Configuration
+@Import({
+    org.cruk.clarity.api.spring.ClarityClientConfiguration.class,
+    org.cruk.clarity.api.record.spring.ClarityClientRecordConfiguration.class,
+    ...
+})
+public class MyRecordingConfiguration
+{
+}
 ```
 
-Add the appropriate file to your Spring application context path. If you
-wish to use the caching feature too, you'll also need to add:
+And for play back:
 
+```Java
+@Configuration
+@Import({
+    org.cruk.clarity.api.spring.ClarityClientConfiguration.class,
+    org.cruk.clarity.api.playback.spring.ClarityClientPlaybackConfiguration.class,
+    ...
+})
+public class MyPlaybackConfiguration
+{
+}
 ```
-/org/cruk/clarity/api/clarity-cache-context.xml
-```
-
-`clarity-client-context.xml` and `clarity-cache-context.xml`
-are provided in the main client's JAR file.
-`clarity-record-context.xml` and `clarity-playback-context.xml` are
-provides in the recorder's JAR file.
 
 It is recommended to use the Spring Test module (`spring-test`). Our tests
 are written for JUnit 5, and for these there are some convenience Spring
@@ -42,14 +42,15 @@ configuration classes provided to help with this. A test class needs to be annot
 to use the Spring test system and initialised with a recording or playback configuration:
 
 ```Java
-@SpringJUnitConfig(locations = {
-    "classpath:/org/cruk/clarity/api/clarity-client-context.xml",
-    "classpath:/org/cruk/clarity/api/clarity-playback-context.xml"
+@SpringJUnitConfig({
+    ClarityClientConfiguration.class,
+    ClarityClientRecordConfiguration.class or ClarityClientPlaybackConfiguration.class
 })
 ```
 
-Replace `clarity-playback-context.xml` with `clarity-record-context.xml`
-for recording. Typically one may use the recording class to get the actual results from
+The cache might be useful when recording but serves no purpose on playback.
+
+Typically one may use the recording class to get the actual results from
 a real Clarity server, then switch to the playback configuration to run the tests
 from the recorded files. Don't forget to check the recorded files into source control.
 
@@ -74,9 +75,9 @@ configured by setting the `messageDirectory` property in Spring configuration,
 or injecting the aspect into the unit test class code and setting the property:
 
 ```Java
-@SpringJUnitConfig(locations = {
-    "classpath:/org/cruk/clarity/api/clarity-client-context.xml",
-    "classpath:/org/cruk/clarity/api/clarity-playback-context.xml"
+@SpringJUnitConfig({
+    ClarityClientConfiguration.class,
+    ClarityClientPlaybackConfiguration.class
 })
 public class MyUnitTest
 {
@@ -133,3 +134,27 @@ public void setPlaybackDirectory()
     }
 }
 ```
+
+### Recording Searches
+
+The results of the `find` call of the API are also recorded alongside the
+entities themselves and are used on playback to list the entities found by that
+search so the tests can run without going back to the real server which,
+assuming it is still available, may return different results from when the
+unit tests were created. These searches are recorded in files named
+`search_&lt;hash&gt;.xml`, where the hash is the hexadecimal hash of the
+type of entity searched for and the names and values of the search terms.
+
+By default, searches that return no results are not written to a file on
+recording and corresponding on playback a search that is not recorded quietly
+returns no results. It was found that some test code would execute a lot of
+searches with nothing returned for them resulting in a lot of search files
+saved that serve little purpose. Assuming a search that is not recorded just
+returned nothing saves having to store most of these files.
+
+The "not recorded means no results" behaviour can be made more strict, so all searches
+are recorded and a missing search file results in an error.
+The recorder can be set to record all searches with the
+`setRecordSearchesWithoutResults` method on `ClarityAPIRecordingAspect`,
+and the play back set to demand a search is recorded with the
+`setFailOnMissingSearch` method on `ClarityAPIPlaybackAspect`.
