@@ -61,11 +61,6 @@
             </item>
         </menu>
         <menu name="Recording and Playback">
-            <item name="Installation" href="/installing_recorder.html">
-                <description>
-                    How to build the client recorder and include it in your programs.
-                </description>
-            </item>
             <item name="Usage" href="/usage_recorder.html">
                 <description>
                     How to work with the client recorder in your own code.
