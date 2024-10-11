@@ -48,6 +48,11 @@
                         the API as if it were done through a browser.
                     </description>
                 </item>
+                <item name="Recording and Playback" href="/usage_recorder.html">
+                    <description>
+                        How to work with the client recorder in your own code.
+                    </description>
+                </item>
             </item>
             <item name="Known Issues" href="/issues.html">
                 <description>
@@ -57,13 +62,6 @@
             <item name="Reference Documentation" href="/references.html">
                 <description>
                     Further documentation for the keen reader.
-                </description>
-            </item>
-        </menu>
-        <menu name="Recording and Playback">
-            <item name="Usage" href="/usage_recorder.html">
-                <description>
-                    How to work with the client recorder in your own code.
                 </description>
             </item>
         </menu>

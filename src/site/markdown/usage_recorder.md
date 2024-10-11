@@ -1,8 +1,5 @@
 ## Setting up the Record and Playback Wrappers
 
-The documentation for the core Clarity Java Client can be found at
-https://crukci-bioinformatics.github.io/clarityclient
-
 ### Spring Configuration
 
 You need to configure the code to include the main client configuration
