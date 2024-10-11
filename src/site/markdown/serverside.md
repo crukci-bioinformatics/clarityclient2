@@ -14,6 +14,6 @@ in a server. A stand alone program is not going to have the same
 interference from different sources.
 
 The cache definitions can be changed by creating a subclass of
-`org.cruk.clarity.api.cache.spring.ClarityClientCacheConfiguration`
+[`org.cruk.clarity.api.cache.spring.ClarityClientCacheConfiguration`](apidocs/org.cruk.clarity.api.cache/org/cruk/clarity/api/cache/spring/ClarityClientCacheConfiguration.html)
 and changing the size and time definitions or the cache manager bean.
-This is discussed in the (Caching page)[caching.html].
+This is discussed in the [Caching page](caching.html).

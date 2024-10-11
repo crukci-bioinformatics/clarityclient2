@@ -7,9 +7,11 @@ need to run protocol steps automatically.
 
 ### Spring Configuration
 
-The automation functionality is provided through the interface `ClarityProcessAutomation`.
-The main class of the library, `ClarityProcessAutomationImpl`, can be used
-as a simple Java class (just create an instance) or can be injected into other
+The automation functionality is provided through the interface
+[`ClarityProcessAutomation`](apidocs/org.cruk.clarity.api/org/cruk/clarity/api/automation/ClarityProcessAutomation.html).
+The main class of the library,
+[`ClarityProcessAutomationImpl`](apidocs/org.cruk.clarity.api/org/cruk/clarity/api/automation/impl/ClarityProcessAutomationImpl.html),
+can be used as a simple Java class (just create an instance) or can be injected into other
 classes by Spring. The implementation class does have a default prototype scope
 definition with the bean " _clarityProcessAutomation_ ".
 

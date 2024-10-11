@@ -5,7 +5,7 @@ the speed a script can run. It accumulates a number of entities from REST API
 calls so subsequent calls to retrieve these same entities need not pass through
 to the API. This also has the effect to simplifying user code, as the script
 can make the calls through the
-[ClarityAPI](apidocs/org.cruk.clarity.api/org/cruk/clarity/api/ClarityAPI.html)
+[`ClarityAPI`](apidocs/org.cruk.clarity.api/org/cruk/clarity/api/ClarityAPI.html)
 interface without worrying
 about whether it already has some or all of the objects requested.
 
@@ -33,11 +33,11 @@ and it is in the module `org.cruk.clarity.api.cache` .
 The cache is essentially an aspect around the main `ClarityAPI`
 implementation. It is configured with Spring and can be enabled for an
 application by including the Spring configuration class
-`org.cruk.clarity.api.cache.spring.ClarityClientCacheConfiguration`
+[`ClarityClientCacheConfiguration`](apidocs/org.cruk.clarity.api.cache/org/cruk/clarity/api/cache/spring/ClarityClientCacheConfiguration.html)
 into the Spring context. No further configuration is necessary unless the
 defaults need changing. The base client configuration class
-`org.cruk.clarity.api.spring.ClarityClientConfiguration` must also
-be present.
+[`ClarityClientConfiguration`](apidocs/org.cruk.clarity.api/org/cruk/clarity/api/spring/ClarityClientConfiguration.html).
+must also be present.
 
 ### Tuning the cache
 
@@ -45,8 +45,8 @@ The cache is controlled by the definitions in the `ClarityClientCacheConfigurati
 class. There are some definitions for size and time of caches that are set in
 this class; these give size ("small", "medium" and "large") and time to live
 ("short", "medium" and "long") combinations. The actual caches for the various
-entities of the API are defined in the method `clarityCacheManager` that
-creates the cache manager bean.
+entities of the API are defined in the method `clarityCacheManager`
+that creates the cache manager bean.
 
 One can change these default definitions by creating a subclass of
 `ClarityClientCacheConfiguration`. One way to change the shape of the caches
@@ -54,6 +54,11 @@ as defined is to provide new combinations of the size and time to live definitio
 in the subclass' constructor. The other is to override the `clarityCacheManager`
 method to define a different cache manager. One would use the subclass in the Spring
 application context instead of `ClarityClientCacheConfiguration` itself.
+
+Have a look at the existing implementation of the `clarityCacheManager` method
+for how to create the caches. The _Ehcache_ documentation describes how it works
+in its ["Getting Started"](https://www.ehcache.org/documentation/3.10/getting-started.html)
+section.
 
 ### Bulk fetch, create and update operations
 
@@ -112,7 +117,7 @@ or `ANY` cache behaviours are most suitable for the performance gain they
 provide. This is not true when using the post process URI of the input/output
 maps to obtain the QC flags.
 
-The `overrideStateful` method of [ClarityAPI](apidocs/org.cruk.clarity.api/org/cruk/clarity/api/ClarityAPI.html)
+The `overrideStateful` method of [`ClarityAPI`](apidocs/org.cruk.clarity.api/org/cruk/clarity/api/ClarityAPI.html)
 allows a single call to be made through the API that will
 fetch the artifact at either the exact version given in the URI or the latest
 available state.
