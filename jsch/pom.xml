@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!--
-    CRUK-CI Clarity REST API Java Client Recorder.
+    CRUK-CI Clarity REST API Java Client.
     Copyright (C) 2013 Cancer Research UK Cambridge Institute.
 
     This program is free software: you can redistribute it and/or modify
@@ -29,19 +29,25 @@
         <version>2.31-SNAPSHOT</version>
     </parent>
 
-    <artifactId>clarity-client2-recorder</artifactId>
+    <artifactId>clarity-client2-sftp-jsch</artifactId>
     <packaging>jar</packaging>
 
-    <name>CRUK-CI Clarity API Recorder</name>
+    <name>CRUK-CI Clarity API Client SFTP Integration (JSch)</name>
+
     <description>
-        A library for recording Clarity API exchanges to files, which can then be used to form
-        the basis of unit tests when replayed.
+        SFTP implementation using JCraft JSch.
     </description>
 
     <dependencies>
         <dependency>
             <groupId>org.cruk.clarity</groupId>
             <artifactId>clarity-client2</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch</artifactId>
+            <version>0.1.55</version>
         </dependency>
     </dependencies>
 </project>

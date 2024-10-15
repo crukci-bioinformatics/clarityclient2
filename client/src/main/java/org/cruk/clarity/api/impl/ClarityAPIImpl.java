@@ -56,14 +56,11 @@ import jakarta.xml.bind.annotation.XmlTransient;
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.beanutils.ConvertUtilsBean;
 import org.apache.commons.beanutils.PropertyUtils;
-import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.ClassUtils;
 import org.apache.hc.client5.http.auth.Credentials;
 import org.apache.hc.client5.http.auth.UsernamePasswordCredentials;
 import org.apache.hc.client5.http.classic.HttpClient;
-import org.apache.sshd.sftp.common.SftpConstants;
-import org.apache.sshd.sftp.common.SftpException;
 import org.cruk.clarity.api.ClarityAPI;
 import org.cruk.clarity.api.ClarityException;
 import org.cruk.clarity.api.ClarityUpdateException;
@@ -71,6 +68,7 @@ import org.cruk.clarity.api.IllegalSearchTermException;
 import org.cruk.clarity.api.InvalidURIException;
 import org.cruk.clarity.api.StatefulOverride;
 import org.cruk.clarity.api.http.AuthenticatingClientHttpRequestFactory;
+import org.cruk.clarity.api.sftp.ClaritySFTPUploader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,8 +79,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.ClientHttpRequest;
 import org.springframework.http.client.ClientHttpResponse;
-import org.springframework.integration.sftp.session.DefaultSftpSessionFactory;
-import org.springframework.integration.sftp.session.SftpSession;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -200,17 +196,9 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
     protected RestOperations fileUploadClient;
 
     /**
-     * Session factory for JSch connections to the file store over SFTP.
+     * Session factory for SSH connections to the file store over SFTP.
      */
-    protected DefaultSftpSessionFactory filestoreSessionFactory = new DefaultSftpSessionFactory();
-
-    /**
-     * Reflection access to {@code DefaultSftpSessionFactory}'s private {@code host} field.
-     * Needed to return the host name for the file store.
-     *
-     * @see #getFilestoreServer()
-     */
-    private java.lang.reflect.Field filestoreSessionFactoryHostField;
+    protected ClaritySFTPUploader sftpUploader;
 
     /**
      * The properties object passed in through construction or through setConfiguration
@@ -237,6 +225,11 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
      * User name and password credentials for accessing the Clarity API.
      */
     protected UsernamePasswordCredentials apiCredentials;
+
+    /**
+     * Host for the file store.
+     */
+    protected String filestoreServer;
 
     /**
      * User name and password credentials for accessing the file store.
@@ -327,15 +320,6 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
      */
     public ClarityAPIImpl()
     {
-        try
-        {
-            filestoreSessionFactoryHostField = DefaultSftpSessionFactory.class.getDeclaredField("host");
-            filestoreSessionFactoryHostField.setAccessible(true);
-        }
-        catch (NoSuchFieldException e)
-        {
-            throw new AssertionError("Apparently no 'host' field in DefaultSftpSessionFactory, but this field is known to exist.");
-        }
     }
 
     /**
@@ -355,16 +339,15 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
     }
 
     /**
-     * Set the file store session factory for SFTP connections.
+     * Set the file store SFTP upload implementation. If none is available, only
+     * HTTP uploads will be allowed.
      *
-     * @param filestoreSessionFactory The SFTP session factory.
+     * @param uploader The SFTP uploader.
      */
-    @Autowired
-    @Qualifier("clarityFilestoreSFTPSessionFactory")
-    @SuppressWarnings("exports")
-    public void setFilestoreSessionFactory(DefaultSftpSessionFactory filestoreSessionFactory)
+    @Autowired(required = false)
+    public void setFilestoreSFTPUploader(ClaritySFTPUploader uploader)
     {
-        this.filestoreSessionFactory = filestoreSessionFactory;
+        this.sftpUploader = uploader;
     }
 
     /**
@@ -563,9 +546,7 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
 
         apiRoot = addr + API_PATH_BASE;
 
-        String filestoreHostAddress = getFilestoreServer();
-
-        if (filestoreHostAddress == null || filestoreHostAddress.equals(currentHost))
+        if (filestoreServer == null || filestoreServer.equals(currentHost))
         {
             setFilestoreServer(serverAddress.getHost());
         }
@@ -630,7 +611,7 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
         {
             throw new IllegalArgumentException("host cannot be null");
         }
-        filestoreSessionFactory.setHost(host);
+        filestoreServer = host;
     }
 
     /**
@@ -646,28 +627,10 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
 
         filestoreCredentials = new UsernamePasswordCredentials(username, password.toCharArray());
 
-        filestoreSessionFactory.setUser(username);
-        filestoreSessionFactory.setPassword(password);
-    }
-
-    /**
-     * Get the host currently set on the file store.
-     *
-     * @return The file store host (may be null).
-     */
-    protected String getFilestoreServer()
-    {
-        String filestoreHostAddress = null;
-        try
+        if (sftpUploader != null)
         {
-            filestoreHostAddress =
-                    (String)filestoreSessionFactoryHostField.get(filestoreSessionFactory);
+            sftpUploader.setFilestoreCredentials(username, password);
         }
-        catch (Exception e)
-        {
-            // Ignore.
-        }
-        return filestoreHostAddress;
     }
 
     /**
@@ -944,13 +907,17 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
      */
     protected void checkFilestoreSet()
     {
-        if (getFilestoreServer() == null)
+        if (filestoreServer == null)
         {
             throw new IllegalStateException("File store server has not been set.");
         }
         if (filestoreCredentials == null || filestoreCredentials.getUserName() == null)
         {
             throw new IllegalStateException("File store credentials have not been set.");
+        }
+        if (sftpUploader == null)
+        {
+            throw new IllegalStateException("No SFTP uploader implementation is present. Cannot upload via SFTP.");
         }
     }
 
@@ -2687,47 +2654,7 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
 
         checkFilestoreSet();
 
-        SftpSession session = filestoreSessionFactory.getSession();
-        try
-        {
-            URI targetURL = targetFile.getContentLocation();
-
-            logger.info("Uploading {} over SFTP to {} on {}",
-                        fileURLResource.getURL().getPath(),
-                        targetURL.getPath(),
-                        targetURL.getHost());
-
-            String directory = FilenameUtils.getFullPathNoEndSeparator(targetURL.getPath());
-
-            if (!session.exists(directory))
-            {
-                String[] directoryParts = directory.split("/+");
-
-                StringBuilder incrementalPath = new StringBuilder(directory.length());
-
-                for (int i = 1; i < directoryParts.length; i++)
-                {
-                    incrementalPath.append('/').append(directoryParts[i]);
-
-                    String currentPath = incrementalPath.toString();
-
-                    if (!session.exists(currentPath))
-                    {
-                        boolean made = session.mkdir(currentPath);
-                        if (!made)
-                        {
-                            throw new IOException("Could not create file store directory " + directory);
-                        }
-                    }
-                }
-            }
-
-            session.write(fileURLResource.getInputStream(), targetURL.getPath());
-        }
-        finally
-        {
-            session.close();
-        }
+        sftpUploader.upload(fileURLResource, targetFile);
 
         // Post the targetFile object back to the server to set the
         // "publish in lablink" flag and get the LIMS id and URI for the
@@ -2854,52 +2781,7 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
 
             checkFilestoreSet();
 
-            try (SftpSession session = filestoreSessionFactory.getSession())
-            {
-                session.remove(targetURL.getPath());
-            }
-            catch (IOException e)
-            {
-                // Don't want things to fail if the file doesn't exist on the file store,
-                // just a warning. This handling code deals with this.
-
-                try
-                {
-                    if (e.getCause() != null)
-                    {
-                        throw e.getCause();
-                    }
-                    else
-                    {
-                        // There is an error in line 71 of SftpSession, where instead of the
-                        // SftpException being the cause, its own message is appended to the
-                        // detail message for the outer exception with a +.
-                        // Bug raised with Spring Integrations as issue INT-3954.
-                        if ("Failed to remove file: 2: No such file".equals(e.getMessage()))
-                        {
-                            throw new SftpException(2, e.getMessage());
-                        }
-
-                        throw e;
-                    }
-                }
-                catch (SftpException se)
-                {
-                    // See if it's just a "file not found".
-                    if (se.getStatus() == SftpConstants.SSH_FX_NO_SUCH_FILE)
-                    {
-                        logger.warn("File {} does not exist on {}", targetURL.getPath(), targetURL.getHost());
-                    }
-                    else
-                    {
-                        throw e;
-                    }
-                }
-                catch (Throwable t)
-                {
-                    throw e;
-                }
-            }
+            sftpUploader.delete(realFile);
         }
         else
         {

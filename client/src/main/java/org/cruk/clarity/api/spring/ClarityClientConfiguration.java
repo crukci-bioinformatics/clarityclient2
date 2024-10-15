@@ -16,6 +16,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import jakarta.annotation.PostConstruct;
+
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.hc.client5.http.auth.CredentialsProvider;
@@ -26,17 +28,18 @@ import org.apache.hc.client5.http.impl.auth.CredentialsProviderBuilder;
 import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
 import org.cruk.clarity.api.http.ClarityFailureResponseErrorHandler;
 import org.cruk.clarity.api.http.HttpComponentsClientHttpRequestFactoryBasicAuth;
+import org.cruk.clarity.api.sftp.ClaritySFTPUploader;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.http.MediaType;
 import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.xml.MarshallingHttpMessageConverter;
-import org.springframework.integration.sftp.session.DefaultSftpSessionFactory;
 import org.springframework.oxm.Marshaller;
 import org.springframework.oxm.Unmarshaller;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
@@ -55,12 +58,16 @@ import com.genologics.ri.Locatable;
                                 "org.cruk.clarity.api.debugging",
                                 "org.cruk.clarity.api.http",
                                 "org.cruk.clarity.api.impl",
-                                "org.cruk.clarity.api.jaxb" },
+                                "org.cruk.clarity.api.jaxb",
+                                "org.cruk.clarity.api.sftp"},
                excludeFilters = @Filter(Configuration.class))
 @SuppressWarnings("exports")
 public class ClarityClientConfiguration
 {
     private Jaxb2Marshaller jaxb2;
+
+    @Autowired(required = false)
+    private ClaritySFTPUploader sftpUploader;
 
     public ClarityClientConfiguration()
     {
@@ -101,12 +108,13 @@ public class ClarityClientConfiguration
         return 0;
     }
 
-    @Bean
-    public DefaultSftpSessionFactory clarityFilestoreSFTPSessionFactory()
+    @PostConstruct
+    public void setTimeoutOnUploader()
     {
-        DefaultSftpSessionFactory factory = new DefaultSftpSessionFactory();
-        factory.setAllowUnknownKeys(true);
-        return factory;
+        if (sftpUploader != null)
+        {
+            sftpUploader.setTimeout(httpConnectTimeout());
+        }
     }
 
     @Bean

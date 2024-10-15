@@ -19,6 +19,7 @@
 package org.cruk.clarity.api.impl;
 
 import java.io.BufferedInputStream;
+import java.io.Closeable;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -39,7 +40,7 @@ import org.springframework.core.io.AbstractResource;
  *
  * @since 2.23
  */
-public class URLInputStreamResource extends AbstractResource
+public class URLInputStreamResource extends AbstractResource implements Closeable
 {
     /**
      * The URL.
@@ -157,6 +158,7 @@ public class URLInputStreamResource extends AbstractResource
     /**
      * Close the resource's input stream and disconnect the URL connection.
      */
+    @Override
     public void close()
     {
         try

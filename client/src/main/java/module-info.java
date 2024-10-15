@@ -42,8 +42,6 @@ open module org.cruk.clarity.api
     requires org.apache.httpcomponents.client5.httpclient5;
     requires org.apache.httpcomponents.core5.httpcore5;
     requires org.apache.httpcomponents.core5.httpcore5.h2;
-    requires org.apache.sshd.osgi;
-    requires org.apache.sshd.sftp;
 
     requires transitive org.aspectj.weaver;
 
@@ -56,10 +54,6 @@ open module org.cruk.clarity.api
     requires transitive spring.oxm;
     requires transitive spring.web;
 
-    requires spring.integration.core;
-    requires spring.integration.file;
-    requires spring.integration.sftp;
-
     exports org.cruk.clarity.api;
     exports org.cruk.clarity.api.automation;
     exports org.cruk.clarity.api.automation.impl;
@@ -67,5 +61,6 @@ open module org.cruk.clarity.api
     exports org.cruk.clarity.api.http;
     exports org.cruk.clarity.api.impl;
     exports org.cruk.clarity.api.jaxb;
+    exports org.cruk.clarity.api.sftp;
     exports org.cruk.clarity.api.spring;
 }

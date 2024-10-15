@@ -26,7 +26,7 @@
     <parent>
         <groupId>org.cruk.clarity</groupId>
         <artifactId>clarity-client2-parent</artifactId>
-        <version>2.31.0</version>
+        <version>2.31-SNAPSHOT</version>
     </parent>
 
     <artifactId>clarity-client2-cache</artifactId>
@@ -48,6 +48,12 @@
             <groupId>org.ehcache</groupId>
             <artifactId>ehcache</artifactId>
             <classifier>jakarta</classifier>
+        </dependency>
+
+        <dependency>
+            <groupId>org.cruk.clarity</groupId>
+            <artifactId>clarity-client2-sftp-mina</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>
