@@ -19,12 +19,7 @@
 import org.cruk.clarity.api.sftp.ClaritySFTPUploader;
 import org.cruk.clarity.api.sftp.jsch.ClarityJSchFileUploader;
 
-/**
- * JCraft {@code JSch} implementation of SFTP access for the Clarity Client.
- *
- * @see <a href="http://www.jcraft.com/jsch">JCraft JSch library</a>
- */
-module org.cruk.clarity.api.sftp.jsch
+open module org.cruk.clarity.api.sftp.jsch
 {
     provides ClaritySFTPUploader with ClarityJSchFileUploader;
 
@@ -39,5 +34,10 @@ module org.cruk.clarity.api.sftp.jsch
 
     requires transitive spring.context;
 
-    opens org.cruk.clarity.api.sftp.jsch to spring.beans, spring.core;
+    requires static org.junit.jupiter;
+    requires static org.junit.jupiter.api;
+    requires static org.junit.jupiter.engine;
+    requires static org.junit.jupiter.params;
+    requires static org.glassfish.jaxb.core;
+    requires static org.glassfish.jaxb.runtime;
 }

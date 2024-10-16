@@ -41,6 +41,10 @@ annotated for serialisation with JAXB. The Java module for these classes is
 Java module `org.cruk.clarity.api.cache`.
 4. `clarity-client2-recorder`: The recording and playback classes to support
 repeatable unit tests, Java module `org.cruk.clarity.api.recorder`.
+5. `clarity-client2-sftp-mina`: An SFTP implementation using Apache Mina SSHD
+as the underlying library.
+6. `clarity-client2-sftp-jsch`: An SFTP implementation using JCraft JSch
+as the underlying library.
 
 The client has kept the `com.genologics.ri` namespace for the model classes because
 that namespace is still what is used in the XSD files provided by Illumina. It follows

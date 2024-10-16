@@ -247,10 +247,12 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
 
     /**
      * Whether files can be uploaded using HTTP to the {@code files/id/upload} API end point.
+     * This will by default be true unless an SFTP uploader is available, when if so the
+     * default will be to upload over SFTP. This can be changed by the user.
      *
      * @see ClarityAPI#setUploadOverHttp(boolean)
      */
-    protected boolean uploadOverHttp = false;
+    protected boolean uploadOverHttp = true;
 
     /**
      * The maximum size of file that can be uploaded using HTTP.
@@ -348,6 +350,7 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
     public void setFilestoreSFTPUploader(ClaritySFTPUploader uploader)
     {
         this.sftpUploader = uploader;
+        uploadOverHttp = false;
     }
 
     /**
@@ -917,7 +920,7 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
         }
         if (sftpUploader == null)
         {
-            throw new IllegalStateException("No SFTP uploader implementation is present. Cannot upload via SFTP.");
+            throw new IllegalStateException("No SFTP uploader implementation is available.");
         }
     }
 
@@ -2478,7 +2481,7 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
 
                     uploadViaHTTP(fileURLResource, storageRequest);
                 }
-                else if (autoRevertToSFTP)
+                else if (autoRevertToSFTP && sftpUploader != null)
                 {
                     // Could not get the length, or the file is too big. Allowed to
                     // revert to SFTP, so use that.
@@ -2512,11 +2515,18 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
                     }
                 }
             }
-            else
+            else if (sftpUploader != null)
             {
                 // Not using HTTP upload at all, so straight to SFTP.
 
                 uploadViaSFTP(fileURLResource, storageRequest);
+            }
+            else
+            {
+                // Not able to use HTTP and no SFTP uploader set.
+
+                throw new ClarityUpdateException("Cannot upload " + fileURL +
+                        " - cannot use HTTP for uploads and no SFTP uploader available to the client.");
             }
         }
         finally
@@ -2720,26 +2730,27 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
 
         ClientHttpRequest request = httpRequestFactory.createRequest(fileURL, HttpMethod.GET);
 
-        ClientHttpResponse response = request.execute();
-
-        if (response.getStatusCode().is2xxSuccessful())
+        try (ClientHttpResponse response = request.execute())
         {
-            try (InputStream in = response.getBody())
+            if (response.getStatusCode().is2xxSuccessful())
             {
-                byte[] buffer = new byte[8192];
-                IOUtils.copyLarge(in, resultStream, buffer);
+                try (InputStream in = response.getBody())
+                {
+                    byte[] buffer = new byte[8192];
+                    IOUtils.copyLarge(in, resultStream, buffer);
+                }
+                finally
+                {
+                    resultStream.flush();
+                }
+                logger.debug("{} download successful.", fileURL);
             }
-            finally
+            else
             {
-                resultStream.flush();
+                logger.debug("{} download failed. HTTP {}", fileURL, response.getStatusCode());
+                throw new IOException("Could not download file " + realFile.getLimsid() +
+                                      " (HTTP " + response.getStatusCode() + "): " + response.getStatusText());
             }
-            logger.debug("{} download successful.", fileURL);
-        }
-        else
-        {
-            logger.debug("{} download failed. HTTP {}", fileURL, response.getStatusCode());
-            throw new IOException("Could not download file " + realFile.getLimsid() +
-                                  " (HTTP " + response.getStatusCode() + "): " + response.getStatusText());
         }
     }
 
@@ -2777,6 +2788,12 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
 
         if (SFTP_PROTOCOL.equalsIgnoreCase(targetURL.getProtocol()))
         {
+            if (sftpUploader == null)
+            {
+                throw new ClarityUpdateException("Cannot delete " + realFile.getContentLocation() +
+                        " - no SFTP uploader available to the client.");
+            }
+
             logger.info("Deleting file {} from file store on {}", targetURL.getPath(), targetURL.getHost());
 
             checkFilestoreSet();

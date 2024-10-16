@@ -17,5 +17,10 @@ the process the files are being attached to has completed. It seems this is a
 deliberate restriction in the
 [files/limsid/upload](https://d10e8rzir0haj8.cloudfront.net/6.2/rest.version.files.limsid.upload.html)
 end point. The older mechanism of uploading to the file store with SFTP does
-not have this restriction and so, where possible, this method is preferred
-(HTTP uploads are deactivated in the client by default).
+not have this restriction and so, where possible, this method is preferred:
+HTTP uploads are deactivated in the client by default when an SFTP implementation
+is present. See the [file store page](filestore.html) for details.
+
+Apache Mina SSHD can cause problems with timing out despite a server being
+available. An implementation using the rather old JCraft `JSch` library
+is available if you have problems with the newer Mina SSHD.

@@ -54,6 +54,11 @@
                     </description>
                 </item>
             </item>
+            <item name="SFTP File Store Access" href="/filestore.html">
+                <description>
+                    Access to the file store through SFTP.
+                </description>
+            </item>
             <item name="Known Issues" href="/issues.html">
                 <description>
                     Issues and ommissions.

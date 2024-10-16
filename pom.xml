@@ -680,7 +680,7 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    
+
     <modules>
         <module>model</module>
         <module>client</module>

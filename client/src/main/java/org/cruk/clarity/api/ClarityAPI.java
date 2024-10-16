@@ -279,7 +279,8 @@ public interface ClarityAPI
      * </p>
      *
      * @param uploadOverHttp true if files can be uploaded using HTTP,
-     * false if not.
+     * false if not. If there is no SFTP uploader available to the client,
+     * changing this value to true will have no effect.
      *
      * @since 2.23
      */
