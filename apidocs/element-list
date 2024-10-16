@@ -40,6 +40,7 @@ org.cruk.clarity.api
 org.cruk.clarity.api.automation
 org.cruk.clarity.api.automation.impl
 org.cruk.clarity.api.debugging
+org.cruk.clarity.api.filestore
 org.cruk.clarity.api.http
 org.cruk.clarity.api.impl
 org.cruk.clarity.api.jaxb
