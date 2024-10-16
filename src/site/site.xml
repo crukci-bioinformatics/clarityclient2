@@ -59,6 +59,11 @@
                     Access to the file store through SFTP.
                 </description>
             </item>
+            <item name="commons-beanutils" href="/commons-beanutils.html">
+                <description>
+                    Adaptations we have made to commons-beanutils.
+                </description>
+            </item>
             <item name="Known Issues" href="/issues.html">
                 <description>
                     Issues and ommissions.

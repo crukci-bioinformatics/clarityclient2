@@ -54,7 +54,6 @@ import jakarta.annotation.PostConstruct;
 import jakarta.xml.bind.annotation.XmlTransient;
 
 import org.apache.commons.beanutils.ConvertUtils;
-import org.apache.commons.beanutils.ConvertUtilsBean;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.ClassUtils;
@@ -3008,7 +3007,7 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
      * @throws IllegalSearchTermException if {@code value} is null.
      *
      * @see #expandSearchTerms(Map)
-     * @see ConvertUtilsBean#convert(Object)
+     * @see ConvertUtils#convert(Object)
      */
     private void appendQueryTerm(StringBuilder query, String argument, Object value)
     {
