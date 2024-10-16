@@ -26,9 +26,9 @@ import org.apache.hc.client5.http.config.ConnectionConfig;
 import org.apache.hc.client5.http.config.RequestConfig;
 import org.apache.hc.client5.http.impl.auth.CredentialsProviderBuilder;
 import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
+import org.cruk.clarity.api.filestore.ClaritySFTPUploader;
 import org.cruk.clarity.api.http.ClarityFailureResponseErrorHandler;
 import org.cruk.clarity.api.http.HttpComponentsClientHttpRequestFactoryBasicAuth;
-import org.cruk.clarity.api.sftp.ClaritySFTPUploader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -56,10 +56,10 @@ import com.genologics.ri.Locatable;
 @EnableAspectJAutoProxy(proxyTargetClass = false)  // See the note at the bottom of the class about proxies.
 @ComponentScan(basePackages = { "org.cruk.clarity.api.automation.impl",
                                 "org.cruk.clarity.api.debugging",
+                                "org.cruk.clarity.api.filestore",
                                 "org.cruk.clarity.api.http",
                                 "org.cruk.clarity.api.impl",
-                                "org.cruk.clarity.api.jaxb",
-                                "org.cruk.clarity.api.sftp"},
+                                "org.cruk.clarity.api.jaxb" },
                excludeFilters = @Filter(Configuration.class))
 @SuppressWarnings("exports")
 public class ClarityClientConfiguration

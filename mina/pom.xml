@@ -29,7 +29,7 @@
         <version>2.31-SNAPSHOT</version>
     </parent>
 
-    <artifactId>clarity-client2-sftp-mina</artifactId>
+    <artifactId>clarity-client2-filestore-mina</artifactId>
     <packaging>jar</packaging>
 
     <name>CRUK-CI Clarity API Client SFTP Integration (Mina)</name>

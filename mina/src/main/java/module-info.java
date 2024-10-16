@@ -16,15 +16,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import org.cruk.clarity.api.sftp.ClaritySFTPUploader;
-import org.cruk.clarity.api.sftp.mina.ClarityMinaSSHFileUploader;
+import org.cruk.clarity.api.filestore.ClaritySFTPUploader;
+import org.cruk.clarity.api.filestore.mina.ClarityMinaSSHFileUploader;
 
 /**
  * Apache Mina SSHD implementation of SFTP access for the Clarity Client.
  *
  * @see <a href="https://mina.apache.org/sshd-project">Apache Mina SSHD project</a>
  */
-module org.cruk.clarity.api.sftp.mina
+module org.cruk.clarity.api.filestore.mina
 {
     provides ClaritySFTPUploader with ClarityMinaSSHFileUploader;
 
@@ -41,5 +41,5 @@ module org.cruk.clarity.api.sftp.mina
 
     requires transitive spring.context;
 
-    opens org.cruk.clarity.api.sftp.mina to spring.beans, spring.core;
+    opens org.cruk.clarity.api.filestore.mina to spring.beans, spring.core;
 }

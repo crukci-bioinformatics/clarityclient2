@@ -16,10 +16,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import org.cruk.clarity.api.sftp.ClaritySFTPUploader;
-import org.cruk.clarity.api.sftp.jsch.ClarityJSchFileUploader;
+import org.cruk.clarity.api.filestore.ClaritySFTPUploader;
+import org.cruk.clarity.api.filestore.jsch.ClarityJSchFileUploader;
 
-open module org.cruk.clarity.api.sftp.jsch
+open module org.cruk.clarity.api.filestore.jsch
 {
     provides ClaritySFTPUploader with ClarityJSchFileUploader;
 

@@ -52,7 +52,7 @@
 
         <dependency>
             <groupId>org.cruk.clarity</groupId>
-            <artifactId>clarity-client2-sftp-mina</artifactId>
+            <artifactId>clarity-client2-filestore-mina</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>

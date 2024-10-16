@@ -11,7 +11,7 @@
     </Appenders>
 
     <Loggers>
-        <Logger name="org.cruk.clarity.api.sftp" level="ERROR"/>
+        <Logger name="org.cruk.clarity.api.filestore" level="ERROR"/>
 
         <Root level="ERROR">
             <AppenderRef ref="console"/>

@@ -29,7 +29,7 @@
         <version>2.31-SNAPSHOT</version>
     </parent>
 
-    <artifactId>clarity-client2-sftp-jsch</artifactId>
+    <artifactId>clarity-client2-filestore-jsch</artifactId>
     <packaging>jar</packaging>
 
     <name>CRUK-CI Clarity API Client SFTP Integration (JSch)</name>

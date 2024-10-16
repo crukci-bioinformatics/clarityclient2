@@ -16,28 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import org.cruk.clarity.api.filestore.ClaritySFTPUploader;
-import org.cruk.clarity.api.filestore.jsch.ClarityJSchFileUploader;
-
 /**
- * JCraft {@code JSch} implementation of SFTP access for the Clarity Client.
- *
- * @see <a href="http://www.jcraft.com/jsch">JCraft JSch library</a>
+ * SFTP file store access implementation using JCraft JSch.
  */
-module org.cruk.clarity.api.filestore.jsch
-{
-    provides ClaritySFTPUploader with ClarityJSchFileUploader;
-
-    requires transitive com.genologics.ri;
-    requires transitive org.cruk.clarity.api;
-
-    requires jsch;
-
-    requires org.apache.commons.io;
-
-    requires org.slf4j;
-
-    requires transitive spring.context;
-
-    opens org.cruk.clarity.api.filestore.jsch to spring.beans, spring.core;
-}
+package org.cruk.clarity.api.filestore.jsch;

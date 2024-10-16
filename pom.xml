@@ -632,12 +632,12 @@
             </dependency>
             <dependency>
                 <groupId>org.cruk.clarity</groupId>
-                <artifactId>clarity-client2-sftp-jsch</artifactId>
+                <artifactId>clarity-client2-filestore-jsch</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.cruk.clarity</groupId>
-                <artifactId>clarity-client2-sftp-mina</artifactId>
+                <artifactId>clarity-client2-filestore-mina</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

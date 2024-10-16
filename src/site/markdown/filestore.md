@@ -38,7 +38,7 @@ Add the _clarity-client2-sftp-mina_ artefact to your project.
 ```XML
 <dependency>
     <groupId>org.cruk.clarity</groupId>
-    <artifactId>clarity-client2-sftp-mina</artifactId>
+    <artifactId>clarity-client2-filestore-mina</artifactId>
     <scope>runtime</scope>
 </dependency>
 ```
@@ -53,7 +53,7 @@ Add the _clarity-client2-sftp-jsch_ artefact to your project.
 ```XML
 <dependency>
     <groupId>org.cruk.clarity</groupId>
-    <artifactId>clarity-client2-sftp-jsch</artifactId>
+    <artifactId>clarity-client2-filestore-jsch</artifactId>
     <scope>runtime</scope>
 </dependency>
 ```
@@ -72,3 +72,5 @@ mechanism won't let files be uploaded to completed processes.
 2. Files can be deleted from the file store. There isn't a mechanism for doing
 this through HTTP (to my knowledge).
 
+If your code does not to upload files to or delete files from the file store,
+it would be sensible not to include either SFTP file store implementation.

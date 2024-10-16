@@ -16,10 +16,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import org.cruk.clarity.api.sftp.ClaritySFTPUploader;
-import org.cruk.clarity.api.sftp.mina.ClarityMinaSSHFileUploader;
+import org.cruk.clarity.api.filestore.ClaritySFTPUploader;
+import org.cruk.clarity.api.filestore.mina.ClarityMinaSSHFileUploader;
 
-open module org.cruk.clarity.api.sftp.mina
+open module org.cruk.clarity.api.filestore.mina
 {
     provides ClaritySFTPUploader with ClarityMinaSSHFileUploader;
 
