@@ -25,8 +25,8 @@ import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.ClarityEntity;
 import com.genologics.ri.LimsEntity;
+import com.genologics.ri.LimsEntityLink;
 import com.genologics.ri.LimsEntityLinkable;
-import com.genologics.ri.LimsLink;
 import com.genologics.ri.Location;
 import com.genologics.ri.container.Container;
 
@@ -86,7 +86,7 @@ public class Sample extends SampleBase implements LimsEntity<Sample>
      * {@inheritDoc}
      */
     @Override
-    public LimsLink<Sample> getLink()
+    public LimsEntityLink<Sample> getLink()
     {
         return new SampleLink(this);
     }

@@ -38,7 +38,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.genologics.ri.ClarityEntity;
 import com.genologics.ri.LimsEntity;
-import com.genologics.ri.LimsLink;
+import com.genologics.ri.LimsEntityLink;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.configuration.FieldType;
 import com.genologics.ri.file.ClarityFile;
@@ -296,7 +296,7 @@ public class ClarityProcess implements LimsEntity<ClarityProcess>, UDFHolder, Se
      * {@inheritDoc}
      */
     @Override
-    public LimsLink<ClarityProcess> getLink()
+    public LimsEntityLink<ClarityProcess> getLink()
     {
         return new ProcessLink(this);
     }

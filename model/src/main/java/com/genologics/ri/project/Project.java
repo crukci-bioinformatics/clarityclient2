@@ -40,7 +40,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import com.genologics.ri.ClarityEntity;
 import com.genologics.ri.ExternalId;
 import com.genologics.ri.LimsEntity;
-import com.genologics.ri.LimsLink;
+import com.genologics.ri.LimsEntityLink;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.configuration.FieldType;
 import com.genologics.ri.file.ClarityFile;
@@ -271,7 +271,7 @@ public class Project implements LimsEntity<Project>, UDFHolder, Serializable
      * {@inheritDoc}
      */
     @Override
-    public LimsLink<Project> getLink()
+    public LimsEntityLink<Project> getLink()
     {
         return new ProjectLink(this);
     }

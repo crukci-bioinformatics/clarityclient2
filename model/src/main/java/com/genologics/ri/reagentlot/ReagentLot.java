@@ -33,8 +33,8 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.genologics.ri.ClarityEntity;
 import com.genologics.ri.LimsEntity;
+import com.genologics.ri.LimsEntityLink;
 import com.genologics.ri.LimsEntityLinkable;
-import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.jaxb.ShortDateAdapter;
 import com.genologics.ri.reagentkit.ReagentKit;
@@ -287,7 +287,7 @@ public class ReagentLot implements LimsEntity<ReagentLot>, Serializable
      * {@inheritDoc}
      */
     @Override
-    public LimsLink<ReagentLot> getLink()
+    public LimsEntityLink<ReagentLot> getLink()
     {
         return new ReagentLotLink(this);
     }

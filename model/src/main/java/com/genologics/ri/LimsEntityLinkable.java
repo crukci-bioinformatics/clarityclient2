@@ -64,4 +64,17 @@ public interface LimsEntityLinkable<E extends LimsEntity<E>> extends Linkable<E>
     {
         setLimsid(id);
     }
+
+    /**
+     * Get a concrete link object to this {@code LimsEntityLinkable} entity.
+     * This definition simply narrows the type of links returned by classes
+     * that implement this interface, as they should all have corresponding
+     * {@code LimsEntityLink} link classes available.
+     *
+     * @return A {@code LimsEntityLink} to this object.
+     *
+     * @since Clarity Client version 2, 2.31.0
+     */
+    @Override
+    LimsEntityLink<E> getLink();
 }

@@ -25,4 +25,15 @@ package com.genologics.ri;
  */
 public interface LimsEntityLink<E extends LimsEntity<E>> extends LimsLink<E>, LimsEntityLinkable<E>
 {
+    /**
+     * Since anything implementing this interface is already an entity link,
+     * this default implementation will just return itself.
+     *
+     * @return This LimsEntityLink.
+     */
+    @Override
+    default LimsEntityLink<E> getLink()
+    {
+        return this;
+    }
 }

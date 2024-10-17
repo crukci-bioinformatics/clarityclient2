@@ -34,12 +34,11 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import com.genologics.ri.jaxb.LongTimestampAdapter;
-
 import com.genologics.ri.ClarityEntity;
 import com.genologics.ri.LimsEntity;
-import com.genologics.ri.LimsLink;
+import com.genologics.ri.LimsEntityLink;
 import com.genologics.ri.Linkable;
+import com.genologics.ri.jaxb.LongTimestampAdapter;
 
 /**
  *
@@ -325,10 +324,61 @@ public class ProcessStep implements LimsEntity<ProcessStep>, Serializable
      * {@inheritDoc}
      */
     @Override
-    public LimsLink<ProcessStep> getLink()
+    public LimsEntityLink<ProcessStep> getLink()
     {
-        // Not sure this is properly appropriate but since it's just an implementation
-        // of LimsLink for the ProcessStep class, there shouldn't be problems.
-        return new AutomaticNextStepLink(this);
+        return new ProcessStepLink();
+    }
+
+    /**
+     * There is no implementation of {@code LimsEntityLink} in the model for {@code ProcessStep}.
+     * As such, this inner class will do the job of delegating to
+     * the fields in this ProcessStep.
+     */
+    private class ProcessStepLink implements LimsEntityLink<ProcessStep>, Serializable
+    {
+        private static final long serialVersionUID = -7807865307254531322L;
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public URI getUri()
+        {
+            return uri;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public String getLimsid()
+        {
+            return limsid;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public Class<ProcessStep> getEntityClass()
+        {
+            return ProcessStep.class;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public void setLimsid(String id)
+        {
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public void setUri(URI uri)
+        {
+        }
     }
 }

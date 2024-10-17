@@ -38,8 +38,8 @@ import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.ClarityEntity;
 import com.genologics.ri.LimsEntity;
+import com.genologics.ri.LimsEntityLink;
 import com.genologics.ri.LimsEntityLinkable;
-import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.Location;
 import com.genologics.ri.artifactgroup.ArtifactGroup;
@@ -391,7 +391,7 @@ public class Artifact implements LimsEntity<Artifact>, UDFHolder, Serializable
      * {@inheritDoc}
      */
     @Override
-    public LimsLink<Artifact> getLink()
+    public LimsEntityLink<Artifact> getLink()
     {
         return new ArtifactLink(this);
     }
