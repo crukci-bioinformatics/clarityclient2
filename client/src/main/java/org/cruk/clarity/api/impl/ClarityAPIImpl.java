@@ -18,6 +18,7 @@
 
 package org.cruk.clarity.api.impl;
 
+import static java.util.Objects.requireNonNull;
 import static org.apache.commons.lang3.ClassUtils.getShortClassName;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
@@ -197,7 +198,7 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
     /**
      * Session factory for SSH connections to the file store over SFTP.
      */
-    protected ClaritySFTPUploader sftpUploader;
+    protected ClaritySFTPUploader sftpUploader = new NullSFTPUploader();
 
     /**
      * The properties object passed in through construction or through setConfiguration
@@ -348,6 +349,7 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
     @Autowired(required = false)
     public void setFilestoreSFTPUploader(ClaritySFTPUploader uploader)
     {
+        requireNonNull(uploader, "The ClaritySFTPUploader cannot be set to null.");
         this.sftpUploader = uploader;
         uploadOverHttp = false;
     }
@@ -418,6 +420,7 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
     @SuppressWarnings("exports")
     public void setRestClient(RestOperations restClient)
     {
+        requireNonNull(restClient, "restClient cannot be set to null.");
         this.restClient = restClient;
     }
 
@@ -431,6 +434,7 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
     @SuppressWarnings("exports")
     public void setFileUploadClient(RestOperations fileUploadClient)
     {
+        requireNonNull(fileUploadClient, "fileUploadClient cannot be set to null.");
         this.fileUploadClient = fileUploadClient;
     }
 
@@ -445,6 +449,7 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
     @SuppressWarnings("exports")
     public void setHttpClient(HttpClient httpClient)
     {
+        requireNonNull(httpClient, "httpClient cannot be set to null.");
         this.httpClient = httpClient;
         if (apiCredentials != null)
         {
@@ -461,6 +466,7 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
     @Qualifier("clarityClientHttpRequestFactory")
     public void setHttpRequestFactory(AuthenticatingClientHttpRequestFactory httpRequestFactory)
     {
+        requireNonNull(httpRequestFactory, "httpRequestFactory cannot be set to null.");
         this.httpRequestFactory = httpRequestFactory;
     }
 
@@ -629,10 +635,9 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
 
         filestoreCredentials = new UsernamePasswordCredentials(username, password.toCharArray());
 
-        if (sftpUploader != null)
-        {
-            sftpUploader.setFilestoreCredentials(username, password);
-        }
+        assert sftpUploader != null : "sftpUploader is null";
+
+        sftpUploader.setFilestoreCredentials(username, password);
     }
 
     /**
@@ -916,10 +921,6 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
         if (filestoreCredentials == null || filestoreCredentials.getUserName() == null)
         {
             throw new IllegalStateException("File store credentials have not been set.");
-        }
-        if (sftpUploader == null)
-        {
-            throw new IllegalStateException("No SFTP uploader implementation is available.");
         }
     }
 
@@ -2472,6 +2473,8 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
                         targetURL.getProtocol().toUpperCase() + " protocol is not supported.");
             }
 
+            assert sftpUploader != null : "sftpUploader is null";
+
             if (uploadOverHttp)
             {
                 if (length >= 0 && length <= httpUploadSizeLimit)
@@ -2480,10 +2483,10 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
 
                     uploadViaHTTP(fileURLResource, storageRequest);
                 }
-                else if (autoRevertToSFTP && sftpUploader != null)
+                else if (autoRevertToSFTP)
                 {
                     // Could not get the length, or the file is too big. Allowed to
-                    // revert to SFTP, so use that.
+                    // revert to SFTP, so use that if possible.
 
                     if (length < 0)
                     {
@@ -2514,18 +2517,22 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
                     }
                 }
             }
-            else if (sftpUploader != null)
+            else
             {
                 // Not using HTTP upload at all, so straight to SFTP.
 
-                uploadViaSFTP(fileURLResource, storageRequest);
-            }
-            else
-            {
-                // Not able to use HTTP and no SFTP uploader set.
+                try
+                {
+                    uploadViaSFTP(fileURLResource, storageRequest);
+                }
+                catch (ClarityUpdateException e)
+                {
+                    // Not able to use HTTP and no SFTP uploader set.
+                    // Provide a better error message.
 
-                throw new ClarityUpdateException("Cannot upload " + fileURL +
-                        " - cannot use HTTP for uploads and no SFTP uploader available to the client.");
+                    throw new ClarityUpdateException("Cannot upload " + fileURL +
+                            " - cannot use HTTP for uploads and no SFTP uploader is available.");
+                }
             }
         }
         finally
@@ -2663,6 +2670,8 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
 
         checkFilestoreSet();
 
+        assert sftpUploader != null : "sftpUploader is null";
+
         sftpUploader.upload(fileURLResource, targetFile);
 
         // Post the targetFile object back to the server to set the
@@ -2787,17 +2796,22 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
 
         if (SFTP_PROTOCOL.equalsIgnoreCase(targetURL.getProtocol()))
         {
-            if (sftpUploader == null)
-            {
-                throw new ClarityUpdateException("Cannot delete " + realFile.getContentLocation() +
-                        " - no SFTP uploader available to the client.");
-            }
-
             logger.info("Deleting file {} from file store on {}", targetURL.getPath(), targetURL.getHost());
 
             checkFilestoreSet();
 
-            sftpUploader.delete(realFile);
+            assert sftpUploader != null : "sftpUploader is null";
+
+            try
+            {
+                sftpUploader.delete(realFile);
+            }
+            catch (ClarityUpdateException e)
+            {
+                // Better message.
+                throw new ClarityUpdateException("Cannot delete " + realFile.getContentLocation() +
+                        " - no SFTP uploader available to the client.");
+            }
         }
         else
         {

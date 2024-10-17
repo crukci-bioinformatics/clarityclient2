@@ -20,6 +20,7 @@ package org.cruk.clarity.api.filestore;
 
 import java.io.IOException;
 
+import org.cruk.clarity.api.ClarityUpdateException;
 import org.cruk.clarity.api.impl.URLInputStreamResource;
 
 import com.genologics.ri.file.ClarityFile;
@@ -60,10 +61,11 @@ public interface ClaritySFTPUploader
      * @param targetFile The ClarityFile object that holds the reference to the
      * uploaded file, which was newly created using the API.
      *
+     * @throws ClarityUpdateException if the upload cannot be performed.
      * @throws IOException if there is a problem with the transfer.
      */
     void upload(URLInputStreamResource fileURLResource, ClarityFile targetFile)
-    throws IOException;
+    throws ClarityUpdateException, IOException;
 
     /**
      * Delete a file from the Clarity file store.
@@ -71,7 +73,9 @@ public interface ClaritySFTPUploader
      * @param targetFile The ClarityFile object that holds the reference to the
      * file to delete.
      *
+     * @throws ClarityUpdateException if the upload cannot be performed.
      * @throws IOException if there is a problem with the delete.
      */
-    void delete(ClarityFile targetFile) throws IOException;
+    void delete(ClarityFile targetFile)
+    throws ClarityUpdateException, IOException;
 }
