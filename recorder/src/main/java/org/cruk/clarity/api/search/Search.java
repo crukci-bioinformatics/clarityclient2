@@ -20,20 +20,13 @@ package org.cruk.clarity.api.search;
 
 import static org.apache.commons.lang3.ClassUtils.getShortClassName;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
-import org.cruk.clarity.api.ClarityAPI;
-import org.cruk.clarity.api.search.internal.LimsLinkAdapter;
-
-import com.genologics.ri.LimsLink;
-import com.genologics.ri.Locatable;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -42,6 +35,14 @@ import jakarta.xml.bind.annotation.XmlElementWrapper;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+import org.cruk.clarity.api.ClarityAPI;
+import org.cruk.clarity.api.search.internal.LimsLinkAdapter;
+
+import com.genologics.ri.LimsLink;
+import com.genologics.ri.Locatable;
 
 /**
  * A class holding both the parameters of a search and the links returned
@@ -67,16 +68,18 @@ public class Search<E extends Locatable> implements Serializable
     /**
      * Serialization version.
      */
-    private static final long serialVersionUID = -6611443224550823943L;
+    @Serial private static final long serialVersionUID = -6611443224550823943L;
 
     /**
      * The search terms used in this search.
+     * @serial
      */
     @XmlElement(name = "terms")
     private SearchTerms<E> searchTerms;
 
     /**
      * The results of the search.
+     * @serial
      */
     @XmlElementWrapper(name = "results")
     @XmlElement(name = "link")

@@ -20,11 +20,17 @@ package org.cruk.clarity.api.search;
 
 import static org.apache.commons.lang3.ClassUtils.getShortClassName;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -32,11 +38,6 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import org.cruk.clarity.api.ClarityAPI;
 
 import com.genologics.ri.Locatable;
-
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlType;
 
 /**
  * Class recording the parameters and entity class of a call to the API's
@@ -53,16 +54,18 @@ public class SearchTerms<E extends Locatable> implements Serializable
     /**
      * Serialization version.
      */
-    private static final long serialVersionUID = 6086837837496759045L;
+    @Serial private static final long serialVersionUID = 6086837837496759045L;
 
     /**
      * The search terms (parameters) of the search.
+     * @serial
      */
     @XmlElement(name = "term")
     private List<SearchTerm> searchTerms;
 
     /**
      * The class of the objects being searched for.
+     * @serial
      */
     @XmlElement(name = "entity")
     private Class<E> entityClass;

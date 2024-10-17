@@ -22,6 +22,7 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 import static org.apache.commons.lang3.StringUtils.join;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -30,16 +31,16 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlType;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.cruk.clarity.api.ClarityAPI;
 import org.springframework.util.CollectionUtils;
-
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlType;
 
 /**
  * Class recording an individual parameter and its value or values of a
@@ -51,16 +52,18 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "term", propOrder = { "param", "values" })
 public class SearchTerm implements Serializable
 {
-    private static final long serialVersionUID = -8406721186516589781L;
+    @Serial private static final long serialVersionUID = -8406721186516589781L;
 
     /**
      * The parameter name.
+     * @serial
      */
     @XmlElement(name = "param", required = true)
     private String param;
 
     /**
      * The parameter's values to search for.
+     * @serial
      */
     @XmlElement(name = "value")
     private List<String> values;
