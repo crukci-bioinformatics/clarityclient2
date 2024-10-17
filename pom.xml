@@ -75,11 +75,11 @@
     </properties>
 
     <distributionManagement>
-        <downloadUrl>https://github.com/crukci-bioinformatics/clarityclient/archive/master.zip</downloadUrl>
+        <downloadUrl>https://github.com/crukci-bioinformatics/clarityclient2/archive/master.zip</downloadUrl>
         <site>
             <id>github</id>
             <name>GitHub Pages</name>
-            <url>ssh://git@github.com/crukci-bioinformatics/clarityclient</url>
+            <url>ssh://git@github.com/crukci-bioinformatics/clarityclient2</url>
         </site>
         <repository>
             <id>bioinformatics</id>
