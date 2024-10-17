@@ -56,30 +56,57 @@ Maven do the work. Add a &lt;repositories&gt; section containing:
 </repository>
 ```
 
-## Usage
+### Building the Site
 
-Add the JAR files to your POM (I'm assuming you're using Maven now):
+Building the site needs a different profile to building the source code,
+and needs to aggregate into a multi module Maven site. The command to build
+the site is:
+
+```
+mvn -P sitebuild clean site site:stage
+```
+
+The site is built into the `target/staging` directory. This then forms the
+site deployed on the project's
+[GitHub Pages](https://crukci-bioinformatics.github.io/clarityclient2).
+
+## Usage (for Maven)
+
+Add the BOM artifact to the `dependencyManagement` section of your POM:
 
 ```XML
-<dependency>
-    <groupId>org.cruk.clarity</groupId>
-    <artifactId>clarity-client2</artifactId>
-    <version>...</version>
-</dependency>
-<dependency>
-    <groupId>org.cruk.clarity</groupId>
-    <artifactId>clarity-client2-cache</artifactId>
-    <version>...</version>
-</dependency>
-<dependency>
-    <groupId>org.cruk.clarity</groupId>
-    <artifactId>clarity-client2-recorder</artifactId>
-    <version>...</version>
-    <scope>test</scope>
-</dependency>
+<dependencyManagement>
+    <dependency>
+        <groupId>org.cruk.clarity</groupId>
+        <artifactId>clarity-client2-bom</artifactId>
+        <version>...</version>
+        <type>pom</type>
+        <scope>import</scope>
+    </dependency>
+</dependencyManagement>
 ```
 
 _Fill in the <version> tag with the version of the API._
+
+Add the JAR files to your `dependencies` section:
+
+```XML
+<dependencies>
+    <dependency>
+        <groupId>org.cruk.clarity</groupId>
+        <artifactId>clarity-client2</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.cruk.clarity</groupId>
+        <artifactId>clarity-client2-cache</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.cruk.clarity</groupId>
+        <artifactId>clarity-client2-recorder</artifactId>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
+```
 
 The `clarity-client2-cache` artefact is optional but will usually
 be recommended to make the client more performant. The

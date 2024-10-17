@@ -247,14 +247,6 @@
                     <version>3.2.5</version>
                 </plugin>
 
-                <!-- Third party plugins -->
-
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>jaxb2-maven-plugin</artifactId>
-                    <version>3.2.0</version>
-                </plugin>
-
                 <!-- Eclipse helper -->
 
                 <plugin>
@@ -285,29 +277,6 @@
         </pluginManagement>
 
         <plugins>
-<!--
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jaxb2-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>generation</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>xjc</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <verbose>false</verbose>
-                    <quiet>false</quiet>
-                    <clearOutputDir>false</clearOutputDir>
-                    <extension>true</extension>
-                    <arguments>-no-header</arguments>
-                </configuration>
-            </plugin>
--->
-
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
@@ -444,214 +413,46 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>jakarta.platform</groupId>
-                <artifactId>jakarta.jakartaee-bom</artifactId>
-                <version>10.0.0</version>
+                <groupId>org.cruk.clarity</groupId>
+                <artifactId>clarity-client2-bom</artifactId>
+                <version>2.31-SNAPSHOT</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.sun.activation</groupId>
-                <artifactId>jakarta.activation</artifactId>
-                <version>2.0.1</version>
-            </dependency>
-            <dependency>
-                <groupId>org.glassfish.jaxb</groupId>
-                <artifactId>jaxb-runtime</artifactId>
-                <version>4.0.5</version>
-            </dependency>
-
-            <dependency>
-                <groupId>commons-beanutils</groupId>
-                <artifactId>commons-beanutils</artifactId>
-                <version>1.10.1</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-codec</groupId>
-                <artifactId>commons-codec</artifactId>
-                <version>1.17.1</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-io</groupId>
-                <artifactId>commons-io</artifactId>
-                <version>2.17.0</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-net</groupId>
-                <artifactId>commons-net</artifactId>
-                <version>3.11.1</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-collections4</artifactId>
-                <version>4.4</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>3.17.0</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>2.0.16</version>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>jcl-over-slf4j</artifactId>
-                <version>2.0.16</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-bom</artifactId>
-                <version>2.24.1</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-framework-bom</artifactId>
-                <version>6.1.13</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.integration</groupId>
-                <artifactId>spring-integration-bom</artifactId>
-                <version>6.3.4</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-            <!-- https://github.com/apache/mina-sshd/issues/497 -->
-            <dependency>
-                <groupId>org.apache.sshd</groupId>
-                <artifactId>sshd-osgi</artifactId>
-                <version>2.14.0</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>jcl-over-slf4j</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.sshd</groupId>
-                <artifactId>sshd-sftp</artifactId>
-                <version>2.14.0</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>jcl-over-slf4j</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.apache.sshd</groupId>
-                        <artifactId>sshd-core</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.sshd</groupId>
-                <artifactId>sshd-spring-sftp</artifactId>
-                <version>2.14.0</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>jcl-over-slf4j</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>org.ehcache</groupId>
-                <artifactId>ehcache</artifactId>
-                <version>3.10.8</version>
-                <classifier>jakarta</classifier>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.glassfish.jaxb</groupId>
-                        <artifactId>jaxb-runtime</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <dependency>
-                <groupId>org.aspectj</groupId>
-                <artifactId>aspectjweaver</artifactId>
-                <version>1.9.22.1</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.httpcomponents.core5</groupId>
-                <artifactId>httpcore5</artifactId>
-                <version>5.3</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.httpcomponents.client5</groupId>
-                <artifactId>httpclient5</artifactId>
-                <version>5.4</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.junit</groupId>
-                <artifactId>junit-bom</artifactId>
-                <version>5.11.2</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.mockito</groupId>
-                <artifactId>mockito-bom</artifactId>
-                <version>5.14.1</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.xmlunit</groupId>
-                <artifactId>xmlunit-core</artifactId>
-                <version>2.10.0</version>
-            </dependency>
-            <dependency>
-                <groupId>org.xmlunit</groupId>
-                <artifactId>xmlunit-legacy</artifactId>
-                <version>2.10.0</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.cruk.clarity</groupId>
-                <artifactId>clarity-client2-model</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.cruk.clarity</groupId>
-                <artifactId>clarity-client2</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.cruk.clarity</groupId>
-                <artifactId>clarity-client2-filestore-jsch</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.cruk.clarity</groupId>
-                <artifactId>clarity-client2-filestore-mina</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.cruk.clarity</groupId>
-                <artifactId>clarity-client2-cache</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.cruk.clarity</groupId>
-                <artifactId>clarity-client2-recorder</artifactId>
-                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <profiles>
+        <profile>
+            <id>build</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <modules>
+                <module>bom</module>
+                <module>model</module>
+                <module>client</module>
+                <module>mina</module>
+                <module>jsch</module>
+                <module>cache</module>
+                <module>recorder</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>sitebuild</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <modules>
+                <module>model</module>
+                <module>client</module>
+                <module>mina</module>
+                <module>jsch</module>
+                <module>cache</module>
+                <module>recorder</module>
+            </modules>
+        </profile>
+    </profiles>
 
     <dependencies>
         <dependency>
@@ -680,14 +481,5 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
-    <modules>
-        <module>model</module>
-        <module>client</module>
-        <module>mina</module>
-        <module>jsch</module>
-        <module>cache</module>
-        <module>recorder</module>
-    </modules>
 </project>
 
