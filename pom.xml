@@ -28,7 +28,7 @@
     <packaging>pom</packaging>
     <version>2.31-SNAPSHOT</version>
 
-    <name>CRUK-CI Clarity API Client Parent POM</name>
+    <name>CRUK-CI Clarity API Client</name>
 
     <description>
         A Java client for working with Clarity's REST API.
