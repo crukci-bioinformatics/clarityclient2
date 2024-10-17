@@ -18,6 +18,8 @@
 
 package com.genologics.ri.artifact;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 import java.util.regex.Matcher;
@@ -30,7 +32,9 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.LimsLink;
+import com.genologics.ri.Linkable;
 import com.genologics.ri.stage.Stage;
+import com.genologics.ri.workflowconfiguration.Workflow;
 
 /**
  * Provides links to workflow stages, stage names and their respective statuses.
@@ -82,6 +86,25 @@ public class WorkflowStage implements LimsLink<Stage>, Serializable
         setUri(uri);
         setName(name);
         setStatus(status);
+    }
+
+    public WorkflowStage(Linkable<Stage> link)
+    {
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
+    }
+
+    public WorkflowStage(Stage stage)
+    {
+        requireNonNull(stage, "stage cannot be null");
+        uri = stage.getUri();
+        name = stage.getName();
+    }
+
+    public WorkflowStage(Stage stage, Status status)
+    {
+        this(stage);
+        this.status = status;
     }
 
     /**

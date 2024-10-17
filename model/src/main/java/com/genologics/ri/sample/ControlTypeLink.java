@@ -18,6 +18,8 @@
 
 package com.genologics.ri.sample;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -67,7 +69,15 @@ public class ControlTypeLink implements LimsLink<ControlType>, Serializable
 
     public ControlTypeLink(Linkable<ControlType> link)
     {
+        requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
+    }
+
+    public ControlTypeLink(ControlType controlType)
+    {
+        requireNonNull(controlType, "controlType cannot be null");
+        this.uri = controlType.getUri();
+        this.name = controlType.getName();
     }
 
     @Override

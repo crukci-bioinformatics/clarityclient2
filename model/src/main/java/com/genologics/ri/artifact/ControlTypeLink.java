@@ -18,6 +18,8 @@
 
 package com.genologics.ri.artifact;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -58,6 +60,7 @@ public class ControlTypeLink implements LimsLink<ControlType>, Serializable
 
     public ControlTypeLink(Linkable<ControlType> link)
     {
+        requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 

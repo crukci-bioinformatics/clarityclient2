@@ -18,6 +18,8 @@
 
 package com.genologics.ri.step;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -57,6 +59,7 @@ public class ReagentLotsLink implements LimsLink<ReagentLots>, Serializable
 
     public ReagentLotsLink(Linkable<ReagentLots> link)
     {
+        requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 

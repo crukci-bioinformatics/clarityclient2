@@ -18,6 +18,8 @@
 
 package com.genologics.ri.artifact;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -29,6 +31,7 @@ import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.LimsEntityLink;
 import com.genologics.ri.LimsEntityLinkable;
+import com.genologics.ri.Linkable;
 
 /**
  * Artifact-link is a child element type of artifacts and provides a URI linking
@@ -62,10 +65,17 @@ public class ArtifactLink implements LimsEntityLink<Artifact>, Serializable
         this.limsid = limsid;
     }
 
+    public ArtifactLink(Linkable<Artifact> link)
+    {
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
+    }
+
     public ArtifactLink(LimsEntityLinkable<Artifact> link)
     {
-        this.uri = link.getUri();
-        this.limsid = link.getLimsid();
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
+        limsid = link.getLimsid();
     }
 
     @Override

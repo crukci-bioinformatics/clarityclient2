@@ -18,6 +18,8 @@
 
 package com.genologics.ri.project;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -30,6 +32,7 @@ import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.LimsEntityLink;
 import com.genologics.ri.LimsEntityLinkable;
+import com.genologics.ri.Linkable;
 
 /**
  *
@@ -74,20 +77,25 @@ public class ProjectLink implements LimsEntityLink<Project>, Serializable
         this.name = name;
     }
 
+    public ProjectLink(Linkable<Project> link)
+    {
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
+    }
+
     public ProjectLink(LimsEntityLinkable<Project> link)
     {
+        requireNonNull(link, "link cannot be null");
         uri = link.getUri();
         limsid = link.getLimsid();
-        /*
-        try
-        {
-            this.name = (String)PropertyUtils.getProperty(link, "name");
-        }
-        catch (Exception e)
-        {
-            // Ignore.
-        }
-        */
+    }
+
+    public ProjectLink(Project project)
+    {
+        requireNonNull(project, "project cannot be null");
+        uri = project.getUri();
+        limsid = project.getLimsid();
+        name = project.getName();
     }
 
     @Override

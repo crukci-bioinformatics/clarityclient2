@@ -19,6 +19,8 @@
 
 package com.genologics.ri.step;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -59,6 +61,7 @@ public class StepSetupLink implements LimsLink<StepSetup>, Serializable
 
     public StepSetupLink(Linkable<StepSetup> link)
     {
+        requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 

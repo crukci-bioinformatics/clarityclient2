@@ -40,4 +40,16 @@ public interface LimsLink<E extends Locatable> extends Linkable<E>
      * @return The real object class.
      */
     Class<E> getEntityClass();
+
+    /**
+     * Since anything implementing this interface is already a link, this
+     * default implementation will just return itself.
+     *
+     * @return This LimsLink.
+     */
+    @Override
+    default LimsLink<E> getLink()
+    {
+        return this;
+    }
 }

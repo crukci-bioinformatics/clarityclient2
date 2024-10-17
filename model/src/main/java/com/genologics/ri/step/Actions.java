@@ -36,6 +36,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 import com.genologics.ri.ClarityEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Link;
 import com.genologics.ri.Linkable;
 
@@ -143,5 +144,14 @@ public class Actions implements Linkable<Actions>, Serializable
             }
         }
         return b.toString();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<Actions> getLink()
+    {
+        return new ActionsLink(this);
     }
 }

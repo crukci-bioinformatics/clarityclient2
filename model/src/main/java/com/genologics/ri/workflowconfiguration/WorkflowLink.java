@@ -18,6 +18,8 @@
 
 package com.genologics.ri.workflowconfiguration;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -66,9 +68,25 @@ public class WorkflowLink implements LimsLink<Workflow>, Serializable
         this.name = name;
     }
 
+    public WorkflowLink(URI uri, String name, Status status)
+    {
+        this.uri = uri;
+        this.name = name;
+        this.status = status;
+    }
+
     public WorkflowLink(Linkable<Workflow> link)
     {
+        requireNonNull(link, "link cannot be null");
         uri = link.getUri();
+    }
+
+    public WorkflowLink(Workflow workflow)
+    {
+        requireNonNull(workflow, "workflow cannot be null");
+        uri = workflow.getUri();
+        name = workflow.getName();
+        status = workflow.getStatus();
     }
 
     @Override

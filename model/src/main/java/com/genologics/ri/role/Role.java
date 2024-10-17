@@ -33,6 +33,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.ClarityEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 
 /**
@@ -132,4 +133,12 @@ public class Role implements Linkable<Role>, Serializable
         this.uri = uri;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<Role> getLink()
+    {
+        return new RoleLink(this);
+    }
 }

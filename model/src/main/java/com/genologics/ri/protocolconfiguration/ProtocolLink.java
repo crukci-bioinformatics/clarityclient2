@@ -18,6 +18,8 @@
 
 package com.genologics.ri.protocolconfiguration;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -61,7 +63,15 @@ public class ProtocolLink implements LimsLink<Protocol>, Serializable
 
     public ProtocolLink(Linkable<Protocol> link)
     {
-        this.uri = link.getUri();
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
+    }
+
+    public ProtocolLink(Protocol protocol)
+    {
+        requireNonNull(protocol, "protocol cannot be null");
+        uri = protocol.getUri();
+        name = protocol.getName();
     }
 
     public String getName()

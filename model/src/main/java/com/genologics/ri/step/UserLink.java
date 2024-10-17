@@ -18,6 +18,8 @@
 
 package com.genologics.ri.step;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -65,7 +67,16 @@ public class UserLink implements LimsLink<Researcher>, Serializable
 
     public UserLink(Linkable<Researcher> link)
     {
-        this.uri = link.getUri();
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
+    }
+
+    public UserLink(Researcher researcher)
+    {
+        requireNonNull(researcher, "researcher cannot be null");
+        uri = researcher.getUri();
+        firstName = researcher.getFirstName();
+        lastName = researcher.getLastName();
     }
 
     public String getFirstName()

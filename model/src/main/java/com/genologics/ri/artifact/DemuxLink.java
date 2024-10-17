@@ -18,6 +18,8 @@
 
 package com.genologics.ri.artifact;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -53,6 +55,12 @@ public class DemuxLink implements LimsLink<DemuxArtifact>, Serializable
     public DemuxLink(URI uri)
     {
         this.uri = uri;
+    }
+
+    public DemuxLink(Linkable<DemuxArtifact> link)
+    {
+        requireNonNull(link, "link cannot be null");
+        this.uri = link.getUri();
     }
 
     public URI getUri()

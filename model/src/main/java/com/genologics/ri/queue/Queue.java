@@ -34,7 +34,6 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.ClarityEntity;
-import com.genologics.ri.Linkable;
 import com.genologics.ri.Page;
 import com.genologics.ri.PaginatedBatch;
 
@@ -57,7 +56,7 @@ import com.genologics.ri.PaginatedBatch;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "queue", propOrder = { "artifacts", "previousPage", "nextPage" })
 @XmlRootElement(name = "queue")
-public class Queue implements PaginatedBatch<ArtifactLink>, Linkable<Queue>, Serializable
+public class Queue implements PaginatedBatch<ArtifactLink>, Serializable
 {
     private static final long serialVersionUID = 4372664462524847744L;
 
@@ -177,5 +176,4 @@ public class Queue implements PaginatedBatch<ArtifactLink>, Linkable<Queue>, Ser
     {
         return getArtifacts().iterator();
     }
-
 }

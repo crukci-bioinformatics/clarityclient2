@@ -18,6 +18,8 @@
 
 package com.genologics.ri;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 import java.util.regex.Pattern;
@@ -66,12 +68,14 @@ public class Location implements LimsEntityLink<Container>, Serializable, Compar
 
     public Location(LimsEntityLinkable<Container> container, String position)
     {
+        requireNonNull(container, "container cannot be null");
         this.container = new ContainerLink(container);
         this.wellPosition = position;
     }
 
     public Location(Linkable<Container> container, String position)
     {
+        requireNonNull(container, "container cannot be null");
         this.container = new ContainerLink(container);
         this.wellPosition = position;
     }

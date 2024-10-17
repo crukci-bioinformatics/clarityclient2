@@ -32,6 +32,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.ClarityEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 
 /**
@@ -209,5 +210,14 @@ public class ContainerType implements Linkable<ContainerType>, Serializable
     public String toString()
     {
         return name;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<ContainerType> getLink()
+    {
+        return new ContainerTypeLink(this);
     }
 }

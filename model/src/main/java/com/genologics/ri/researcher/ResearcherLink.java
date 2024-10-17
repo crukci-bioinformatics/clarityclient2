@@ -18,6 +18,8 @@
 
 package com.genologics.ri.researcher;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -61,20 +63,25 @@ public class ResearcherLink implements LimsEntityLink<Researcher>, Serializable
         this.uri = uri;
     }
 
+    public ResearcherLink(URI uri, String firstName, String lastName)
+    {
+        this.uri = uri;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public ResearcherLink(Linkable<Researcher> link)
     {
+        requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
-        /*
-        try
-        {
-            this.firstName = (String)PropertyUtils.getProperty(link, "firstName");
-            this.lastName = (String)PropertyUtils.getProperty(link, "lastName");
-        }
-        catch (Exception e)
-        {
-            // Ignore.
-        }
-        */
+    }
+
+    public ResearcherLink(Researcher researcher)
+    {
+        requireNonNull(researcher, "researcher cannot be null");
+        uri = researcher.getUri();
+        firstName = researcher.getFirstName();
+        lastName = researcher.getLastName();
     }
 
     public Class<Researcher> getEntityClass()

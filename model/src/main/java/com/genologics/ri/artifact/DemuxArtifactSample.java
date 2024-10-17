@@ -18,6 +18,8 @@
 
 package com.genologics.ri.artifact;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -28,6 +30,8 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.LimsEntityLink;
+import com.genologics.ri.LimsEntityLinkable;
+import com.genologics.ri.Linkable;
 import com.genologics.ri.sample.Sample;
 
 /**
@@ -55,6 +59,25 @@ public class DemuxArtifactSample implements LimsEntityLink<Sample>, Serializable
     public DemuxArtifactSample(URI uri)
     {
         this.uri = uri;
+    }
+
+    public DemuxArtifactSample(URI uri, String limsid)
+    {
+        this.uri = uri;
+        this.limsid = limsid;
+    }
+
+    public DemuxArtifactSample(Linkable<Sample> link)
+    {
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
+    }
+
+    public DemuxArtifactSample(LimsEntityLinkable<Sample> link)
+    {
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
+        limsid = link.getLimsid();
     }
 
     public URI getUri()

@@ -18,6 +18,8 @@
 
 package com.genologics.ri.step;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -56,6 +58,7 @@ public class ContainerLink implements LimsLink<Container>, Serializable
 
     public ContainerLink(Linkable<Container> link)
     {
+        requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 

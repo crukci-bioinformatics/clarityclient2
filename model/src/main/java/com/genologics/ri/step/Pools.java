@@ -34,6 +34,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.ClarityEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Link;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.artifact.Artifact;
@@ -145,5 +146,14 @@ public class Pools implements Linkable<Pools>, Serializable
     public Input addAvailableInput(Linkable<Artifact> artifact)
     {
         return addAvailableInput(new Input(artifact));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<Pools> getLink()
+    {
+        return new PoolsLink(this);
     }
 }

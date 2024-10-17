@@ -33,6 +33,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.ClarityEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.configuration.FieldLink;
 
@@ -377,4 +378,12 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
         return eppTriggers;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<ProcessType> getLink()
+    {
+        return new ProcessTypeLink(this);
+    }
 }

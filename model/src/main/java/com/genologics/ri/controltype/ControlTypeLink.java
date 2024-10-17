@@ -18,6 +18,8 @@
 
 package com.genologics.ri.controltype;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -28,6 +30,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.LimsLink;
+import com.genologics.ri.Linkable;
 
 /**
  * Control-type-link is a child element type of controlTypes and provides a URI
@@ -60,6 +63,19 @@ public class ControlTypeLink implements LimsLink<ControlType>, Serializable
     {
         this.uri = uri;
         this.name = name;
+    }
+
+    public ControlTypeLink(Linkable<ControlType> link)
+    {
+        requireNonNull(link, "link cannot be null");
+        this.uri = link.getUri();
+    }
+
+    public ControlTypeLink(ControlType controlType)
+    {
+        requireNonNull(controlType, "controlType cannot be null");
+        this.uri = controlType.getUri();
+        this.name = controlType.getName();
     }
 
     public String getName()

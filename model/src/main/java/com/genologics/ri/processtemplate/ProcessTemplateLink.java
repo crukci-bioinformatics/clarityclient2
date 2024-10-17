@@ -18,6 +18,8 @@
 
 package com.genologics.ri.processtemplate;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -63,17 +65,15 @@ public class ProcessTemplateLink implements LimsLink<ProcessTemplate>, Serializa
 
     public ProcessTemplateLink(Linkable<ProcessTemplate> link)
     {
+        requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
-        /*
-        try
-        {
-            this.name = (String)PropertyUtils.getProperty(link, "name");
-        }
-        catch (Exception e)
-        {
-            // Ignore.
-        }
-        */
+    }
+
+    public ProcessTemplateLink(ProcessTemplate template)
+    {
+        requireNonNull(template, "template cannot be null");
+        uri = template.getUri();
+        name = template.getName();
     }
 
     @Override

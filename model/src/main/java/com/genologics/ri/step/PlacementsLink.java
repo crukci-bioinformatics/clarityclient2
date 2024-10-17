@@ -18,6 +18,8 @@
 
 package com.genologics.ri.step;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -55,6 +57,7 @@ public class PlacementsLink implements LimsLink<Placements>, Serializable
 
     public PlacementsLink(Linkable<Placements> placements)
     {
+        requireNonNull(placements, "placements cannot be null");
         uri = placements.getUri();
     }
 

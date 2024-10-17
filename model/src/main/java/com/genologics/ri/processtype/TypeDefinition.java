@@ -18,6 +18,8 @@
 
 package com.genologics.ri.processtype;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -66,17 +68,25 @@ public class TypeDefinition implements LimsLink<Field>, Serializable
         this.name = name;
     }
 
-    public TypeDefinition(Linkable<Field> link)
+    public TypeDefinition(Linkable<Field> field)
     {
-        uri = link.getUri();
+        requireNonNull(field, "field cannot be null");
+        uri = field.getUri();
         try
         {
-            name = (String)PropertyUtils.getProperty(link, "name");
+            name = (String)PropertyUtils.getProperty(field, "name");
         }
         catch (Exception e)
         {
             // Ignore.
         }
+    }
+
+    public TypeDefinition(Field field)
+    {
+        requireNonNull(field, "field cannot be null");
+        uri = field.getUri();
+        name = field.getName();
     }
 
     @Override

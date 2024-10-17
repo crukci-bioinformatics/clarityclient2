@@ -38,6 +38,7 @@ import com.genologics.ri.jaxb.LongTimestampAdapter;
 
 import com.genologics.ri.ClarityEntity;
 import com.genologics.ri.LimsEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 
 /**
@@ -318,5 +319,16 @@ public class ProcessStep implements LimsEntity<ProcessStep>, Serializable
     public void setAutomaticNextStep(Linkable<ProcessStep> step)
     {
         this.automaticNextStep = new AutomaticNextStepLink(step);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<ProcessStep> getLink()
+    {
+        // Not sure this is properly appropriate but since it's just an implementation
+        // of LimsLink for the ProcessStep class, there shouldn't be problems.
+        return new AutomaticNextStepLink(this);
     }
 }

@@ -18,6 +18,8 @@
 
 package com.genologics.ri.artifact;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -28,6 +30,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.LimsLink;
+import com.genologics.ri.Linkable;
 import com.genologics.ri.step.ProcessStep;
 
 /**
@@ -61,6 +64,12 @@ public class PoolStep implements LimsLink<ProcessStep>, Serializable
     {
         this.uri = uri;
         this.name = name;
+    }
+
+    public PoolStep(Linkable<ProcessStep> step)
+    {
+        requireNonNull(step, "step cannot be null");
+        this.uri = step.getUri();
     }
 
     public URI getUri()

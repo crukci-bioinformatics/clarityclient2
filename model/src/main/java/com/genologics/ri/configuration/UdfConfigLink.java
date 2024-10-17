@@ -18,6 +18,8 @@
 
 package com.genologics.ri.configuration;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -64,12 +66,13 @@ public class UdfConfigLink implements LimsLink<Field>, Serializable
         this.uri = uri;
     }
 
-    public UdfConfigLink(Field realField)
+    public UdfConfigLink(Field field)
     {
-        uri = realField.getUri();
-        name = realField.getName();
-        attachToName = realField.getAttachToName();
-        attachToCategory = realField.getAttachToCategory();
+        requireNonNull(field, "field cannot be null");
+        uri = field.getUri();
+        name = field.getName();
+        attachToName = field.getAttachToName();
+        attachToCategory = field.getAttachToCategory();
     }
 
     @Override

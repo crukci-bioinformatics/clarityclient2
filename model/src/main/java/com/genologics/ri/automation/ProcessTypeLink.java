@@ -18,6 +18,8 @@
 
 package com.genologics.ri.automation;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -65,6 +67,19 @@ public class ProcessTypeLink implements LimsLink<ProcessType>, Serializable
     {
         this.uri = uri;
         this.name = name;
+    }
+
+    public ProcessTypeLink(Linkable<ProcessType> link)
+    {
+        requireNonNull(link, "link cannot be null");
+        this.uri = link.getUri();
+    }
+
+    public ProcessTypeLink(ProcessType processType)
+    {
+        requireNonNull(processType, "processType cannot be null");
+        uri = processType.getUri();
+        name = processType.getName();
     }
 
     public URI getUri()

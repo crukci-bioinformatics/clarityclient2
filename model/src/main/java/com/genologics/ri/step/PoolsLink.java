@@ -18,6 +18,8 @@
 
 package com.genologics.ri.step;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -56,6 +58,7 @@ public class PoolsLink implements LimsLink<Pools>, Serializable
 
     public PoolsLink(Linkable<Pools> pools)
     {
+        requireNonNull(pools, "pools cannot be null");
         this.uri = pools.getUri();
     }
 

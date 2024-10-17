@@ -18,6 +18,8 @@
 
 package com.genologics.ri.step;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -77,13 +79,23 @@ public class ArtifactLink implements LimsEntityLink<Artifact>, Serializable
 
     public ArtifactLink(Linkable<Artifact> link)
     {
+        requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
     public ArtifactLink(LimsEntityLinkable<Artifact> link)
     {
+        requireNonNull(link, "link cannot be null");
         uri = link.getUri();
         limsid = link.getLimsid();
+    }
+
+    public ArtifactLink(Artifact artifact)
+    {
+        requireNonNull(artifact, "artifact cannot be null");
+        uri = artifact.getUri();
+        limsid = artifact.getLimsid();
+        type = artifact.getOutputType();
     }
 
     public OutputType getType()

@@ -32,9 +32,12 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.ClarityEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.protocolconfiguration.Protocol;
+import com.genologics.ri.protocolconfiguration.ProtocolLink;
 import com.genologics.ri.stepconfiguration.ProtocolStep;
+import com.genologics.ri.workflowconfiguration.StageLink;
 import com.genologics.ri.workflowconfiguration.Workflow;
 
 /**
@@ -208,4 +211,13 @@ public class Stage implements Linkable<Stage>, Serializable
         this.index = index;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<Stage> getLink()
+    {
+        // StageLink is in a different package but that shouldn't cause problems.
+        return new StageLink(this);
+    }
 }

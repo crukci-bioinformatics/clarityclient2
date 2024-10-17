@@ -18,6 +18,8 @@
 
 package com.genologics.ri.role;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -29,6 +31,7 @@ import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.LimsEntityLink;
 import com.genologics.ri.Link;
+import com.genologics.ri.Linkable;
 import com.genologics.ri.researcher.Researcher;
 
 /**
@@ -62,6 +65,20 @@ public class ResearcherLink implements LimsEntityLink<Researcher>, Serializable
     public ResearcherLink(URI uri)
     {
         this.uri = uri;
+    }
+
+    public ResearcherLink(Linkable<Researcher> link)
+    {
+        requireNonNull(link, "link cannot be null");
+        this.uri = link.getUri();
+    }
+
+    public ResearcherLink(Researcher researcher)
+    {
+        requireNonNull(researcher, "researcher cannot be null");
+        uri = researcher.getUri();
+        firstName = researcher.getFirstName();
+        lastName = researcher.getLastName();
     }
 
     public String getLastName()

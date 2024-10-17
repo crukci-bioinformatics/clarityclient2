@@ -33,6 +33,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.ClarityEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 
 /**
@@ -115,5 +116,14 @@ public class InstrumentType implements Linkable<InstrumentType>, Serializable
     public void setUri(URI value)
     {
         this.uri = value;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<InstrumentType> getLink()
+    {
+        return new InstrumentTypeLink(this);
     }
 }

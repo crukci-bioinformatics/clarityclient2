@@ -18,6 +18,8 @@
 
 package com.genologics.ri.queue;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 import java.util.Date;
@@ -33,6 +35,8 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import com.genologics.ri.jaxb.LongTimestampAdapter;
 
 import com.genologics.ri.LimsEntityLink;
+import com.genologics.ri.LimsEntityLinkable;
+import com.genologics.ri.Linkable;
 import com.genologics.ri.Location;
 import com.genologics.ri.artifact.Artifact;
 
@@ -73,6 +77,27 @@ public class ArtifactLink implements LimsEntityLink<Artifact>, Serializable
     {
         this.uri = uri;
         this.limsid = limsid;
+    }
+
+    public ArtifactLink(Linkable<Artifact> link)
+    {
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
+    }
+
+    public ArtifactLink(LimsEntityLinkable<Artifact> link)
+    {
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
+        limsid = link.getLimsid();
+    }
+
+    public ArtifactLink(Artifact artifact)
+    {
+        requireNonNull(artifact, "artifact cannot be null");
+        uri = artifact.getUri();
+        limsid = artifact.getLimsid();
+        location = artifact.getLocation();
     }
 
     public Date getQueueTime()

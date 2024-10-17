@@ -18,6 +18,8 @@
 
 package com.genologics.ri.processexecution;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -58,7 +60,8 @@ public class Technician implements LimsLink<Researcher>, Serializable
 
     public Technician(Linkable<Researcher> link)
     {
-        this.uri = link.getUri();
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
     }
 
     @Override

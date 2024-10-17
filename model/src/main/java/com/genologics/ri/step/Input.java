@@ -18,6 +18,8 @@
 
 package com.genologics.ri.step;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -62,6 +64,7 @@ public class Input implements LimsLink<Artifact>, Serializable
 
     public Input(Linkable<Artifact> link)
     {
+        requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 

@@ -18,6 +18,8 @@
 
 package com.genologics.ri.instrumenttype;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -29,6 +31,7 @@ import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.XmlValue;
 
 import com.genologics.ri.LimsLink;
+import com.genologics.ri.Linkable;
 import com.genologics.ri.processtype.ProcessType;
 
 /**
@@ -61,6 +64,19 @@ public class InstrumentTypeProcessType implements LimsLink<ProcessType>, Seriali
     {
         setUri(uri);
         setName(name);
+    }
+
+    public InstrumentTypeProcessType(Linkable<ProcessType> link)
+    {
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
+    }
+
+    public InstrumentTypeProcessType(ProcessType processType)
+    {
+        requireNonNull(processType, "processType cannot be null");
+        uri = processType.getUri();
+        name = processType.getName();
     }
 
     public String getName()

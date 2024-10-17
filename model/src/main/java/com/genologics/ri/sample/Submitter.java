@@ -18,6 +18,8 @@
 
 package com.genologics.ri.sample;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -63,18 +65,16 @@ public class Submitter implements LimsLink<Researcher>, Serializable
 
     public Submitter(Linkable<Researcher> link)
     {
-        this.uri = link.getUri();
-        /*
-        try
-        {
-            this.firstName = (String)PropertyUtils.getProperty(link, "firstName");
-            this.lastName = (String)PropertyUtils.getProperty(link, "lastName");
-        }
-        catch (Exception e)
-        {
-            // Ignore.
-        }
-        */
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
+    }
+
+    public Submitter(Researcher researcher)
+    {
+        requireNonNull(researcher, "researcher cannot be null");
+        uri = researcher.getUri();
+        firstName = researcher.getFirstName();
+        lastName = researcher.getLastName();
     }
 
     @Override

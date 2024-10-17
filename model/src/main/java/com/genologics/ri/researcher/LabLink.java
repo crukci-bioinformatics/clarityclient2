@@ -18,6 +18,8 @@
 
 package com.genologics.ri.researcher;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -58,7 +60,8 @@ public class LabLink implements LimsEntityLink<Lab>, Serializable
 
     public LabLink(Linkable<Lab> link)
     {
-        this.uri = link.getUri();
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
     }
 
     public Class<Lab> getEntityClass()

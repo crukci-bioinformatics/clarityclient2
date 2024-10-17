@@ -18,6 +18,8 @@
 
 package com.genologics.ri.researcher;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -90,11 +92,13 @@ public class Role implements LimsLink<com.genologics.ri.role.Role>, Serializable
 
     public Role(Linkable<com.genologics.ri.role.Role> link)
     {
+        requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
     public Role(com.genologics.ri.role.Role otherRole)
     {
+        requireNonNull(otherRole, "otherRole cannot be null");
         this.uri = otherRole.getUri();
         this.name = otherRole.getName();
     }

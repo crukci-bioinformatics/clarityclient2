@@ -35,6 +35,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.ClarityEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.containertype.ContainerType;
 import com.genologics.ri.controltype.ControlType;
@@ -42,6 +43,7 @@ import com.genologics.ri.processtype.ProcessType;
 import com.genologics.ri.protocolconfiguration.Protocol;
 import com.genologics.ri.reagentkit.ReagentKit;
 import com.genologics.ri.reagenttype.ReagentType;
+import com.genologics.ri.stage.ProtocolStepLink;
 
 // TODO - this one needs updating from the "Step" class generated.
 // Will also need to do ObjectFactory, remember? Copy from generated and insert.
@@ -509,5 +511,14 @@ public class ProtocolStep implements Linkable<ProtocolStep>, Serializable
     public void setProtocolUri(URI protocolUri)
     {
         this.protocolUri = protocolUri;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<ProtocolStep> getLink()
+    {
+        return new ProtocolStepLink(this);
     }
 }

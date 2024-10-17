@@ -18,6 +18,8 @@
 
 package com.genologics.ri.stepconfiguration;
 
+import static java.util.Objects.requireNonNull;
+
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -65,7 +67,15 @@ public class ControlTypeLink extends LockableSetting implements LimsLink<Control
 
     public ControlTypeLink(Linkable<ControlType> link)
     {
+        requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
+    }
+
+    public ControlTypeLink(ControlType controlType)
+    {
+        requireNonNull(controlType, "controlType cannot be null");
+        this.uri = controlType.getUri();
+        this.name = controlType.getName();
     }
 
     @Override

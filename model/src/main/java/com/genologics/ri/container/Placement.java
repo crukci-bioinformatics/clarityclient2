@@ -19,6 +19,7 @@
 package com.genologics.ri.container;
 
 import static com.genologics.ri.Location.WELL_POSITION_SPLITTER;
+import static java.util.Objects.requireNonNull;
 
 import java.io.Serializable;
 import java.net.URI;
@@ -30,7 +31,6 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
-import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import com.genologics.ri.LimsEntityLink;
@@ -81,26 +81,25 @@ public class Placement implements LimsEntityLink<Artifact>, Serializable, Compar
         this.wellPosition = wellPosition;
     }
 
-    public Placement(LimsEntityLinkable<Artifact> link)
+    public Placement(LimsEntityLinkable<Artifact> artifact)
     {
-        this.uri = link.getUri();
-        this.limsid = link.getLimsid();
-
-        try
-        {
-            wellPosition = (String)PropertyUtils.getProperty(link, "wellPosition");
-        }
-        catch (Exception e)
-        {
-            // Ignore.
-        }
+        requireNonNull(artifact, "artifact cannot be null");
+        this.uri = artifact.getUri();
     }
 
-    public Placement(LimsEntityLinkable<Artifact> link, String wellPosition)
+    public Placement(LimsEntityLinkable<Artifact> artifact, String wellPosition)
     {
-        this.uri = link.getUri();
-        this.limsid = link.getLimsid();
+        requireNonNull(artifact, "artifact cannot be null");
+        this.uri = artifact.getUri();
         this.wellPosition = wellPosition;
+    }
+
+    public Placement(Artifact artifact)
+    {
+        requireNonNull(artifact, "artifact cannot be null");
+        uri = artifact.getUri();
+        limsid = artifact.getLimsid();
+        wellPosition = artifact.getLocation() == null ? null : artifact.getLocation().getWellPosition();
     }
 
     @Override

@@ -34,6 +34,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 import com.genologics.ri.ClarityEntity;
 import com.genologics.ri.LimsEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Link;
 
 /**
@@ -137,5 +138,14 @@ public class ReagentType implements LimsEntity<ReagentType>, Serializable
         b.append("category", reagentCategory);
         b.append("name", name);
         return b.toString();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<ReagentType> getLink()
+    {
+        return new ReagentTypeLink(this);
     }
 }

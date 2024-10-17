@@ -30,6 +30,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.ClarityEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 
 @ClarityEntity(uriSection = "controltypes", creatable = true, updateable = true)
@@ -148,5 +149,14 @@ public class ControlType implements Linkable<ControlType>, Serializable
     public void setName(String name)
     {
         this.name = name;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<ControlType> getLink()
+    {
+        return new ControlTypeLink(this);
     }
 }

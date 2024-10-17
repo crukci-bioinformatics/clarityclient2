@@ -18,6 +18,8 @@
 
 package com.genologics.ri.step;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -30,6 +32,7 @@ import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.LimsEntityLink;
 import com.genologics.ri.LimsEntityLinkable;
+import com.genologics.ri.Linkable;
 import com.genologics.ri.artifact.Artifact;
 
 /**
@@ -76,9 +79,25 @@ public class SharedResultFile implements LimsEntityLink<Artifact>, Serializable
         this.limsid = limsid;
     }
 
+    public SharedResultFile(Linkable<Artifact> link)
+    {
+        requireNonNull(link, "link cannot be null");
+        artifactUri = link.getUri();
+    }
+
     public SharedResultFile(LimsEntityLinkable<Artifact> link)
     {
-        this.artifactUri = link.getUri();
+        requireNonNull(link, "link cannot be null");
+        artifactUri = link.getUri();
+        limsid = link.getLimsid();
+    }
+
+    public SharedResultFile(Artifact artifact)
+    {
+        requireNonNull(artifact, "artifact cannot be null");
+        artifactUri = artifact.getUri();
+        limsid = artifact.getLimsid();
+        name = artifact.getName();
     }
 
     public String getMessage()

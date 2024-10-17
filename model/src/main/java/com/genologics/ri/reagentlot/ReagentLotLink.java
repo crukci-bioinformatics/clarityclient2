@@ -18,6 +18,8 @@
 
 package com.genologics.ri.reagentlot;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -30,6 +32,7 @@ import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.LimsEntityLink;
 import com.genologics.ri.LimsEntityLinkable;
+import com.genologics.ri.Linkable;
 
 /**
  *
@@ -73,10 +76,32 @@ public class ReagentLotLink implements LimsEntityLink<ReagentLot>, Serializable
         this.limsid = limsid;
     }
 
+    public ReagentLotLink(URI uri, String limsid, String name)
+    {
+        this.uri = uri;
+        this.limsid = limsid;
+        this.name = name;
+    }
+
+    public ReagentLotLink(Linkable<ReagentLot> link)
+    {
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
+    }
+
     public ReagentLotLink(LimsEntityLinkable<ReagentLot> link)
     {
+        requireNonNull(link, "link cannot be null");
         uri = link.getUri();
         limsid = link.getLimsid();
+    }
+
+    public ReagentLotLink(ReagentLot lot)
+    {
+        requireNonNull(lot, "lot cannot be null");
+        uri = lot.getUri();
+        limsid = lot.getLimsid();
+        name = lot.getName();
     }
 
     public String getName()

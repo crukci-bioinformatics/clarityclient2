@@ -18,6 +18,8 @@
 
 package com.genologics.ri.configuration;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -64,17 +66,25 @@ public class TypeDefinition implements LimsLink<Type>, Serializable
         this.uri = uri;
     }
 
-    public TypeDefinition(Linkable<Type> link)
+    public TypeDefinition(Linkable<Type> type)
     {
-        uri = link.getUri();
+        requireNonNull(type, "type cannot be null");
+        uri = type.getUri();
         try
         {
-            this.name = (String)PropertyUtils.getProperty(link, "name");
+            name = (String)PropertyUtils.getProperty(type, "name");
         }
         catch (Exception e)
         {
             // Ignore.
         }
+    }
+
+    public TypeDefinition(Type type)
+    {
+        requireNonNull(type, "type cannot be null");
+        uri = type.getUri();
+        name = type.getName();
     }
 
     @Override

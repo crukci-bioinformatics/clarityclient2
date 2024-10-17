@@ -38,6 +38,7 @@ import com.genologics.ri.Address;
 import com.genologics.ri.ClarityEntity;
 import com.genologics.ri.ExternalId;
 import com.genologics.ri.LimsEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Link;
 import com.genologics.ri.configuration.FieldType;
 import com.genologics.ri.userdefined.UDF;
@@ -219,5 +220,14 @@ public class Lab implements LimsEntity<Lab>, UDFHolder, Serializable
         StringBuilder sb = new StringBuilder(50);
         sb.append(getLimsid()).append(' ').append(name);
         return sb.toString();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<Lab> getLink()
+    {
+        return new LabLink(this);
     }
 }

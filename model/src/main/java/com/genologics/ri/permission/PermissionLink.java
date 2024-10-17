@@ -18,6 +18,8 @@
 
 package com.genologics.ri.permission;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -56,6 +58,21 @@ public class PermissionLink implements LimsLink<Permission>, Serializable
     public PermissionLink(URI uri)
     {
         this.uri = uri;
+    }
+
+    public PermissionLink(URI uri, String name, String action)
+    {
+        this.uri = uri;
+        this.name = name;
+        this.action = action;
+    }
+
+    public PermissionLink(Permission permission)
+    {
+        requireNonNull(permission, "permission cannot be null");
+        this.uri = permission.getUri();
+        this.name = permission.getName();
+        this.action = permission.getAction();
     }
 
     public String getAction()

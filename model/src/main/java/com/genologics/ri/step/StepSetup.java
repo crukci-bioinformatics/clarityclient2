@@ -22,6 +22,7 @@ import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -32,6 +33,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.ClarityEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Link;
 import com.genologics.ri.Linkable;
 
@@ -117,4 +119,12 @@ public class StepSetup implements Linkable<StepSetup>, Serializable
         this.uri = uri;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<StepSetup> getLink()
+    {
+        return new StepSetupLink(this);
+    }
 }

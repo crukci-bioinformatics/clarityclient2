@@ -33,7 +33,8 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.ClarityEntity;
-import com.genologics.ri.Locatable;
+import com.genologics.ri.LimsLink;
+import com.genologics.ri.Linkable;
 import com.genologics.ri.Namespaces;
 import com.genologics.ri.file.ClarityFile;
 
@@ -50,7 +51,7 @@ import com.genologics.ri.file.ClarityFile;
 @XmlType(name = "automation",
          propOrder = { "context", "script", "runProgramPerEvent", "channel", "files", "processTypes" })
 @XmlRootElement(name = "automation")
-public class Automation implements Locatable, Serializable
+public class Automation implements Linkable<Automation>, Serializable
 {
     private static final long serialVersionUID = 8888968017373728807L;
 
@@ -161,5 +162,11 @@ public class Automation implements Locatable, Serializable
     public void setName(String value)
     {
         this.name = value;
+    }
+
+    @Override
+    public LimsLink<Automation> getLink()
+    {
+        return new AutomationLink(this);
     }
 }

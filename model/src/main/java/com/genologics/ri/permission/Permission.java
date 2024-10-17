@@ -29,6 +29,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.ClarityEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 
 /**
@@ -110,4 +111,12 @@ public class Permission implements Linkable<Permission>, Serializable
         this.uri = uri;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<Permission> getLink()
+    {
+        return new PermissionLink(this);
+    }
 }

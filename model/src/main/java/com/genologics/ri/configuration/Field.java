@@ -32,6 +32,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.ClarityEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 
 /**
@@ -323,4 +324,12 @@ public class Field implements Linkable<Field>, Serializable
         this.uri = uri;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<Field> getLink()
+    {
+        return new FieldLink(this);
+    }
 }

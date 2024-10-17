@@ -35,8 +35,10 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.ClarityEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.protocolconfiguration.Protocol;
+import com.genologics.ri.protocolconfiguration.ProtocolLink;
 import com.genologics.ri.stage.Stage;
 
 /**
@@ -184,5 +186,14 @@ public class Workflow implements Linkable<Workflow>, Serializable
         StageLink link = new StageLink(stage);
         getStages().add(link);
         return link;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<Workflow> getLink()
+    {
+        return new WorkflowLink(this);
     }
 }

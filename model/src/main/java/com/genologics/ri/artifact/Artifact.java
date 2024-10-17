@@ -39,6 +39,7 @@ import jakarta.xml.bind.annotation.XmlType;
 import com.genologics.ri.ClarityEntity;
 import com.genologics.ri.LimsEntity;
 import com.genologics.ri.LimsEntityLinkable;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.Location;
 import com.genologics.ri.artifactgroup.ArtifactGroup;
@@ -384,5 +385,14 @@ public class Artifact implements LimsEntity<Artifact>, UDFHolder, Serializable
         StringBuilder sb = new StringBuilder();
         sb.append(limsid).append(' ').append(type);
         return sb.toString();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<Artifact> getLink()
+    {
+        return new ArtifactLink(this);
     }
 }

@@ -38,6 +38,7 @@ import jakarta.xml.bind.annotation.XmlType;
 import com.genologics.ri.ClarityEntity;
 import com.genologics.ri.LimsEntity;
 import com.genologics.ri.LimsEntityLinkable;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.artifact.Artifact;
 import com.genologics.ri.configuration.FieldType;
@@ -260,5 +261,14 @@ public class Container implements LimsEntity<Container>, UDFHolder, Serializable
             sb.append(' ').append(containerType.getName());
         }
         return sb.toString();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<Container> getLink()
+    {
+        return new ContainerLink(this);
     }
 }

@@ -36,14 +36,14 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import com.genologics.ri.jaxb.ShortDateAdapter;
-
 import com.genologics.ri.ClarityEntity;
 import com.genologics.ri.LimsEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.configuration.FieldType;
 import com.genologics.ri.file.ClarityFile;
 import com.genologics.ri.instrument.Instrument;
+import com.genologics.ri.jaxb.ShortDateAdapter;
 import com.genologics.ri.processtype.ProcessType;
 import com.genologics.ri.researcher.Researcher;
 import com.genologics.ri.userdefined.UDF;
@@ -292,4 +292,12 @@ public class ClarityProcess implements LimsEntity<ClarityProcess>, UDFHolder, Se
         return sb.toString();
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<ClarityProcess> getLink()
+    {
+        return new ProcessLink(this);
+    }
 }

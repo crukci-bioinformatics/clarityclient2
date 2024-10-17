@@ -66,17 +66,23 @@ public class ReagentTypeLink implements LimsEntityLink<ReagentType>, Serializabl
 
     public ReagentTypeLink(Linkable<ReagentType> link)
     {
-        this.uri = link.getUri();
+        uri = link.getUri();
         /*
         try
         {
-            this.name = (String)PropertyUtils.getProperty(link, "name");
+            name = (String)PropertyUtils.getProperty(link, "name");
         }
         catch (Exception e)
         {
             // Ignore.
         }
         */
+    }
+
+    public ReagentTypeLink(ReagentType type)
+    {
+        uri = type.getUri();
+        name = type.getName();
     }
 
     @Override

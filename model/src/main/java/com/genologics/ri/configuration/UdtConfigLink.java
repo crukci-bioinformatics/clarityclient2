@@ -18,6 +18,8 @@
 
 package com.genologics.ri.configuration;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -64,12 +66,13 @@ public class UdtConfigLink implements LimsLink<Type>, Serializable
         this.uri = uri;
     }
 
-    public UdtConfigLink(Type realType)
+    public UdtConfigLink(Type type)
     {
-        uri = realType.getUri();
-        name = realType.getName();
-        attachToName = realType.getAttachToName();
-        attachToCategory = realType.getAttachToCategory();
+        requireNonNull(type, "type cannot be null");
+        uri = type.getUri();
+        name = type.getName();
+        attachToName = type.getAttachToName();
+        attachToCategory = type.getAttachToCategory();
     }
 
     @Override

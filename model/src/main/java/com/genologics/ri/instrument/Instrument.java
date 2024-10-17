@@ -31,6 +31,7 @@ import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.ClarityEntity;
 import com.genologics.ri.LimsEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Link;
 
 /**
@@ -186,5 +187,14 @@ public class Instrument implements LimsEntity<Instrument>, Serializable
     public void setArchived(Boolean archived)
     {
         this.archived = archived;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<Instrument> getLink()
+    {
+        return new InstrumentLink(this);
     }
 }

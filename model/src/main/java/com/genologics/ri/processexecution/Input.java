@@ -18,6 +18,8 @@
 
 package com.genologics.ri.processexecution;
 
+import static java.util.Objects.requireNonNull;
+
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -62,6 +64,7 @@ public class Input extends ArtifactBase implements LimsLink<Artifact>
 
     public Input(Linkable<Artifact> link)
     {
+        requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
         updateQCFlag(link);
     }

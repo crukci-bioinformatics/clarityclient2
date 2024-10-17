@@ -19,6 +19,8 @@
 
 package com.genologics.ri.step;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -59,7 +61,8 @@ public class AutomaticNextStepLink implements LimsLink<ProcessStep>, Serializabl
 
     public AutomaticNextStepLink(Linkable<ProcessStep> link)
     {
-        setUri(link.getUri());
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
     }
 
     @Override

@@ -18,6 +18,8 @@
 
 package com.genologics.ri.instrument;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -65,17 +67,15 @@ public class InstrumentLink implements LimsEntityLink<Instrument>, Serializable
 
     public InstrumentLink(Linkable<Instrument> link)
     {
+        requireNonNull(link, "link cannot be null");
         uri = link.getUri();
-        /*
-        try
-        {
-            this.name = (String)PropertyUtils.getProperty(link, "name");
-        }
-        catch (Exception e)
-        {
-            // Ignore.
-        }
-        */
+    }
+
+    public InstrumentLink(Instrument instrument)
+    {
+        requireNonNull(instrument, "instrument cannot be null");
+        uri = instrument.getUri();
+        name = instrument.getName();
     }
 
     @Override

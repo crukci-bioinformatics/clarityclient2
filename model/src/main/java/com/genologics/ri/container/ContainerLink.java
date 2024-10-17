@@ -18,6 +18,8 @@
 
 package com.genologics.ri.container;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -30,6 +32,7 @@ import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.LimsEntityLink;
 import com.genologics.ri.LimsEntityLinkable;
+import com.genologics.ri.Linkable;
 
 /**
  * Container-link is a child element type of containers and provides a URI
@@ -73,20 +76,25 @@ public class ContainerLink implements LimsEntityLink<Container>, Serializable
         this.name = name;
     }
 
+    public ContainerLink(Linkable<Container> link)
+    {
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
+    }
+
     public ContainerLink(LimsEntityLinkable<Container> link)
     {
-        this.uri = link.getUri();
-        this.limsid = link.getLimsid();
-        /*
-        try
-        {
-            this.name = (String)PropertyUtils.getProperty(link, "name");
-        }
-        catch (Exception e)
-        {
-            // Ignore.
-        }
-        */
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
+        limsid = link.getLimsid();
+    }
+
+    public ContainerLink(Container container)
+    {
+        requireNonNull(container, "container cannot be null");
+        uri = container.getUri();
+        limsid = container.getLimsid();
+        name = container.getName();
     }
 
     @Override

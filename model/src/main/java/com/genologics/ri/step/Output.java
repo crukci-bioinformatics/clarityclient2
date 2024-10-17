@@ -18,6 +18,8 @@
 
 package com.genologics.ri.step;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -52,11 +54,26 @@ public class Output implements LimsLink<Artifact>, Serializable
     protected URI artifactUri;
 
 
+    public Output()
+    {
+    }
+
+    public Output(URI artifactUri)
+    {
+        this.artifactUri = artifactUri;
+    }
+
+    public Output(LimsLink<Artifact> link)
+    {
+        requireNonNull(link, "link cannot be null");
+        this.artifactUri = link.getUri();
+    }
+
     public List<ReagentLabel> getReagentLabels()
     {
         if (reagentLabels == null)
         {
-            reagentLabels = new ArrayList<ReagentLabel>();
+            reagentLabels = new ArrayList<>();
         }
         return reagentLabels;
     }

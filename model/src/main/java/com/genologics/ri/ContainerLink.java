@@ -18,6 +18,8 @@
 
 package com.genologics.ri;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -64,13 +66,15 @@ public class ContainerLink implements LimsEntityLink<Container>, Serializable
 
     public ContainerLink(Linkable<Container> link)
     {
-        this.uri = link.getUri();
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
     }
 
     public ContainerLink(LimsEntityLinkable<Container> link)
     {
-        this.uri = link.getUri();
-        this.limsid = link.getLimsid();
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
+        limsid = link.getLimsid();
     }
 
     @Override

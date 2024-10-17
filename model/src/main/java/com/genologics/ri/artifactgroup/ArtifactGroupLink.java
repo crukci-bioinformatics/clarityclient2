@@ -18,6 +18,8 @@
 
 package com.genologics.ri.artifactgroup;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -63,17 +65,8 @@ public class ArtifactGroupLink implements LimsLink<ArtifactGroup>, Serializable
 
     public ArtifactGroupLink(Linkable<ArtifactGroup> link)
     {
+        requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
-        /*
-        try
-        {
-            this.name = (String)PropertyUtils.getProperty(link, "name");
-        }
-        catch (Exception e)
-        {
-            // Ignore.
-        }
-        */
     }
 
     @Override

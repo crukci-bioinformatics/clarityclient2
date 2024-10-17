@@ -18,6 +18,8 @@
 
 package com.genologics.ri.processtype;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -28,6 +30,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.LimsLink;
+import com.genologics.ri.Linkable;
 import com.genologics.ri.reagentkit.ReagentKit;
 
 
@@ -57,6 +60,19 @@ public class ReagentKitLink implements LimsLink<ReagentKit>, Serializable
     public ReagentKitLink(String name)
     {
         this.name = name;
+    }
+
+    public ReagentKitLink(Linkable<ReagentKit> link)
+    {
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
+    }
+
+    public ReagentKitLink(ReagentKit kit)
+    {
+        requireNonNull(kit, "kit cannot be null");
+        uri = kit.getUri();
+        name = kit.getName();
     }
 
     public String getName()

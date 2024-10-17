@@ -33,6 +33,7 @@ import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.Batch;
 import com.genologics.ri.ClarityEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 
 /**
@@ -60,6 +61,22 @@ public class Type implements Linkable<Type>, Batch<FieldLink>, Serializable
 
     @XmlAttribute(name = "uri")
     protected URI uri;
+
+
+    public Type()
+    {
+    }
+
+    public Type(String name)
+    {
+        this.name = name;
+    }
+
+    public Type(String name, URI uri)
+    {
+        this.name = name;
+        this.uri = uri;
+    }
 
     public List<FieldLink> getFieldDefinitions()
     {
@@ -128,4 +145,12 @@ public class Type implements Linkable<Type>, Batch<FieldLink>, Serializable
         this.uri = value;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<Type> getLink()
+    {
+        return new UdtConfigLink(this);
+    }
 }

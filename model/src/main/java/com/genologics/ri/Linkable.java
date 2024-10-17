@@ -27,4 +27,12 @@ package com.genologics.ri;
  */
 public interface Linkable<E extends Locatable> extends Locatable
 {
+    /**
+     * Get a concrete link object to this linkable entity.
+     *
+     * @return A LimsLink to this object.
+     *
+     * @since Clarity Client version 2, 2.31.0
+     */
+    LimsLink<E> getLink();
 }

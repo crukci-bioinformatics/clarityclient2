@@ -34,8 +34,8 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.ClarityEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
-import com.genologics.ri.configuration.FieldType;
 import com.genologics.ri.instrument.Instrument;
 import com.genologics.ri.processtype.ProcessType;
 import com.genologics.ri.researcher.Researcher;
@@ -202,19 +202,6 @@ public class ProcessTemplate implements Linkable<ProcessTemplate>, UDFHolder, Se
         return fields;
     }
 
-    @Deprecated
-    public UDF addUserDefinedField(UDF udf)
-    {
-        getUserDefinedFields().add(udf);
-        return udf;
-    }
-
-    @Deprecated
-    public UDF addUserDefinedField(String name, FieldType type, String value)
-    {
-        return addUserDefinedField(new UDF(name, type, value));
-    }
-
     public Boolean isDefault()
     {
         return defaultTemplate;
@@ -225,4 +212,12 @@ public class ProcessTemplate implements Linkable<ProcessTemplate>, UDFHolder, Se
         this.defaultTemplate = defaultTemplate;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<ProcessTemplate> getLink()
+    {
+        return new ProcessTemplateLink(this);
+    }
 }

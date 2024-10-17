@@ -37,14 +37,14 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import com.genologics.ri.jaxb.ShortDateAdapter;
-
 import com.genologics.ri.ClarityEntity;
 import com.genologics.ri.ExternalId;
 import com.genologics.ri.LimsEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.configuration.FieldType;
 import com.genologics.ri.file.ClarityFile;
+import com.genologics.ri.jaxb.ShortDateAdapter;
 import com.genologics.ri.researcher.Researcher;
 import com.genologics.ri.userdefined.UDF;
 import com.genologics.ri.userdefined.UDFHolder;
@@ -265,5 +265,14 @@ public class Project implements LimsEntity<Project>, UDFHolder, Serializable
         StringBuilder sb = new StringBuilder(30);
         sb.append(limsid).append(' ').append(name);
         return sb.toString();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<Project> getLink()
+    {
+        return new ProjectLink(this);
     }
 }

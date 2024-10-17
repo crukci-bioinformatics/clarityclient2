@@ -18,6 +18,8 @@
 
 package com.genologics.ri.file;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -91,10 +93,11 @@ public class ClarityFile implements LimsEntity<ClarityFile>, LimsEntityLink<Clar
         this.limsid = limsid;
     }
 
-    public ClarityFile(ClarityFile original)
+    public ClarityFile(ClarityFile file)
     {
-        this.uri = original.getUri();
-        this.limsid = original.getLimsid();
+        requireNonNull(file, "file cannot be null");
+        this.uri = file.getUri();
+        this.limsid = file.getLimsid();
     }
 
     /**

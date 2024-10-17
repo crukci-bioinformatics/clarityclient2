@@ -30,6 +30,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.ClarityEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 
 /**
@@ -140,5 +141,12 @@ public class ReagentKit implements Linkable<ReagentKit>, Serializable
         this.uri = uri;
     }
 
-
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<ReagentKit> getLink()
+    {
+        return new ReagentKitLink(this);
+    }
 }

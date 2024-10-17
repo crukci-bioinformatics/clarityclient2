@@ -35,6 +35,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.ClarityEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.stepconfiguration.ProtocolStep;
 
@@ -183,5 +184,14 @@ public class Protocol implements Linkable<Protocol>, Serializable
     public void setUri(URI uri)
     {
         this.uri = uri;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<Protocol> getLink()
+    {
+        return new ProtocolLink(this);
     }
 }

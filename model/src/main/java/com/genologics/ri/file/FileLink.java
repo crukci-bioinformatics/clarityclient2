@@ -18,6 +18,8 @@
 
 package com.genologics.ri.file;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -66,6 +68,7 @@ public class FileLink implements LimsLink<ClarityFile>, Serializable
 
     public FileLink(LimsEntityLinkable<ClarityFile> link)
     {
+        requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
         this.limsid = link.getLimsid();
     }

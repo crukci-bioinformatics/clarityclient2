@@ -18,6 +18,8 @@
 
 package com.genologics.ri.process;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -29,6 +31,7 @@ import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.LimsEntityLink;
 import com.genologics.ri.LimsEntityLinkable;
+import com.genologics.ri.Linkable;
 
 /**
  *
@@ -63,8 +66,15 @@ public class ProcessLink implements LimsEntityLink<ClarityProcess>, Serializable
         this.limsid = limsid;
     }
 
+    public ProcessLink(Linkable<ClarityProcess> link)
+    {
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
+    }
+
     public ProcessLink(LimsEntityLinkable<ClarityProcess> link)
     {
+        requireNonNull(link, "link cannot be null");
         uri = link.getUri();
         limsid = link.getLimsid();
     }

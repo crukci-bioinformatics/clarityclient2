@@ -30,6 +30,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.ClarityEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Link;
 import com.genologics.ri.Linkable;
 
@@ -121,4 +122,12 @@ public class ProgramStatus implements Linkable<ProgramStatus>, Serializable
         this.uri = uri;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<ProgramStatus> getLink()
+    {
+        return new ProgramStatusLink(this);
+    }
 }

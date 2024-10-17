@@ -18,6 +18,8 @@
 
 package com.genologics.ri.automation;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -28,6 +30,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.LimsLink;
+import com.genologics.ri.Linkable;
 
 /**
  * @since 2.26
@@ -58,6 +61,19 @@ public class AutomationLink implements LimsLink<Automation>, Serializable
     {
         this.uri = uri;
         this.name = name;
+    }
+
+    public AutomationLink(Linkable<Automation> link)
+    {
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
+    }
+
+    public AutomationLink(Automation automation)
+    {
+        requireNonNull(automation, "automation cannot be null");
+        uri = automation.getUri();
+        name = automation.getName();
     }
 
     public URI getUri()

@@ -18,6 +18,8 @@
 
 package com.genologics.ri.stepconfiguration;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -50,6 +52,36 @@ public class NextStep implements LimsLink<ProtocolStep>, Serializable
     @XmlAttribute(name = "next-step-uri")
     @XmlSchemaType(name = "anyURI")
     protected URI nextStepUri;
+
+    public NextStep()
+    {
+    }
+
+    public NextStep(URI nextStepUri)
+    {
+        this.nextStepUri = nextStepUri;
+    }
+
+    public NextStep(URI nextStepUri, String name)
+    {
+        this.nextStepUri = nextStepUri;
+        this.name = name;
+    }
+
+    public NextStep(URI nextStepUri, String name, Integer sequence)
+    {
+        this.nextStepUri = nextStepUri;
+        this.name = name;
+        this.sequence = sequence;
+    }
+
+    public NextStep(ProtocolStep step)
+    {
+        requireNonNull(step, "step cannot be null");
+        nextStepUri = step.getUri();
+        name = step.getName();
+        sequence = step.getProtocolStepIndex();
+    }
 
     public String getName()
     {

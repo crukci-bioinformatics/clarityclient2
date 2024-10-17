@@ -18,6 +18,8 @@
 
 package com.genologics.ri.instrumenttype;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -28,6 +30,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.LimsLink;
+import com.genologics.ri.Linkable;
 
 
 /**
@@ -63,6 +66,27 @@ public class InstrumentTypeLink implements LimsLink<InstrumentType>, Serializabl
     {
         setUri(uri);
         setName(name);
+    }
+
+    public InstrumentTypeLink(URI uri, String name, String vendor)
+    {
+        setUri(uri);
+        setName(name);
+        setVendor(vendor);
+    }
+
+    public InstrumentTypeLink(Linkable<InstrumentType> link)
+    {
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
+    }
+
+    public InstrumentTypeLink(InstrumentType instrumentType)
+    {
+        requireNonNull(instrumentType, "instrumentType cannot be null");
+        uri = instrumentType.getUri();
+        name = instrumentType.getName();
+        vendor = instrumentType.getVendor();
     }
 
     public String getName()

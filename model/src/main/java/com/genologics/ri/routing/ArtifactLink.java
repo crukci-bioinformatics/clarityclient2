@@ -18,6 +18,8 @@
 
 package com.genologics.ri.routing;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -52,6 +54,7 @@ public class ArtifactLink implements LimsLink<Artifact>, Serializable
 
     public ArtifactLink(Linkable<Artifact> link)
     {
+        requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 

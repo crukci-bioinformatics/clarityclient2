@@ -34,6 +34,7 @@ import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.ClarityEntity;
 import com.genologics.ri.LimsEntityLinkable;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Link;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.Namespaces;
@@ -189,4 +190,12 @@ public class StepDetails implements Linkable<StepDetails>, UDFHolder, Serializab
         this.uri = uri;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<StepDetails> getLink()
+    {
+        return new StepDetailsLink(this);
+    }
 }

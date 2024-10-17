@@ -18,6 +18,8 @@
 
 package com.genologics.ri.step;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -103,6 +105,7 @@ public class OutputPlacement implements LimsLink<Artifact>, Serializable
 
     public void setArtifact(Linkable<Artifact> artifact)
     {
+        requireNonNull(artifact, "artifact cannot be null");
         uri = artifact.getUri();
     }
 

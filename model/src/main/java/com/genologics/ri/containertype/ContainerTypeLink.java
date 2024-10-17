@@ -18,6 +18,8 @@
 
 package com.genologics.ri.containertype;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -65,17 +67,15 @@ public class ContainerTypeLink implements LimsLink<ContainerType>, Serializable
 
     public ContainerTypeLink(Linkable<ContainerType> link)
     {
+        requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
-        /*
-        try
-        {
-            this.name = (String)PropertyUtils.getProperty(link, "name");
-        }
-        catch (Exception e)
-        {
-            // Ignore.
-        }
-        */
+    }
+
+    public ContainerTypeLink(ContainerType containerType)
+    {
+        requireNonNull(containerType, "containerType cannot be null");
+        this.uri = containerType.getUri();
+        this.name = containerType.getName();
     }
 
     @Override

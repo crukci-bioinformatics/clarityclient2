@@ -18,6 +18,8 @@
 
 package com.genologics.ri.stepconfiguration;
 
+import static java.util.Objects.requireNonNull;
+
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -67,17 +69,15 @@ public class ReagentKitLink extends LockableSetting implements LimsLink<ReagentK
 
     public ReagentKitLink(Linkable<ReagentKit> link)
     {
-        this.uri = link.getUri();
-        /*
-        try
-        {
-            this.name = (String)PropertyUtils.getProperty(link, "name");
-        }
-        catch (Exception e)
-        {
-            // Ignore.
-        }
-        */
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
+    }
+
+    public ReagentKitLink(ReagentKit kit)
+    {
+        requireNonNull(kit, "kit cannot be null");
+        uri = kit.getUri();
+        name = kit.getName();
     }
 
     public String getName()

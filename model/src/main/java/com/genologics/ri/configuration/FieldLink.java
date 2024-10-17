@@ -18,6 +18,8 @@
 
 package com.genologics.ri.configuration;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -68,15 +70,23 @@ public class FieldLink implements LimsLink<Field>, Serializable
 
     public FieldLink(Linkable<Field> link)
     {
+        requireNonNull(link, "link cannot be null");
         uri = link.getUri();
         try
         {
-            this.name = (String)PropertyUtils.getProperty(link, "name");
+            name = (String)PropertyUtils.getProperty(link, "name");
         }
         catch (Exception e)
         {
             // Ignore.
         }
+    }
+
+    public FieldLink(Field field)
+    {
+        requireNonNull(field, "field cannot be null");
+        uri = field.getUri();
+        name = field.getName();
     }
 
     @Override

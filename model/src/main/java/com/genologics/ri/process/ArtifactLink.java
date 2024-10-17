@@ -18,6 +18,8 @@
 
 package com.genologics.ri.process;
 
+import static java.util.Objects.requireNonNull;
+
 import java.io.Serializable;
 import java.net.URI;
 
@@ -84,13 +86,24 @@ public class ArtifactLink implements LimsEntityLink<Artifact>, Serializable
 
     public ArtifactLink(Linkable<Artifact> link)
     {
-        this.uri = link.getUri();
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
     }
 
     public ArtifactLink(LimsEntityLinkable<Artifact> link)
     {
-        this.uri = link.getUri();
-        this.limsid = link.getLimsid();
+        requireNonNull(link, "link cannot be null");
+        uri = link.getUri();
+        limsid = link.getLimsid();
+    }
+
+    public ArtifactLink(Artifact artifact)
+    {
+        requireNonNull(artifact, "artifact cannot be null");
+        uri = artifact.getUri();
+        limsid = artifact.getLimsid();
+        outputType = artifact.getOutputType();
+        parentProcess = artifact.getParentProcess() == null ? null : new ParentProcessLink(artifact.getParentProcess());
     }
 
     @Override

@@ -39,6 +39,7 @@ import jakarta.xml.bind.annotation.XmlType;
 import com.genologics.ri.ClarityEntity;
 import com.genologics.ri.ExternalId;
 import com.genologics.ri.LimsEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Link;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.configuration.FieldType;
@@ -318,5 +319,14 @@ public class Researcher implements LimsEntity<Researcher>, UDFHolder, Serializab
         StringBuilder sb = new StringBuilder(50);
         sb.append(getLimsid()).append(' ').append(firstName).append(' ').append(lastName);
         return sb.toString();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<Researcher> getLink()
+    {
+        return new ResearcherLink(this);
     }
 }
