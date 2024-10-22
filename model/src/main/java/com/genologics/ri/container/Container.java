@@ -41,7 +41,6 @@ import com.genologics.ri.LimsEntityLink;
 import com.genologics.ri.LimsEntityLinkable;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.artifact.Artifact;
-import com.genologics.ri.configuration.FieldType;
 import com.genologics.ri.containertype.ContainerType;
 import com.genologics.ri.userdefined.UDF;
 import com.genologics.ri.userdefined.UDFHolder;
@@ -213,28 +212,9 @@ public class Container implements LimsEntity<Container>, UDFHolder, Serializable
     {
         if (fields == null)
         {
-            fields = new ArrayList<UDF>();
+            fields = new ArrayList<>();
         }
         return fields;
-    }
-
-    @Deprecated
-    public UDF getUserDefinedField(String name)
-    {
-        return UDF.getUDF(fields, name);
-    }
-
-    @Deprecated
-    public UDF addUserDefinedField(UDF udf)
-    {
-        getUserDefinedFields().add(udf);
-        return udf;
-    }
-
-    @Deprecated
-    public UDF addUserDefinedField(String name, FieldType type, String value)
-    {
-        return addUserDefinedField(new UDF(name, type, value));
     }
 
     public ContainerState getState()

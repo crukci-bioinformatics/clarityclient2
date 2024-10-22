@@ -43,7 +43,6 @@ import com.genologics.ri.LimsEntityLinkable;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.Location;
 import com.genologics.ri.artifactgroup.ArtifactGroup;
-import com.genologics.ri.configuration.FieldType;
 import com.genologics.ri.controltype.ControlType;
 import com.genologics.ri.file.ClarityFile;
 import com.genologics.ri.process.ClarityProcess;
@@ -259,25 +258,6 @@ public class Artifact implements LimsEntity<Artifact>, UDFHolder, Serializable
             fields = new ArrayList<>();
         }
         return this.fields;
-    }
-
-    @Deprecated
-    public UDF getUserDefinedField(String name)
-    {
-        return UDF.getUDF(fields, name);
-    }
-
-    @Deprecated
-    public UDF addUserDefinedField(UDF udf)
-    {
-        getUserDefinedFields().add(udf);
-        return udf;
-    }
-
-    @Deprecated
-    public UDF addUserDefinedField(String name, FieldType type, String value)
-    {
-        return addUserDefinedField(new UDF(name, type, value));
     }
 
     /**

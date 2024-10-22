@@ -33,11 +33,9 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import com.genologics.ri.jaxb.ShortDateAdapter;
-
 import com.genologics.ri.Linkable;
-import com.genologics.ri.configuration.FieldType;
 import com.genologics.ri.instrument.Instrument;
+import com.genologics.ri.jaxb.ShortDateAdapter;
 import com.genologics.ri.processtype.ProcessType;
 import com.genologics.ri.researcher.Researcher;
 import com.genologics.ri.userdefined.UDF;
@@ -179,19 +177,6 @@ public class ExecutableProcess implements UDFHolder, Serializable
             fields = new ArrayList<UDF>();
         }
         return fields;
-    }
-
-    @Deprecated
-    public UDF addUserDefinedField(UDF udf)
-    {
-        getUserDefinedFields().add(udf);
-        return udf;
-    }
-
-    @Deprecated
-    public UDF addUserDefinedField(String name, FieldType type, String value)
-    {
-        return addUserDefinedField(new UDF(name, type, value));
     }
 
     public InstrumentLink getInstrument()

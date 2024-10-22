@@ -40,7 +40,6 @@ import com.genologics.ri.ClarityEntity;
 import com.genologics.ri.LimsEntity;
 import com.genologics.ri.LimsEntityLink;
 import com.genologics.ri.Linkable;
-import com.genologics.ri.configuration.FieldType;
 import com.genologics.ri.file.ClarityFile;
 import com.genologics.ri.instrument.Instrument;
 import com.genologics.ri.jaxb.ShortDateAdapter;
@@ -214,25 +213,6 @@ public class ClarityProcess implements LimsEntity<ClarityProcess>, UDFHolder, Se
             fields = new ArrayList<UDF>();
         }
         return fields;
-    }
-
-    @Deprecated
-    public UDF getUserDefinedField(String name)
-    {
-        return UDF.getUDF(fields, name);
-    }
-
-    @Deprecated
-    public UDF addUserDefinedField(UDF udf)
-    {
-        getUserDefinedFields().add(udf);
-        return udf;
-    }
-
-    @Deprecated
-    public UDF addUserDefinedField(String name, FieldType type, String value)
-    {
-        return addUserDefinedField(new UDF(name, type, value));
     }
 
     public List<ClarityFile> getFiles()

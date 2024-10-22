@@ -42,7 +42,6 @@ import com.genologics.ri.LimsEntity;
 import com.genologics.ri.LimsEntityLink;
 import com.genologics.ri.Link;
 import com.genologics.ri.Linkable;
-import com.genologics.ri.configuration.FieldType;
 import com.genologics.ri.lab.Lab;
 import com.genologics.ri.userdefined.UDF;
 import com.genologics.ri.userdefined.UDFHolder;
@@ -241,25 +240,6 @@ public class Researcher implements LimsEntity<Researcher>, UDFHolder, Serializab
             fields = new ArrayList<UDF>();
         }
         return fields;
-    }
-
-    @Deprecated
-    public UDF getUserDefinedField(String name)
-    {
-        return UDF.getUDF(fields, name);
-    }
-
-    @Deprecated
-    public UDF addUserDefinedField(UDF udf)
-    {
-        getUserDefinedFields().add(udf);
-        return udf;
-    }
-
-    @Deprecated
-    public UDF addUserDefinedField(String name, FieldType type, String value)
-    {
-        return addUserDefinedField(new UDF(name, type, value));
     }
 
     public List<ExternalId> getExternalIds()

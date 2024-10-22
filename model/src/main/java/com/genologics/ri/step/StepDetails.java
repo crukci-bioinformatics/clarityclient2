@@ -141,25 +141,6 @@ public class StepDetails implements Linkable<StepDetails>, UDFHolder, Serializab
         return fields;
     }
 
-    @Deprecated
-    public UDF getUserDefinedField(String name)
-    {
-        return UDF.getUDF(fields, name);
-    }
-
-    @Deprecated
-    public UDF addUserDefinedField(UDF udf)
-    {
-        getUserDefinedFields().add(udf);
-        return udf;
-    }
-
-    @Deprecated
-    public UDF addUserDefinedField(String name, FieldType type, String value)
-    {
-        return addUserDefinedField(new UDF(name, type, value));
-    }
-
     public String getPreset()
     {
         return preset;
