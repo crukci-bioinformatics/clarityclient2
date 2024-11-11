@@ -31,7 +31,7 @@ import jakarta.xml.bind.annotation.XmlElementWrapper;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
-import com.genologics.ri.Locatable;
+import com.genologics.ri.LimsLink;
 
 /**
  * Details of an individual artifact that is part of a pooled artifact.
@@ -40,7 +40,7 @@ import com.genologics.ri.Locatable;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "demux-artifact", propOrder = { "samples", "reagentLabels", "demux" })
-public class DemuxArtifact implements Locatable, Serializable
+public class DemuxArtifact implements LimsLink<Artifact>, Serializable
 {
     private static final long serialVersionUID = 8205564798487086835L;
 
@@ -86,11 +86,13 @@ public class DemuxArtifact implements Locatable, Serializable
         this.name = name;
     }
 
+    @Override
     public URI getUri()
     {
         return uri;
     }
 
+    @Override
     public void setUri(URI uri)
     {
         this.uri = uri;
@@ -114,4 +116,15 @@ public class DemuxArtifact implements Locatable, Serializable
         return reagentLabels;
     }
 
+    @Override
+    public String toString()
+    {
+        return name == null ? "null" : name;
+    }
+
+    @Override
+    public Class<Artifact> getEntityClass()
+    {
+        return Artifact.class;
+    }
 }
