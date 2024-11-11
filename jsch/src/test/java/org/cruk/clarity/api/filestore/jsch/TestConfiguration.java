@@ -19,15 +19,14 @@
 package org.cruk.clarity.api.filestore.jsch;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Properties;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.support.PropertiesLoaderUtils;
 
 @Configuration
 @ComponentScan(basePackages = "org.cruk.clarity.api.filestore", excludeFilters = @Filter(Configuration.class))
@@ -38,21 +37,8 @@ public class TestConfiguration
     }
 
     @Bean
-    public Properties testCredentials()
+    public Properties testCredentials() throws IOException
     {
-        Properties credentials = new Properties();
-        try (InputStream propsIn = getClass().getResourceAsStream("/testcredentials.properties"))
-        {
-            if (propsIn != null)
-            {
-                credentials.load(propsIn);
-            }
-        }
-        catch (IOException e)
-        {
-            Logger logger = LoggerFactory.getLogger(getClass());
-            logger.error("Could not read from credentials file: ", e);
-        }
-        return credentials;
+        return PropertiesLoaderUtils.loadProperties(new ClassPathResource("/testcredentials.properties"));
     }
 }
