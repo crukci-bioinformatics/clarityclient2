@@ -34,10 +34,8 @@ import org.springframework.stereotype.Component;
 
 import com.genologics.ri.file.ClarityFile;
 import com.jcraft.jsch.ChannelSftp;
-import com.jcraft.jsch.ConfigRepository;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
-import com.jcraft.jsch.OpenSSHConfig;
 import com.jcraft.jsch.Session;
 import com.jcraft.jsch.SftpATTRS;
 import com.jcraft.jsch.SftpException;
@@ -86,10 +84,7 @@ public class ClarityJSchFileUploader implements ClaritySFTPUploader
      */
     public ClarityJSchFileUploader() throws IOException
     {
-        ConfigRepository config = OpenSSHConfig.parse("StrictHostKeyChecking=no;PreferredAuthentications=password;");
-
         jsch = new JSch();
-        jsch.setConfigRepository(config);
 
         logger.debug("SFTP functionality provided by {}", ClassUtils.getShortClassName(getClass()));
     }
@@ -148,7 +143,7 @@ public class ClarityJSchFileUploader implements ClaritySFTPUploader
         try
         {
             Session session = jsch.getSession(username, targetFile.getContentLocation().getHost(), port);
-            session.setPassword(password);
+            setupSession(session);
             session.connect(timeout);
 
             try
@@ -220,7 +215,7 @@ public class ClarityJSchFileUploader implements ClaritySFTPUploader
         try
         {
             Session session = jsch.getSession(username, host, port);
-            session.setPassword(password);
+            setupSession(session);
             session.connect(timeout);
 
             try
@@ -337,4 +332,18 @@ public class ClarityJSchFileUploader implements ClaritySFTPUploader
         }
         return port;
     }
+
+    /**
+     * Using the OpenSSHConfig configuration on the shared JSch object doesn't set
+     * things correctly. This method sets them on a new Session object before connection.
+     *
+     * @param session The JSch session.
+     */
+    private void setupSession(Session session)
+    {
+        session.setPassword(password);
+        session.setConfig("StrictHostKeyChecking", "no");
+        session.setConfig("PreferredAuthentications", "password");
+    }
+
 }
