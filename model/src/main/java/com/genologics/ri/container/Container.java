@@ -155,9 +155,9 @@ public class Container implements LimsEntity<Container>, UDFHolder, Serializable
         this.containerType = new ContainerTypeLink(link);
     }
 
-    public void setContainerType(ContainerType link)
+    public void setContainerType(ContainerType containerType)
     {
-        this.containerType = new ContainerTypeLink(link);
+        this.containerType = new ContainerTypeLink(containerType);
     }
 
     public Long getOccupiedWells()
