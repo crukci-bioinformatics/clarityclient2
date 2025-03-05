@@ -109,6 +109,12 @@ public class Container implements LimsEntity<Container>, UDFHolder, Serializable
         setName(containerType.getName());
     }
 
+    public Container(ContainerType containerType, String name)
+    {
+        setContainerType(containerType);
+        setName(name);
+    }
+
     public String getLimsid()
     {
         return limsid;
@@ -145,6 +151,11 @@ public class Container implements LimsEntity<Container>, UDFHolder, Serializable
     }
 
     public void setContainerType(Linkable<ContainerType> link)
+    {
+        this.containerType = new ContainerTypeLink(link);
+    }
+
+    public void setContainerType(ContainerType link)
     {
         this.containerType = new ContainerTypeLink(link);
     }
