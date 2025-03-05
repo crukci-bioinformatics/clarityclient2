@@ -106,7 +106,12 @@ public class Container implements LimsEntity<Container>, UDFHolder, Serializable
     public Container(ContainerType containerType)
     {
         setContainerType(containerType);
-        setName(containerType.getName());
+    }
+
+    public Container(ContainerType containerType, String name)
+    {
+        setContainerType(containerType);
+        setName(name);
     }
 
     public String getLimsid()
@@ -147,6 +152,11 @@ public class Container implements LimsEntity<Container>, UDFHolder, Serializable
     public void setContainerType(Linkable<ContainerType> link)
     {
         this.containerType = new ContainerTypeLink(link);
+    }
+
+    public void setContainerType(ContainerType containerType)
+    {
+        this.containerType = new ContainerTypeLink(containerType);
     }
 
     public Long getOccupiedWells()
