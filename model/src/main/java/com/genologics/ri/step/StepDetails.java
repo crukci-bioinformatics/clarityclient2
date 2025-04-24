@@ -39,7 +39,6 @@ import com.genologics.ri.Link;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.Namespaces;
 import com.genologics.ri.artifact.Artifact;
-import com.genologics.ri.configuration.FieldType;
 import com.genologics.ri.instrument.Instrument;
 import com.genologics.ri.userdefined.UDF;
 import com.genologics.ri.userdefined.UDFHolder;
@@ -159,6 +158,11 @@ public class StepDetails implements Linkable<StepDetails>, UDFHolder, Serializab
     public void setInstrument(Linkable<Instrument> link)
     {
         this.instrument = new InstrumentLink(link);
+    }
+
+    public void setInstrument(Instrument instrument)
+    {
+        this.instrument = new InstrumentLink(instrument);
     }
 
     public URI getUri()
