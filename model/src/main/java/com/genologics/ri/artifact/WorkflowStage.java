@@ -34,7 +34,6 @@ import jakarta.xml.bind.annotation.XmlType;
 import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.stage.Stage;
-import com.genologics.ri.workflowconfiguration.Workflow;
 
 /**
  * Provides links to workflow stages, stage names and their respective statuses.

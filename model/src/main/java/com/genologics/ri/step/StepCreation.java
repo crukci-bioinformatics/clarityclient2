@@ -77,6 +77,11 @@ public class StepCreation implements Serializable
         setConfiguration(step);
     }
 
+    public StepCreation(ProtocolStep step)
+    {
+        setConfiguration(step);
+    }
+
     public StepConfiguration getConfiguration()
     {
         return configuration;
@@ -88,6 +93,11 @@ public class StepCreation implements Serializable
     }
 
     public void setConfiguration(Linkable<ProtocolStep> step)
+    {
+        this.configuration = step == null ? null : new StepConfiguration(step);
+    }
+
+    public void setConfiguration(ProtocolStep step)
     {
         this.configuration = step == null ? null : new StepConfiguration(step);
     }
@@ -121,7 +131,7 @@ public class StepCreation implements Serializable
     {
         if (inputs == null)
         {
-            inputs = new ArrayList<CreationInput>();
+            inputs = new ArrayList<>();
         }
         return inputs;
     }

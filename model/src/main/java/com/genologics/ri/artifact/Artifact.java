@@ -220,6 +220,28 @@ public class Artifact implements LimsEntity<Artifact>, UDFHolder, Serializable
         }
     }
 
+    public SampleLink addSample(Linkable<Sample> linkable)
+    {
+        SampleLink link = null;
+        if (linkable != null)
+        {
+            link = new SampleLink(linkable);
+            getSamples().add(link);
+        }
+        return link;
+    }
+
+    public SampleLink addSample(LimsEntityLinkable<Sample> linkable)
+    {
+        SampleLink link = null;
+        if (linkable != null)
+        {
+            link = new SampleLink(linkable);
+            getSamples().add(link);
+        }
+        return link;
+    }
+
     public List<ReagentLabel> getReagentLabels()
     {
         if (reagentLabels == null)
