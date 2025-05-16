@@ -206,7 +206,7 @@ public class Artifact implements LimsEntity<Artifact>, UDFHolder, Serializable
     {
         if (samples == null)
         {
-            samples = new ArrayList<SampleLink>();
+            samples = new ArrayList<>();
         }
         return samples;
     }
@@ -246,7 +246,7 @@ public class Artifact implements LimsEntity<Artifact>, UDFHolder, Serializable
     {
         if (reagentLabels == null)
         {
-            reagentLabels = new ArrayList<ReagentLabel>();
+            reagentLabels = new ArrayList<>();
         }
         return reagentLabels;
     }
