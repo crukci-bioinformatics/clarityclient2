@@ -31,6 +31,8 @@ import java.util.List;
 
 import javax.xml.transform.stream.StreamSource;
 
+import jakarta.xml.bind.JAXBElement;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +64,12 @@ public class UDFTest
     @BeforeEach
     void loadArtifact() throws IOException
     {
-        a = (Artifact)unmarshaller.unmarshal(new StreamSource(new File(exampleDirectory, "artifact.xml")));
+        Object thing = unmarshaller.unmarshal(new StreamSource(new File(exampleDirectory, "artifact.xml")));
+        if (thing instanceof JAXBElement<?> element)
+        {
+            thing = element.getValue();
+        }
+        a = (Artifact)thing;
     }
 
     @Test

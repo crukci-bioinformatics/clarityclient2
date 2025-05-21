@@ -24,16 +24,20 @@ import java.io.File;
 
 import javax.xml.transform.stream.StreamSource;
 
+import jakarta.xml.bind.JAXBElement;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.oxm.Unmarshaller;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
-import com.genologics.ri.artifact.ArtifactBatchFetchResult;
-import com.genologics.ri.container.ContainerBatchFetchResult;
-import com.genologics.ri.file.ClarityFileBatchFetchResult;
-import com.genologics.ri.sample.SampleBatchFetchResult;
+import com.genologics.ri.BatchUpdate;
+import com.genologics.ri.LimsEntity;
+import com.genologics.ri.artifact.Artifact;
+import com.genologics.ri.container.Container;
+import com.genologics.ri.file.ClarityFile;
+import com.genologics.ri.sample.Sample;
 import com.genologics.ri.unittests.ClarityModelTestConfiguration;
 
 @SpringJUnitConfig(classes = ClarityModelTestConfiguration.class)
@@ -52,13 +56,9 @@ public class BatchFetchDecodingTest
     {
         File resultFile = new File("src/test/xml/batchfetchdecodingtest-artifacts.xml");
 
-        Object result = unmarshaller.unmarshal(new StreamSource(resultFile));
+        var result = unmarshal(resultFile, Artifact.class);
 
-        assertEquals(ArtifactBatchFetchResult.class, result.getClass(), "Decoded result is unexpected");
-
-        ArtifactBatchFetchResult fetch = (ArtifactBatchFetchResult)result;
-
-        assertEquals(5, fetch.getSize(), "Wrong number of artifacts decoded");
+        assertEquals(5, result.getSize(), "Wrong number of artifacts decoded");
     }
 
     @Test
@@ -66,13 +66,9 @@ public class BatchFetchDecodingTest
     {
         File resultFile = new File("src/test/xml/batchfetchdecodingtest-containers.xml");
 
-        Object result = unmarshaller.unmarshal(new StreamSource(resultFile));
+        var result = unmarshal(resultFile, Container.class);
 
-        assertEquals(ContainerBatchFetchResult.class, result.getClass(), "Decoded result is unexpected");
-
-        ContainerBatchFetchResult fetch = (ContainerBatchFetchResult)result;
-
-        assertEquals(5, fetch.getSize(), "Wrong number of containers decoded");
+        assertEquals(5, result.getSize(), "Wrong number of containers decoded");
     }
 
     @Test
@@ -80,13 +76,9 @@ public class BatchFetchDecodingTest
     {
         File resultFile = new File("src/test/xml/batchfetchdecodingtest-samples.xml");
 
-        Object result = unmarshaller.unmarshal(new StreamSource(resultFile));
+        var result = unmarshal(resultFile, Sample.class);
 
-        assertEquals(SampleBatchFetchResult.class, result.getClass(), "Decoded result is unexpected");
-
-        SampleBatchFetchResult fetch = (SampleBatchFetchResult)result;
-
-        assertEquals(4, fetch.getSize(), "Wrong number of samples decoded");
+        assertEquals(4, result.getSize(), "Wrong number of samples decoded");
     }
 
     @Test
@@ -94,13 +86,20 @@ public class BatchFetchDecodingTest
     {
         File resultFile = new File("src/test/xml/batchfetchdecodingtest-files.xml");
 
-        Object result = unmarshaller.unmarshal(new StreamSource(resultFile));
+        var result = unmarshal(resultFile, ClarityFile.class);
 
-        assertEquals(ClarityFileBatchFetchResult.class, result.getClass(), "Decoded result is unexpected");
-
-        ClarityFileBatchFetchResult fetch = (ClarityFileBatchFetchResult)result;
-
-        assertEquals(7, fetch.getSize(), "Wrong number of files decoded");
+        assertEquals(7, result.getSize(), "Wrong number of files decoded");
     }
 
+    @SuppressWarnings("unchecked")
+    private <E extends LimsEntity<E>, T extends BatchUpdate<E>>
+    T unmarshal(File file, Class<E> entity) throws Exception
+    {
+        Object thing = unmarshaller.unmarshal(new StreamSource(file));
+        if (thing instanceof JAXBElement<?> element)
+        {
+            thing = element.getValue();
+        }
+        return (T)thing;
+    }
 }

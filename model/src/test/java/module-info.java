@@ -28,6 +28,8 @@ open module com.genologics.ri
 
     requires org.aspectj.weaver;
 
+    requires static org.slf4j;
+
     requires spring.core;
     requires spring.oxm;
 
@@ -35,6 +37,8 @@ open module com.genologics.ri
     requires static org.junit.jupiter.api;
     requires static org.junit.jupiter.engine;
     requires static org.junit.jupiter.params;
+    requires static org.xmlunit;
+    requires static org.xmlunit.builder.jakarta_jaxb;
     requires static org.glassfish.jaxb.core;
     requires static org.glassfish.jaxb.runtime;
 }

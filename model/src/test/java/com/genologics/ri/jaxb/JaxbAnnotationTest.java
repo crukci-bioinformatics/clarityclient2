@@ -19,8 +19,9 @@
 package com.genologics.ri.jaxb;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.apache.commons.lang3.StringUtils.isAllBlank;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.ByteArrayInputStream;
@@ -44,11 +45,9 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.ClassUtils;
-import org.custommonkey.xmlunit.DetailedDiff;
-import org.custommonkey.xmlunit.Diff;
-import org.custommonkey.xmlunit.Difference;
-import org.custommonkey.xmlunit.XMLAssert;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.oxm.Marshaller;
@@ -57,6 +56,16 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
+import org.xmlunit.builder.DiffBuilder;
+import org.xmlunit.builder.Input;
+import org.xmlunit.diff.Comparison;
+import org.xmlunit.diff.Comparison.Detail;
+import org.xmlunit.diff.ComparisonResult;
+import org.xmlunit.diff.DefaultNodeMatcher;
+import org.xmlunit.diff.Diff;
+import org.xmlunit.diff.DifferenceEvaluator;
+import org.xmlunit.diff.DifferenceEvaluators;
+import org.xmlunit.diff.ElementSelectors;
 
 import com.genologics.ri.artifact.Artifact;
 import com.genologics.ri.artifact.ArtifactBatchFetchResult;
@@ -110,6 +119,7 @@ import com.genologics.ri.step.StepDetails;
 import com.genologics.ri.step.StepSetup;
 import com.genologics.ri.stepconfiguration.ProtocolStep;
 import com.genologics.ri.unittests.ClarityModelTestConfiguration;
+import com.genologics.ri.userdefined.UDFHolder;
 import com.genologics.ri.version.Versions;
 import com.genologics.ri.workflowconfiguration.Workflow;
 import com.genologics.ri.workflowconfiguration.Workflows;
@@ -492,9 +502,15 @@ public class JaxbAnnotationTest
 
         try
         {
-            Diff diff1 = new Diff(originalXml, marshalledXml);
-            Diff diff2 = new XmlDiffIgnoreNamespaces(diff1);
-            XMLAssert.assertXMLEqual("Remarshalled " + className + " does not match the original", diff2, true);
+            Diff diff = DiffBuilder
+                    .compare(Input.fromString(originalXml))
+                    .withTest(Input.fromString(marshalledXml))
+                    .withNodeMatcher(new DefaultNodeMatcher(ElementSelectors.byName))
+                    .withDifferenceEvaluator(new XmlDiffIgnoreNamespaces())
+                    .checkForSimilar()
+                    .build();
+
+            assertFalse(diff.hasDifferences(), "Remarshalled " + className + " does not match the original: " + diff);
         }
         catch (Throwable e)
         {
@@ -552,13 +568,68 @@ public class JaxbAnnotationTest
     }
 
     @SuppressWarnings("exports")
-    public static class XmlDiffIgnoreNamespaces extends DetailedDiff
+    public static class XmlDiffIgnoreNamespaces implements DifferenceEvaluator
     {
-        public XmlDiffIgnoreNamespaces(Diff prototype)
+        Logger logger = LoggerFactory.getLogger(JaxbAnnotationTest.class);
+
+        public XmlDiffIgnoreNamespaces()
         {
-            super(prototype);
         }
 
+        @Override
+        public ComparisonResult evaluate(Comparison comparison, ComparisonResult outcome)
+        {
+            switch (comparison.getType())
+            {
+                case XML_STANDALONE:
+                case XML_ENCODING:
+                    // Don't care.
+                    return ComparisonResult.SIMILAR;
+            }
+
+            // logger.warn("We have a comparison of {}", comparison.getType());
+
+            Detail control = comparison.getControlDetails();
+            Detail test = comparison.getTestDetails();
+
+            switch (comparison.getType().getDescription())
+            {
+                case "number of element attributes":
+                    int originalCount = countNonNamespaceAttributes(control.getTarget());
+                    int testCount = countNonNamespaceAttributes(test.getTarget());
+
+                    if (originalCount == testCount)
+                    {
+                        return ComparisonResult.SIMILAR;
+                    }
+                    break;
+
+                case "sequence of attributes":
+                    // Don't care about order.
+                    return ComparisonResult.SIMILAR;
+
+                case "attribute name":
+                    if ("null".equals(control.getValue()) &&
+                            test.getValue().toString().startsWith("xmlns:"))
+                    {
+                        // Missing namespace attribute. Can skip this one.
+                        return ComparisonResult.SIMILAR;
+                    }
+                    break;
+
+                case "text value":
+                    if (isAllBlank(control.getValue().toString(), test.getValue().toString()))
+                    {
+                        // Don't care about white space.
+                        return ComparisonResult.SIMILAR;
+                    }
+                    break;
+            }
+
+            return DifferenceEvaluators.Default.evaluate(comparison, outcome);
+        }
+
+        /*
         @Override
         public int differenceFound(Difference difference)
         {
@@ -600,6 +671,7 @@ public class JaxbAnnotationTest
             }
             return super.differenceFound(difference);
         }
+        */
 
         private int countNonNamespaceAttributes(Node node)
         {

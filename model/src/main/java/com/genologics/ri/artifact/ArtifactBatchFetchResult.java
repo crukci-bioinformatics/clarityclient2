@@ -51,14 +51,14 @@ public class ArtifactBatchFetchResult implements BatchUpdate<Artifact>, Serializ
 
     public ArtifactBatchFetchResult(Collection<Artifact> artifacts)
     {
-        this.artifacts = new ArrayList<Artifact>(artifacts);
+        this.artifacts = new ArrayList<>(artifacts);
     }
 
     public List<Artifact> getArtifacts()
     {
         if (artifacts == null)
         {
-            artifacts = new ArrayList<Artifact>();
+            artifacts = new ArrayList<>();
         }
         return artifacts;
     }
