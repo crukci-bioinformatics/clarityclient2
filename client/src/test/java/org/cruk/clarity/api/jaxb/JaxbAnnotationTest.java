@@ -21,8 +21,9 @@ package org.cruk.clarity.api.jaxb;
 import static jakarta.xml.bind.Marshaller.JAXB_ENCODING;
 import static jakarta.xml.bind.Marshaller.JAXB_FORMATTED_OUTPUT;
 import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.apache.commons.lang3.StringUtils.isAllBlank;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.ByteArrayInputStream;
@@ -50,10 +51,6 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.ClassUtils;
 import org.cruk.clarity.api.ClarityException;
 import org.cruk.clarity.api.unittests.ClarityClientTestConfiguration;
-import org.custommonkey.xmlunit.DetailedDiff;
-import org.custommonkey.xmlunit.Diff;
-import org.custommonkey.xmlunit.Difference;
-import org.custommonkey.xmlunit.XMLAssert;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.oxm.Marshaller;
@@ -61,8 +58,15 @@ import org.springframework.oxm.Unmarshaller;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
+import org.xmlunit.builder.DiffBuilder;
+import org.xmlunit.builder.Input;
+import org.xmlunit.diff.Comparison;
+import org.xmlunit.diff.ComparisonResult;
+import org.xmlunit.diff.DefaultNodeMatcher;
+import org.xmlunit.diff.Diff;
+import org.xmlunit.diff.DifferenceEvaluator;
+import org.xmlunit.diff.DifferenceEvaluators;
+import org.xmlunit.diff.ElementSelectors;
 
 import com.genologics.ri.artifact.Artifact;
 import com.genologics.ri.artifact.ArtifactBatchFetchResult;
@@ -531,9 +535,15 @@ public class JaxbAnnotationTest
 
         try
         {
-            Diff diff1 = new Diff(originalXml, marshalledXml);
-            Diff diff2 = new XmlDiffIgnoreNamespaces(diff1);
-            XMLAssert.assertXMLEqual("Remarshalled " + className + " does not match the original", diff2, true);
+            Diff diff = DiffBuilder
+                    .compare(Input.fromString(originalXml))
+                    .withTest(Input.fromString(marshalledXml))
+                    .withNodeMatcher(new DefaultNodeMatcher(ElementSelectors.byName))
+                    .withDifferenceEvaluator(new DifferenceRefinement())
+                    .checkForIdentical()
+                    .build();
+
+            assertFalse(diff.hasDifferences(), "Remarshalled " + className + " does not match the original: " + diff);
         }
         catch (Throwable e)
         {
@@ -591,68 +601,34 @@ public class JaxbAnnotationTest
     }
 
     @SuppressWarnings("exports")
-    public static class XmlDiffIgnoreNamespaces extends DetailedDiff
+    public static class DifferenceRefinement implements DifferenceEvaluator
     {
-        public XmlDiffIgnoreNamespaces(Diff prototype)
+        public DifferenceRefinement()
         {
-            super(prototype);
         }
 
         @Override
-        public int differenceFound(Difference difference)
+        public ComparisonResult evaluate(Comparison comparison, ComparisonResult outcome)
         {
-            if ("number of element attributes".equals(difference.getDescription()))
+            switch (comparison.getType())
             {
-                Node original = difference.getControlNodeDetail().getNode();
-                Node test = difference.getTestNodeDetail().getNode();
+                case XML_STANDALONE:
+                case XML_ENCODING:
+                    // Don't care.
+                    return ComparisonResult.EQUAL;
 
-                int originalCount = countNonNamespaceAttributes(original);
-                int testCount = countNonNamespaceAttributes(test);
+                case TEXT_VALUE:
+                    String controlText = comparison.getControlDetails().getValue().toString();
+                    String testText = comparison.getTestDetails().getValue().toString();
+                    if (isAllBlank(controlText, testText))
+                    {
+                        // Ignore white space elements.
+                        return ComparisonResult.EQUAL;
+                    }
+                    break;
+            }
 
-                if (originalCount == testCount)
-                {
-                    return RETURN_IGNORE_DIFFERENCE_NODES_SIMILAR;
-                }
-            }
-            else if ("sequence of attributes".equals(difference.getDescription()))
-            {
-                // Don't care about order.
-                return RETURN_IGNORE_DIFFERENCE_NODES_IDENTICAL;
-            }
-            else if ("attribute name".equals(difference.getDescription()))
-            {
-                if ("null".equals(difference.getControlNodeDetail().getValue()) &&
-                        difference.getTestNodeDetail().getValue().startsWith("xmlns:"))
-                {
-                    // Missing namespace attribute. Can skip this one.
-                    return RETURN_IGNORE_DIFFERENCE_NODES_SIMILAR;
-                }
-            }
-            else if ("text value".equals(difference.getDescription()))
-            {
-                if (isBlank(difference.getControlNodeDetail().getValue()) &&
-                        isBlank(difference.getTestNodeDetail().getValue()))
-                {
-                    // Don't care about white space.
-                    return RETURN_IGNORE_DIFFERENCE_NODES_IDENTICAL;
-                }
-            }
-            return super.differenceFound(difference);
-        }
-
-        private int countNonNamespaceAttributes(Node node)
-        {
-            int count = 0;
-            NamedNodeMap map = node.getAttributes();
-            for (int i = map.getLength() - 1; i >= 0; i--)
-            {
-                Node attr = map.item(i);
-                if (!attr.getNodeName().startsWith("xmlns:"))
-                {
-                    ++count;
-                }
-            }
-            return count;
+            return DifferenceEvaluators.Default.evaluate(comparison, outcome);
         }
     }
 }

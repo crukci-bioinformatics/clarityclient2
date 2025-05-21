@@ -31,6 +31,8 @@ open module org.cruk.clarity.api.recorder
     requires org.apache.httpcomponents.client5.httpclient5;
     requires org.apache.httpcomponents.core5.httpcore5;
 
+    requires static org.mockito;
+
     requires static org.junit.jupiter;
     requires static org.junit.jupiter.api;
     requires static org.junit.jupiter.engine;

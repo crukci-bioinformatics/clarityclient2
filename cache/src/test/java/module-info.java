@@ -29,6 +29,8 @@ open module org.cruk.clarity.api.cache
     requires org.apache.commons.lang3;
     requires org.slf4j;
 
+    requires static org.mockito;
+
     requires static org.junit.jupiter;
     requires static org.junit.jupiter.api;
     requires static org.junit.jupiter.engine;

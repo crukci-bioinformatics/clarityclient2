@@ -2,6 +2,7 @@ package org.cruk.clarity.api.jaxb;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
@@ -16,11 +17,9 @@ import javax.xml.transform.stream.StreamSource;
 import org.apache.commons.io.FileUtils;
 import org.cruk.clarity.api.ClarityAPI;
 import org.cruk.clarity.api.http.AuthenticatingClientHttpRequestFactory;
-import org.cruk.clarity.api.jaxb.JaxbAnnotationTest.XmlDiffIgnoreNamespaces;
+import org.cruk.clarity.api.jaxb.JaxbAnnotationTest.DifferenceRefinement;
 import org.cruk.clarity.api.unittests.CRUKCICheck;
 import org.cruk.clarity.api.unittests.ClarityClientTestConfiguration;
-import org.custommonkey.xmlunit.Diff;
-import org.custommonkey.xmlunit.XMLAssert;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -28,6 +27,11 @@ import org.springframework.oxm.Marshaller;
 import org.springframework.oxm.Unmarshaller;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.web.client.ResourceAccessException;
+import org.xmlunit.builder.DiffBuilder;
+import org.xmlunit.builder.Input;
+import org.xmlunit.diff.DefaultNodeMatcher;
+import org.xmlunit.diff.Diff;
+import org.xmlunit.diff.ElementSelectors;
 
 import com.genologics.ri.container.Container;
 import com.genologics.ri.containertype.ContainerType;
@@ -71,9 +75,15 @@ public class UnicodeTest
 
         try
         {
-            Diff diff1 = new Diff(originalXml, marshalledXml);
-            Diff diff2 = new XmlDiffIgnoreNamespaces(diff1);
-            XMLAssert.assertXMLEqual("Remarshalled unicode entity does not match the original", diff2, true);
+            Diff diff = DiffBuilder
+                    .compare(Input.fromString(originalXml))
+                    .withTest(Input.fromString(marshalledXml))
+                    .withNodeMatcher(new DefaultNodeMatcher(ElementSelectors.byName))
+                    .withDifferenceEvaluator(new DifferenceRefinement())
+                    .checkForIdentical()
+                    .build();
+
+            assertFalse(diff.hasDifferences(), "Remarshalled unicode entity does not match the original: " + diff);
         }
         catch (Throwable e)
         {

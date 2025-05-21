@@ -46,20 +46,15 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.ClassUtils;
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.oxm.Marshaller;
 import org.springframework.oxm.Unmarshaller;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
 import org.xmlunit.builder.DiffBuilder;
 import org.xmlunit.builder.Input;
 import org.xmlunit.diff.Comparison;
-import org.xmlunit.diff.Comparison.Detail;
 import org.xmlunit.diff.ComparisonResult;
 import org.xmlunit.diff.DefaultNodeMatcher;
 import org.xmlunit.diff.Diff;
@@ -119,7 +114,6 @@ import com.genologics.ri.step.StepDetails;
 import com.genologics.ri.step.StepSetup;
 import com.genologics.ri.stepconfiguration.ProtocolStep;
 import com.genologics.ri.unittests.ClarityModelTestConfiguration;
-import com.genologics.ri.userdefined.UDFHolder;
 import com.genologics.ri.version.Versions;
 import com.genologics.ri.workflowconfiguration.Workflow;
 import com.genologics.ri.workflowconfiguration.Workflows;
@@ -506,8 +500,8 @@ public class JaxbAnnotationTest
                     .compare(Input.fromString(originalXml))
                     .withTest(Input.fromString(marshalledXml))
                     .withNodeMatcher(new DefaultNodeMatcher(ElementSelectors.byName))
-                    .withDifferenceEvaluator(new XmlDiffIgnoreNamespaces())
-                    .checkForSimilar()
+                    .withDifferenceEvaluator(new DifferenceRefinement())
+                    .checkForIdentical()
                     .build();
 
             assertFalse(diff.hasDifferences(), "Remarshalled " + className + " does not match the original: " + diff);
@@ -568,11 +562,9 @@ public class JaxbAnnotationTest
     }
 
     @SuppressWarnings("exports")
-    public static class XmlDiffIgnoreNamespaces implements DifferenceEvaluator
+    public static class DifferenceRefinement implements DifferenceEvaluator
     {
-        Logger logger = LoggerFactory.getLogger(JaxbAnnotationTest.class);
-
-        public XmlDiffIgnoreNamespaces()
+        public DifferenceRefinement()
         {
         }
 
@@ -584,108 +576,20 @@ public class JaxbAnnotationTest
                 case XML_STANDALONE:
                 case XML_ENCODING:
                     // Don't care.
-                    return ComparisonResult.SIMILAR;
-            }
+                    return ComparisonResult.EQUAL;
 
-            // logger.warn("We have a comparison of {}", comparison.getType());
-
-            Detail control = comparison.getControlDetails();
-            Detail test = comparison.getTestDetails();
-
-            switch (comparison.getType().getDescription())
-            {
-                case "number of element attributes":
-                    int originalCount = countNonNamespaceAttributes(control.getTarget());
-                    int testCount = countNonNamespaceAttributes(test.getTarget());
-
-                    if (originalCount == testCount)
+                case TEXT_VALUE:
+                    String controlText = comparison.getControlDetails().getValue().toString();
+                    String testText = comparison.getTestDetails().getValue().toString();
+                    if (isAllBlank(controlText, testText))
                     {
-                        return ComparisonResult.SIMILAR;
-                    }
-                    break;
-
-                case "sequence of attributes":
-                    // Don't care about order.
-                    return ComparisonResult.SIMILAR;
-
-                case "attribute name":
-                    if ("null".equals(control.getValue()) &&
-                            test.getValue().toString().startsWith("xmlns:"))
-                    {
-                        // Missing namespace attribute. Can skip this one.
-                        return ComparisonResult.SIMILAR;
-                    }
-                    break;
-
-                case "text value":
-                    if (isAllBlank(control.getValue().toString(), test.getValue().toString()))
-                    {
-                        // Don't care about white space.
-                        return ComparisonResult.SIMILAR;
+                        // Ignore white space elements.
+                        return ComparisonResult.EQUAL;
                     }
                     break;
             }
 
             return DifferenceEvaluators.Default.evaluate(comparison, outcome);
-        }
-
-        /*
-        @Override
-        public int differenceFound(Difference difference)
-        {
-            if ("number of element attributes".equals(difference.getDescription()))
-            {
-                Node original = difference.getControlNodeDetail().getNode();
-                Node test = difference.getTestNodeDetail().getNode();
-
-                int originalCount = countNonNamespaceAttributes(original);
-                int testCount = countNonNamespaceAttributes(test);
-
-                if (originalCount == testCount)
-                {
-                    return RETURN_IGNORE_DIFFERENCE_NODES_SIMILAR;
-                }
-            }
-            else if ("sequence of attributes".equals(difference.getDescription()))
-            {
-                // Don't care about order.
-                return RETURN_IGNORE_DIFFERENCE_NODES_IDENTICAL;
-            }
-            else if ("attribute name".equals(difference.getDescription()))
-            {
-                if ("null".equals(difference.getControlNodeDetail().getValue()) &&
-                        difference.getTestNodeDetail().getValue().startsWith("xmlns:"))
-                {
-                    // Missing namespace attribute. Can skip this one.
-                    return RETURN_IGNORE_DIFFERENCE_NODES_SIMILAR;
-                }
-            }
-            else if ("text value".equals(difference.getDescription()))
-            {
-                if (isBlank(difference.getControlNodeDetail().getValue()) &&
-                        isBlank(difference.getTestNodeDetail().getValue()))
-                {
-                    // Don't care about white space.
-                    return RETURN_IGNORE_DIFFERENCE_NODES_IDENTICAL;
-                }
-            }
-            return super.differenceFound(difference);
-        }
-        */
-
-        private int countNonNamespaceAttributes(Node node)
-        {
-            int count = 0;
-            NamedNodeMap map = node.getAttributes();
-            for (int i = map.getLength() - 1; i >= 0; i--)
-            {
-                Node attr = map.item(i);
-                if (!attr.getNodeName().startsWith("xmlns:"))
-                {
-                    ++count;
-                }
-            }
-            return count;
         }
     }
 }

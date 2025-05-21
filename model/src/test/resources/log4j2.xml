@@ -11,7 +11,7 @@
     </Appenders>
 
     <Loggers>
-        <Logger name="com.genologics.ri" level="INFO"/>
+        <Logger name="com.genologics.ri" level="ERROR"/>
 
         <Root level="ERROR">
             <AppenderRef ref="console"/>
