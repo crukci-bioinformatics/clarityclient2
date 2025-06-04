@@ -33,7 +33,7 @@ import com.genologics.ri.container.Container;
 /**
  * The detailed representation of a sample.
  */
-@ClarityEntity(uriSection = "samples", creationClass = SampleCreation.class, creatable = true, updateable = true)
+@ClarityEntity(uriSection = "samples", creationClass = SampleCreation.class, creatable = true, updateable = true, removable = true)
 @XmlRootElement(name = "sample")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "sample")
@@ -79,7 +79,7 @@ public class Sample extends SampleBase implements LimsEntity<Sample>
      */
     public void setCreationLocation(LimsEntityLinkable<Container> container, String position)
     {
-        this.creationLocation = new Location(container, position);
+        this.creationLocation = container == null ? null : new Location(container, position);
     }
 
     /**

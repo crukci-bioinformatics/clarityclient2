@@ -21,6 +21,7 @@ package com.genologics.ri.sample;
 import static com.genologics.ri.Namespaces.FILE_NAMESPACE;
 import static com.genologics.ri.Namespaces.ROOT_NAMESPACE;
 import static com.genologics.ri.Namespaces.UDF_NAMESPACE;
+import static org.apache.commons.lang3.StringUtils.isBlank;
 
 import java.io.Serializable;
 import java.net.URI;
@@ -126,15 +127,15 @@ public class SampleBase implements UDFHolder, Serializable
         this.type = other.type;
         if (other.fields != null)
         {
-            this.fields = new ArrayList<UDF>(other.fields);
+            this.fields = new ArrayList<>(other.fields);
         }
         if (other.externalIds != null)
         {
-            this.externalIds = new ArrayList<ExternalId>(other.externalIds);
+            this.externalIds = new ArrayList<>(other.externalIds);
         }
         if (other.files != null)
         {
-            this.files = new ArrayList<ClarityFile>(other.files);
+            this.files = new ArrayList<>(other.files);
         }
     }
 
@@ -175,7 +176,7 @@ public class SampleBase implements UDFHolder, Serializable
 
     public void setProject(LimsEntityLinkable<Project> project)
     {
-        this.project = new ProjectLink(project);
+        this.project = project == null ? null : new ProjectLink(project);
     }
 
     public ControlTypeLink getControlType()
@@ -211,7 +212,7 @@ public class SampleBase implements UDFHolder, Serializable
 
     public void setArtifact(LimsEntityLinkable<Artifact> artifact)
     {
-        this.artifact = new ArtifactLink(artifact);
+        this.artifact = artifact == null ? null : new ArtifactLink(artifact);
     }
 
     @Deprecated
@@ -239,7 +240,7 @@ public class SampleBase implements UDFHolder, Serializable
 
     public UDT setUserDefinedType(String type)
     {
-        this.type = new UDT(type);
+        this.type = isBlank(type) ? null : new UDT(type);
         return this.type;
     }
 
@@ -248,7 +249,7 @@ public class SampleBase implements UDFHolder, Serializable
     {
         if (fields == null)
         {
-            fields = new ArrayList<UDF>();
+            fields = new ArrayList<>();
         }
         return fields;
     }
@@ -257,7 +258,7 @@ public class SampleBase implements UDFHolder, Serializable
     {
         if (externalIds == null)
         {
-            externalIds = new ArrayList<ExternalId>();
+            externalIds = new ArrayList<>();
         }
         return this.externalIds;
     }
@@ -266,14 +267,17 @@ public class SampleBase implements UDFHolder, Serializable
     {
         if (files == null)
         {
-            files = new ArrayList<ClarityFile>();
+            files = new ArrayList<>();
         }
         return this.files;
     }
 
     public ClarityFile addFile(ClarityFile f)
     {
-        getFiles().add(f);
+        if (f != null)
+        {
+            getFiles().add(f);
+        }
         return f;
     }
 
