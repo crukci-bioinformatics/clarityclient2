@@ -20,12 +20,13 @@ import jakarta.annotation.PostConstruct;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.ObjectUtils;
-import org.apache.hc.client5.http.auth.CredentialsProvider;
 import org.apache.hc.client5.http.classic.HttpClient;
 import org.apache.hc.client5.http.config.ConnectionConfig;
 import org.apache.hc.client5.http.config.RequestConfig;
 import org.apache.hc.client5.http.impl.auth.CredentialsProviderBuilder;
 import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
+import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder;
+import org.apache.hc.core5.http.io.SocketConfig;
 import org.cruk.clarity.api.filestore.ClaritySFTPUploader;
 import org.cruk.clarity.api.http.ClarityFailureResponseErrorHandler;
 import org.cruk.clarity.api.http.HttpComponentsClientHttpRequestFactoryBasicAuth;
@@ -64,16 +65,43 @@ import com.genologics.ri.Locatable;
 @SuppressWarnings("exports")
 public class ClarityClientConfiguration
 {
+    /**
+     * Time out time for HTTP connections in milliseconds.
+     */
+    final int httpConnectTimeout = 15000;
+
+    /**
+     * Time out time for socket communications in milliseconds.
+     */
+    final int httpSocketTimeout = 0;
+
+    /**
+     * Spring JAXB marshaller and unmarshaller.
+     */
     private Jaxb2Marshaller jaxb2;
 
+    /**
+     * SFTP uploader implementation, if provided.
+     */
     @Autowired(required = false)
     private ClaritySFTPUploader sftpUploader;
 
+    /**
+     * Constructor with just the standard packages.
+     */
     public ClarityClientConfiguration()
     {
         this(ArrayUtils.EMPTY_CLASS_ARRAY);
     }
 
+    /**
+     * Constructor allowing additional package classes to be given for the JAXB context.
+     * These classes have their <em>package</em> added to the context, not just the
+     * class itself.
+     *
+     * @param additionalPackageClasses The classes representing the packages to add to
+     * the JAXB context.
+     */
     protected ClarityClientConfiguration(Class<?>... additionalPackageClasses)
     {
         Module module = Locatable.class.getModule();
@@ -98,87 +126,117 @@ public class ClarityClientConfiguration
         jaxb2.setPackagesToScan();
     }
 
-    public int httpConnectTimeout()
-    {
-        return 15000;
-    }
-
-    public int httpSocketTimeout()
-    {
-        return 0;
-    }
-
+    /**
+     * Set the timeout on the SFTP file uploader to the same as the HTTP
+     * connection timeout.
+     */
     @PostConstruct
     public void setTimeoutOnUploader()
     {
         if (sftpUploader != null)
         {
-            sftpUploader.setTimeout(httpConnectTimeout());
+            sftpUploader.setTimeout(httpConnectTimeout);
         }
     }
 
-    @Bean
-    @SuppressWarnings("deprecation")
-    public RequestConfig clarityRequestConfig()
-    {
-        var connectBuilder = ConnectionConfig.custom();
-        connectBuilder.setConnectTimeout(httpConnectTimeout(), TimeUnit.MILLISECONDS);
-        connectBuilder.setSocketTimeout(httpSocketTimeout(), TimeUnit.MILLISECONDS);
-
-        var builder = RequestConfig.custom();
-        builder.setAuthenticationEnabled(true);
-        builder.setRedirectsEnabled(true);
-        builder.setContentCompressionEnabled(false);
-        builder.setTargetPreferredAuthSchemes(Collections.singleton("Basic"));
-        builder.setConnectTimeout(httpConnectTimeout(), TimeUnit.MILLISECONDS);
-
-        return builder.build();
-    }
-
+    /**
+     * Clarity HTTP client.
+     *
+     * @return The HTTP client for the Clarity client.
+     */
     @Bean
     public HttpClient clarityHttpClient()
     {
-        HttpClientBuilder builder = HttpClientBuilder.create();
-        builder.setDefaultRequestConfig(clarityRequestConfig());
-        return builder.build();
+        var connectionBuilder = ConnectionConfig.custom();
+        connectionBuilder.setConnectTimeout(httpConnectTimeout, TimeUnit.MILLISECONDS);
+        connectionBuilder.setSocketTimeout(httpSocketTimeout, TimeUnit.MILLISECONDS);
+
+        var socketBuilder = SocketConfig.custom();
+        socketBuilder.setSoTimeout(httpSocketTimeout, TimeUnit.MILLISECONDS);
+
+        var managerBuilder = PoolingHttpClientConnectionManagerBuilder.create();
+        managerBuilder.setMaxConnPerRoute(2);
+        managerBuilder.setMaxConnTotal(4);
+        managerBuilder.setDefaultConnectionConfig(connectionBuilder.build());
+        managerBuilder.setDefaultSocketConfig(socketBuilder.build());
+
+        var requestBuilder = RequestConfig.custom();
+        requestBuilder.setAuthenticationEnabled(true);
+        requestBuilder.setRedirectsEnabled(true);
+        requestBuilder.setContentCompressionEnabled(false);
+        requestBuilder.setTargetPreferredAuthSchemes(Collections.singleton("Basic"));
+
+        HttpClientBuilder clientBuilder = HttpClientBuilder.create();
+        clientBuilder.setDefaultRequestConfig(requestBuilder.build());
+        clientBuilder.setConnectionManager(managerBuilder.build());
+        clientBuilder.disableContentCompression();
+
+        return clientBuilder.build();
     }
 
-    @Bean
-    public CredentialsProvider clarityCredentialsProvider()
-    {
-        return CredentialsProviderBuilder.create().build();
-    }
-
+    /**
+     * HTTP client request factory.
+     *
+     * @return A request factory for the file tracking client.
+     */
     @Bean
     public ClientHttpRequestFactory clarityClientHttpRequestFactory()
     {
-        return new HttpComponentsClientHttpRequestFactoryBasicAuth(clarityHttpClient(), clarityCredentialsProvider());
+        var credentialsProvider = CredentialsProviderBuilder.create().build();
+
+        return new HttpComponentsClientHttpRequestFactoryBasicAuth(clarityHttpClient(), credentialsProvider);
     }
 
+    /**
+     * JAXB marshaller.
+     *
+     * @return A Marshaller view on the JAXB context.
+     */
     @Bean
     public Marshaller clarityJaxbMarshaller()
     {
         return new PassThroughInvocationHandler<>(jaxb2, Marshaller.class).createProxy();
     }
 
+    /**
+     * JAXB unmarshaller.
+     *
+     * @return An Unmarshaller view on the JAXB context.
+     */
     @Bean
     public Unmarshaller clarityJaxbUnmarshaller()
     {
         return new PassThroughInvocationHandler<>(jaxb2, Unmarshaller.class).createProxy();
     }
 
+    /**
+     * Access to the list of classes managed by the Clarity client JAXB context.
+     *
+     * @return A list of classes.
+     */
     @Bean
     public List<Class<?>> clarityJaxbClasses()
     {
         return Arrays.asList(jaxb2.getClassesToBeBound());
     }
 
+    /**
+     * Clarity client response handler.
+     *
+     * @return A response handler for Clarity calls.
+     */
     @Bean
     public ResponseErrorHandler clarityExceptionErrorHandler()
     {
         return new ClarityFailureResponseErrorHandler(clarityJaxbUnmarshaller());
     }
 
+    /**
+     * Helper method to create REST templates based on the JAXB context and HTTP
+     * client request factory.
+     *
+     * @return An initialised RestTemplate.
+     */
     protected RestTemplate createRestTemplate()
     {
         var converter = new MarshallingHttpMessageConverter(clarityJaxbMarshaller(), clarityJaxbUnmarshaller());
@@ -192,12 +250,22 @@ public class ClarityClientConfiguration
         return template;
     }
 
+    /**
+     * REST template for the main Clarity client.
+     *
+     * @return A REST template for talking to Clarity.
+     */
     @Bean
     public RestOperations clarityRestTemplate()
     {
         return createRestTemplate();
     }
 
+    /**
+     * REST template for HTTP file uploads.
+     *
+     * @return A REST template for uploading files to Clarity.
+     */
     @Bean
     public RestOperations clarityFileUploadTemplate()
     {

@@ -603,9 +603,9 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
             httpRequestFactory.setCredentials(serverAddress, httpCredentials);
         }
 
-        if (httpCredentials instanceof UsernamePasswordCredentials upCredentials)
+        if (httpCredentials instanceof UsernamePasswordCredentials userCredentials)
         {
-            apiCredentials = upCredentials;
+            apiCredentials = userCredentials;
         }
     }
 
