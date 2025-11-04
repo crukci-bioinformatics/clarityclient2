@@ -20,8 +20,8 @@ package com.genologics.ri.processtype;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -60,13 +60,15 @@ public class ProcessTypes implements PaginatedBatch<ProcessTypeLink>, Serializab
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    public ProcessTypes() {}
+
     public List<ProcessTypeLink> getProcessTypes()
     {
         if (processTypes == null)
         {
-            processTypes = new ArrayList<ProcessTypeLink>();
+            processTypes = new ArrayList<>();
         }
-        return this.processTypes;
+        return processTypes;
     }
 
     @Override
@@ -76,15 +78,9 @@ public class ProcessTypes implements PaginatedBatch<ProcessTypeLink>, Serializab
     }
 
     @Override
-    public Iterator<ProcessTypeLink> iterator()
-    {
-        return getProcessTypes().iterator();
-    }
-
-    @Override
     public int getSize()
     {
-        return getProcessTypes().size();
+        return processTypes == null ? 0 : processTypes.size();
     }
 
     public Page getPreviousPage()

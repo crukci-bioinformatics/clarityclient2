@@ -18,6 +18,7 @@
 
 package com.genologics.ri;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -28,5 +29,20 @@ import java.util.List;
 public interface Batch<L> extends Iterable<L>
 {
     List<L> getList();
-    int getSize();
+
+    default int getSize()
+    {
+        return getList().size();
+    }
+
+    default boolean isEmpty()
+    {
+        return getSize() == 0;
+    }
+
+    @Override
+    default Iterator<L> iterator()
+    {
+        return getList().iterator();
+    }
 }

@@ -20,8 +20,8 @@ package com.genologics.ri.container;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -60,11 +60,13 @@ public class Containers implements PaginatedBatch<ContainerLink>, Serializable
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    public Containers() { }
+
     public List<ContainerLink> getContainers()
     {
         if (containers == null)
         {
-            containers = new ArrayList<ContainerLink>();
+            containers = new ArrayList<>();
         }
         return this.containers;
     }
@@ -76,15 +78,9 @@ public class Containers implements PaginatedBatch<ContainerLink>, Serializable
     }
 
     @Override
-    public Iterator<ContainerLink> iterator()
-    {
-        return getContainers().iterator();
-    }
-
-    @Override
     public int getSize()
     {
-        return getContainers().size();
+        return containers == null ? 0 : containers.size();
     }
 
     @Override

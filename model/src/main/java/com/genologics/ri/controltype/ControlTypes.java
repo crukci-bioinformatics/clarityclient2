@@ -21,7 +21,6 @@ package com.genologics.ri.controltype;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -54,6 +53,8 @@ public class ControlTypes implements Batch<ControlTypeLink>, Serializable
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    public ControlTypes() { }
+
     public List<ControlTypeLink> getControlTypes()
     {
         if (controlTypes == null)
@@ -61,12 +62,6 @@ public class ControlTypes implements Batch<ControlTypeLink>, Serializable
             controlTypes = new ArrayList<ControlTypeLink>();
         }
         return controlTypes;
-    }
-
-    @Override
-    public Iterator<ControlTypeLink> iterator()
-    {
-        return getControlTypes().iterator();
     }
 
     @Override

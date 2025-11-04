@@ -61,9 +61,7 @@ public class Automations implements PaginatedBatch<AutomationLink>, Serializable
     protected URI uri;
 
 
-    public Automations()
-    {
-    }
+    public Automations() { }
 
     @Override
     public List<AutomationLink> getList()
@@ -75,12 +73,6 @@ public class Automations implements PaginatedBatch<AutomationLink>, Serializable
     public int getSize()
     {
         return automations == null ? 0 : automations.size();
-    }
-
-    @Override
-    public Iterator<AutomationLink> iterator()
-    {
-        return getAutomations().iterator();
     }
 
     public List<AutomationLink> getAutomations()

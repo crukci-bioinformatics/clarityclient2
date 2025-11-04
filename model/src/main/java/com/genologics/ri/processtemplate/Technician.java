@@ -19,6 +19,7 @@
 package com.genologics.ri.processtemplate;
 
 import static java.util.Objects.requireNonNull;
+import static org.apache.commons.lang3.StringUtils.SPACE;
 
 import java.io.Serializable;
 import java.net.URI;
@@ -118,6 +119,6 @@ public class Technician implements LimsLink<Researcher>, Serializable
     @Override
     public String toString()
     {
-        return firstName + " " + lastName;
+        return firstName + SPACE + lastName;
     }
 }

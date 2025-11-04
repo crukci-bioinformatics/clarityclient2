@@ -61,6 +61,8 @@ public class Artifacts implements PaginatedBatch<ArtifactLink>, Serializable
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    public Artifacts() { }
+
     public List<ArtifactLink> getArtifacts()
     {
         if (artifacts == null)
@@ -68,12 +70,6 @@ public class Artifacts implements PaginatedBatch<ArtifactLink>, Serializable
             artifacts = new ArrayList<ArtifactLink>();
         }
         return this.artifacts;
-    }
-
-    @Override
-    public Iterator<ArtifactLink> iterator()
-    {
-        return getArtifacts().iterator();
     }
 
     @Override
@@ -85,7 +81,7 @@ public class Artifacts implements PaginatedBatch<ArtifactLink>, Serializable
     @Override
     public int getSize()
     {
-        return getArtifacts().size();
+        return artifacts == null ? 0 : artifacts.size();
     }
 
     @Override

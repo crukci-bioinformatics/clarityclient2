@@ -49,6 +49,8 @@ public class ObjectFactory {
     private final static QName _UdfconfigLink_QNAME = new QName(CONFIGURATION_NAMESPACE, "udfconfig-link");
     private final static QName _Udts_QNAME = new QName(CONFIGURATION_NAMESPACE, "udts");
     private final static QName _Field_QNAME = new QName(CONFIGURATION_NAMESPACE, "field");
+    private final static QName _FieldDynamicPreset_QNAME = new QName(CONFIGURATION_NAMESPACE, "field-dynamic-preset");
+    private final static QName _FieldDynamicPresetDetails_QNAME = new QName(CONFIGURATION_NAMESPACE, "field-dynamic-preset-details");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.configuration
@@ -89,6 +91,14 @@ public class ObjectFactory {
         return new Type();
     }
 
+    public FieldDynamicPreset createFieldDynamicPreset() {
+        return new FieldDynamicPreset();
+    }
+
+    public FieldDynamicPresetDetails createFieldDynamicPresetDetails() {
+        return new FieldDynamicPresetDetails();
+    }
+
     @XmlElementDecl(namespace = CONFIGURATION_NAMESPACE, name = "type")
     public JAXBElement<Type> createType(Type value) {
         return new JAXBElement<Type>(_Type_QNAME, Type.class, null, value);
@@ -117,5 +127,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = CONFIGURATION_NAMESPACE, name = "field")
     public JAXBElement<Field> createField(Field value) {
         return new JAXBElement<Field>(_Field_QNAME, Field.class, null, value);
+    }
+
+    @XmlElementDecl(namespace = CONFIGURATION_NAMESPACE, name = "field-dynamic-preset")
+    public JAXBElement<FieldDynamicPreset> createFieldDynamicPreset(FieldDynamicPreset value) {
+        return new JAXBElement<FieldDynamicPreset>(_FieldDynamicPreset_QNAME, FieldDynamicPreset.class, null, value);
+    }
+
+    @XmlElementDecl(namespace = CONFIGURATION_NAMESPACE, name = "field-dynamic-preset-details")
+    public JAXBElement<FieldDynamicPresetDetails> createFieldDynamicPresetDetails(FieldDynamicPresetDetails value) {
+        return new JAXBElement<FieldDynamicPresetDetails>(_FieldDynamicPresetDetails_QNAME, FieldDynamicPresetDetails.class, null, value);
     }
 }

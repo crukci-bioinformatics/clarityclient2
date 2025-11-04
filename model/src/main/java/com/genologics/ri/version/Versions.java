@@ -47,19 +47,15 @@ public class Versions implements Batch<Version>, Serializable
     @XmlElement(name = "version")
     protected List<Version> versions;
 
+    public Versions() {}
+
     public List<Version> getVersions()
     {
         if (versions == null)
         {
-            versions = new ArrayList<Version>();
+            versions = new ArrayList<>();
         }
-        return this.versions;
-    }
-
-    @Override
-    public Iterator<Version> iterator()
-    {
-        return getVersions().iterator();
+        return versions;
     }
 
     @Override
@@ -71,7 +67,7 @@ public class Versions implements Batch<Version>, Serializable
     @Override
     public int getSize()
     {
-        return getVersions().size();
+        return versions == null ? 0 : versions.size();
     }
 
 }

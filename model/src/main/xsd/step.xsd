@@ -3,6 +3,7 @@
   <xs:import namespace="http://genologics.com/ri" schemaLocation="ri.xsd"/>
   <xs:element name="step" type="stp:step"/>
   <xs:element name="actions" type="stp:actions"/>
+  <xs:element name="arrangements" type="stp:arrangements"/>
   <xs:element name="step-creation" type="stp:step-creation"/>
   <xs:element name="details" type="stp:details"/>
   <xs:element name="placements" type="stp:placements"/>
@@ -90,6 +91,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="arrangements" type="stp:arrangements-link" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[The arrangements if any of the step]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="details" type="stp:details-link" minOccurs="0">
         <xs:annotation>
           <xs:documentation>
@@ -120,6 +128,14 @@
           <xs:documentation>
             <![CDATA[The corresponding step that was automatically begun when the
 "Automatically start Next Step" option is enabled in the step's configuration.]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="technician" type="stp:technician" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[Technician provides a URI linking to the detailed representation of the technician who ran this Step
+<br/>Always returns with GET: Yes]]>
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -190,6 +206,20 @@
       <xs:annotation>
         <xs:documentation>
           <![CDATA[The URI of corresponding step actions resource.]]>
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="arrangements-link">
+    <xs:annotation>
+      <xs:documentation>
+        <![CDATA[Identifies the resource that represents the arrangements (if any) for the step.]]>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="uri" type="xs:anyURI">
+      <xs:annotation>
+        <xs:documentation>
+          <![CDATA[The URI of corresponding step arrangement resource.]]>
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -303,6 +333,45 @@
       <xs:annotation>
         <xs:documentation>
           <![CDATA[The URI of corresponding step setup resource.]]>
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="technician">
+    <xs:annotation>
+      <xs:documentation>
+        <![CDATA[Technician is a child element of Step and provides a URI linking to the detailed representation of the technician that ran the Step.]]>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="first-name" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[The first name of the technician.
+<br/>Always returns with GET: Yes
+<br/>Updatable with PUT: No
+<br/>Required for PUT: No]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="last-name" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[The last name of the technician.
+<br/>Always returns with GET: Yes
+<br/>Updatable with PUT: No
+<br/>Required for PUT: No]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="uri" type="xs:anyURI">
+      <xs:annotation>
+        <xs:documentation>
+          <![CDATA[The URI of the technician.
+<br/>Always returns with GET: Yes
+<br/>Updatable with PUT: No
+<br/>Required for PUT: No]]>
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -616,6 +685,98 @@ will be removed if there is one.]]>
       <xs:enumeration value="unknown"/>
     </xs:restriction>
   </xs:simpleType>
+  <xs:complexType name="arrangements">
+    <xs:annotation>
+      <xs:documentation>
+        <![CDATA[The detailed representation of a step's output container Tube Rack arrangements only for an Add Label Step.]]>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="step" type="ri:link" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[The protocol step of the StepArrangements.
+<br/>Always returns with GET: Yes
+<br/>Creatable with POST: No
+<br/>Required for POST: No]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="configuration" type="stp:step-configuration" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[The protocol step configuration.
+<br/>Always returns with GET: Yes
+<br/>Creatable with POST: No
+<br/>Required for POST: No]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="output-arrangements" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[The output artifacts for this step with Tube Rack arrangement if they have one.
+<br/>Always returns with GET: Yes
+<br/>Creatable with POST: Yes
+<br/>Required for POST: No]]>
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="output-arrangement" type="stp:output-arrangement" minOccurs="0" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>
+                  <![CDATA[The output artifacts for this step with Tube Rack arrangement if they have one.
+<br/>Always returns with GET: Yes
+<br/>Creatable with POST: Yes
+<br/>Required for POST: No]]>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="uri" type="xs:anyURI">
+      <xs:annotation>
+        <xs:documentation>
+          <![CDATA[The URI of the StepArrangements.
+<br/>Always returns with GET: Yes
+<br/>Creatable with POST: No
+<br/>Required for POST: No]]>
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="output-arrangement">
+    <xs:annotation>
+      <xs:documentation>
+        <![CDATA[Provides a URI linking to the output container and Tube Rack arrangement.]]>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="rack-location" type="stp:rack-location" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[The Tube Rack arrangement for the container.
+<br/>Always returns with GET: No; the container may not have an arrangement.
+<br/>Creatable with POST: Yes
+<br/>Required for POST: No; If specified, any existing arrangement will be replaced with the new arrangement. If not specified, any existing arrangement will be removed.]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="uri" type="xs:anyURI">
+      <xs:annotation>
+        <xs:documentation>
+          <![CDATA[The URI of the container.
+<br/>Always returns with GET: Yes
+<br/>Creatable with POST: No
+<br/>Required for POST: Yes]]>
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
   <xs:complexType name="step-creation">
     <xs:annotation>
       <xs:documentation>
@@ -1519,5 +1680,44 @@ label or reagent that has been added to the Artifact.]]>
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="rack-location">
+    <xs:annotation>
+      <xs:documentation>
+        <![CDATA[Provides the row and column location within a Tube Rack.]]>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="rack-index" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[Rack Index of Tube Rack in the Step. Starts from zero.
+<br/>Always returns with GET: Yes
+<br/>Creatable with POST: Yes
+<br/>Required for POST: Yes]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="rack-row" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[Rack Row Index of Container in the Tube Rack. Starts from zero.
+<br/>Always returns with GET: Yes
+<br/>Creatable with POST: Yes
+<br/>Required for POST: Yes]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="rack-column" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[Rack Column Index of Container in the Tube Rack. Starts from zero.
+<br/>Always returns with GET: Yes
+<br/>Creatable with POST: Yes
+<br/>Required for POST: Yes]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
   </xs:complexType>
 </xs:schema>

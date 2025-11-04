@@ -21,7 +21,6 @@ package com.genologics.ri.sample;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -54,11 +53,13 @@ public class SampleBatchFetchResult implements BatchUpdate<Sample>, Serializable
     @XmlElement(name = "samplecreation", namespace = Namespaces.SAMPLE_NAMESPACE)
     protected List<SampleCreation> sampleCreations;
 
+    public SampleBatchFetchResult() {}
+
     public List<Sample> getSamples()
     {
         if (samples == null)
         {
-            samples = new ArrayList<Sample>();
+            samples = new ArrayList<>();
         }
         return samples;
     }
@@ -67,7 +68,7 @@ public class SampleBatchFetchResult implements BatchUpdate<Sample>, Serializable
     {
         if (sampleCreations == null)
         {
-            sampleCreations = new ArrayList<SampleCreation>();
+            sampleCreations = new ArrayList<>();
         }
         return sampleCreations;
     }
@@ -82,12 +83,6 @@ public class SampleBatchFetchResult implements BatchUpdate<Sample>, Serializable
     public int getSize()
     {
         return samples == null ? 0 : samples.size();
-    }
-
-    @Override
-    public Iterator<Sample> iterator()
-    {
-        return getSamples().iterator();
     }
 
     @Override

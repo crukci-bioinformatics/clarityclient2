@@ -60,11 +60,13 @@ public class Labs implements PaginatedBatch<LabLink>, Serializable
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    public Labs() {}
+
     public List<LabLink> getLabs()
     {
         if (labs == null)
         {
-            labs = new ArrayList<LabLink>();
+            labs = new ArrayList<>();
         }
         return labs;
     }
@@ -76,15 +78,9 @@ public class Labs implements PaginatedBatch<LabLink>, Serializable
     }
 
     @Override
-    public Iterator<LabLink> iterator()
-    {
-        return getLabs().iterator();
-    }
-
-    @Override
     public int getSize()
     {
-        return getLabs().size();
+        return labs == null ? 0 : labs.size();
     }
 
     public Page getPreviousPage()

@@ -20,8 +20,8 @@ package com.genologics.ri.reagenttype;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -60,19 +60,15 @@ public class ReagentTypes implements PaginatedBatch<ReagentTypeLink>, Serializab
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    public ReagentTypes() {}
+
     public List<ReagentTypeLink> getReagentTypes()
     {
         if (reagentTypes == null)
         {
-            reagentTypes = new ArrayList<ReagentTypeLink>();
+            reagentTypes = new ArrayList<>();
         }
-        return this.reagentTypes;
-    }
-
-    @Override
-    public Iterator<ReagentTypeLink> iterator()
-    {
-        return getReagentTypes().iterator();
+        return reagentTypes;
     }
 
     @Override
@@ -84,7 +80,7 @@ public class ReagentTypes implements PaginatedBatch<ReagentTypeLink>, Serializab
     @Override
     public int getSize()
     {
-        return getReagentTypes().size();
+        return reagentTypes == null ? 0 : reagentTypes.size();
     }
 
     public Page getPreviousPage()

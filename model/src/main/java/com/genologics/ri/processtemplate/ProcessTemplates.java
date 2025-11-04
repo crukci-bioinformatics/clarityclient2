@@ -20,8 +20,8 @@ package com.genologics.ri.processtemplate;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -60,19 +60,15 @@ public class ProcessTemplates implements PaginatedBatch<ProcessTemplateLink>, Se
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    public ProcessTemplates() {}
+
     public List<ProcessTemplateLink> getProcessTemplates()
     {
         if (processTemplates == null)
         {
-            processTemplates = new ArrayList<ProcessTemplateLink>();
+            processTemplates = new ArrayList<>();
         }
-        return this.processTemplates;
-    }
-
-    @Override
-    public Iterator<ProcessTemplateLink> iterator()
-    {
-        return getProcessTemplates().iterator();
+        return processTemplates;
     }
 
     @Override
@@ -84,7 +80,7 @@ public class ProcessTemplates implements PaginatedBatch<ProcessTemplateLink>, Se
     @Override
     public int getSize()
     {
-        return getProcessTemplates().size();
+        return processTemplates == null ? 0 : processTemplates.size();
     }
 
     public Page getPreviousPage()

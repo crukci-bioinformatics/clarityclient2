@@ -20,7 +20,6 @@ package com.genologics.ri.reagentlot;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -62,11 +61,13 @@ public class ReagentLots implements PaginatedBatch<ReagentLotLink>, Serializable
     @XmlSchemaType(name = "anyURI")
     protected String uri;
 
+    public ReagentLots() {}
+
     public List<ReagentLotLink> getReagentLots()
     {
         if (reagentLots == null)
         {
-            reagentLots = new ArrayList<ReagentLotLink>();
+            reagentLots = new ArrayList<>();
         }
         return reagentLots;
     }
@@ -81,12 +82,6 @@ public class ReagentLots implements PaginatedBatch<ReagentLotLink>, Serializable
     public int getSize()
     {
         return reagentLots == null ? 0 : reagentLots.size();
-    }
-
-    @Override
-    public Iterator<ReagentLotLink> iterator()
-    {
-        return getReagentLots().iterator();
     }
 
     @Override

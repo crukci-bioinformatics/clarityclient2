@@ -21,7 +21,6 @@ package com.genologics.ri.reagentkit;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -62,12 +61,13 @@ public class ReagentKits implements PaginatedBatch<ReagentKitLink>, Serializable
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    public ReagentKits() {}
 
     public List<ReagentKitLink> getReagentKits()
     {
         if (reagentKits == null)
         {
-            reagentKits = new ArrayList<ReagentKitLink>();
+            reagentKits = new ArrayList<>();
         }
         return reagentKits;
     }
@@ -82,12 +82,6 @@ public class ReagentKits implements PaginatedBatch<ReagentKitLink>, Serializable
     public int getSize()
     {
         return reagentKits == null ? 0 : reagentKits.size();
-    }
-
-    @Override
-    public Iterator<ReagentKitLink> iterator()
-    {
-        return getReagentKits().iterator();
     }
 
     public Page getNextPage()

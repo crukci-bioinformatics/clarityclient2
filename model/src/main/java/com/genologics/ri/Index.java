@@ -40,19 +40,15 @@ public class Index implements Batch<Link>, Serializable
     @XmlElement(name = "link")
     protected List<Link> links;
 
+    public Index() {}
+
     public List<Link> getLinks()
     {
         if (links == null)
         {
-            links = new ArrayList<Link>();
+            links = new ArrayList<>();
         }
-        return this.links;
-    }
-
-    @Override
-    public Iterator<Link> iterator()
-    {
-        return getLinks().iterator();
+        return links;
     }
 
     @Override
@@ -64,7 +60,6 @@ public class Index implements Batch<Link>, Serializable
     @Override
     public int getSize()
     {
-        return getLinks().size();
+        return links == null ? 0 : links.size();
     }
-
 }

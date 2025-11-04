@@ -21,8 +21,8 @@ package com.genologics.ri;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -48,12 +48,12 @@ public class Links implements Batch<Link>, Serializable
 
     public Links(int capacity)
     {
-        linkList = new ArrayList<Link>(capacity);
+        linkList = new ArrayList<>(capacity);
     }
 
     public Links(Collection<Link> links)
     {
-        linkList = new ArrayList<Link>(links);
+        linkList = new ArrayList<>(links);
     }
 
     public Links(Links links)
@@ -94,12 +94,6 @@ public class Links implements Batch<Link>, Serializable
     }
 
     @Override
-    public Iterator<Link> iterator()
-    {
-        return getLinks().iterator();
-    }
-
-    @Override
     public List<Link> getList()
     {
         return getLinks();
@@ -108,7 +102,6 @@ public class Links implements Batch<Link>, Serializable
     @Override
     public int getSize()
     {
-        return getLinks().size();
+        return linkList == null ? 0 : linkList.size();
     }
-
 }

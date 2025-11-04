@@ -57,10 +57,10 @@ import com.genologics.ri.userdefined.UDT;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "project",
          propOrder = { "name", "openDate", "closeDate", "invoiceDate", "researcher", "type",
-                       "fields", "externalIds", "files" })
+                       "fields", "externalIds", "files", "priority" })
 public class Project implements LimsEntity<Project>, UDFHolder, Serializable
 {
-    private static final long serialVersionUID = -2194491709522434295L;
+    private static final long serialVersionUID = -7543006762891280018L;
 
     @XmlElement(name = "name")
     protected String name;
@@ -80,6 +80,7 @@ public class Project implements LimsEntity<Project>, UDFHolder, Serializable
     @XmlJavaTypeAdapter(ShortDateAdapter.class)
     protected Date invoiceDate;
 
+    @XmlElement
     protected ResearcherLink researcher;
 
     @XmlElement(name = "type", namespace = UDF_NAMESPACE)
@@ -93,6 +94,12 @@ public class Project implements LimsEntity<Project>, UDFHolder, Serializable
 
     @XmlElement(name = "file", namespace = FILE_NAMESPACE)
     protected List<ClarityFile> files;
+
+    /**
+     * @since 2.34
+     */
+    @XmlElement
+    protected String priority;
 
     @XmlAttribute(name = "limsid")
     protected String limsid;
@@ -217,6 +224,16 @@ public class Project implements LimsEntity<Project>, UDFHolder, Serializable
     {
         getFiles().add(f);
         return f;
+    }
+
+    public String getPriority()
+    {
+        return priority;
+    }
+
+    public void setPriority(String priority)
+    {
+        this.priority = priority;
     }
 
     public String getLimsid()

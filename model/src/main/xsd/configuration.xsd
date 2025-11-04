@@ -1,6 +1,8 @@
 <xs:schema version="1.0" targetNamespace="http://genologics.com/ri/configuration" xmlns:cnf="http://genologics.com/ri/configuration" xmlns:ri="http://genologics.com/ri" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://genologics.com/ri" schemaLocation="ri.xsd"/>
   <xs:element name="field" type="cnf:field"/>
+  <xs:element name="field-dynamic-preset" type="cnf:field-dynamic-preset"/>
+  <xs:element name="field-dynamic-preset-details" type="cnf:field-dynamic-preset-details"/>
   <xs:element name="type" type="cnf:type"/>
   <xs:element name="udfs" type="cnf:udfs"/>
   <xs:element name="udfconfig-link" type="cnf:udfconfig-link"/>
@@ -79,6 +81,13 @@ This will only be populated if the UDF has been configured for a UDT.]]>
         <xs:annotation>
           <xs:documentation>
             <![CDATA[Specifies that when multiple preset values are entered for a User-Defined Field, the first preset value is selected by default.]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="is-dynamic-presets" type="xs:boolean" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[Specifies whether the user-defined field contains only dynamic preset values.]]>
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -242,6 +251,39 @@ of the configuration of a user defined field.]]>
       <xs:annotation>
         <xs:documentation>
           <![CDATA[The URI linking to the configuration of the user-defined field.]]>
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="field-dynamic-preset">
+    <xs:annotation>
+      <xs:documentation>
+        <![CDATA[The detailed representation of a field dynamic UDF preset.]]>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="value" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[The value of the field dynamic UDF preset]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="field-dynamic-preset-details">
+    <xs:annotation>
+      <xs:documentation>
+        <![CDATA[The representation of a list of field dynamic UDF preset.]]>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="field-dynamic-preset" type="cnf:field-dynamic-preset" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="uri" type="xs:anyURI">
+      <xs:annotation>
+        <xs:documentation>
+          <![CDATA[The URI of the field dynamic UDF preset]]>
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>

@@ -21,7 +21,6 @@ package com.genologics.ri.container;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -55,22 +54,16 @@ public class ContainerBatchFetchResult implements BatchUpdate<Container>, Serial
 
     public ContainerBatchFetchResult(Collection<Container> containers)
     {
-        this.containers = new ArrayList<Container>(containers);
+        this.containers = new ArrayList<>(containers);
     }
 
     public List<Container> getContainers()
     {
         if (containers == null)
         {
-            containers = new ArrayList<Container>();
+            containers = new ArrayList<>();
         }
-        return this.containers;
-    }
-
-    @Override
-    public Iterator<Container> iterator()
-    {
-        return getContainers().iterator();
+        return containers;
     }
 
     @Override
@@ -82,7 +75,7 @@ public class ContainerBatchFetchResult implements BatchUpdate<Container>, Serial
     @Override
     public int getSize()
     {
-        return getContainers().size();
+        return containers == null ? 0 : containers.size();
     }
 
     @Override

@@ -1,0 +1,73 @@
+<xs:schema version="1.0" targetNamespace="http://genologics.com/ri/globaltoken" xmlns:ns1="http://genologics.com/ri/globaltoken" xmlns:ri="http://genologics.com/ri" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://genologics.com/ri" schemaLocation="ri.xsd"/>
+  <xs:element name="global-token" type="ns1:global-token"/>
+  <xs:element name="global-tokens" type="ns1:global-tokens"/>
+  <xs:complexType name="global-token">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="value" type="xs:string" minOccurs="0"/>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="is-custom" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="uri" type="xs:anyURI"/>
+  </xs:complexType>
+  <xs:complexType name="global-tokens">
+    <xs:annotation>
+      <xs:documentation>
+        <![CDATA[The representation of a list of global token links.<br/><br/>
+The system enforces a maximum number of elements when generating the list of links. When the size of
+the request result set is larger than the system maximum, the list represents a paged view of the overall
+results, and the previous-page and next-page elements provide URIs linking to the previous or next page
+of links in the overall results.]]>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="global-token" type="ns1:global-token-link" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[Global Token provides a URI linking to the detailed representation of a global token.]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="previous-page" type="ri:page" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[When working with large lists of global tokens,
+the previous-page element provides a URI that links to the previous page of global tokens.]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="next-page" type="ri:page" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[When working with large lists of global tokens,
+the next-page element provides a URI that links to the next page of global tokens.]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="global-token-link" final="#all">
+    <xs:annotation>
+      <xs:documentation>
+        <![CDATA[global-token-link is a child element type of global tokens and provides a URI linking to the detailed representation of a global token.]]>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[The name of the Global Token.]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="uri" type="xs:anyURI">
+      <xs:annotation>
+        <xs:documentation>
+          <![CDATA[The URI of the Global Token.]]>
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+</xs:schema>

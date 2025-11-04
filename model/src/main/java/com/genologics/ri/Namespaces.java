@@ -37,6 +37,7 @@ public final class Namespaces
     public static final String CONTROL_TYPE_NAMESPACE = "http://genologics.com/ri/controltype";
     public static final String EXCEPTION_NAMESPACE = "http://genologics.com/ri/exception";
     public static final String FILE_NAMESPACE = "http://genologics.com/ri/file";
+    public static final String GLOBAL_TOKEN_NAMESPACE = "http://genologics.com/ri/globaltoken";
     public static final String INSTRUMENT_NAMESPACE = "http://genologics.com/ri/instrument";
     public static final String INSTRUMENT_TYPE_NAMESPACE = "http://genologics.com/ri/instrumenttype";
     public static final String LAB_NAMESPACE = "http://genologics.com/ri/lab";
@@ -56,6 +57,7 @@ public final class Namespaces
     public static final String ROUTING_NAMESPACE = "http://genologics.com/ri/routing";
     public static final String RESEARCHER_NAMESPACE = "http://genologics.com/ri/researcher";
     public static final String SAMPLE_NAMESPACE = "http://genologics.com/ri/sample";
+    public static final String SAVED_QUERY_NAMESPACE = "http://genologics.com/ri/savedquery";
     public static final String STAGE_NAMESPACE = "http://genologics.com/ri/stage";
     public static final String STEP_NAMESPACE = "http://genologics.com/ri/step";
     public static final String STEP_CONFIGURATION_NAMESPACE = "http://genologics.com/ri/stepconfiguration";

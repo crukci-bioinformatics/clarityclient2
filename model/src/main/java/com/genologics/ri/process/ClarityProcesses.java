@@ -60,19 +60,15 @@ public class ClarityProcesses implements PaginatedBatch<ProcessLink>, Serializab
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    public ClarityProcesses() {}
+
     public List<ProcessLink> getProcesses()
     {
         if (processes == null)
         {
-            processes = new ArrayList<ProcessLink>();
+            processes = new ArrayList<>();
         }
         return this.processes;
-    }
-
-    @Override
-    public Iterator<ProcessLink> iterator()
-    {
-        return getProcesses().iterator();
     }
 
     @Override
@@ -84,7 +80,7 @@ public class ClarityProcesses implements PaginatedBatch<ProcessLink>, Serializab
     @Override
     public int getSize()
     {
-        return getProcesses().size();
+        return processes == null ? 0 : processes.size();
     }
 
     public Page getPreviousPage()

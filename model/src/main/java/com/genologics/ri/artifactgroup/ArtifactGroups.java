@@ -61,11 +61,13 @@ public class ArtifactGroups implements PaginatedBatch<ArtifactGroupLink>, Serial
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    public ArtifactGroups() {}
+
     public List<ArtifactGroupLink> getArtifactGroups()
     {
         if (artifactGroups == null)
         {
-            artifactGroups = new ArrayList<ArtifactGroupLink>();
+            artifactGroups = new ArrayList<>();
         }
         return this.artifactGroups;
     }
@@ -77,15 +79,9 @@ public class ArtifactGroups implements PaginatedBatch<ArtifactGroupLink>, Serial
     }
 
     @Override
-    public Iterator<ArtifactGroupLink> iterator()
-    {
-        return getArtifactGroups().iterator();
-    }
-
-    @Override
     public int getSize()
     {
-        return getArtifactGroups().size();
+        return artifactGroups == null ? 0 : artifactGroups.size();
     }
 
     public Page getPreviousPage()

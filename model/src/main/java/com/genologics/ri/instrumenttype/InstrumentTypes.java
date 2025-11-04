@@ -20,7 +20,6 @@ package com.genologics.ri.instrumenttype;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -60,22 +59,14 @@ public class InstrumentTypes implements PaginatedBatch<InstrumentTypeLink>, Seri
     protected Page nextPage;
 
 
-    public InstrumentTypes()
-    {
-    }
-
-    @Override
-    public Iterator<InstrumentTypeLink> iterator()
-    {
-        return getList().iterator();
-    }
+    public InstrumentTypes() { }
 
     @Override
     public List<InstrumentTypeLink> getList()
     {
         if (instrumentTypes == null)
         {
-            instrumentTypes = new ArrayList<InstrumentTypeLink>();
+            instrumentTypes = new ArrayList<>();
         }
         return instrumentTypes;
     }

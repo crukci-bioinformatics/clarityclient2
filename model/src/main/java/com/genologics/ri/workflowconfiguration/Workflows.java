@@ -20,7 +20,6 @@ package com.genologics.ri.workflowconfiguration;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -47,19 +46,15 @@ public class Workflows implements Batch<WorkflowLink>, Serializable
     @XmlElement(name = "workflow")
     protected List<WorkflowLink> workflows;
 
+    public Workflows() {}
+
     public List<WorkflowLink> getWorkflows()
     {
         if (workflows == null)
         {
-            workflows = new ArrayList<WorkflowLink>();
+            workflows = new ArrayList<>();
         }
-        return this.workflows;
-    }
-
-    @Override
-    public Iterator<WorkflowLink> iterator()
-    {
-        return getWorkflows().iterator();
+        return workflows;
     }
 
     @Override
@@ -71,7 +66,6 @@ public class Workflows implements Batch<WorkflowLink>, Serializable
     @Override
     public int getSize()
     {
-        return getWorkflows().size();
+        return workflows == null ? 0 : workflows.size();
     }
-
 }

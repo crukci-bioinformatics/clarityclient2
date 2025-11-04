@@ -82,15 +82,9 @@ public class Type implements Linkable<Type>, Batch<FieldLink>, Serializable
     {
         if (fieldDefinitions == null)
         {
-            fieldDefinitions = new ArrayList<FieldLink>();
+            fieldDefinitions = new ArrayList<>();
         }
-        return this.fieldDefinitions;
-    }
-
-    @Override
-    public Iterator<FieldLink> iterator()
-    {
-        return getFieldDefinitions().iterator();
+        return fieldDefinitions;
     }
 
     @Override
@@ -102,7 +96,7 @@ public class Type implements Linkable<Type>, Batch<FieldLink>, Serializable
     @Override
     public int getSize()
     {
-        return getFieldDefinitions().size();
+        return fieldDefinitions == null ? 0 : fieldDefinitions.size();
     }
 
     public String getAttachToName()

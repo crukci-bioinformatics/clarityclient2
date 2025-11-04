@@ -15,7 +15,7 @@ third-party programs for further processing.]]>
       <xs:element name="context" type="aut:context" minOccurs="0">
         <xs:annotation>
           <xs:documentation>
-            <![CDATA[The context of this automation. The only available value is <tt>Context.STEP</tt>.
+            <![CDATA[The context of this automation. The available values are <tt>Context.STEP</tt>, <tt>Context.DERIVED_SAMPLE</tt>, <tt>Context.PROJECT</tt>.
 <br/>Always returns with GET: Yes
 <br/>Creatable with POST: Yes
 <br/>Required for POST: Yes
@@ -123,6 +123,8 @@ Should the automation run once for each process related event?
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:enumeration value="STEP"/>
+      <xs:enumeration value="DERIVED_SAMPLE"/>
+      <xs:enumeration value="PROJECT"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="process-type">

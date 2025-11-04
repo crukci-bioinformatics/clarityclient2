@@ -20,7 +20,6 @@ package com.genologics.ri.permission;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -69,12 +68,6 @@ public class Permissions implements Batch<PermissionLink>, Serializable
             permissions = new ArrayList<PermissionLink>();
         }
         return permissions;
-    }
-
-    @Override
-    public Iterator<PermissionLink> iterator()
-    {
-        return getPermissions().iterator();
     }
 
     @Override

@@ -44,12 +44,12 @@ import com.genologics.ri.Linkable;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "field",
          propOrder = { "name", "attachToName", "precision", "unitLabel", "typeDefinition", "showInLablink",
-                       "allowNonPresetValues", "firstPresetIsDefaultValue", "showInTables", "editable",
+                       "allowNonPresetValues", "firstPresetIsDefaultValue", "isDynamicPresets", "showInTables", "editable",
                        "deviation", "controlledVocabulary", "parentUri", "childUris", "presets",
                        "minValue", "maxValue", "required", "attachToCategory" })
 public class Field implements Linkable<Field>, Serializable
 {
-    private static final long serialVersionUID = -60457662591218753L;
+    private static final long serialVersionUID = -1997333408044717019L;
 
     @XmlElement(name = "name")
     protected String name;
@@ -74,6 +74,12 @@ public class Field implements Linkable<Field>, Serializable
 
     @XmlElement(name = "first-preset-is-default-value")
     protected Boolean firstPresetIsDefaultValue;
+
+    /**
+     * @since 2.34
+     */
+    @XmlElement(name = "is-dynamic-presets")
+    protected Boolean isDynamicPresets;
 
     @XmlElement(name = "show-in-tables")
     protected Boolean showInTables;
@@ -212,6 +218,16 @@ public class Field implements Linkable<Field>, Serializable
     public void setFirstPresetDefaultValue(Boolean firstPresetIsDefaultValue)
     {
         this.firstPresetIsDefaultValue = firstPresetIsDefaultValue;
+    }
+
+    public boolean isDynamicPresets()
+    {
+        return isDynamicPresets == null ? false : isDynamicPresets.booleanValue();
+    }
+
+    public void setDynamicPresets(Boolean isDynamicPresets)
+    {
+        this.isDynamicPresets = isDynamicPresets;
     }
 
     public boolean isShowInTables()

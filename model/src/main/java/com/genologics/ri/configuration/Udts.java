@@ -61,13 +61,15 @@ public class Udts implements PaginatedBatch<UdtConfigLink>, Serializable
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    public Udts() {}
+
     public List<UdtConfigLink> getLinks()
     {
         if (udtConfigLinks == null)
         {
-            udtConfigLinks = new ArrayList<UdtConfigLink>();
+            udtConfigLinks = new ArrayList<>();
         }
-        return this.udtConfigLinks;
+        return udtConfigLinks;
     }
 
     @Override
@@ -77,15 +79,9 @@ public class Udts implements PaginatedBatch<UdtConfigLink>, Serializable
     }
 
     @Override
-    public Iterator<UdtConfigLink> iterator()
-    {
-        return getLinks().iterator();
-    }
-
-    @Override
     public int getSize()
     {
-        return getLinks().size();
+        return udtConfigLinks == null ? 0 : udtConfigLinks.size();
     }
 
     @Override

@@ -60,11 +60,13 @@ public class Instruments implements PaginatedBatch<InstrumentLink>, Serializable
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    public Instruments() {}
+
     public List<InstrumentLink> getInstruments()
     {
         if (instruments == null)
         {
-            instruments = new ArrayList<InstrumentLink>();
+            instruments = new ArrayList<>();
         }
         return instruments;
     }
@@ -76,15 +78,9 @@ public class Instruments implements PaginatedBatch<InstrumentLink>, Serializable
     }
 
     @Override
-    public Iterator<InstrumentLink> iterator()
-    {
-        return getInstruments().iterator();
-    }
-
-    @Override
     public int getSize()
     {
-        return getInstruments().size();
+        return instruments == null ? 0 : instruments.size();
     }
 
     public Page getPreviousPage()

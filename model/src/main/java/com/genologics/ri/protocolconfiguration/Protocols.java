@@ -51,6 +51,8 @@ public class Protocols implements Batch<ProtocolLink>, Serializable
     @XmlElement(name = "protocol")
     protected List<ProtocolLink> protocols;
 
+    public Protocols() {}
+
     public List<ProtocolLink> getProtocols()
     {
         if (protocols == null)
@@ -58,12 +60,6 @@ public class Protocols implements Batch<ProtocolLink>, Serializable
             protocols = new ArrayList<ProtocolLink>();
         }
         return protocols;
-    }
-
-    @Override
-    public Iterator<ProtocolLink> iterator()
-    {
-        return getProtocols().iterator();
     }
 
     @Override

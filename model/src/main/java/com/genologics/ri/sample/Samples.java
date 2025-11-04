@@ -20,8 +20,8 @@ package com.genologics.ri.sample;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -60,13 +60,15 @@ public class Samples implements PaginatedBatch<SampleLink>, Serializable
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    public Samples() { }
+
     public List<SampleLink> getSamples()
     {
         if (samples == null)
         {
-            samples = new ArrayList<SampleLink>();
+            samples = new ArrayList<>();
         }
-        return this.samples;
+        return samples;
     }
 
     @Override
@@ -76,15 +78,9 @@ public class Samples implements PaginatedBatch<SampleLink>, Serializable
     }
 
     @Override
-    public Iterator<SampleLink> iterator()
-    {
-        return getSamples().iterator();
-    }
-
-    @Override
     public int getSize()
     {
-        return getSamples().size();
+        return samples == null ? 0 : samples.size();
     }
 
     public Page getPreviousPage()

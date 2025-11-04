@@ -1,0 +1,26 @@
+<xs:schema version="1.0" targetNamespace="http://genologics.com/ri/savedquery" xmlns:sqr="http://genologics.com/ri/savedquery" xmlns:ri="http://genologics.com/ri" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://genologics.com/ri" schemaLocation="ri.xsd"/>
+  <xs:element name="saved-query" type="sqr:saved-query"/>
+  <xs:element name="saved-queries" type="sqr:saved-queries"/>
+  <xs:complexType name="saved-query">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string"/>
+    <xs:attribute name="uri" type="xs:anyURI"/>
+  </xs:complexType>
+  <xs:complexType name="saved-queries">
+    <xs:sequence>
+      <xs:element name="saved-query" type="sqr:saved-query-link" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="previous-page" type="ri:page" minOccurs="0"/>
+      <xs:element name="next-page" type="ri:page" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saved-query-link">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string"/>
+    <xs:attribute name="uri" type="xs:anyURI"/>
+  </xs:complexType>
+</xs:schema>

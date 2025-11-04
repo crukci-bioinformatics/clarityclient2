@@ -66,7 +66,7 @@ public class Roles implements Batch<RoleLink>, Serializable
     {
         if (roles == null)
         {
-            roles = new ArrayList<RoleLink>();
+            roles = new ArrayList<>();
         }
         return roles;
     }
@@ -79,12 +79,6 @@ public class Roles implements Batch<RoleLink>, Serializable
     public void setUri(URI uri)
     {
         this.uri = uri;
-    }
-
-    @Override
-    public Iterator<RoleLink> iterator()
-    {
-        return getRoles().iterator();
     }
 
     @Override

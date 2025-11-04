@@ -59,11 +59,13 @@ public class ClarityFiles implements PaginatedBatch<FileLink>, Serializable
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    public ClarityFiles() {}
+
     public List<FileLink> getFiles()
     {
         if (files == null)
         {
-            files = new ArrayList<FileLink>();
+            files = new ArrayList<>();
         }
         return files;
     }
@@ -75,15 +77,9 @@ public class ClarityFiles implements PaginatedBatch<FileLink>, Serializable
     }
 
     @Override
-    public Iterator<FileLink> iterator()
-    {
-        return getFiles().iterator();
-    }
-
-    @Override
     public int getSize()
     {
-        return getFiles().size();
+        return files == null ? 0 : files.size();
     }
 
     public Page getPreviousPage()

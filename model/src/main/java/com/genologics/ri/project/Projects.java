@@ -20,8 +20,8 @@ package com.genologics.ri.project;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -60,13 +60,15 @@ public class Projects implements PaginatedBatch<ProjectLink>, Serializable
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    public Projects() {}
+
     public List<ProjectLink> getProjects()
     {
         if (projects == null)
         {
-            projects = new ArrayList<ProjectLink>();
+            projects = new ArrayList<>();
         }
-        return this.projects;
+        return projects;
     }
 
     @Override
@@ -76,15 +78,9 @@ public class Projects implements PaginatedBatch<ProjectLink>, Serializable
     }
 
     @Override
-    public Iterator<ProjectLink> iterator()
-    {
-        return getProjects().iterator();
-    }
-
-    @Override
     public int getSize()
     {
-        return getProjects().size();
+        return projects == null ? 0 : projects.size();
     }
 
     public Page getPreviousPage()

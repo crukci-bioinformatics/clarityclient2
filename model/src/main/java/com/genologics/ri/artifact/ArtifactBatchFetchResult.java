@@ -64,12 +64,6 @@ public class ArtifactBatchFetchResult implements BatchUpdate<Artifact>, Serializ
     }
 
     @Override
-    public Iterator<Artifact> iterator()
-    {
-        return getArtifacts().iterator();
-    }
-
-    @Override
     public List<Artifact> getList()
     {
         return getArtifacts();
@@ -78,7 +72,7 @@ public class ArtifactBatchFetchResult implements BatchUpdate<Artifact>, Serializ
     @Override
     public int getSize()
     {
-        return getArtifacts().size();
+        return artifacts == null ? 0 : artifacts.size();
     }
 
     @Override

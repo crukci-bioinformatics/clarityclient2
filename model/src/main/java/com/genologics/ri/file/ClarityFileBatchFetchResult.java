@@ -21,7 +21,6 @@ package com.genologics.ri.file;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -49,11 +48,13 @@ public class ClarityFileBatchFetchResult implements BatchUpdate<ClarityFile>, Se
     @XmlElement(name = "file", namespace = Namespaces.FILE_NAMESPACE)
     protected List<ClarityFile> files;
 
+    public ClarityFileBatchFetchResult() {}
+
     public List<ClarityFile> getFiles()
     {
         if (files == null)
         {
-            files = new ArrayList<ClarityFile>();
+            files = new ArrayList<>();
         }
         return files;
     }
@@ -68,12 +69,6 @@ public class ClarityFileBatchFetchResult implements BatchUpdate<ClarityFile>, Se
     public int getSize()
     {
         return files == null ? 0 : files.size();
-    }
-
-    @Override
-    public Iterator<ClarityFile> iterator()
-    {
-        return getFiles().iterator();
     }
 
     @Override

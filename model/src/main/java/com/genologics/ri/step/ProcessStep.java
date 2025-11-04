@@ -39,6 +39,7 @@ import com.genologics.ri.LimsEntity;
 import com.genologics.ri.LimsEntityLink;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.jaxb.LongTimestampAdapter;
+import com.genologics.ri.researcher.Researcher;
 
 /**
  *
@@ -53,11 +54,12 @@ import com.genologics.ri.jaxb.LongTimestampAdapter;
 @XmlType(name = "step",
          propOrder = { "dateStarted", "dateCompleted",
                        "configuration", "actions", "reagents", "pools", "placements", "reagentLots",
-                       "programStatus", "setup", "details", "availablePrograms", "automaticNextStep" })
+                       "programStatus", "setup", "arrangements", "details", "availablePrograms",
+                       "automaticNextStep", "technician" })
 @XmlRootElement(name = "step")
 public class ProcessStep implements LimsEntity<ProcessStep>, Serializable
 {
-    private static final long serialVersionUID = 2856981733241902872L;
+    private static final long serialVersionUID = 8157777981636538216L;
 
     /**
      * @since 2.22
@@ -106,6 +108,12 @@ public class ProcessStep implements LimsEntity<ProcessStep>, Serializable
     protected StepSetupLink setup;
 
     /**
+     * @since 2.34
+     */
+    @XmlElement(name = "arrangements")
+    protected ArrangementsLink arrangements;
+
+    /**
      * @since 2.18
      */
     @XmlElement(name = "details")
@@ -123,6 +131,11 @@ public class ProcessStep implements LimsEntity<ProcessStep>, Serializable
      */
     @XmlElement(name = "automatic-next-step")
     protected AutomaticNextStepLink automaticNextStep;
+
+    /**
+     * @since 2.34
+     */
+    protected Technician technician;
 
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
@@ -285,6 +298,16 @@ public class ProcessStep implements LimsEntity<ProcessStep>, Serializable
         this.details = new StepDetailsLink(uri);
     }
 
+    public ArrangementsLink getArrangements()
+    {
+        return arrangements;
+    }
+
+    public void setArrangements(Linkable<Arrangements> arrangements)
+    {
+        this.arrangements = new ArrangementsLink(arrangements);
+    }
+
     public List<AvailableProgram> getAvailablePrograms()
     {
         if (availablePrograms == null)
@@ -318,6 +341,26 @@ public class ProcessStep implements LimsEntity<ProcessStep>, Serializable
     public void setAutomaticNextStep(Linkable<ProcessStep> step)
     {
         this.automaticNextStep = new AutomaticNextStepLink(step);
+    }
+
+    public Technician getTechnician()
+    {
+        return technician;
+    }
+
+    public void setTechnician(Linkable<Researcher> technician)
+    {
+        this.technician = new Technician(technician);
+    }
+
+    public void setTechnician(Researcher technician)
+    {
+        this.technician = new Technician(technician);
+    }
+
+    public void setTechnician(Technician technician)
+    {
+        this.technician = technician;
     }
 
     /**

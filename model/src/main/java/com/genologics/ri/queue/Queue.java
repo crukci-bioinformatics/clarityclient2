@@ -21,7 +21,6 @@ package com.genologics.ri.queue;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -154,7 +153,7 @@ public class Queue implements PaginatedBatch<ArtifactLink>, Serializable
     {
         if (artifacts == null)
         {
-            artifacts = new ArrayList<ArtifactLink>();
+            artifacts = new ArrayList<>();
         }
         return artifacts;
     }
@@ -169,11 +168,5 @@ public class Queue implements PaginatedBatch<ArtifactLink>, Serializable
     public int getSize()
     {
         return artifacts == null ? 0 : artifacts.size();
-    }
-
-    @Override
-    public Iterator<ArtifactLink> iterator()
-    {
-        return getArtifacts().iterator();
     }
 }

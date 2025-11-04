@@ -38,6 +38,8 @@ the file is attached to, such as a project, sample, process, or file-based artif
           <xs:documentation>
             <![CDATA[This element contains a URI that identifies and links to the network location of the file,
 which can be used to retrieve the file and process its contents.
+It must be either within the content root path or the allowed list of directories that
+are configured under the api.files.allowlist.dirs property.
 <br/>Always returns with GET: Yes
 <br/>Creatable with POST: Yes, must be valid location for system to read inbound file uri
 information from.

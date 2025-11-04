@@ -20,8 +20,8 @@ package com.genologics.ri.configuration;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -60,13 +60,15 @@ public class Udfs implements PaginatedBatch<UdfConfigLink>, Serializable
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    public Udfs() {}
+
     public List<UdfConfigLink> getLinks()
     {
         if (udfConfigLinks == null)
         {
-            udfConfigLinks = new ArrayList<UdfConfigLink>();
+            udfConfigLinks = new ArrayList<>();
         }
-        return this.udfConfigLinks;
+        return udfConfigLinks;
     }
 
     @Override
@@ -76,15 +78,9 @@ public class Udfs implements PaginatedBatch<UdfConfigLink>, Serializable
     }
 
     @Override
-    public Iterator<UdfConfigLink> iterator()
-    {
-        return getLinks().iterator();
-    }
-
-    @Override
     public int getSize()
     {
-        return getLinks().size();
+        return udfConfigLinks == null ? 0 : udfConfigLinks.size();
     }
 
     public Page getPreviousPage()

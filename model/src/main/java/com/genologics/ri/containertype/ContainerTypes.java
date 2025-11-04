@@ -60,11 +60,13 @@ public class ContainerTypes implements PaginatedBatch<ContainerTypeLink>, Serial
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    public ContainerTypes() { }
+
     public List<ContainerTypeLink> getContainerTypes()
     {
         if (containerTypes == null)
         {
-            containerTypes = new ArrayList<ContainerTypeLink>();
+            containerTypes = new ArrayList<>();
         }
         return containerTypes;
     }
@@ -76,15 +78,9 @@ public class ContainerTypes implements PaginatedBatch<ContainerTypeLink>, Serial
     }
 
     @Override
-    public Iterator<ContainerTypeLink> iterator()
-    {
-        return getContainerTypes().iterator();
-    }
-
-    @Override
     public int getSize()
     {
-        return getContainerTypes().size();
+        return containerTypes == null ? 0 : containerTypes.size();
     }
 
     @Override

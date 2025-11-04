@@ -20,8 +20,8 @@ package com.genologics.ri.property;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -59,19 +59,15 @@ public class Properties implements PaginatedBatch<PropertyLink>, Serializable
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    public Properties() {}
+
     public List<PropertyLink> getProperties()
     {
         if (properties == null)
         {
-            properties = new ArrayList<PropertyLink>();
+            properties = new ArrayList<>();
         }
         return properties;
-    }
-
-    @Override
-    public Iterator<PropertyLink> iterator()
-    {
-        return getProperties().iterator();
     }
 
     @Override

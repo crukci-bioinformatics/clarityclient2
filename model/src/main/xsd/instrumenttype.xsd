@@ -1,4 +1,5 @@
-<xs:schema version="1.0" targetNamespace="http://genologics.com/ri/instrumenttype" xmlns:itp="http://genologics.com/ri/instrumenttype" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema version="1.0" targetNamespace="http://genologics.com/ri/instrumenttype" xmlns:itp="http://genologics.com/ri/instrumenttype" xmlns:ri="http://genologics.com/ri" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://genologics.com/ri" schemaLocation="ri.xsd"/>
   <xs:element name="instrument-type" type="itp:instrument-type"/>
   <xs:element name="instrument-types" type="itp:instrument-types"/>
   <xs:complexType name="instrument-type">
@@ -79,6 +80,22 @@
           <xs:documentation>
             <![CDATA[The list of Instrument Types.
 <br/>Always returns with GET: Yes]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="previous-page" type="ri:page" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[When working with large lists of instrument types,
+the previous-page element provides a URI that links to the previous page of instrument types.]]>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="next-page" type="ri:page" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            <![CDATA[When working with large lists of instrument types,
+the next-page element provides a URI that links to the next page of instrument types.]]>
           </xs:documentation>
         </xs:annotation>
       </xs:element>
