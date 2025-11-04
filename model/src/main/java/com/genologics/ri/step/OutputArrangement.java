@@ -11,6 +11,9 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
+import com.genologics.ri.LimsLink;
+import com.genologics.ri.container.Container;
+
 
 /**
  * Provides a URI linking to the output container and Tube Rack arrangement.
@@ -19,7 +22,7 @@ import jakarta.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "output-arrangement")
-public class OutputArrangement implements Serializable
+public class OutputArrangement implements LimsLink<Container>, Serializable
 {
     private static final long serialVersionUID = -1273770265893773445L;
 
@@ -57,5 +60,11 @@ public class OutputArrangement implements Serializable
     public void setUri(URI uri)
     {
         this.uri = uri;
+    }
+
+    @Override
+    public Class<Container> getEntityClass()
+    {
+        return Container.class;
     }
 }

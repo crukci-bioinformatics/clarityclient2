@@ -28,11 +28,14 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementWrapper;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
+import com.genologics.ri.ClarityEntity;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Link;
-import com.genologics.ri.Locatable;
+import com.genologics.ri.Linkable;
 
 
 /**
@@ -40,9 +43,11 @@ import com.genologics.ri.Locatable;
  *
  * @since 2.34
  */
+@ClarityEntity(uriSection = "steps", uriSubsection = "arrangements", creatable = true)
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "arrangements", propOrder = { "step", "configuration", "outputArrangements" })
-public class Arrangements implements Locatable, Serializable
+@XmlRootElement(name = "arrangements")
+public class Arrangements implements Linkable<Arrangements>, Serializable
 {
     private static final long serialVersionUID = -5065733682752946764L;
 
@@ -101,4 +106,12 @@ public class Arrangements implements Locatable, Serializable
         this.uri = uri;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public LimsLink<Arrangements> getLink()
+    {
+        return new ArrangementsLink(this);
+    }
 }
