@@ -28,6 +28,7 @@ import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
 import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder;
 import org.apache.hc.core5.http.io.SocketConfig;
 import org.cruk.clarity.api.filestore.ClaritySFTPUploader;
+import org.cruk.clarity.api.http.AuthenticatingClientHttpRequestFactory;
 import org.cruk.clarity.api.http.ClarityFailureResponseErrorHandler;
 import org.cruk.clarity.api.http.HttpComponentsClientHttpRequestFactoryBasicAuth;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,6 @@ import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.http.MediaType;
-import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.xml.MarshallingHttpMessageConverter;
@@ -177,10 +177,10 @@ public class ClarityClientConfiguration
     /**
      * HTTP client request factory.
      *
-     * @return A request factory for the file tracking client.
+     * @return A request factory for the Clarity client.
      */
     @Bean
-    public ClientHttpRequestFactory clarityClientHttpRequestFactory()
+    public AuthenticatingClientHttpRequestFactory clarityClientHttpRequestFactory()
     {
         var credentialsProvider = CredentialsProviderBuilder.create().build();
 
