@@ -63,6 +63,7 @@ public class LatestVersionsResetAspect
     {
         Set<String> names = new HashSet<String>();
         names.add("overrideStateful");
+        names.add("setOverrideStateful");
         for (Method method : ClarityAPIInternal.class.getMethods())
         {
             names.add(method.getName());

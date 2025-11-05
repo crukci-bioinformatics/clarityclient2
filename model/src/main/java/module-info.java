@@ -37,6 +37,7 @@ open module com.genologics.ri
     exports com.genologics.ri.controltype;
     exports com.genologics.ri.exception;
     exports com.genologics.ri.file;
+    exports com.genologics.ri.globaltoken;
     exports com.genologics.ri.instrument;
     exports com.genologics.ri.instrumenttype;
     exports com.genologics.ri.lab;
@@ -56,6 +57,7 @@ open module com.genologics.ri
     exports com.genologics.ri.role;
     exports com.genologics.ri.routing;
     exports com.genologics.ri.sample;
+    exports com.genologics.ri.savedquery;
     exports com.genologics.ri.stage;
     exports com.genologics.ri.step;
     exports com.genologics.ri.stepconfiguration;

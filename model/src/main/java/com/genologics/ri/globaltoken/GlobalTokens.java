@@ -34,7 +34,7 @@ import com.genologics.ri.PaginatedBatch;
 
 @ClarityQueryResult(entityClass = GlobalToken.class)
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "global-tokens", propOrder = { "globalToken", "previousPage", "nextPage" })
+@XmlType(name = "global-tokens", propOrder = { "globalTokens", "previousPage", "nextPage" })
 public class GlobalTokens implements PaginatedBatch<GlobalTokenLink>, Serializable
 {
     private static final long serialVersionUID = -6362088116923564852L;

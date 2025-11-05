@@ -39,7 +39,7 @@ import com.genologics.ri.PaginatedBatch;
 @ClarityQueryResult(entityClass = SavedQuery.class)
 @XmlRootElement(name = "saved-queries")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "saved-queries", propOrder = { "savedQuery", "previousPage", "nextPage" })
+@XmlType(name = "saved-queries", propOrder = { "savedQueries", "previousPage", "nextPage" })
 public class SavedQueries implements PaginatedBatch<SavedQueryLink>, Serializable
 {
     private static final long serialVersionUID = -1608597563242261675L;

@@ -108,6 +108,7 @@ import com.genologics.ri.processexecution.ExecutableProcess;
 import com.genologics.ri.queue.Queue;
 import com.genologics.ri.routing.Routing;
 import com.genologics.ri.sample.Sample;
+import com.genologics.ri.savedquery.SavedQuery;
 import com.genologics.ri.step.AvailableProgram;
 import com.genologics.ri.step.ProcessStep;
 import com.genologics.ri.step.ProgramStatus;
@@ -2901,6 +2902,17 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
         List<LimsEntityLink<Artifact>> properLinks = (List<LimsEntityLink<Artifact>>)results;
 
         return properLinks;
+    }
+
+
+    // Exporting the results of a saved query.
+
+    /**
+     * {@inheritDoc}
+     */
+    public void runSavedQuery(Linkable<SavedQuery> query, OutputStream out) throws IOException
+    {
+        throw new UnsupportedOperationException("Haven't written this yet.");
     }
 
 

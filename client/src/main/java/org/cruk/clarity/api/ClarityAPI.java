@@ -42,6 +42,7 @@ import com.genologics.ri.process.ClarityProcess;
 import com.genologics.ri.processexecution.ExecutableProcess;
 import com.genologics.ri.routing.Routing;
 import com.genologics.ri.sample.Sample;
+import com.genologics.ri.savedquery.SavedQuery;
 import com.genologics.ri.step.Actions;
 import com.genologics.ri.step.AvailableProgram;
 import com.genologics.ri.step.ProcessStep;
@@ -417,6 +418,20 @@ public interface ClarityAPI
      * @since 2.24.8
      */
     void overrideStateful(StatefulOverride override);
+
+    /**
+     * Pseudonym for {@link #overrideStateful(StatefulOverride)} that follows the
+     * setter pattern and will aid using this as a property in Groovy and the like.
+     *
+     * @param override The behaviour to use in the next call. If null, it will
+     * cancel a previously set override.
+     *
+     * @since 2.34
+     */
+    default void setOverrideStateful(StatefulOverride override)
+    {
+        overrideStateful(override);
+    }
 
     // Retrieval methods
 
@@ -898,4 +913,17 @@ public interface ClarityAPI
      * @since 2.24.1
      */
     List<LimsEntityLink<Artifact>> listQueue(Linkable<ProtocolStep> protocolStep, Map<String, ?> searchTerms);
+
+    // Exporting the results of a saved query.
+
+    /**
+     * Run a saved query and write the result to the given output stream. The output
+     * is CSV format.
+     *
+     * @param query The saved query to run.
+     * @param out The stream to write to. Must be open.
+     *
+     * @throws IOException if there is a problem writing to the output stream.
+     */
+    void runSavedQuery(Linkable<SavedQuery> query, OutputStream out) throws IOException;
 }
