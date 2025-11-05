@@ -24,7 +24,6 @@ import com.genologics.ri.container.Container;
 import com.genologics.ri.containertype.ContainerType;
 import com.genologics.ri.controltype.ControlType;
 import com.genologics.ri.file.ClarityFile;
-import com.genologics.ri.globaltoken.GlobalToken;
 import com.genologics.ri.instrument.Instrument;
 import com.genologics.ri.lab.Lab;
 import com.genologics.ri.process.ClarityProcess;
@@ -92,7 +91,6 @@ public class ClarityClientCacheConfiguration
             .withCache(Protocol.class.getName(), smallLong)
             .withCache(ProtocolStep.class.getName(), smallLong)
             .withCache(Workflow.class.getName(), smallLong)
-            .withCache(GlobalToken.class.getName(), mediumMedium)
             .build(true);
     }
 }
