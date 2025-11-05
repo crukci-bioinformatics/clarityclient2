@@ -20,4 +20,5 @@
     <ri:externalid id="thing2" uri="http://lims.cri.camres.org:8080/api/v2/external2"/>
     <file:file limsid="ADM1-40-1" uri="http://lims.cri.camres.org:8080/api/v2/files/ADM1-40-1" />
     <file:file limsid="PAJ13-40-116" uri="http://lims.cri.camres.org:8080/api/v2/files/PAJ13-40-116" />
+    <priority>Lowest</priority>
 </prj:project>

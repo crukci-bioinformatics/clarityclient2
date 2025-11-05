@@ -32,6 +32,13 @@ import com.genologics.ri.Page;
 import com.genologics.ri.PaginatedBatch;
 
 
+/**
+ * List of global token links. There is currently no end point in Clarity, hence there
+ * is no {@code @XmlRootElement} annotation here. It will need to be added if there is
+ * an end point in a later release.
+ *
+ * @since 2.34
+ */
 @ClarityQueryResult(entityClass = GlobalToken.class)
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "global-tokens", propOrder = { "globalTokens", "previousPage", "nextPage" })

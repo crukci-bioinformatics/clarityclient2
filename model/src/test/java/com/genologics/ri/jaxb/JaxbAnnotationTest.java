@@ -69,6 +69,7 @@ import com.genologics.ri.artifactgroup.ArtifactGroup;
 import com.genologics.ri.automation.Automation;
 import com.genologics.ri.automation.Automations;
 import com.genologics.ri.configuration.Field;
+import com.genologics.ri.configuration.FieldDynamicPresetHolder;
 import com.genologics.ri.configuration.Type;
 import com.genologics.ri.container.Container;
 import com.genologics.ri.container.ContainerBatchFetchResult;
@@ -77,6 +78,7 @@ import com.genologics.ri.controltype.ControlType;
 import com.genologics.ri.controltype.ControlTypes;
 import com.genologics.ri.file.ClarityFile;
 import com.genologics.ri.file.ClarityFileBatchFetchResult;
+import com.genologics.ri.globaltoken.GlobalTokenHolder;
 import com.genologics.ri.instrument.Instrument;
 import com.genologics.ri.instrumenttype.InstrumentType;
 import com.genologics.ri.instrumenttype.InstrumentTypes;
@@ -103,6 +105,7 @@ import com.genologics.ri.sample.SampleBatchFetchResult;
 import com.genologics.ri.sample.SampleCreation;
 import com.genologics.ri.stage.Stage;
 import com.genologics.ri.step.Actions;
+import com.genologics.ri.step.Arrangements;
 import com.genologics.ri.step.Placements;
 import com.genologics.ri.step.Pools;
 import com.genologics.ri.step.ProcessState;
@@ -150,6 +153,12 @@ public class JaxbAnnotationTest
     public void testActions() throws Throwable
     {
         fetchMarshalAndCompare(Actions.class);
+    }
+
+    @Test
+    public void testArrangements() throws Throwable
+    {
+        fetchMarshalAndCompare(Arrangements.class);
     }
 
     @Test
@@ -237,6 +246,12 @@ public class JaxbAnnotationTest
     }
 
     @Test
+    public void testFieldDynamicPresets() throws Throwable
+    {
+        fetchMarshalAndCompare(FieldDynamicPresetHolder.class);
+    }
+
+    @Test
     public void testFile() throws Throwable
     {
         fetchMarshalAndCompare(ClarityFile.class);
@@ -246,6 +261,12 @@ public class JaxbAnnotationTest
     public void testFileBatchRetrieve() throws Throwable
     {
         fetchMarshalAndCompare(ClarityFileBatchFetchResult.class);
+    }
+
+    @Test
+    public void testGlobalTokens() throws Throwable
+    {
+        fetchMarshalAndCompare(GlobalTokenHolder.class);
     }
 
     @Test
@@ -501,6 +522,7 @@ public class JaxbAnnotationTest
                     .withTest(Input.fromString(marshalledXml))
                     .withNodeMatcher(new DefaultNodeMatcher(ElementSelectors.byName))
                     .withDifferenceEvaluator(new DifferenceRefinement())
+                    .ignoreComments()
                     .checkForIdentical()
                     .build();
 

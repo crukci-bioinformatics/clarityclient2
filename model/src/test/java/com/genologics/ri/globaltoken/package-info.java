@@ -1,10 +1,3 @@
-/**
- * Illumina have said that the types in this package are not actually released, and there's
- * nothing in Clarity that uses them. We'll keep them in the code in case a later release
- * actually does something with them.
- *
- * @since 2.34
- */
 @XmlSchema(
     namespace = GLOBAL_TOKEN_NAMESPACE,
     elementFormDefault = XmlNsForm.UNQUALIFIED,

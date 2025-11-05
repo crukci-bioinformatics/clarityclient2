@@ -57,6 +57,7 @@ import com.genologics.ri.artifactgroup.ArtifactGroup;
 import com.genologics.ri.automation.Automation;
 import com.genologics.ri.automation.Automations;
 import com.genologics.ri.configuration.Field;
+import com.genologics.ri.configuration.FieldDynamicPresetHolder;
 import com.genologics.ri.configuration.Type;
 import com.genologics.ri.container.Container;
 import com.genologics.ri.container.ContainerBatchFetchResult;
@@ -65,6 +66,7 @@ import com.genologics.ri.controltype.ControlType;
 import com.genologics.ri.controltype.ControlTypes;
 import com.genologics.ri.file.ClarityFile;
 import com.genologics.ri.file.ClarityFileBatchFetchResult;
+import com.genologics.ri.globaltoken.GlobalTokenHolder;
 import com.genologics.ri.instrument.Instrument;
 import com.genologics.ri.instrumenttype.InstrumentType;
 import com.genologics.ri.instrumenttype.InstrumentTypes;
@@ -91,6 +93,7 @@ import com.genologics.ri.sample.SampleBatchFetchResult;
 import com.genologics.ri.sample.SampleCreation;
 import com.genologics.ri.stage.Stage;
 import com.genologics.ri.step.Actions;
+import com.genologics.ri.step.Arrangements;
 import com.genologics.ri.step.Placements;
 import com.genologics.ri.step.Pools;
 import com.genologics.ri.step.ProcessStep;
@@ -467,6 +470,25 @@ public class SerializationTest
         fetchMarshalAndSerialize(Role.class);
     }
 
+    // Clarity 6.3 additions
+
+    @Test
+    public void testArrangements() throws Throwable
+    {
+        fetchMarshalAndSerialize(Arrangements.class);
+    }
+
+    @Test
+    public void testFieldDynamicPresets() throws Throwable
+    {
+        fetchMarshalAndSerialize(FieldDynamicPresetHolder.class);
+    }
+
+    @Test
+    public void testGlobalTokens() throws Throwable
+    {
+        fetchMarshalAndSerialize(GlobalTokenHolder.class);
+    }
 
     private void fetchMarshalAndSerialize(Class<?> entityClass) throws Throwable
     {

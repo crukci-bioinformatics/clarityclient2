@@ -26,48 +26,33 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlType;
 
-
 /**
- * The detailed representation of a field dynamic UDF preset.
- * <p>
- * Illumina have said that this class is not actually released, and there's
- * nothing in Clarity that uses it.
- * </p>
- *
- * @since 2.34
+ * A class that's not in the API but can be used as a root element to check
+ * that the serialisation of {@link FieldDynamicPreset} and {@link FieldDynamicPresetDetails}
+ * works. When there is something in the API that actually uses these types,
+ * this field is unnecessary.
  */
-@XmlRootElement(name = "field-dynamic-preset")
+@XmlType(name = "fieldDynamicPresetHolder")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "field-dynamic-preset")
-public class FieldDynamicPreset implements Serializable
+@XmlRootElement(name = "dynamic-preset-holder")
+public class FieldDynamicPresetHolder implements Serializable
 {
-    private static final long serialVersionUID = -7014673523064270714L;
+    private static final long serialVersionUID = 638758143207691588L;
 
-    @XmlElement(name = "value")
-    protected String value;
+    @XmlElement(name = "details")
+    FieldDynamicPresetDetails details;
 
-    public FieldDynamicPreset()
+    public FieldDynamicPresetHolder()
     {
     }
 
-    public FieldDynamicPreset(String value)
+    public FieldDynamicPresetDetails getDetails()
     {
-        this.value = value;
+        return details;
     }
 
-    public String getValue()
+    public void setDetails(FieldDynamicPresetDetails details)
     {
-        return value;
-    }
-
-    public void setValue(String value)
-    {
-        this.value = value;
-    }
-
-    @Override
-    public String toString()
-    {
-        return value;
+        this.details = details;
     }
 }

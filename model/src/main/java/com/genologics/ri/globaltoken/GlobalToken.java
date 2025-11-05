@@ -35,6 +35,13 @@ import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 
 
+/**
+ * Clarity global token. There is currently no end point in Clarity, hence there
+ * is no {@code @XmlRootElement} annotation here. It will need to be added if there is
+ * an end point in a later release.
+ *
+ * @since 2.34
+ */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "global-token", propOrder = { "name", "value", "description", "isCustom" })
 public class GlobalToken implements Linkable<GlobalToken>, Serializable

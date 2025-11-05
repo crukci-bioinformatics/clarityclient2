@@ -44,6 +44,10 @@ https://d10e8rzir0haj8.cloudfront.net/6.3/rest.version.configuration.udfs.udfid.
 
 /**
  * The representation of a list of field dynamic UDF preset.
+ * <p>
+ * Illumina have said that this class is not actually released, and there's
+ * nothing in Clarity that uses it.
+ * </p>
  *
  * @since 2.34
  */

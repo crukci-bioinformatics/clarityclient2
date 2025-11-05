@@ -10,6 +10,7 @@
     <show-in-lablink>true</show-in-lablink>
     <allow-non-preset-values>true</allow-non-preset-values>
     <first-preset-is-default-value>false</first-preset-is-default-value>
+    <is-dynamic-presets>true</is-dynamic-presets>
     <show-in-tables>true</show-in-tables>
     <is-editable>false</is-editable>
     <is-deviation>false</is-deviation>
