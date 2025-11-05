@@ -98,4 +98,10 @@ public class SavedQuery implements Linkable<SavedQuery>, Serializable
     {
         return new SavedQueryLink();
     }
+
+    @Override
+    public String toString()
+    {
+        return name;
+    }
 }

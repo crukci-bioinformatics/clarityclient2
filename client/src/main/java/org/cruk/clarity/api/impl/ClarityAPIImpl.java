@@ -66,6 +66,7 @@ import org.cruk.clarity.api.ClarityException;
 import org.cruk.clarity.api.ClarityUpdateException;
 import org.cruk.clarity.api.IllegalSearchTermException;
 import org.cruk.clarity.api.InvalidURIException;
+import org.cruk.clarity.api.SavedQuerySummary;
 import org.cruk.clarity.api.StatefulOverride;
 import org.cruk.clarity.api.filestore.ClaritySFTPUploader;
 import org.cruk.clarity.api.http.AuthenticatingClientHttpRequestFactory;
@@ -2929,9 +2930,9 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
     /**
      * {@inheritDoc}
      */
-    public void runSavedQuery(Linkable<SavedQuery> query, OutputStream out, long maximumResults) throws IOException
+    public SavedQuerySummary runSavedQuery(Linkable<SavedQuery> query, OutputStream out, long maximumResults) throws IOException
     {
-        savedQueryRunner.runSavedQuery(query, out, maximumResults);
+        return savedQueryRunner.runSavedQuery(query, out, maximumResults);
     }
 
 

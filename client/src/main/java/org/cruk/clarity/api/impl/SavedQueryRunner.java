@@ -11,6 +11,9 @@ import org.apache.commons.io.IOUtils;
 import org.cruk.clarity.api.ClarityAPI;
 import org.cruk.clarity.api.ClarityException;
 import org.cruk.clarity.api.InvalidURIException;
+import org.cruk.clarity.api.SavedQuerySummary;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpMethod;
@@ -33,6 +36,11 @@ import com.genologics.ri.savedquery.SavedQuery;
 @Component
 public class SavedQueryRunner
 {
+    /**
+     * Logger.
+     */
+    protected Logger logger = LoggerFactory.getLogger(ClarityAPI.class);
+
     /**
      * Client request factory.
      */
@@ -83,12 +91,15 @@ public class SavedQueryRunner
      * @param out The stream to write to. Must be open.
      * @param maximumResults The maximum number of results to return. If negative, don't set a limit.
      *
+     * @return A summary of the report returned.
+     *
      * @throws IOException if there is a problem writing to the output stream.
+     * @throws ClarityException if there is an error reported back from Clarity.
      * @throws InvalidURIException in the near impossible case of the query URI being invalid.
      *
      * @see ClarityAPI#runSavedQuery(Linkable, OutputStream, long)
      */
-    public void runSavedQuery(Linkable<SavedQuery> query, OutputStream out, long maximumResults) throws IOException
+    public SavedQuerySummary runSavedQuery(Linkable<SavedQuery> query, OutputStream out, long maximumResults) throws IOException
     {
         URI exportUri;
         try
@@ -115,11 +126,18 @@ public class SavedQueryRunner
         {
             if (response.getStatusCode().is2xxSuccessful())
             {
-                IOUtils.copyLarge(response.getBody(), out);
+                long copied = IOUtils.copyLarge(response.getBody(), out);
+
+                return new SavedQuerySummary(query, response.getHeaders().getContentType(), copied);
             }
             else
             {
                 errorHandler.handleError(exportUri, HttpMethod.GET, response);
+
+                // Shouldn't ever get here, but if we do, throw something.
+                var ee = new com.genologics.ri.exception.Exception();
+                ee.setMessage("Running saved query failed but the error handler hasn't fired its own exception.");
+                throw new ClarityException(ee);
             }
         }
     }

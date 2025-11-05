@@ -924,11 +924,14 @@ public interface ClarityAPI
      * @param query The saved query to run.
      * @param out The stream to write to. Must be open.
      *
+     * @return A summary of the report returned.
+     *
      * @throws IOException if there is a problem writing to the output stream.
+     * @throws ClarityException if there is an error reported back from Clarity.
      */
-    default void runSavedQuery(Linkable<SavedQuery> query, OutputStream out) throws IOException
+    default SavedQuerySummary runSavedQuery(Linkable<SavedQuery> query, OutputStream out) throws IOException
     {
-        runSavedQuery(query, out, Long.MIN_VALUE);
+        return runSavedQuery(query, out, Long.MIN_VALUE);
     }
 
     /**
@@ -940,7 +943,10 @@ public interface ClarityAPI
      * @param out The stream to write to. Must be open.
      * @param maximumResults The maximum number of results to return. If negative, don't set a limit.
      *
+     * @return A summary of the report returned.
+     *
      * @throws IOException if there is a problem writing to the output stream.
+     * @throws ClarityException if there is an error reported back from Clarity.
      */
-    void runSavedQuery(Linkable<SavedQuery> query, OutputStream out, long maximumResults) throws IOException;
+    SavedQuerySummary runSavedQuery(Linkable<SavedQuery> query, OutputStream out, long maximumResults) throws IOException;
 }

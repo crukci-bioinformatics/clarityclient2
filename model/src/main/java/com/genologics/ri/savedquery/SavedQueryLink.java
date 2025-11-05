@@ -94,4 +94,10 @@ public class SavedQueryLink implements LimsLink<SavedQuery>, Serializable
     {
         return SavedQuery.class;
     }
+
+    @Override
+    public String toString()
+    {
+        return name;
+    }
 }
