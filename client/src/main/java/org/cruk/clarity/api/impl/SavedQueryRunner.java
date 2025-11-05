@@ -31,7 +31,7 @@ import com.genologics.ri.savedquery.SavedQuery;
  * @since 2.34
  */
 @Component
-public class SavedQueryExecutor
+public class SavedQueryRunner
 {
     /**
      * Client request factory.
@@ -46,7 +46,7 @@ public class SavedQueryExecutor
     /**
      * Constructor.
      */
-    public SavedQueryExecutor()
+    public SavedQueryRunner()
     {
     }
 

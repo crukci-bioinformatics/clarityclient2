@@ -202,11 +202,11 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
     protected ClaritySFTPUploader sftpUploader = new NullSFTPUploader();
 
     /**
-     * Executor for saved queries.
+     * Runner for saved queries.
      *
      * @see #runSavedQuery(Linkable, OutputStream, long)
      */
-    protected SavedQueryExecutor savedQueryExecutor;
+    protected SavedQueryRunner savedQueryRunner;
 
     /**
      * The properties object passed in through construction or through setConfiguration
@@ -479,15 +479,15 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
     }
 
     /**
-     * Set the executor for saved queries.
+     * Set the runner for saved queries.
      *
-     * @param executor The SavedQueryExecutor instance.
+     * @param runner The SavedQueryRunner instance.
      */
     @Autowired
-    public void setSavedQueryExecutor(SavedQueryExecutor executor)
+    public void setSavedQueryRunner(SavedQueryRunner runner)
     {
-        requireNonNull(executor, "SavedQueryExector cannot be set to null.");
-        this.savedQueryExecutor = executor;
+        requireNonNull(runner, "SavedQueryRunner cannot be set to null.");
+        this.savedQueryRunner = runner;
     }
 
     /**
@@ -2931,7 +2931,7 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
      */
     public void runSavedQuery(Linkable<SavedQuery> query, OutputStream out, long maximumResults) throws IOException
     {
-        savedQueryExecutor.runSavedQuery(query, out, maximumResults);
+        savedQueryRunner.runSavedQuery(query, out, maximumResults);
     }
 
 
