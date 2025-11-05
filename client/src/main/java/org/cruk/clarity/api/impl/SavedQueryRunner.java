@@ -137,7 +137,7 @@ public class SavedQueryRunner
                 // Shouldn't ever get here, but if we do, throw something.
                 var ee = new com.genologics.ri.exception.Exception();
                 ee.setMessage("Running saved query failed but the error handler hasn't fired its own exception.");
-                throw new ClarityException(ee);
+                throw new ClarityException(ee, response.getStatusCode());
             }
         }
     }
