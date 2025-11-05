@@ -202,6 +202,13 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
     protected ClaritySFTPUploader sftpUploader = new NullSFTPUploader();
 
     /**
+     * Executor for saved queries.
+     *
+     * @see #runSavedQuery(Linkable, OutputStream, long)
+     */
+    protected SavedQueryExecutor savedQueryExecutor;
+
+    /**
      * The properties object passed in through construction or through setConfiguration
      * during Spring initialisation.
      */
@@ -469,6 +476,18 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
     {
         requireNonNull(httpRequestFactory, "httpRequestFactory cannot be set to null.");
         this.httpRequestFactory = httpRequestFactory;
+    }
+
+    /**
+     * Set the executor for saved queries.
+     *
+     * @param executor The SavedQueryExecutor instance.
+     */
+    @Autowired
+    public void setSavedQueryExecutor(SavedQueryExecutor executor)
+    {
+        requireNonNull(executor, "SavedQueryExector cannot be set to null.");
+        this.savedQueryExecutor = executor;
     }
 
     /**
@@ -2910,9 +2929,9 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
     /**
      * {@inheritDoc}
      */
-    public void runSavedQuery(Linkable<SavedQuery> query, OutputStream out) throws IOException
+    public void runSavedQuery(Linkable<SavedQuery> query, OutputStream out, long maximumResults) throws IOException
     {
-        throw new UnsupportedOperationException("Haven't written this yet.");
+        savedQueryExecutor.runSavedQuery(query, out, maximumResults);
     }
 
 

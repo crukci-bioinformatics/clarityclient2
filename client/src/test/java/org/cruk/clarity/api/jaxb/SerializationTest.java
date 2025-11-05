@@ -95,8 +95,11 @@ import com.genologics.ri.routing.Routing;
 import com.genologics.ri.sample.Sample;
 import com.genologics.ri.sample.SampleBatchFetchResult;
 import com.genologics.ri.sample.SampleCreation;
+import com.genologics.ri.savedquery.SavedQueries;
+import com.genologics.ri.savedquery.SavedQuery;
 import com.genologics.ri.stage.Stage;
 import com.genologics.ri.step.Actions;
+import com.genologics.ri.step.Arrangements;
 import com.genologics.ri.step.Placements;
 import com.genologics.ri.step.Pools;
 import com.genologics.ri.step.ProcessStep;
@@ -507,6 +510,27 @@ public class SerializationTest
         fetchMarshalAndSerialize(Role.class);
     }
 
+    // Clarity 6.3 additions
+
+    @Test
+    public void testArrangements() throws Throwable
+    {
+        fetchMarshalAndSerialize(Arrangements.class);
+    }
+
+    @Test
+    public void testSavedQueries() throws Throwable
+    {
+        fetchMarshalAndSerialize(SavedQueries.class);
+    }
+
+    @Test
+    public void testSavedQuery() throws Throwable
+    {
+        fetchMarshalAndSerialize(SavedQuery.class);
+    }
+
+    // Supporting functions.
 
     private void fetchMarshalAndSerialize(Class<?> entityClass) throws Throwable
     {

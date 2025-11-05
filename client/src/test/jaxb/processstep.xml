@@ -13,6 +13,7 @@
     <reagent-lots uri="http://limsdev.cri.camres.org:8080/api/v2/steps/24-126453/reagentlots" />
     <program-status uri="http://limsdev.cri.camres.org:8080/api/v2/steps/122-44451/programstatus" />
     <setup uri="http://limsdev.cri.camres.org:8080/api/v2/steps/24-126453/setup" />
+    <arrangements uri="http://limsdev.cri.camres.org:8080/api/v2/steps/24-126453/arrangements"/>
     <details uri="http://limsdev.cri.camres.org:8080/api/v2/steps/24-126453/details" />
     <available-programs>
         <available-program name="Generate SampleSheet CSV" uri="http://limsdev.cri.camres.org:8080/api/v2/steps/24-126453/trigger/36" />

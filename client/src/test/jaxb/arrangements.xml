@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<stp:arrangements xmlns:stp="http://genologics.com/ri/step"
+          uri="http://limsdev.cri.camres.org:8080/api/v2/steps/24-126453/arrangements">
+    <step uri="http://limsdev.cri.camres.org:8080/api/v2/steps/24-126453" rel="steps" />
+    <configuration uri="http://limsdev.cri.camres.org:8080/api/v2/configuration/protocols/16/steps/52">
+        MiSeq Load Cartridge
+    </configuration>
+    <output-arrangements>
+        <output-arrangement uri="http://lims.cri.camres.org:8080/api/v2/containers/27-1348">
+            <rack-location>
+                <rack-index>10</rack-index>
+                <rack-row>8</rack-row>
+                <rack-column>20</rack-column>
+            </rack-location>
+        </output-arrangement>
+        <output-arrangement uri="http://lims.cri.camres.org:8080/api/v2/containers/27-134880">
+            <rack-location>
+                <rack-row>8</rack-row>
+            </rack-location>
+        </output-arrangement>
+        <output-arrangement uri="http://lims.cri.camres.org:8080/api/v2/containers/27-134881"/>
+        <output-arrangement uri="http://lims.cri.camres.org:8080/api/v2/containers/27-134882">
+            <rack-location>
+                <rack-index>107</rack-index>
+            </rack-location>
+        </output-arrangement>
+    </output-arrangements>
+</stp:arrangements>

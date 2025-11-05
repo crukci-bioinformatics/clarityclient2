@@ -918,12 +918,29 @@ public interface ClarityAPI
 
     /**
      * Run a saved query and write the result to the given output stream. The output
-     * is CSV format.
+     * is CSV format. Return all the results available, up to the maximum of the Clarity
+     * {@code clarity.advancedSearch.result.max} configuration property.
      *
      * @param query The saved query to run.
      * @param out The stream to write to. Must be open.
      *
      * @throws IOException if there is a problem writing to the output stream.
      */
-    void runSavedQuery(Linkable<SavedQuery> query, OutputStream out) throws IOException;
+    default void runSavedQuery(Linkable<SavedQuery> query, OutputStream out) throws IOException
+    {
+        runSavedQuery(query, out, Long.MIN_VALUE);
+    }
+
+    /**
+     * Run a saved query and write the result to the given output stream. The output
+     * is CSV format. Return all the results available, up to the lesser of {@code maximumResults}
+     * or the Clarity {@code clarity.advancedSearch.result.max} configuration property.
+     *
+     * @param query The saved query to run.
+     * @param out The stream to write to. Must be open.
+     * @param maximumResults The maximum number of results to return. If negative, don't set a limit.
+     *
+     * @throws IOException if there is a problem writing to the output stream.
+     */
+    void runSavedQuery(Linkable<SavedQuery> query, OutputStream out, long maximumResults) throws IOException;
 }

@@ -58,6 +58,11 @@ public class SavedQuery implements Linkable<SavedQuery>, Serializable
     {
     }
 
+    public SavedQuery(URI uri)
+    {
+        setUri(uri);
+    }
+
     public String getName()
     {
         return name;
