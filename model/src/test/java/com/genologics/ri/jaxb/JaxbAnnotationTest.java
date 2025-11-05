@@ -103,6 +103,8 @@ import com.genologics.ri.routing.Routing;
 import com.genologics.ri.sample.Sample;
 import com.genologics.ri.sample.SampleBatchFetchResult;
 import com.genologics.ri.sample.SampleCreation;
+import com.genologics.ri.savedquery.SavedQueries;
+import com.genologics.ri.savedquery.SavedQuery;
 import com.genologics.ri.stage.Stage;
 import com.genologics.ri.step.Actions;
 import com.genologics.ri.step.Arrangements;
@@ -442,6 +444,18 @@ public class JaxbAnnotationTest
     public void testSampleCreation() throws Throwable
     {
         fetchMarshalAndCompare(SampleCreation.class);
+    }
+
+    @Test
+    public void testSavedQueries() throws Throwable
+    {
+        fetchMarshalAndCompare(SavedQueries.class);
+    }
+
+    @Test
+    public void testSavedQuery() throws Throwable
+    {
+        fetchMarshalAndCompare(SavedQuery.class);
     }
 
     @Test

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sqr:saved-queries xmlns:sqr="http://genologics.com/ri/savedquery">
+    <saved-query id="154" uri="https://claritydev.cruk.cam.ac.uk/api/v2/saved-queries/154">
+        <name>Erroneous Xenium Slides</name>
+    </saved-query>
+    <saved-query id="153" uri="https://claritydev.cruk.cam.ac.uk/api/v2/saved-queries/153">
+        <name>Shared Projects</name>
+    </saved-query>
+    <saved-query id="101" uri="https://claritydev.cruk.cam.ac.uk/api/v2/saved-queries/101">
+        <name>Xenium Billing Processes</name>
+    </saved-query>
+    <saved-query id="2" uri="https://claritydev.cruk.cam.ac.uk/api/v2/saved-queries/2">
+        <name>NextSeq 2000 Flowcells</name>
+    </saved-query>
+    <saved-query id="1" uri="https://claritydev.cruk.cam.ac.uk/api/v2/saved-queries/1">
+        <name>NovaSeq 6000 Flowcells</name>
+    </saved-query>
+</sqr:saved-queries>
