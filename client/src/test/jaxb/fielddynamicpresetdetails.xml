@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<cnf:field-dynamic-preset-details xmlns:cnf="http://genologics.com/ri/configuration" uri="https://claritydev.cruk.cam.ac.uk/api/v2/configuration/udfs/6452/dynamicpresets/151-2105554">
+    <cnf:field-dynamic-preset>
+        <value>New Preset</value>
+    </cnf:field-dynamic-preset>
+    <cnf:field-dynamic-preset>
+        <value>Another preset</value>
+    </cnf:field-dynamic-preset>
+</cnf:field-dynamic-preset-details>

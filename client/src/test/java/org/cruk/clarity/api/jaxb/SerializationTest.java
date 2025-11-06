@@ -63,6 +63,7 @@ import com.genologics.ri.artifactgroup.ArtifactGroup;
 import com.genologics.ri.automation.Automation;
 import com.genologics.ri.automation.Automations;
 import com.genologics.ri.configuration.Field;
+import com.genologics.ri.configuration.FieldDynamicPresetDetails;
 import com.genologics.ri.configuration.Type;
 import com.genologics.ri.container.Container;
 import com.genologics.ri.container.ContainerBatchFetchResult;
@@ -519,6 +520,11 @@ public class SerializationTest
     }
 
     @Test
+    public void testFieldDynamicPresets() throws Throwable
+    {
+        fetchMarshalAndSerialize(FieldDynamicPresetDetails.class);
+    }
+
     public void testSavedQueries() throws Throwable
     {
         fetchMarshalAndSerialize(SavedQueries.class);

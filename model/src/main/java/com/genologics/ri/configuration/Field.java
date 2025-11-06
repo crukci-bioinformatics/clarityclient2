@@ -33,6 +33,7 @@ import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.ClarityEntity;
 import com.genologics.ri.LimsLink;
+import com.genologics.ri.Link;
 import com.genologics.ri.Linkable;
 
 /**
@@ -124,6 +125,16 @@ public class Field implements Linkable<Field>, Serializable
 
     public Field()
     {
+    }
+
+    /**
+     * Convenience method for getting the field's id from its URI.
+     *
+     * @return The fields id. Will be null if this object has no URI.
+     */
+    public String getId()
+    {
+        return uri == null ? null : Link.limsIdFromUri(uri);
     }
 
     public List<String> getChildUris()

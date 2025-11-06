@@ -75,6 +75,7 @@ import com.genologics.ri.artifactgroup.ArtifactGroup;
 import com.genologics.ri.automation.Automation;
 import com.genologics.ri.automation.Automations;
 import com.genologics.ri.configuration.Field;
+import com.genologics.ri.configuration.FieldDynamicPresetDetails;
 import com.genologics.ri.configuration.Type;
 import com.genologics.ri.container.Container;
 import com.genologics.ri.container.ContainerBatchFetchResult;
@@ -282,6 +283,12 @@ public class JaxbAnnotationTest
     public void testField() throws Throwable
     {
         fetchMarshalAndCompare(Field.class);
+    }
+
+    @Test
+    public void testFieldDynamicPresets() throws Throwable
+    {
+        fetchMarshalAndCompare(FieldDynamicPresetDetails.class);
     }
 
     @Test

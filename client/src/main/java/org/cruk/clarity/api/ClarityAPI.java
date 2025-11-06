@@ -26,6 +26,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.stream.Stream;
 
 import org.apache.hc.client5.http.auth.Credentials;
 import org.springframework.web.client.HttpClientErrorException;
@@ -37,6 +38,8 @@ import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.Locatable;
 import com.genologics.ri.artifact.Artifact;
+import com.genologics.ri.configuration.Field;
+import com.genologics.ri.configuration.FieldDynamicPresetDetails;
 import com.genologics.ri.file.ClarityFile;
 import com.genologics.ri.process.ClarityProcess;
 import com.genologics.ri.processexecution.ExecutableProcess;
@@ -927,7 +930,6 @@ public interface ClarityAPI
      * @return A summary of the report returned.
      *
      * @throws IOException if there is a problem writing to the output stream.
-     * @throws ClarityException if there is an error reported back from Clarity.
      */
     default SavedQuerySummary runSavedQuery(Linkable<SavedQuery> query, OutputStream out) throws IOException
     {
@@ -946,7 +948,70 @@ public interface ClarityAPI
      * @return A summary of the report returned.
      *
      * @throws IOException if there is a problem writing to the output stream.
-     * @throws ClarityException if there is an error reported back from Clarity.
      */
     SavedQuerySummary runSavedQuery(Linkable<SavedQuery> query, OutputStream out, long maximumResults) throws IOException;
+
+    /**
+     * Set dynamic presets for a field on an entity (certainly process, haven't tested artifacts).
+     * This is an alternative to retrieving the dynamic presets for a field and entity, then
+     * making an update. The method copes with the case that Clarity returns a "not found" for
+     * the call for existing ones, when this method posts the given set of presets as new after
+     * absorbing the not found response. Otherwise (and it looks like when asked Clarity will always
+     * give a {@code FieldDynamicPresetDetails} with no presets in reply, or presumably raise an error)
+     * the dynamic presets given to this method replace those already existing.
+     *
+     * @param <E> The type of entity the field belongs to.
+     * @param <L> A linkable thing to the entity. We only need the URI so a link is fine rather than
+     * fetching the whole entity.
+     *
+     * @param field The field to set the presets for.
+     * @param target The entity for which the presets are set.
+     * @param presets The presets object to set the presets from. If null nothing happens.
+     *
+     * @since 2.34
+     */
+    <E extends LimsEntity<E>, L extends LimsEntityLinkable<E>>
+    void setFieldDynamicPresets(Field field, L target, FieldDynamicPresetDetails presets);
+
+    /**
+     * Convenience version of
+     * {@link #setFieldDynamicPresets(Field, LimsEntityLinkable, FieldDynamicPresetDetails)}
+     * to set the presets with variable string arguments.
+     *
+     * @param <E> The type of entity the field belongs to.
+     * @param <L> A linkable thing to the entity. We only need the URI so a link is fine rather than
+     * fetching the whole entity.
+     *
+     * @param field The field to set the presets for.
+     * @param target The entity for which the presets are set.
+     * @param presets The preset values.
+     *
+     * @since 2.34
+     */
+    default <E extends LimsEntity<E>, L extends LimsEntityLinkable<E>>
+    void setFieldDynamicPresets(Field field, L target, String... presets)
+    {
+        setFieldDynamicPresets(field, target, new FieldDynamicPresetDetails(presets));
+    }
+
+    /**
+     * Convenience version of
+     * {@link #setFieldDynamicPresets(Field, LimsEntityLinkable, FieldDynamicPresetDetails)}
+     * to set the presets with variable string arguments.
+     *
+     * @param <E> The type of entity the field belongs to.
+     * @param <L> A linkable thing to the entity. We only need the URI so a link is fine rather than
+     * fetching the whole entity.
+     *
+     * @param field The field to set the presets for.
+     * @param target The entity for which the presets are set.
+     * @param presets The preset values.
+     *
+     * @since 2.34
+     */
+    default <E extends LimsEntity<E>, L extends LimsEntityLinkable<E>>
+    void setFieldDynamicPresets(Field field, L target, Collection<String> presets)
+    {
+        setFieldDynamicPresets(field, target, new FieldDynamicPresetDetails(presets));
+    }
 }

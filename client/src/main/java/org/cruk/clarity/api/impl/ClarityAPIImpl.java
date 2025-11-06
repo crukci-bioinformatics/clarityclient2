@@ -102,6 +102,8 @@ import com.genologics.ri.Locatable;
 import com.genologics.ri.Location;
 import com.genologics.ri.PaginatedBatch;
 import com.genologics.ri.artifact.Artifact;
+import com.genologics.ri.configuration.Field;
+import com.genologics.ri.configuration.FieldDynamicPresetDetails;
 import com.genologics.ri.file.ClarityFile;
 import com.genologics.ri.instrument.Instrument;
 import com.genologics.ri.process.ClarityProcess;
@@ -1476,14 +1478,7 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
             throw new IllegalArgumentException("uri cannot be null or empty");
         }
 
-        ClarityEntity anno = checkEntityAnnotated(entityClass);
-        if (anno.stateful() && isFetchLatestVersions())
-        {
-            uri = removeStateParameter(uri);
-        }
-
-        ResponseEntity<E> response = restClient.getForEntity(uri, entityClass);
-        return response.getBody();
+        return retrieve(toURI(uri), entityClass);
     }
 
     /**
@@ -1690,7 +1685,7 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
             uri.append(apiRoot).append(entityAnno.uriSection());
         }
 
-        doCreateSingle(entity, uri.toString());
+        doCreateSingle(entity, toURI(uri));
     }
 
     /**
@@ -1704,15 +1699,12 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
      * @param uri The URI to post to to create the entity in the LIMS.
      */
     private <E extends Locatable>
-    void doCreateSingle(E entity, String uri)
+    void doCreateSingle(E entity, URI uri)
     {
         Class<?> entityClass = entity.getClass();
         ClarityEntity entityAnno = checkEntityAnnotated(entity.getClass());
 
         assert entityAnno.creatable() : "Somehow got to doCreateSingle for a class that cannot be created.";
-
-        assert entityAnno.primaryEntity() == void.class :
-            entityClass.getName() + " has a primary entity set, but such things cannot be created through the API.";
 
         // See if the entity class has a creationClass attribute set. If so,
         // creation is done by creating those objects.
@@ -1922,7 +1914,7 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
             }
             else
             {
-                String uri = apiRoot + entityAnno.uriSection();
+                URI uri = toURI(apiRoot + entityAnno.uriSection());
 
                 for (E entity : entities)
                 {
@@ -2063,9 +2055,6 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
         {
             throw new ClarityUpdateException(getShortClassName(entityClass) + " cannot be updated.");
         }
-
-        assert entityAnno.primaryEntity() == void.class :
-            entityClass.getName() + " has a primary entity set, but such things cannot be created through the API.";
 
         ResponseEntity<? extends Locatable> response =
                 restClient.exchange(entity.getUri(), HttpMethod.PUT, new HttpEntity<Locatable>(entity), entity.getClass());
@@ -2930,13 +2919,91 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
     /**
      * {@inheritDoc}
      */
+    @Override
     public SavedQuerySummary runSavedQuery(Linkable<SavedQuery> query, OutputStream out, long maximumResults) throws IOException
     {
         return savedQueryRunner.runSavedQuery(query, out, maximumResults);
     }
 
 
+    // Setting dynamic presets.
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public <E extends LimsEntity<E>, L extends LimsEntityLinkable<E>>
+    void setFieldDynamicPresets(Field field, L target, FieldDynamicPresetDetails presets)
+    {
+        requireNonNull(field, "Field information cannot be null.");
+        requireNonNull(target, "Entity the UDF is attached to (target) cannot be null.");
+
+        // Should we test the isDyanmicPresets field of the Field? For now, let Clarity complain.
+
+        ClarityEntity annoInner = checkEntityAnnotated(FieldDynamicPresetDetails.class);
+        assert annoInner.primaryEntity() != void.class : "@ClarityEntity on FieldDynamicPresetDetails is not set.";
+        ClarityEntity annoOuter = checkEntityAnnotated(annoInner.primaryEntity());
+
+        if (presets != null)
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.append(apiRoot).append(annoOuter.uriSection()).append('/').append(field.getId());
+            builder.append('/').append(annoInner.uriSection()).append('/').append(target.getLimsid());
+
+            URI uri = toURI(builder);
+
+            // See if this already exists. If so, PUT an update with the new values. Otherwise
+            // create the presets as new.
+
+            try
+            {
+                retrieve(uri, FieldDynamicPresetDetails.class);
+
+                // It exists. In this case, update the presets with the new object.
+
+                presets.setUri(uri);
+
+                update(presets);
+            }
+            catch (ClarityException e)
+            {
+                e.throwUnlessNotFound();
+
+                // If nothing is retrieved, create the presets as new.
+
+                doCreateSingle(presets, uri);
+            }
+        }
+    }
+
+
     // Supporting helper methods
+
+    /**
+     * Convert a character sequence into a URI object.
+     *
+     * @param str The character sequence to convert. If null, this method returns null.
+     *
+     * @return The URI object.
+     *
+     * @throws InvalidURIException if the string cannot form a valid URI.
+     */
+    protected URI toURI(CharSequence str)
+    {
+        URI uri = null;
+        if (str != null)
+        {
+            try
+            {
+                uri = new URI(str.toString());
+            }
+            catch (URISyntaxException e)
+            {
+                throw new InvalidURIException(e);
+            }
+        }
+        return uri;
+    }
 
     /**
      * Create a {@code Links} object containing the URIs of the link objects

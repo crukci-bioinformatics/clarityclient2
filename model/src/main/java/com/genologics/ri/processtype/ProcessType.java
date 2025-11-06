@@ -55,7 +55,6 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
 {
     private static final long serialVersionUID = 3103866326222677563L;
 
-    @Deprecated
     @XmlElement(name = "field-definition")
     protected List<FieldLink> fieldDefinitions;
 
@@ -204,10 +203,7 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
      * Each field definition provides a URI linking to the configuration of a user-defined field for the output type.
      *
      * @return A list of links to fields.
-     *
-     * @deprecated These field definitions are ignored as of Clarity LIMS 5.0.
      */
-    @Deprecated
     public List<FieldLink> getFieldDefinitions()
     {
         if (fieldDefinitions == null)
