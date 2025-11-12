@@ -70,7 +70,7 @@ API's "`.../artifacts/batch/retrieve`" end point it will take longer than
 making 20 calls for 500 artifacts (500 per call is the optimum number given
 by Illumina, though testing has shown this can vary between installations).
 
-As of release 2.22, the client library will batch bulk operations with
+The client library will batch bulk operations with
 large numbers of objects into one or more calls to the relevant API end point
 transparently to the user. So we can request our 10,000 artifacts in one call
 to the client and let that fetch them in the most efficient manner.
@@ -103,8 +103,7 @@ If an artifact is requested without an explicit state in the URI, the
 artifact in the cache is returned regardless of its version or the mode of
 cache operation.
 
-The default mode is `LATEST`, which is the way the cache behaved in
-releases of the client before 2.22. Modes can be set on
+The default mode is `LATEST`. Modes can be set on
 the `clarityApiCacheAspect` bean using the `setStatefulBehaviour` method.
 
 ### Overriding the cache behaviour for a single fetch

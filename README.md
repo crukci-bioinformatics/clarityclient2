@@ -2,7 +2,7 @@
 
 The Cancer Research UK Cambridge Institute (CRUK-CI) Clarity Java Client
 provides the Java or Groovy developer a means to work with
-[Clarity's REST API](https://d10e8rzir0haj8.cloudfront.net/6.2/REST.html) using objects
+[Clarity's REST API](https://d10e8rzir0haj8.cloudfront.net/6.3/REST.html) using objects
 rather than XML or DOM document trees.
 
 It provides a single interface to perform (almost) all the operations
@@ -119,9 +119,9 @@ https://crukci-bioinformatics.github.io/clarityclient2
 
 ## Clarity 6
 
-The 2.31.x versions of the library work with Clarity 6.2,
+The 2.34.x versions of the library work with Clarity 6.3,
 supporting the corresponding versions of the
-[Clarity API](https://d10e8rzir0haj8.cloudfront.net/6.2/REST.html).
+[Clarity API](https://d10e8rzir0haj8.cloudfront.net/6.3/REST.html).
 
 ## Java Version
 
@@ -141,7 +141,7 @@ compile. One should add a JAXB implementation to the final POM, such as:
 <dependency>
     <groupId>org.glassfish.jaxb</groupId>
     <artifactId>jaxb-runtime</artifactId>
-    <version>4.0.5</version>
+    <version>4.0.6</version>
     <scope>runtime</scope>
 </dependency>
 ```

@@ -59,7 +59,7 @@ implementations, namely a Glassfish implementation version 4.x.x:
 <dependency>
     <groupId>org.glassfish.jaxb</groupId>
     <artifactId>jaxb-runtime</artifactId>
-    <version>4.0.5</version>
+    <version>4.0.6</version>
     <scope>runtime</scope>
 </dependency>
 ```

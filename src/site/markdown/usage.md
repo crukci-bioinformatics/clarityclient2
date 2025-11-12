@@ -3,7 +3,7 @@
 All the work of the client goes through the `ClarityAPI` interface.
 [Take a look at its Javadoc for details of the operations it offers.](apidocs/org.cruk.clarity.api/org/cruk/clarity/api/ClarityAPI.html)
 You should also consult the
-[Clarity Developer documentation](https://d10e8rzir0haj8.cloudfront.net/6.2/REST.html)
+[Clarity Developer documentation](https://d10e8rzir0haj8.cloudfront.net/6.3/REST.html)
 for what operations are supported by the API and what they do.
 
 Before you can start making calls to the API, you need to set the client
