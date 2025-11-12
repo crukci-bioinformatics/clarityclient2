@@ -9,6 +9,7 @@ com.genologics.ri.containertype
 com.genologics.ri.controltype
 com.genologics.ri.exception
 com.genologics.ri.file
+com.genologics.ri.globaltoken
 com.genologics.ri.instrument
 com.genologics.ri.instrumenttype
 com.genologics.ri.jaxb
@@ -29,6 +30,7 @@ com.genologics.ri.researcher
 com.genologics.ri.role
 com.genologics.ri.routing
 com.genologics.ri.sample
+com.genologics.ri.savedquery
 com.genologics.ri.stage
 com.genologics.ri.step
 com.genologics.ri.stepconfiguration
