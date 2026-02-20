@@ -25,6 +25,7 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 import static org.apache.commons.lang3.StringUtils.join;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -77,6 +78,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.ClientHttpRequest;
 import org.springframework.http.client.ClientHttpResponse;
@@ -2765,9 +2767,14 @@ public class ClarityAPIImpl implements ClarityAPI, ClarityAPIInternal
             }
             else
             {
-                logger.debug("{} download failed. HTTP {}", fileURL, response.getStatusCode());
-                throw new IOException("Could not download file " + realFile.getLimsid() +
-                                      " (HTTP " + response.getStatusCode() + "): " + response.getStatusText());
+                logger.warn("{} download failed. HTTP {}", fileURL, response.getStatusCode());
+                String message = "Could not download file " + realFile.getLimsid() +
+                                 " (HTTP " + response.getStatusCode() + "): " + response.getStatusText();
+                if (response.getStatusCode() == HttpStatus.NOT_FOUND)
+                {
+                    throw new FileNotFoundException(message);
+                }
+                throw new IOException(message);
             }
         }
     }

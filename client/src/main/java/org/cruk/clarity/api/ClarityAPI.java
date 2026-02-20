@@ -26,7 +26,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-import java.util.stream.Stream;
 
 import org.apache.hc.client5.http.auth.Credentials;
 import org.springframework.web.client.HttpClientErrorException;
