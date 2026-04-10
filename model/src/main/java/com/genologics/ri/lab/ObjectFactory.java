@@ -41,37 +41,77 @@ import javax.xml.namespace.QName;
  *
  */
 @XmlRegistry
-public class ObjectFactory {
-
+public class ObjectFactory
+{
+    /**
+     * The qualified name for the labs element.
+     */
     private final static QName _Labs_QNAME = new QName(LAB_NAMESPACE, "labs");
+
+    /**
+     * The qualified name for the lab element.
+     */
     private final static QName _Lab_QNAME = new QName(LAB_NAMESPACE, "lab");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.lab
      *
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
-    public Lab createLab() {
+    /**
+     * Creates a new Lab instance.
+     *
+     * @return a new Lab object.
+     */
+    public Lab createLab()
+    {
         return new Lab();
     }
 
-    public Labs createLabs() {
+    /**
+     * Creates a new Labs instance.
+     *
+     * @return a new Labs object.
+     */
+    public Labs createLabs()
+    {
         return new Labs();
     }
 
-    public LabLink createLabLink() {
+    /**
+     * Creates a new LabLink instance.
+     *
+     * @return a new LabLink object.
+     */
+    public LabLink createLabLink()
+    {
         return new LabLink();
     }
 
+    /**
+     * Creates a JAXBElement for the labs element.
+     *
+     * @param value the Labs value to wrap.
+     * @return a JAXBElement containing the Labs value.
+     */
     @XmlElementDecl(namespace = LAB_NAMESPACE, name = "labs")
-    public JAXBElement<Labs> createLabs(Labs value) {
+    public JAXBElement<Labs> createLabs(Labs value)
+    {
         return new JAXBElement<Labs>(_Labs_QNAME, Labs.class, null, value);
     }
 
+    /**
+     * Creates a JAXBElement for the lab element.
+     *
+     * @param value the Lab value to wrap.
+     * @return a JAXBElement containing the Lab value.
+     */
     @XmlElementDecl(namespace = LAB_NAMESPACE, name = "lab")
-    public JAXBElement<Lab> createLab(Lab value) {
+    public JAXBElement<Lab> createLab(Lab value)
+    {
         return new JAXBElement<Lab>(_Lab_QNAME, Lab.class, null, value);
     }
 }

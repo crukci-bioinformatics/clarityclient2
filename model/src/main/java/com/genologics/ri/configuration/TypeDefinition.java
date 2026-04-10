@@ -42,6 +42,10 @@ import com.genologics.ri.Linkable;
 @XmlType(name = "type-definition")
 public class TypeDefinition implements LimsLink<Type>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 7368802583367288257L;
 
     @XmlAttribute(name = "name")

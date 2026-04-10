@@ -40,6 +40,10 @@ import com.genologics.ri.workflowconfiguration.Workflow;
 @XmlType(name = "extArtifactAssignments")
 public class ExtArtifactAssignments implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 5445690350646421054L;
 
     @XmlElement(name = "artifact")

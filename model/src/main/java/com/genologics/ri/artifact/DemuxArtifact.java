@@ -42,62 +42,120 @@ import com.genologics.ri.LimsLink;
 @XmlType(name = "demux-artifact", propOrder = { "samples", "reagentLabels", "demux" })
 public class DemuxArtifact implements LimsLink<Artifact>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 8205564798487086835L;
 
+    /**
+     * The samples in this demux artifact.
+     */
     @XmlElementWrapper(name = "samples")
     @XmlElement(name = "sample")
     protected List<DemuxArtifactSample> samples;
 
+    /**
+     * The reagent labels in this demux artifact.
+     */
     @XmlElementWrapper(name = "reagent-labels")
     @XmlElement(name = "reagent-label")
     protected List<ReagentLabel> reagentLabels;
 
+    /**
+     * The demux details of this demux artifact.
+     */
     @XmlElement
     protected DemuxDetails demux;
 
+    /**
+     * The name of this demux artifact.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The URI of this demux artifact.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public DemuxArtifact()
     {
     }
 
+    /**
+     * Gets the demux details.
+     *
+     * @return The demux details.
+     */
     public DemuxDetails getDemux()
     {
         return demux;
     }
 
+    /**
+     * Sets the demux details.
+     *
+     * @param demux The demux details.
+     */
     public void setDemux(DemuxDetails demux)
     {
         this.demux = demux;
     }
 
+    /**
+     * Gets the name.
+     *
+     * @return The demux artifact name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name.
+     *
+     * @param name The demux artifact name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return The demux artifact URI.
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param uri The demux artifact URI.
+     */
     @Override
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the list of samples.
+     * Creates an empty list if it doesn't exist.
+     *
+     * @return The list of demux artifact samples.
+     */
     public List<DemuxArtifactSample> getSamples()
     {
         if (samples == null)
@@ -107,6 +165,12 @@ public class DemuxArtifact implements LimsLink<Artifact>, Serializable
         return samples;
     }
 
+    /**
+     * Gets the list of reagent labels.
+     * Creates an empty list if it doesn't exist.
+     *
+     * @return The list of reagent labels.
+     */
     public List<ReagentLabel> getReagentLabels()
     {
         if (reagentLabels == null)
@@ -116,12 +180,22 @@ public class DemuxArtifact implements LimsLink<Artifact>, Serializable
         return reagentLabels;
     }
 
+    /**
+     * Returns a string representation of this demux artifact.
+     *
+     * @return The name, or "null" if not set.
+     */
     @Override
     public String toString()
     {
         return name == null ? "null" : name;
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return The Artifact class.
+     */
     @Override
     public Class<Artifact> getEntityClass()
     {

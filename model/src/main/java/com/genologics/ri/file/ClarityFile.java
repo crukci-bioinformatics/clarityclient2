@@ -48,6 +48,10 @@ import com.genologics.ri.Linkable;
 @XmlType(name = "file", propOrder = { "attachedTo", "contentLocation", "originalLocation", "originalName", "published" })
 public class ClarityFile implements LimsEntity<ClarityFile>, LimsEntityLink<ClarityFile>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -6683975101172687186L;
 
     @XmlElement(name = "attached-to")

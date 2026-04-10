@@ -41,33 +41,67 @@ import com.genologics.ri.Linkable;
 @XmlType(name = "workflow-link")
 public class WorkflowLink implements LimsLink<Workflow>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 1335890809720204629L;
 
+    /**
+     * The URI of the workflow.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The name of the workflow.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The status of the workflow.
+     */
     @XmlAttribute(name = "status")
     protected Status status;
 
+    /**
+     * Default constructor.
+     */
     public WorkflowLink()
     {
     }
 
+    /**
+     * Constructor accepting a URI.
+     *
+     * @param uri The workflow URI.
+     */
     public WorkflowLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor accepting a URI and name.
+     *
+     * @param uri The workflow URI.
+     * @param name The workflow name.
+     */
     public WorkflowLink(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Constructor accepting a URI, name, and status.
+     *
+     * @param uri The workflow URI.
+     * @param name The workflow name.
+     * @param status The workflow status.
+     */
     public WorkflowLink(URI uri, String name, Status status)
     {
         this.uri = uri;
@@ -75,12 +109,22 @@ public class WorkflowLink implements LimsLink<Workflow>, Serializable
         this.status = status;
     }
 
+    /**
+     * Constructor accepting a Linkable object.
+     *
+     * @param link The linkable workflow object.
+     */
     public WorkflowLink(Linkable<Workflow> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Constructor accepting a Workflow object.
+     *
+     * @param workflow The workflow to link to.
+     */
     public WorkflowLink(Workflow workflow)
     {
         requireNonNull(workflow, "workflow cannot be null");
@@ -89,44 +133,84 @@ public class WorkflowLink implements LimsLink<Workflow>, Serializable
         status = workflow.getStatus();
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The Workflow class.
+     */
     @Override
     public Class<Workflow> getEntityClass()
     {
         return Workflow.class;
     }
 
+    /**
+     * Gets the URI of the workflow.
+     *
+     * @return The workflow URI.
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the workflow.
+     *
+     * @param uri The workflow URI.
+     */
     @Override
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the name of the workflow.
+     *
+     * @return The workflow name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the workflow.
+     *
+     * @param name The workflow name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the status of the workflow.
+     *
+     * @return The workflow status.
+     */
     public Status getStatus()
     {
         return status;
     }
 
+    /**
+     * Sets the status of the workflow.
+     *
+     * @param status The workflow status.
+     */
     public void setStatus(Status status)
     {
         this.status = status;
     }
 
+    /**
+     * Returns a string representation of this workflow link.
+     *
+     * @return The workflow name.
+     */
     @Override
     public String toString()
     {

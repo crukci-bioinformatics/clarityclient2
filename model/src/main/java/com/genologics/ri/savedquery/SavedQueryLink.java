@@ -32,69 +32,132 @@ import com.genologics.ri.LimsLink;
 
 
 /**
+ * Link to a saved query entity.
+ *
  * @since 2.34
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "saved-query-link")
 public class SavedQueryLink implements LimsLink<SavedQuery>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -262825664905616405L;
 
+    /**
+     * The name of the saved query.
+     */
     @XmlElement
     protected String name;
 
+    /**
+     * The unique identifier of the saved query.
+     */
     @XmlAttribute(name = "id")
     protected String id;
 
+    /**
+     * The URI of the saved query.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public SavedQueryLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the saved query.
+     */
     public SavedQueryLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the name of the saved query.
+     *
+     * @return The name of the saved query.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the saved query.
+     *
+     * @param name The name of the saved query.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the unique identifier of the saved query.
+     *
+     * @return The identifier of the saved query.
+     */
     public String getId()
     {
         return id;
     }
 
+    /**
+     * Sets the unique identifier of the saved query.
+     *
+     * @param id The identifier of the saved query.
+     */
     public void setId(String id)
     {
         this.id = id;
     }
 
+    /**
+     * Gets the URI of the saved query.
+     *
+     * @return The URI of the saved query.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the saved query.
+     *
+     * @param uri The URI of the saved query.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The SavedQuery class.
+     */
     @Override
     public Class<SavedQuery> getEntityClass()
     {
         return SavedQuery.class;
     }
 
+    /**
+     * Returns the string representation of the saved query link.
+     *
+     * @return The name of the saved query.
+     */
     @Override
     public String toString()
     {

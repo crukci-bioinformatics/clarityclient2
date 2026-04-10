@@ -35,31 +35,62 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "icebucketfield")
 public class IceBucketField extends Field
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -2716908183459254115L;
 
+    /**
+     * Indicates whether this ice bucket field should be shown in detail view.
+     */
     @XmlAttribute(name = "detail")
     protected Boolean detail;
 
+    /**
+     * Default constructor.
+     */
     public IceBucketField()
     {
         super();
     }
 
+    /**
+     * Constructor with field name.
+     *
+     * @param name The field name.
+     */
     public IceBucketField(String name)
     {
         super(name);
     }
 
+    /**
+     * Constructor with field name and attach-to value.
+     *
+     * @param name The field name.
+     * @param attachTo What entity this field is attached to.
+     */
     public IceBucketField(String name, String attachTo)
     {
         super(name, attachTo);
     }
 
+    /**
+     * Gets whether this field should be shown in detail view.
+     *
+     * @return True if shown in detail view, false otherwise.
+     */
     public Boolean getDetail()
     {
         return detail;
     }
 
+    /**
+     * Sets whether this field should be shown in detail view.
+     *
+     * @param detail True to show in detail view, false otherwise.
+     */
     public void setDetail(Boolean detail)
     {
         this.detail = detail;

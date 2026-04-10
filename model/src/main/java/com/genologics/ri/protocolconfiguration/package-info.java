@@ -1,3 +1,6 @@
+/**
+ * Provides JAXB bindings for the protocol configuration domain model.
+ */
 @XmlSchema(
         namespace = PROTOCOL_CONFIGURATION_NAMESPACE,
         elementFormDefault = XmlNsForm.UNQUALIFIED,

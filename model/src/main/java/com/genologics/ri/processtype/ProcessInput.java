@@ -34,6 +34,10 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "process-input", propOrder = { "artifactType", "displayName", "removeWorkingFlag" })
 public class ProcessInput implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -2733188258573850043L;
 
     @XmlElement(name = "artifact-type")

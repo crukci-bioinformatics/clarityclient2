@@ -37,6 +37,10 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "parameter")
 public class Parameter implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -8795139448974204288L;
 
     @XmlAttribute(name = "name")

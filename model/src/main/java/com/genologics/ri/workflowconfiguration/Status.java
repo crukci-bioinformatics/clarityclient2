@@ -21,18 +21,44 @@ package com.genologics.ri.workflowconfiguration;
 import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlType;
 
+/**
+ * Enumeration representing the status of a workflow.
+ */
 @XmlType(name = "status")
 @XmlEnum
 public enum Status
 {
+    /**
+     * Workflow is pending activation.
+     */
+    PENDING,
 
-    PENDING, ACTIVE, ARCHIVED;
+    /**
+     * Workflow is currently active.
+     */
+    ACTIVE,
 
+    /**
+     * Workflow has been archived.
+     */
+    ARCHIVED;
+
+    /**
+     * Gets the string value of this status.
+     *
+     * @return The name of this status constant.
+     */
     public String value()
     {
         return name();
     }
 
+    /**
+     * Creates a Status from a string value.
+     *
+     * @param v The string value.
+     * @return The corresponding Status enum constant.
+     */
     public static Status fromValue(String v)
     {
         return valueOf(v);

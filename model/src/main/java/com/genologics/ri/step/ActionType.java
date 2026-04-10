@@ -22,53 +22,105 @@ import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlEnumValue;
 import jakarta.xml.bind.annotation.XmlType;
 
+/**
+ * Enumeration of action types that can be performed on artifacts in a step.
+ */
 @XmlType(name = "action-type")
 @XmlEnum
 public enum ActionType
 {
-
+    /**
+     * Leave the artifact as is.
+     */
     @XmlEnumValue("leave")
     LEAVE("leave"),
 
+    /**
+     * Repeat the action on the artifact.
+     */
     @XmlEnumValue("repeat")
     REPEAT("repeat"),
 
+    /**
+     * Remove the artifact.
+     */
     @XmlEnumValue("remove")
     REMOVE("remove"),
 
+    /**
+     * Review the artifact.
+     */
     @XmlEnumValue("review")
     REVIEW("review"),
 
+    /**
+     * Complete the action.
+     */
     @XmlEnumValue("complete")
     COMPLETE("complete"),
 
+    /**
+     * Store the artifact.
+     */
     @XmlEnumValue("store")
     STORE("store"),
 
+    /**
+     * Move to the next step.
+     */
     @XmlEnumValue("nextstep")
     NEXTSTEP("nextstep"),
 
+    /**
+     * Rework the artifact.
+     */
     @XmlEnumValue("rework")
     REWORK("rework"),
 
+    /**
+     * Complete and repeat.
+     */
     @XmlEnumValue("completerepeat")
     COMPLETE_REPEAT("completerepeat"),
 
+    /**
+     * Unknown action type.
+     */
     @XmlEnumValue("unknown")
     UNKNOWN("unknown");
 
+    /**
+     * The string value of the action type.
+     */
     private final String value;
 
+    /**
+     * Constructor.
+     *
+     * @param v The string value.
+     */
     ActionType(String v)
     {
         value = v;
     }
 
+    /**
+     * Gets the string value.
+     *
+     * @return The string value.
+     */
     public String value()
     {
         return value;
     }
 
+    /**
+     * Converts a string value to an ActionType.
+     *
+     * @param v The string value.
+     * @return The corresponding ActionType.
+     * @throws IllegalArgumentException if the value doesn't match any action type.
+     */
     public static ActionType fromValue(String v)
     {
         for (ActionType c : ActionType.values())

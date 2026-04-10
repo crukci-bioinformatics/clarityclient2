@@ -46,6 +46,10 @@ import com.genologics.ri.artifact.Artifact;
 @XmlType(name = "file")
 public class SharedResultFile implements LimsEntityLink<Artifact>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -1481534271853089634L;
 
     @XmlElement

@@ -41,39 +41,74 @@ import com.genologics.ri.workflowconfiguration.Workflow;
 @XmlType(name = "workflow")
 public class WorkflowLink implements LimsLink<Workflow>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 7790581332424089347L;
 
+    /**
+     * The URI of the workflow.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public WorkflowLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the workflow.
+     */
     public WorkflowLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor from a linkable workflow object.
+     *
+     * @param link The linkable workflow object.
+     */
     public WorkflowLink(Linkable<Workflow> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The Workflow class.
+     */
     @Override
     public Class<Workflow> getEntityClass()
     {
         return Workflow.class;
     }
 
+    /**
+     * Gets the URI of the workflow.
+     *
+     * @return The URI of the workflow.
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the workflow.
+     *
+     * @param uri The URI of the workflow.
+     */
     @Override
     public void setUri(URI uri)
     {

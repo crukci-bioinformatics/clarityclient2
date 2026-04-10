@@ -35,6 +35,10 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "file", propOrder = { "message" })
 public class SharedResultFile implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -4934343881979066853L;
 
     protected String message;

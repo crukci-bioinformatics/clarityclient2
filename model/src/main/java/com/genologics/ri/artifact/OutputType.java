@@ -21,39 +21,81 @@ package com.genologics.ri.artifact;
 import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlEnumValue;
 
+/**
+ * Enumeration of artifact output types.
+ */
 @XmlEnum
 public enum OutputType
 {
+    /**
+     * Sample output type.
+     */
     @XmlEnumValue("Sample")
     SAMPLE("Sample"),
 
+    /**
+     * Analyte output type.
+     */
     @XmlEnumValue("Analyte")
     ANALYTE("Analyte"),
 
+    /**
+     * Result file output type.
+     */
     @XmlEnumValue("ResultFile")
     RESULT_FILE("ResultFile"),
 
+    /**
+     * Shared result file output type.
+     */
     @XmlEnumValue("SharedResultFile")
     SHARED_RESULT_FILE("SharedResultFile"),
 
+    /**
+     * Search result file output type.
+     */
     @XmlEnumValue("SearchResultFile")
     SEARCH_RESULT_FILE("SearchResultFile"),
 
+    /**
+     * Spot list output type.
+     */
     @XmlEnumValue("SpotList")
     SPOT_LIST("SpotList");
 
+    /**
+     * The string value of this output type.
+     */
     private final String value;
 
+    /**
+     * Constructor.
+     *
+     * @param v The string value.
+     */
     OutputType(String v)
     {
         value = v;
     }
 
+    /**
+     * Gets the string value.
+     *
+     * @return The string value.
+     */
     public String value()
     {
         return value;
     }
 
+    /**
+     * Gets the OutputType from a string value.
+     *
+     * @param v The string value.
+     * @return The corresponding OutputType.
+     * @throws NullPointerException if v is null.
+     * @throws IllegalArgumentException if v is not a valid output type.
+     */
     public static OutputType fromValue(String v)
     {
         if (v == null)

@@ -34,6 +34,8 @@ import com.genologics.ri.Batch;
 import com.genologics.ri.ClarityQueryResult;
 
 /**
+ * The representation of a list of permission links.
+ *
  * @since 2.19
  */
 @ClarityQueryResult(entityClass = Permission.class)
@@ -42,25 +44,47 @@ import com.genologics.ri.ClarityQueryResult;
 @XmlRootElement(name = "permissions")
 public class Permissions implements Batch<PermissionLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -8403111885816697046L;
 
+    /**
+     * The list of permission links.
+     */
     @XmlElement(name = "permission")
     protected List<PermissionLink> permissions;
 
+    /**
+     * The URI of the permissions collection.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected String uri;
 
-
+    /**
+     * Default constructor.
+     */
     public Permissions()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The permissions collection URI.
+     */
     public Permissions(String uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Get the list of permission links.
+     *
+     * @return The list of permission links.
+     */
     public List<PermissionLink> getPermissions()
     {
         if (permissions == null)
@@ -70,23 +94,39 @@ public class Permissions implements Batch<PermissionLink>, Serializable
         return permissions;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<PermissionLink> getList()
     {
         return getPermissions();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getSize()
     {
         return permissions == null ? 0 : permissions.size();
     }
 
+    /**
+     * Get the URI.
+     *
+     * @return The URI.
+     */
     public String getUri()
     {
         return uri;
     }
 
+    /**
+     * Set the URI.
+     *
+     * @param uri The URI.
+     */
     public void setUri(String uri)
     {
         this.uri = uri;

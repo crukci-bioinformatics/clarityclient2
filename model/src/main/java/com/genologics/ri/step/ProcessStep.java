@@ -59,6 +59,7 @@ import com.genologics.ri.researcher.Researcher;
 @XmlRootElement(name = "step")
 public class ProcessStep implements LimsEntity<ProcessStep>, Serializable
 {
+    @java.io.Serial
     private static final long serialVersionUID = 8157777981636538216L;
 
     /**
@@ -379,6 +380,10 @@ public class ProcessStep implements LimsEntity<ProcessStep>, Serializable
      */
     private class ProcessStepLink implements LimsEntityLink<ProcessStep>, Serializable
     {
+        /**
+         * Class version for serialisation.
+         */
+    @java.io.Serial
         private static final long serialVersionUID = -7807865307254531322L;
 
         /**

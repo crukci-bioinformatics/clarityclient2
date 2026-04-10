@@ -40,37 +40,71 @@ import com.genologics.ri.Linkable;
 @XmlType(name = "control-type-link")
 public class ControlTypeLink implements LimsLink<ControlType>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 7850681628082855516L;
 
+    /**
+     * The name of the control type.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The URI of the control type.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
 
+    /**
+     * Default constructor.
+     */
     public ControlTypeLink()
     {
     }
 
+    /**
+     * Constructs a control type link with the specified URI.
+     *
+     * @param uri The URI.
+     */
     public ControlTypeLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructs a control type link with the specified URI and name.
+     *
+     * @param uri The URI.
+     * @param name The name.
+     */
     public ControlTypeLink(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Constructs a control type link from a linkable object.
+     *
+     * @param link The linkable object.
+     */
     public ControlTypeLink(Linkable<ControlType> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * Constructs a control type link from a control type object.
+     *
+     * @param controlType The control type.
+     */
     public ControlTypeLink(ControlType controlType)
     {
         requireNonNull(controlType, "controlType cannot be null");
@@ -78,11 +112,21 @@ public class ControlTypeLink implements LimsLink<ControlType>, Serializable
         this.name = controlType.getName();
     }
 
+    /**
+     * Gets the name of the control type.
+     *
+     * @return The name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the control type.
+     *
+     * @param name The name.
+     */
     public void setName(String name)
     {
         this.name = name;

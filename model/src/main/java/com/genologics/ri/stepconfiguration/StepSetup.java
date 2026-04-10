@@ -36,15 +36,30 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "step-setup")
 public class StepSetup extends LockableSetting
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 3706069288148584102L;
 
+    /**
+     * List of shared result files for the step setup view.
+     */
     @XmlElementWrapper(name = "files")
     @XmlElement(name = "file")
     protected List<SharedResultFile> files;
 
+    /**
+     * Indicates whether the step setup view is enabled.
+     */
     @XmlAttribute(name = "enabled", required = true)
     protected boolean enabled;
 
+    /**
+     * Gets the list of shared result files for the step setup view.
+     *
+     * @return The list of shared result files.
+     */
     public List<SharedResultFile> getFiles()
     {
         if (files == null)
@@ -54,17 +69,33 @@ public class StepSetup extends LockableSetting
         return files;
     }
 
+    /**
+     * Adds a shared result file to the step setup view.
+     *
+     * @param file The shared result file.
+     * @return The shared result file.
+     */
     public SharedResultFile addFile(SharedResultFile file)
     {
         getFiles().add(file);
         return file;
     }
 
+    /**
+     * Gets whether the step setup view is enabled.
+     *
+     * @return True if enabled, false otherwise.
+     */
     public boolean isEnabled()
     {
         return enabled;
     }
 
+    /**
+     * Sets whether the step setup view is enabled.
+     *
+     * @param enabled True to enable, false to disable.
+     */
     public void setEnabled(boolean enabled)
     {
         this.enabled = enabled;

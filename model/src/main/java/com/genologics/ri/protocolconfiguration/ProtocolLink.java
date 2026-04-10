@@ -32,41 +32,80 @@ import jakarta.xml.bind.annotation.XmlType;
 import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 
+/**
+ * Link to a protocol configuration.
+ */
+/**
+ * Protocol-Link provides a URI linking to the detailed representation of a protocol.
+ */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "protocol-link")
 public class ProtocolLink implements LimsLink<Protocol>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 5561496957381579448L;
 
+    /**
+     * The name of the protocol.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The URI to the protocol.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
-
+    /**
+     * Default constructor.
+     */
     public ProtocolLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI to the protocol.
+     */
     public ProtocolLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and name.
+     *
+     * @param uri The URI to the protocol.
+     * @param name The name of the protocol.
+     */
     public ProtocolLink(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Constructor from a linkable object.
+     *
+     * @param link The linkable object containing the protocol.
+     */
     public ProtocolLink(Linkable<Protocol> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Constructor from a protocol.
+     *
+     * @param protocol The protocol.
+     */
     public ProtocolLink(Protocol protocol)
     {
         requireNonNull(protocol, "protocol cannot be null");
@@ -74,32 +113,62 @@ public class ProtocolLink implements LimsLink<Protocol>, Serializable
         name = protocol.getName();
     }
 
+    /**
+     * Gets the name of the protocol.
+     *
+     * @return The name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the protocol.
+     *
+     * @param value The name.
+     */
     public void setName(String value)
     {
         this.name = value;
     }
 
+    /**
+     * Gets the URI to the protocol.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI to the protocol.
+     *
+     * @param value The URI.
+     */
     public void setUri(URI value)
     {
         this.uri = value;
     }
 
+    /**
+     * Gets the entity class this link refers to.
+     *
+     * @return The Protocol class.
+     */
     @Override
     public Class<Protocol> getEntityClass()
     {
         return Protocol.class;
     }
 
+    /**
+     * Gets a string representation of the protocol link.
+     *
+     * @return The protocol name, or "null" if the name is null.
+     */
     @Override
     public String toString()
     {

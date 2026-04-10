@@ -35,6 +35,10 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "epp-trigger")
 public class EppTrigger implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 3481787346877063815L;
 
     @XmlAttribute(name = "name")

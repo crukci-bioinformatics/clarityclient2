@@ -43,7 +43,14 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    /**
+     * QName for artifactgroup element.
+     */
     private final static QName _Artifactgroup_QNAME = new QName(ARTIFACT_GROUP_NAMESPACE, "artifactgroup");
+
+    /**
+     * QName for artifactgroups element.
+     */
     private final static QName _Artifactgroups_QNAME = new QName(ARTIFACT_GROUP_NAMESPACE, "artifactgroups");
 
     /**
@@ -53,27 +60,59 @@ public class ObjectFactory {
     public ObjectFactory() {
     }
 
+    /**
+     * Create an instance of {@link ArtifactGroup}.
+     *
+     * @return A new ArtifactGroup instance.
+     */
     public ArtifactGroup createArtifactgroup() {
         return new ArtifactGroup();
     }
 
+    /**
+     * Create an instance of {@link ArtifactGroupLink}.
+     *
+     * @return A new ArtifactGroupLink instance.
+     */
     public ArtifactGroupLink createArtifactgroupLink() {
         return new ArtifactGroupLink();
     }
 
+    /**
+     * Create an instance of {@link Artifacts}.
+     *
+     * @return A new Artifacts instance.
+     */
     public Artifacts createArtifacts() {
         return new Artifacts();
     }
 
+    /**
+     * Create an instance of {@link ArtifactGroups}.
+     *
+     * @return A new ArtifactGroups instance.
+     */
     public ArtifactGroups createArtifactgroups() {
         return new ArtifactGroups();
     }
 
+    /**
+     * Create an instance of {@link JAXBElement}&lt;{@link ArtifactGroup}&gt;.
+     *
+     * @param value The ArtifactGroup value to wrap.
+     * @return A JAXBElement wrapping the ArtifactGroup.
+     */
     @XmlElementDecl(namespace = ARTIFACT_GROUP_NAMESPACE, name = "artifactgroup")
     public JAXBElement<ArtifactGroup> createArtifactgroup(ArtifactGroup value) {
         return new JAXBElement<ArtifactGroup>(_Artifactgroup_QNAME, ArtifactGroup.class, null, value);
     }
 
+    /**
+     * Create an instance of {@link JAXBElement}&lt;{@link ArtifactGroups}&gt;.
+     *
+     * @param value The ArtifactGroups value to wrap.
+     * @return A JAXBElement wrapping the ArtifactGroups.
+     */
     @XmlElementDecl(namespace = ARTIFACT_GROUP_NAMESPACE, name = "artifactgroups")
     public JAXBElement<ArtifactGroups> createArtifactgroups(ArtifactGroups value) {
         return new JAXBElement<ArtifactGroups>(_Artifactgroups_QNAME, ArtifactGroups.class, null, value);

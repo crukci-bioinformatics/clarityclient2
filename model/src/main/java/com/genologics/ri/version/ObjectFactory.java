@@ -53,19 +53,41 @@ public class ObjectFactory {
     public ObjectFactory() {
     }
 
+    /**
+     * Create an instance of {@link Version}
+     *
+     * @return A new Version instance.
+     */
     public Version createVersion() {
         return new Version();
     }
 
+    /**
+     * Create an instance of {@link Versions}
+     *
+     * @return A new Versions instance.
+     */
     public Versions createVersions() {
         return new Versions();
     }
 
+    /**
+     * Create an instance of {@link JAXBElement}{@code <}{@link Version}{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return The new instance of {@link JAXBElement}{@code <}{@link Version}{@code >}
+     */
     @XmlElementDecl(namespace = VERSION_NAMESPACE, name = "version")
     public JAXBElement<Version> createVersion(Version value) {
         return new JAXBElement<Version>(_Version_QNAME, Version.class, null, value);
     }
 
+    /**
+     * Create an instance of {@link JAXBElement}{@code <}{@link Versions}{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return The new instance of {@link JAXBElement}{@code <}{@link Versions}{@code >}
+     */
     @XmlElementDecl(namespace = VERSION_NAMESPACE, name = "versions")
     public JAXBElement<Versions> createVersions(Versions value) {
         return new JAXBElement<Versions>(_Versions_QNAME, Versions.class, null, value);

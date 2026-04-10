@@ -53,6 +53,10 @@ import com.genologics.ri.file.ClarityFile;
 @XmlRootElement(name = "automation")
 public class Automation implements Linkable<Automation>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 8888968017373728807L;
 
     @XmlElement

@@ -42,42 +42,82 @@ import com.genologics.ri.Linkable;
 @XmlType(name = "demux-link")
 public class DemuxLink implements LimsLink<DemuxArtifact>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -3140263256856604670L;
 
+    /**
+     * The URI of this demux artifact.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public DemuxLink()
     {
     }
 
+    /**
+     * Constructor taking a URI.
+     *
+     * @param uri The demux artifact URI.
+     */
     public DemuxLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor from a Linkable.
+     *
+     * @param link The linkable object to copy.
+     */
     public DemuxLink(Linkable<DemuxArtifact> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return The demux artifact URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param uri The demux artifact URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Sets the artifact from a Linkable.
+     *
+     * @param artifact The linkable artifact to set.
+     */
     public void setArtifact(Linkable<DemuxArtifact> artifact)
     {
         this.uri = artifact == null ? null : artifact.getUri();
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return The DemuxArtifact class.
+     */
     @Override
     public Class<DemuxArtifact> getEntityClass()
     {

@@ -38,17 +38,35 @@ import com.genologics.ri.Locatable;
 @XmlType(name = "artifacts")
 public class Artifacts implements Locatable, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -2118023404939650487L;
 
+    /**
+     * The URI of the artifacts in this group.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Gets the URI of the artifacts in this group.
+     *
+     * @return The URI.
+     */
+    @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the artifacts in this group.
+     *
+     * @param value The URI to set.
+     */
     public void setUri(URI value)
     {
         this.uri = value;

@@ -43,37 +43,72 @@ import com.genologics.ri.artifact.Artifact;
 @XmlType(name = "escalated-artifact")
 public class EscalatedArtifact implements LimsLink<Artifact>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 3942629848997667695L;
 
+    /**
+     * URI of the escalated artifact.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public EscalatedArtifact()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the escalated artifact.
+     */
     public EscalatedArtifact(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor from a linkable object.
+     *
+     * @param link The linkable artifact.
+     */
     public EscalatedArtifact(Linkable<Artifact> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return The Artifact class.
+     */
     @Override
     public Class<Artifact> getEntityClass()
     {

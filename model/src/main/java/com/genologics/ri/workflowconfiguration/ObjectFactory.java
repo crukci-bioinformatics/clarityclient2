@@ -53,31 +53,68 @@ public class ObjectFactory {
     public ObjectFactory() {
     }
 
+    /**
+     * Create an instance of {@link Workflow}.
+     *
+     * @return A new Workflow instance.
+     */
     public Workflow createWorkflow() {
         return new Workflow();
     }
 
+    /**
+     * Create an instance of {@link ProtocolLink}.
+     *
+     * @return A new ProtocolLink instance.
+     */
     public ProtocolLink createProtocolLink() {
         return new ProtocolLink();
     }
 
+    /**
+     * Create an instance of {@link WorkflowLink}.
+     *
+     * @return A new WorkflowLink instance.
+     */
     public WorkflowLink createWorkflowLink() {
         return new WorkflowLink();
     }
 
+    /**
+     * Create an instance of {@link StageLink}.
+     *
+     * @return A new StageLink instance.
+     */
     public StageLink createStageLink() {
         return new StageLink();
     }
 
+    /**
+     * Create an instance of {@link Workflows}.
+     *
+     * @return A new Workflows instance.
+     */
     public Workflows createWorkflows() {
         return new Workflows();
     }
 
+    /**
+     * Create a JAXBElement for {@link Workflows}.
+     *
+     * @param value The Workflows value to wrap.
+     * @return A JAXBElement wrapping the Workflows instance.
+     */
     @XmlElementDecl(namespace = WORKFLOW_CONFIGURATION_NAMESPACE, name = "workflows")
     public JAXBElement<Workflows> createWorkflows(Workflows value) {
         return new JAXBElement<Workflows>(_Workflows_QNAME, Workflows.class, null, value);
     }
 
+    /**
+     * Create a JAXBElement for {@link Workflow}.
+     *
+     * @param value The Workflow value to wrap.
+     * @return A JAXBElement wrapping the Workflow instance.
+     */
     @XmlElementDecl(namespace = WORKFLOW_CONFIGURATION_NAMESPACE, name = "workflow")
     public JAXBElement<Workflow> createWorkflow(Workflow value) {
         return new JAXBElement<Workflow>(_Workflow_QNAME, Workflow.class, null, value);

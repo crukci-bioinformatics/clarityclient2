@@ -43,33 +43,67 @@ import com.genologics.ri.Linkable;
 @XmlType(name = "project-link")
 public class ProjectLink implements LimsEntityLink<Project>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 5015998464762805841L;
 
+    /**
+     * The name of the project.
+     */
     @XmlElement(name = "name")
     protected String name;
 
+    /**
+     * The LIMS id of the project.
+     */
     @XmlAttribute(name = "limsid")
     protected String limsid;
 
+    /**
+     * The URI of the project.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Constructor for ProjectLink.
+     */
     public ProjectLink()
     {
     }
 
+    /**
+     * Constructor for ProjectLink with a URI.
+     *
+     * @param uri The URI of the project.
+     */
     public ProjectLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor for ProjectLink with a URI and LIMS id.
+     *
+     * @param uri The URI of the project.
+     * @param limsid The LIMS id of the project.
+     */
     public ProjectLink(URI uri, String limsid)
     {
         this.uri = uri;
         this.limsid = limsid;
     }
 
+    /**
+     * Constructor for ProjectLink with a URI, LIMS id, and name.
+     *
+     * @param uri The URI of the project.
+     * @param limsid The LIMS id of the project.
+     * @param name The name of the project.
+     */
     public ProjectLink(URI uri, String limsid, String name)
     {
         this.uri = uri;
@@ -77,12 +111,22 @@ public class ProjectLink implements LimsEntityLink<Project>, Serializable
         this.name = name;
     }
 
+    /**
+     * Constructor for ProjectLink from a Linkable.
+     *
+     * @param link The linkable object.
+     */
     public ProjectLink(Linkable<Project> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Constructor for ProjectLink from a LimsEntityLinkable.
+     *
+     * @param link The linkable object.
+     */
     public ProjectLink(LimsEntityLinkable<Project> link)
     {
         requireNonNull(link, "link cannot be null");
@@ -90,6 +134,11 @@ public class ProjectLink implements LimsEntityLink<Project>, Serializable
         limsid = link.getLimsid();
     }
 
+    /**
+     * Constructor for ProjectLink from a Project.
+     *
+     * @param project The project.
+     */
     public ProjectLink(Project project)
     {
         requireNonNull(project, "project cannot be null");
@@ -98,42 +147,82 @@ public class ProjectLink implements LimsEntityLink<Project>, Serializable
         name = project.getName();
     }
 
+    /**
+     * Get the entity class for this link.
+     *
+     * @return The Project class.
+     */
     @Override
     public Class<Project> getEntityClass()
     {
         return Project.class;
     }
 
+    /**
+     * Get the name of the project.
+     *
+     * @return The project name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Set the name of the project.
+     *
+     * @param name The new project name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Get the LIMS id of the project.
+     *
+     * @return The LIMS id.
+     */
     public String getLimsid()
     {
         return limsid;
     }
 
+    /**
+     * Set the LIMS id of the project.
+     *
+     * @param limsid The new LIMS id.
+     */
     public void setLimsid(String limsid)
     {
         this.limsid = limsid;
     }
 
+    /**
+     * Get the URI of the project.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Set the URI of the project.
+     *
+     * @param uri The new URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Return a string representation of the project link.
+     *
+     * @return The LIMS id of the project.
+     */
     @Override
     public String toString()
     {

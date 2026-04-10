@@ -21,7 +21,6 @@ package com.genologics.ri.artifact;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -34,26 +33,53 @@ import com.genologics.ri.BatchUpdate;
 import com.genologics.ri.ClarityBatchRetrieveResult;
 import com.genologics.ri.Namespaces;
 
+/**
+ * The representation of a batch fetch result for artifacts.
+ * <p>
+ * This class is used for batch retrieval and batch update operations
+ * on artifacts.
+ * </p>
+ */
 @ClarityBatchRetrieveResult(entityClass = Artifact.class, batchUpdate = true)
 @XmlRootElement(name = "details")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "details")
 public class ArtifactBatchFetchResult implements BatchUpdate<Artifact>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -1280235468943933621L;
 
+    /**
+     * The list of artifacts in this batch.
+     */
     @XmlElement(name = "artifact", namespace = Namespaces.ARTIFACT_NAMESPACE)
     protected List<Artifact> artifacts;
 
+    /**
+     * Constructor.
+     */
     public ArtifactBatchFetchResult()
     {
     }
 
+    /**
+     * Constructor taking a collection of artifacts.
+     *
+     * @param artifacts The collection of artifacts.
+     */
     public ArtifactBatchFetchResult(Collection<Artifact> artifacts)
     {
         this.artifacts = new ArrayList<>(artifacts);
     }
 
+    /**
+     * Gets the list of artifacts in this batch.
+     *
+     * @return The list of artifacts.
+     */
     public List<Artifact> getArtifacts()
     {
         if (artifacts == null)
@@ -63,24 +89,44 @@ public class ArtifactBatchFetchResult implements BatchUpdate<Artifact>, Serializ
         return artifacts;
     }
 
+    /**
+     * Gets the list of artifacts in this batch.
+     *
+     * @return The list of artifacts.
+     */
     @Override
     public List<Artifact> getList()
     {
         return getArtifacts();
     }
 
+    /**
+     * Gets the size of the artifact list.
+     *
+     * @return The number of artifacts.
+     */
     @Override
     public int getSize()
     {
         return artifacts == null ? 0 : artifacts.size();
     }
 
+    /**
+     * Adds artifacts to be created.
+     *
+     * @param entities The collection of artifacts to add for creation.
+     */
     @Override
     public void addForCreate(Collection<Artifact> entities)
     {
         getArtifacts().addAll(entities);
     }
 
+    /**
+     * Adds artifacts to be updated.
+     *
+     * @param entities The collection of artifacts to add for update.
+     */
     @Override
     public void addForUpdate(Collection<Artifact> entities)
     {

@@ -33,33 +33,63 @@ import com.genologics.ri.LimsLink;
 
 
 /**
+ * Permission-link provides a URI linking to the detailed representation of a permission.
+ *
  * @since 2.19
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "permission-link")
 public class PermissionLink implements LimsLink<Permission>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -1000854973822260389L;
 
+    /**
+     * The permission action.
+     */
     @XmlAttribute(name = "action")
     protected String action;
 
+    /**
+     * The permission name.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The URI of the permission.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public PermissionLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The permission URI.
+     */
     public PermissionLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI, name and action.
+     *
+     * @param uri The permission URI.
+     * @param name The permission name.
+     * @param action The permission action.
+     */
     public PermissionLink(URI uri, String name, String action)
     {
         this.uri = uri;
@@ -67,6 +97,11 @@ public class PermissionLink implements LimsLink<Permission>, Serializable
         this.action = action;
     }
 
+    /**
+     * Constructor from a permission.
+     *
+     * @param permission The permission.
+     */
     public PermissionLink(Permission permission)
     {
         requireNonNull(permission, "permission cannot be null");
@@ -75,38 +110,67 @@ public class PermissionLink implements LimsLink<Permission>, Serializable
         this.action = permission.getAction();
     }
 
+    /**
+     * Get the permission action.
+     *
+     * @return The permission action.
+     */
     public String getAction()
     {
         return action;
     }
 
+    /**
+     * Set the permission action.
+     *
+     * @param action The permission action.
+     */
     public void setAction(String action)
     {
         this.action = action;
     }
 
+    /**
+     * Get the permission name.
+     *
+     * @return The permission name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Set the permission name.
+     *
+     * @param name The permission name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Class<Permission> getEntityClass()
     {

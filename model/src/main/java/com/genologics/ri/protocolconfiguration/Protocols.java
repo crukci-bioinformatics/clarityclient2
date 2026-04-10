@@ -20,7 +20,6 @@ package com.genologics.ri.protocolconfiguration;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -46,13 +45,28 @@ import com.genologics.ri.ClarityQueryResult;
 @XmlRootElement(name = "protocols")
 public class Protocols implements Batch<ProtocolLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -586199251176099998L;
 
+    /**
+     * The list of protocol links.
+     */
     @XmlElement(name = "protocol")
     protected List<ProtocolLink> protocols;
 
+    /**
+     * Default constructor.
+     */
     public Protocols() {}
 
+    /**
+     * Gets the list of protocol links.
+     *
+     * @return The list of protocol links.
+     */
     public List<ProtocolLink> getProtocols()
     {
         if (protocols == null)
@@ -62,12 +76,18 @@ public class Protocols implements Batch<ProtocolLink>, Serializable
         return protocols;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<ProtocolLink> getList()
     {
         return getProtocols();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getSize()
     {

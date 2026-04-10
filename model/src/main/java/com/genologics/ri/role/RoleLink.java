@@ -42,6 +42,10 @@ import com.genologics.ri.LimsLink;
 @XmlType(name = "role-link")
 public class RoleLink implements LimsLink<Role>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -6515590246139208584L;
 
     @XmlAttribute(name = "name")

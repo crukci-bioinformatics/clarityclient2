@@ -37,45 +37,89 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "available-program")
 public class AvailableProgram implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -4101189878995002052L;
 
+    /**
+     * URI of the available program.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Name of the available program.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * Default constructor.
+     */
     public AvailableProgram()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the available program.
+     */
     public AvailableProgram(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and name.
+     *
+     * @param uri The URI of the available program.
+     * @param name The name of the available program.
+     */
     public AvailableProgram(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the name.
+     *
+     * @return The name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name.
+     *
+     * @param name The name.
+     */
     public void setName(String name)
     {
         this.name = name;

@@ -42,27 +42,55 @@ import com.genologics.ri.Linkable;
 @XmlType(name = "researcher-link", propOrder = { "firstName", "lastName" })
 public class ResearcherLink implements LimsEntityLink<Researcher>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 5396333049575412661L;
 
+    /**
+     * The researcher's first name.
+     */
     @XmlElement(name = "first-name")
     protected String firstName;
 
+    /**
+     * The researcher's last name.
+     */
     @XmlElement(name = "last-name")
     protected String lastName;
 
+    /**
+     * The URI to the researcher.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public ResearcherLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI to the researcher.
+     */
     public ResearcherLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and names.
+     *
+     * @param uri The URI to the researcher.
+     * @param firstName The researcher's first name.
+     * @param lastName The researcher's last name.
+     */
     public ResearcherLink(URI uri, String firstName, String lastName)
     {
         this.uri = uri;
@@ -70,12 +98,22 @@ public class ResearcherLink implements LimsEntityLink<Researcher>, Serializable
         this.lastName = lastName;
     }
 
+    /**
+     * Constructor from a linkable object.
+     *
+     * @param link The linkable object containing the researcher URI.
+     */
     public ResearcherLink(Linkable<Researcher> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * Constructor from a researcher object.
+     *
+     * @param researcher The researcher to create the link from.
+     */
     public ResearcherLink(Researcher researcher)
     {
         requireNonNull(researcher, "researcher cannot be null");
@@ -84,26 +122,51 @@ public class ResearcherLink implements LimsEntityLink<Researcher>, Serializable
         lastName = researcher.getLastName();
     }
 
+    /**
+     * Gets the entity class this link refers to.
+     *
+     * @return The Researcher class.
+     */
     public Class<Researcher> getEntityClass()
     {
         return Researcher.class;
     }
 
+    /**
+     * Gets the researcher's first name.
+     *
+     * @return The first name.
+     */
     public String getFirstName()
     {
         return firstName;
     }
 
+    /**
+     * Sets the researcher's first name.
+     *
+     * @param firstName The first name.
+     */
     public void setFirstName(String firstName)
     {
         this.firstName = firstName;
     }
 
+    /**
+     * Gets the researcher's last name.
+     *
+     * @return The last name.
+     */
     public String getLastName()
     {
         return lastName;
     }
 
+    /**
+     * Sets the researcher's last name.
+     *
+     * @param lastName The last name.
+     */
     public void setLastName(String lastName)
     {
         this.lastName = lastName;
@@ -123,28 +186,53 @@ public class ResearcherLink implements LimsEntityLink<Researcher>, Serializable
         return Researcher.makeFullName(firstName, lastName);
     }
 
+    /**
+     * Gets the URI to the researcher.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI to the researcher.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the LIMS id from the URI.
+     *
+     * @return The LIMS id.
+     */
     @Override
     public String getLimsid()
     {
         return Link.limsIdFromUri(uri);
     }
 
+    /**
+     * Sets the LIMS id. This operation does nothing for this link type.
+     *
+     * @param id The LIMS id.
+     */
     @Override
     public void setLimsid(String id)
     {
         // Does nothing.
     }
 
+    /**
+     * Gets a string representation of the researcher link.
+     *
+     * @return The researcher's full name.
+     */
     @Override
     public String toString()
     {

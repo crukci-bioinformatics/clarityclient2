@@ -43,6 +43,10 @@ import org.apache.commons.lang3.ClassUtils;
 @XmlSeeAlso({ QueueField.class, IceBucketField.class })
 public class Field implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 7870381376405702078L;
 
     @XmlAttribute(name = "name")

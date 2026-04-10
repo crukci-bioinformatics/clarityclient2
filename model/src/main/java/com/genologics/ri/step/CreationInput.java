@@ -44,33 +44,67 @@ import com.genologics.ri.controltype.ControlType;
 @XmlType(name = "creation-input")
 public class CreationInput implements LimsLink<Artifact>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 8275002091544701688L;
 
+    /**
+     * URI of the input artifact.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * URI of the control type.
+     */
     @XmlAttribute(name = "control-type-uri")
     @XmlSchemaType(name = "anyURI")
     protected URI controlTypeUri;
 
+    /**
+     * Number of replicates.
+     */
     @XmlAttribute(name = "replicates")
     protected Long replicates;
 
+    /**
+     * Default constructor.
+     */
     public CreationInput()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the input artifact.
+     */
     public CreationInput(URI uri)
     {
         this(uri, null, null);
     }
 
+    /**
+     * Constructor with URI and control type URI.
+     *
+     * @param uri The URI of the input artifact.
+     * @param controlTypeUri The URI of the control type.
+     */
     public CreationInput(URI uri, URI controlTypeUri)
     {
         this(uri, controlTypeUri, null);
     }
 
+    /**
+     * Constructor with URI, control type URI, and replicates.
+     *
+     * @param uri The URI of the input artifact.
+     * @param controlTypeUri The URI of the control type.
+     * @param replicates The number of replicates.
+     */
     public CreationInput(URI uri, URI controlTypeUri, Long replicates)
     {
         this.uri = uri;
@@ -78,16 +112,34 @@ public class CreationInput implements LimsLink<Artifact>, Serializable
         this.replicates = replicates;
     }
 
+    /**
+     * Constructor from a linkable artifact.
+     *
+     * @param artifact The linkable artifact.
+     */
     public CreationInput(Linkable<Artifact> artifact)
     {
         this(artifact, null, null);
     }
 
+    /**
+     * Constructor from a linkable artifact and control type.
+     *
+     * @param artifact The linkable artifact.
+     * @param controlType The linkable control type.
+     */
     public CreationInput(Linkable<Artifact> artifact, Linkable<ControlType> controlType)
     {
         this(artifact, controlType, null);
     }
 
+    /**
+     * Constructor from a linkable artifact, control type, and replicates.
+     *
+     * @param artifact The linkable artifact.
+     * @param controlType The linkable control type.
+     * @param replicates The number of replicates.
+     */
     public CreationInput(Linkable<Artifact> artifact, Linkable<ControlType> controlType, Long replicates)
     {
         this.uri = artifact.getUri();
@@ -95,46 +147,91 @@ public class CreationInput implements LimsLink<Artifact>, Serializable
         this.replicates = replicates;
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Sets the artifact.
+     *
+     * @param a The linkable artifact.
+     */
     public void setArtifact(Linkable<Artifact> a)
     {
         this.uri = a == null ? null : a.getUri();
     }
 
+    /**
+     * Gets the control type URI.
+     *
+     * @return The control type URI.
+     */
     public URI getControlTypeUri()
     {
         return controlTypeUri;
     }
 
+    /**
+     * Sets the control type URI.
+     *
+     * @param controlTypeUri The control type URI.
+     */
     public void setControlTypeUri(URI controlTypeUri)
     {
         this.controlTypeUri = controlTypeUri;
     }
 
+    /**
+     * Sets the control type.
+     *
+     * @param type The linkable control type.
+     */
     public void setControlType(Linkable<ControlType> type)
     {
         this.controlTypeUri = type == null ? null : type.getUri();
     }
 
+    /**
+     * Gets the number of replicates.
+     *
+     * @return The number of replicates.
+     */
     public Long getReplicates()
     {
         return replicates;
     }
 
+    /**
+     * Sets the number of replicates.
+     *
+     * @param replicates The number of replicates.
+     */
     public void setReplicates(Long replicates)
     {
         this.replicates = replicates;
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return The Artifact class.
+     */
     @Override
     public Class<Artifact> getEntityClass()
     {

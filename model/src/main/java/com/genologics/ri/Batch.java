@@ -28,18 +28,38 @@ import java.util.List;
  */
 public interface Batch<L> extends Iterable<L>
 {
+    /**
+     * Gets the list of items in this batch.
+     *
+     * @return The list of items.
+     */
     List<L> getList();
 
+    /**
+     * Gets the number of items in this batch.
+     *
+     * @return The size of the batch.
+     */
     default int getSize()
     {
         return getList().size();
     }
 
+    /**
+     * Checks if this batch is empty.
+     *
+     * @return {@code true} if the batch contains no items, {@code false} otherwise.
+     */
     default boolean isEmpty()
     {
         return getSize() == 0;
     }
 
+    /**
+     * Returns an iterator over the items in this batch.
+     *
+     * @return An iterator.
+     */
     @Override
     default Iterator<L> iterator()
     {

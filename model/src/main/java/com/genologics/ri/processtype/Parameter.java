@@ -44,6 +44,10 @@ import com.genologics.ri.file.ClarityFile;
 @XmlType(name = "parameter", propOrder = { "file", "script", "runProgramPerEvent", "channel", "invocationType", "files" })
 public class Parameter implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -803288179230938758L;
 
     @XmlElement(name = "file")

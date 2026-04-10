@@ -36,6 +36,10 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "special-type")
 public class SpecialType implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 2227997075421321531L;
 
     @XmlElement(name = "attribute")

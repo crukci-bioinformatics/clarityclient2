@@ -41,49 +41,108 @@ import javax.xml.namespace.QName;
  *
  */
 @XmlRegistry
-public class ObjectFactory {
-
+public class ObjectFactory
+{
+    /**
+     * The QName for the researcher element.
+     */
     private final static QName _Researcher_QNAME = new QName(RESEARCHER_NAMESPACE, "researcher");
+
+    /**
+     * The QName for the researchers element.
+     */
     private final static QName _Researchers_QNAME = new QName(RESEARCHER_NAMESPACE, "researchers");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.researcher
-     *
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
-    public Researcher createResearcher() {
+    /**
+     * Creates a new Researcher instance.
+     *
+     * @return A new Researcher instance.
+     */
+    public Researcher createResearcher()
+    {
         return new Researcher();
     }
 
-    public Role createRole() {
+    /**
+     * Creates a new Role instance.
+     *
+     * @return A new Role instance.
+     */
+    public Role createRole()
+    {
         return new Role();
     }
 
-    public Researchers createResearchers() {
+    /**
+     * Creates a new Researchers instance.
+     *
+     * @return A new Researchers instance.
+     */
+    public Researchers createResearchers()
+    {
         return new Researchers();
     }
 
-    public LabLink createLab() {
+    /**
+     * Creates a new LabLink instance.
+     *
+     * @return A new LabLink instance.
+     */
+    public LabLink createLab()
+    {
         return new LabLink();
     }
 
-    public Credentials createCredentials() {
+    /**
+     * Creates a new Credentials instance.
+     *
+     * @return A new Credentials instance.
+     */
+    public Credentials createCredentials()
+    {
         return new Credentials();
     }
 
-    public ResearcherLink createResearcherLink() {
+    /**
+     * Creates a new ResearcherLink instance.
+     *
+     * @return A new ResearcherLink instance.
+     */
+    public ResearcherLink createResearcherLink()
+    {
         return new ResearcherLink();
     }
 
+    /**
+     * Creates a JAXBElement wrapper for a Researcher.
+     *
+     * @param value The Researcher to wrap.
+     *
+     * @return A JAXBElement containing the Researcher.
+     */
     @XmlElementDecl(namespace = RESEARCHER_NAMESPACE, name = "researcher")
-    public JAXBElement<Researcher> createResearcher(Researcher value) {
+    public JAXBElement<Researcher> createResearcher(Researcher value)
+    {
         return new JAXBElement<Researcher>(_Researcher_QNAME, Researcher.class, null, value);
     }
 
+    /**
+     * Creates a JAXBElement wrapper for Researchers.
+     *
+     * @param value The Researchers to wrap.
+     *
+     * @return A JAXBElement containing the Researchers.
+     */
     @XmlElementDecl(namespace = RESEARCHER_NAMESPACE, name = "researchers")
-    public JAXBElement<Researchers> createResearchers(Researchers value) {
+    public JAXBElement<Researchers> createResearchers(Researchers value)
+    {
         return new JAXBElement<Researchers>(_Researchers_QNAME, Researchers.class, null, value);
     }
 }

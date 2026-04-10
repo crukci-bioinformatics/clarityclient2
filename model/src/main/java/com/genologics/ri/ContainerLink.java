@@ -40,36 +40,70 @@ import com.genologics.ri.container.Container;
 @XmlType(name = "container")
 public class ContainerLink implements LimsEntityLink<Container>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 4920381830737280136L;
 
+    /**
+     * The URI of the container.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The LIMS id of the container.
+     */
     @XmlAttribute(name = "limsid")
     protected String limsid;
 
+    /**
+     * Default constructor.
+     */
     public ContainerLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the container.
+     */
     public ContainerLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and LIMS id.
+     *
+     * @param uri The URI of the container.
+     * @param limsid The LIMS id of the container.
+     */
     public ContainerLink(URI uri, String limsid)
     {
         this.uri = uri;
         this.limsid = limsid;
     }
 
+    /**
+     * Constructor from a linkable container.
+     *
+     * @param link The linkable container.
+     */
     public ContainerLink(Linkable<Container> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Constructor from a LIMS entity linkable container.
+     *
+     * @param link The LIMS entity linkable container.
+     */
     public ContainerLink(LimsEntityLinkable<Container> link)
     {
         requireNonNull(link, "link cannot be null");
@@ -77,38 +111,74 @@ public class ContainerLink implements LimsEntityLink<Container>, Serializable
         limsid = link.getLimsid();
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The Container class.
+     */
     @Override
     public Class<Container> getEntityClass()
     {
         return Container.class;
     }
 
+    /**
+     * Gets the URI of the container.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the container.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the LIMS id of the container.
+     *
+     * @return The LIMS id.
+     */
     public String getLimsid()
     {
         return limsid;
     }
 
+    /**
+     * Sets the LIMS id of the container.
+     *
+     * @param limsid The LIMS id.
+     */
     public void setLimsid(String limsid)
     {
         this.limsid = limsid;
     }
 
+    /**
+     * Computes a hash code for this container link.
+     *
+     * @return The hash code.
+     */
     @Override
     public int hashCode()
     {
         return uri == null ? 41 : uri.hashCode();
     }
 
+    /**
+     * Compares this container link with another object for equality.
+     *
+     * @param obj The object to compare with.
+     * @return {@code true} if the objects are equal, {@code false} otherwise.
+     */
     @Override
     public boolean equals(Object obj)
     {
@@ -127,6 +197,11 @@ public class ContainerLink implements LimsEntityLink<Container>, Serializable
         return equal;
     }
 
+    /**
+     * Returns a string representation of this container link.
+     *
+     * @return The LIMS id as a string.
+     */
     @Override
     public String toString()
     {

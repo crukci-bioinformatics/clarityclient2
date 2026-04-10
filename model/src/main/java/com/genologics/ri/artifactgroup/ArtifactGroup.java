@@ -44,42 +44,85 @@ import com.genologics.ri.Locatable;
 @XmlType(name = "artifactgroup", propOrder = { "name", "artifacts" })
 public class ArtifactGroup implements Locatable, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 2205878179459911556L;
 
+    /**
+     * The name of the artifact group.
+     */
     protected String name;
 
+    /**
+     * Link to the artifacts contained in this group.
+     */
     protected Artifacts artifacts;
 
+    /**
+     * The URI of this artifact group.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Gets the name of the artifact group.
+     *
+     * @return The name of the artifact group.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the artifact group.
+     *
+     * @param value The name to set.
+     */
     public void setName(String value)
     {
         this.name = value;
     }
 
+    /**
+     * Gets the link to the artifacts in this group.
+     *
+     * @return The artifacts link.
+     */
     public Artifacts getArtifacts()
     {
         return artifacts;
     }
 
+    /**
+     * Sets the link to the artifacts in this group.
+     *
+     * @param value The artifacts link to set.
+     */
     public void setArtifacts(Artifacts value)
     {
         this.artifacts = value;
     }
 
+    /**
+     * Gets the URI of this artifact group.
+     *
+     * @return The URI.
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of this artifact group.
+     *
+     * @param value The URI to set.
+     */
     public void setUri(URI value)
     {
         this.uri = value;

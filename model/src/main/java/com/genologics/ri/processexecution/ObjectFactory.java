@@ -59,64 +59,141 @@ public class ObjectFactory {
     public ObjectFactory() {
     }
 
+    /**
+     * Create an instance of ExecutableProcess.
+     *
+     * @return A new ExecutableProcess instance.
+     */
     public ExecutableProcess createProcess() {
         return new ExecutableProcess();
     }
 
+    /**
+     * Create an instance of Output.
+     *
+     * @return A new Output instance.
+     */
     public Output createOutput() {
         return new Output();
     }
 
+    /**
+     * Create an instance of Input.
+     *
+     * @return A new Input instance.
+     */
     public Input createInput() {
         return new Input();
     }
 
+    /**
+     * Create an instance of Technician.
+     *
+     * @return A new Technician instance.
+     */
     public Technician createTechnician() {
         return new Technician();
     }
 
+    /**
+     * Create an instance of Parameter.
+     *
+     * @return A new Parameter instance.
+     */
     public Parameter createParameter() {
         return new Parameter();
     }
 
+    /**
+     * Create an instance of ExecutableInputOutputMap.
+     *
+     * @return A new ExecutableInputOutputMap instance.
+     */
     public ExecutableInputOutputMap createInputOutputMap() {
         return new ExecutableInputOutputMap();
     }
 
+    /**
+     * Create an instance of InstrumentLink.
+     *
+     * @return A new InstrumentLink instance.
+     */
     public InstrumentLink createInstrument() {
         return new InstrumentLink();
     }
 
+    /**
+     * Create an instance of JAXBElement&lt;ExecutableProcess&gt;.
+     *
+     * @param value The ExecutableProcess value.
+     * @return A new JAXBElement&lt;ExecutableProcess&gt; instance.
+     */
     @XmlElementDecl(namespace = PROCESS_EXECUTION_NAMESPACE, name = "process")
     public JAXBElement<ExecutableProcess> createProcess(ExecutableProcess value) {
         return new JAXBElement<ExecutableProcess>(_Process_QNAME, ExecutableProcess.class, null, value);
     }
 
+    /**
+     * Create an instance of JAXBElement&lt;Technician&gt;.
+     *
+     * @param value The Technician value.
+     * @return A new JAXBElement&lt;Technician&gt; instance.
+     */
     @XmlElementDecl(namespace = EMPTY_NAMESPACE, name = "technician", scope = ExecutableProcess.class)
     public JAXBElement<Technician> createProcessTechnician(Technician value) {
         return new JAXBElement<Technician>(_ProcessTechnician_QNAME, Technician.class, ExecutableProcess.class, value);
     }
 
+    /**
+     * Create an instance of JAXBElement&lt;InstrumentLink&gt;.
+     *
+     * @param value The InstrumentLink value.
+     * @return A new JAXBElement&lt;InstrumentLink&gt; instance.
+     */
     @XmlElementDecl(namespace = EMPTY_NAMESPACE, name = "instrument", scope = ExecutableProcess.class)
     public JAXBElement<InstrumentLink> createProcessInstrument(InstrumentLink value) {
         return new JAXBElement<InstrumentLink>(_ProcessInstrument_QNAME, InstrumentLink.class, ExecutableProcess.class, value);
     }
 
+    /**
+     * Create an instance of JAXBElement&lt;String&gt; for process type.
+     *
+     * @param value The process type name.
+     * @return A new JAXBElement&lt;String&gt; instance.
+     */
     @XmlElementDecl(namespace = EMPTY_NAMESPACE, name = "type", scope = ExecutableProcess.class)
     public JAXBElement<String> createProcessType(String value) {
         return new JAXBElement<String>(_ProcessType_QNAME, String.class, ExecutableProcess.class, value);
     }
 
+    /**
+     * Create an instance of JAXBElement&lt;ExecutableInputOutputMap&gt;.
+     *
+     * @param value The ExecutableInputOutputMap value.
+     * @return A new JAXBElement&lt;ExecutableInputOutputMap&gt; instance.
+     */
     @XmlElementDecl(namespace = EMPTY_NAMESPACE, name = "input-output-map", scope = ExecutableProcess.class)
     public JAXBElement<ExecutableInputOutputMap> createProcessInputOutputMap(ExecutableInputOutputMap value) {
         return new JAXBElement<ExecutableInputOutputMap>(_ProcessInputOutputMap_QNAME, ExecutableInputOutputMap.class, ExecutableProcess.class, value);
     }
 
+    /**
+     * Create an instance of JAXBElement&lt;Parameter&gt;.
+     *
+     * @param value The Parameter value.
+     * @return A new JAXBElement&lt;Parameter&gt; instance.
+     */
     @XmlElementDecl(namespace = EMPTY_NAMESPACE, name = "process-parameter", scope = ExecutableProcess.class)
     public JAXBElement<Parameter> createProcessProcessParameter(Parameter value) {
         return new JAXBElement<Parameter>(_ProcessProcessParameter_QNAME, Parameter.class, ExecutableProcess.class, value);
     }
 
+    /**
+     * Create an instance of JAXBElement&lt;String&gt; for date run.
+     *
+     * @param value The date run as a string.
+     * @return A new JAXBElement&lt;String&gt; instance.
+     */
     @XmlElementDecl(namespace = EMPTY_NAMESPACE, name = "date-run", scope = ExecutableProcess.class)
     public JAXBElement<String> createProcessDateRun(String value) {
         return new JAXBElement<String>(_ProcessDateRun_QNAME, String.class, ExecutableProcess.class, value);

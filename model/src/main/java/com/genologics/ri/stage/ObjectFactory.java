@@ -52,22 +52,48 @@ public class ObjectFactory {
     public ObjectFactory() {
     }
 
+    /**
+     * Create an instance of {@link ProtocolStepLink}
+     *
+     * @return A new ProtocolStepLink instance.
+     */
     public ProtocolStepLink createProtocolStepLink() {
         return new ProtocolStepLink();
     }
 
+    /**
+     * Create an instance of {@link WorkflowLink}
+     *
+     * @return A new WorkflowLink instance.
+     */
     public WorkflowLink createWorkflowLink() {
         return new WorkflowLink();
     }
 
+    /**
+     * Create an instance of {@link Stage}
+     *
+     * @return A new Stage instance.
+     */
     public Stage createStage() {
         return new Stage();
     }
 
+    /**
+     * Create an instance of {@link ProtocolLink}
+     *
+     * @return A new ProtocolLink instance.
+     */
     public ProtocolLink createProtocolLink() {
         return new ProtocolLink();
     }
 
+    /**
+     * Create an instance of {@link JAXBElement}{@code <}{@link Stage}{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return The new instance of {@link JAXBElement}{@code <}{@link Stage}{@code >}
+     */
     @XmlElementDecl(namespace = STAGE_NAMESPACE, name = "stage")
     public JAXBElement<Stage> createStage(Stage value) {
         return new JAXBElement<Stage>(_Stage_QNAME, Stage.class, null, value);

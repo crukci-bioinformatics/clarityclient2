@@ -46,36 +46,70 @@ import com.genologics.ri.instrument.Instrument;
 @XmlType(name = "instrument")
 public class InstrumentLink implements LimsEntityLink<Instrument>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -8476139725814009464L;
 
+    /**
+     * URI of the instrument.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Name of the instrument.
+     */
     @XmlValue
     protected String name;
 
+    /**
+     * Default constructor.
+     */
     public InstrumentLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the instrument.
+     */
     public InstrumentLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and name.
+     *
+     * @param uri The URI of the instrument.
+     * @param name The name of the instrument.
+     */
     public InstrumentLink(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Constructor from a linkable object.
+     *
+     * @param link The linkable instrument.
+     */
     public InstrumentLink(Linkable<Instrument> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Constructor from an instrument.
+     *
+     * @param instrument The instrument.
+     */
     public InstrumentLink(Instrument instrument)
     {
         requireNonNull(instrument, "instrument cannot be null");
@@ -83,44 +117,84 @@ public class InstrumentLink implements LimsEntityLink<Instrument>, Serializable
         name = instrument.getName();
     }
 
+    /**
+     * Gets the name.
+     *
+     * @return The name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name.
+     *
+     * @param name The name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return The Instrument class.
+     */
     @Override
     public Class<Instrument> getEntityClass()
     {
         return Instrument.class;
     }
 
+    /**
+     * Produces a string representation of this instrument link.
+     *
+     * @return The instrument name as a string.
+     */
     @Override
     public String toString()
     {
         return name;
     }
 
+    /**
+     * Gets the LIMS id from the URI.
+     *
+     * @return The LIMS id.
+     */
     @Override
     public String getLimsid()
     {
         return Link.limsIdFromUri(uri);
     }
 
+    /**
+     * Sets the LIMS id (does nothing for this implementation).
+     *
+     * @param id The LIMS id.
+     */
     @Override
     public void setLimsid(String id)
     {

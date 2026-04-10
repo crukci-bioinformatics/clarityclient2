@@ -45,6 +45,10 @@ import com.genologics.ri.Namespaces;
 @XmlType(name = "details", propOrder = { "samples", "sampleCreations" })
 public class SampleBatchFetchResult implements BatchUpdate<Sample>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 8207729034543316762L;
 
     @XmlElement(name = "sample", namespace = Namespaces.SAMPLE_NAMESPACE)

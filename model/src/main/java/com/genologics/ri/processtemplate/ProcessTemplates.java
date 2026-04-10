@@ -49,6 +49,10 @@ import com.genologics.ri.PaginatedBatch;
 @XmlType(name = "process-templates", propOrder = { "processTemplates", "previousPage", "nextPage" })
 public class ProcessTemplates implements PaginatedBatch<ProcessTemplateLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -1986524456179019901L;
 
     @XmlElement(name = "process-template")

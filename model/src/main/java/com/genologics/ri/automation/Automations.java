@@ -21,7 +21,6 @@ package com.genologics.ri.automation;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -45,6 +44,10 @@ import com.genologics.ri.PaginatedBatch;
 @XmlRootElement(name = "automations")
 public class Automations implements PaginatedBatch<AutomationLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -3048084395718929498L;
 
     @XmlElement(name = "automation")

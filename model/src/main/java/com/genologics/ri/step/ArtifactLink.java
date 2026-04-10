@@ -47,42 +47,82 @@ import com.genologics.ri.artifact.OutputType;
 @XmlType(name = "artifact")
 public class ArtifactLink implements LimsEntityLink<Artifact>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -3085489413319927673L;
 
+    /**
+     * The type of the artifact output.
+     */
     @XmlAttribute(name = "type")
     protected OutputType type;
 
+    /**
+     * The output generation type.
+     */
     @XmlAttribute(name = "output-generation-type")
     protected OutputGenerationType outputGenerationType;
 
+    /**
+     * URI of the artifact.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * LIMS id of the artifact.
+     */
     @XmlAttribute(name = "limsid")
     protected String limsid;
 
+    /**
+     * Default constructor.
+     */
     public ArtifactLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the artifact.
+     */
     public ArtifactLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and LIMS id.
+     *
+     * @param uri The URI of the artifact.
+     * @param limsid The LIMS id of the artifact.
+     */
     public ArtifactLink(URI uri, String limsid)
     {
         this.uri = uri;
         this.limsid = limsid;
     }
 
+    /**
+     * Constructor from a linkable object.
+     *
+     * @param link The linkable object.
+     */
     public ArtifactLink(Linkable<Artifact> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Constructor from a LIMS entity linkable object.
+     *
+     * @param link The LIMS entity linkable object.
+     */
     public ArtifactLink(LimsEntityLinkable<Artifact> link)
     {
         requireNonNull(link, "link cannot be null");
@@ -90,6 +130,11 @@ public class ArtifactLink implements LimsEntityLink<Artifact>, Serializable
         limsid = link.getLimsid();
     }
 
+    /**
+     * Constructor from an artifact.
+     *
+     * @param artifact The artifact.
+     */
     public ArtifactLink(Artifact artifact)
     {
         requireNonNull(artifact, "artifact cannot be null");
@@ -98,52 +143,102 @@ public class ArtifactLink implements LimsEntityLink<Artifact>, Serializable
         type = artifact.getOutputType();
     }
 
+    /**
+     * Gets the output type.
+     *
+     * @return The output type.
+     */
     public OutputType getType()
     {
         return type;
     }
 
+    /**
+     * Sets the output type.
+     *
+     * @param type The output type.
+     */
     public void setType(OutputType type)
     {
         this.type = type;
     }
 
+    /**
+     * Gets the output generation type.
+     *
+     * @return The output generation type.
+     */
     public OutputGenerationType getOutputGenerationType()
     {
         return outputGenerationType;
     }
 
+    /**
+     * Sets the output generation type.
+     *
+     * @param outputGenerationType The output generation type.
+     */
     public void setOutputGenerationType(OutputGenerationType outputGenerationType)
     {
         this.outputGenerationType = outputGenerationType;
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the LIMS id.
+     *
+     * @return The LIMS id.
+     */
     public String getLimsid()
     {
         return limsid;
     }
 
+    /**
+     * Sets the LIMS id.
+     *
+     * @param limsid The LIMS id.
+     */
     public void setLimsid(String limsid)
     {
         this.limsid = limsid;
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return The Artifact class.
+     */
     @Override
     public Class<Artifact> getEntityClass()
     {
         return Artifact.class;
     }
 
+    /**
+     * Produces a string representation of this artifact link.
+     *
+     * @return The LIMS id as a string.
+     */
     @Override
     public String toString()
     {

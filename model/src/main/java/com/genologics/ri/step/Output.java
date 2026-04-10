@@ -44,31 +44,62 @@ import com.genologics.ri.artifact.Artifact;
 @XmlType(name = "output")
 public class Output implements LimsLink<Artifact>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
+    /**
+     * Class version for serialisation.
+     */
     private static final long serialVersionUID = -5292196293632912589L;
 
+    /**
+     * List of reagent labels for the output.
+     */
     @XmlElement(name = "reagent-label")
     protected List<ReagentLabel> reagentLabels;
 
+    /**
+     * URI of the output artifact.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI artifactUri;
 
 
+    /**
+     * Default constructor.
+     */
     public Output()
     {
     }
 
+    /**
+     * Constructor with artifact URI.
+     *
+     * @param artifactUri The URI of the output artifact.
+     */
     public Output(URI artifactUri)
     {
         this.artifactUri = artifactUri;
     }
 
+    /**
+     * Constructor from a LIMS link.
+     *
+     * @param link The LIMS link to the artifact.
+     */
     public Output(LimsLink<Artifact> link)
     {
         requireNonNull(link, "link cannot be null");
         this.artifactUri = link.getUri();
     }
 
+    /**
+     * Gets the list of reagent labels, creating it if it doesn't exist.
+     *
+     * @return The list of reagent labels.
+     */
     public List<ReagentLabel> getReagentLabels()
     {
         if (reagentLabels == null)
@@ -78,21 +109,41 @@ public class Output implements LimsLink<Artifact>, Serializable
         return reagentLabels;
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return artifactUri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param artifactUri The artifact URI.
+     */
     public void setUri(URI artifactUri)
     {
         this.artifactUri = artifactUri;
     }
 
+    /**
+     * Sets the artifact.
+     *
+     * @param artifact The linkable artifact.
+     */
     public void setArtifact(Linkable<Artifact> artifact)
     {
         artifactUri = artifact.getUri();
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return The Artifact class.
+     */
     @Override
     public Class<Artifact> getEntityClass()
     {

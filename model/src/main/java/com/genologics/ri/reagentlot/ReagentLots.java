@@ -46,6 +46,10 @@ import com.genologics.ri.PaginatedBatch;
 @XmlType(name = "reagent-lots", propOrder = { "reagentLots", "nextPage", "previousPage" })
 public class ReagentLots implements PaginatedBatch<ReagentLotLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -7760282244017305741L;
 
     @XmlElement(name = "reagent-lot")

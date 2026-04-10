@@ -20,8 +20,8 @@ package com.genologics.ri.containertype;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -49,6 +49,10 @@ import com.genologics.ri.PaginatedBatch;
 @XmlType(name = "container-types", propOrder = { "containerTypes", "previousPage", "nextPage" })
 public class ContainerTypes implements PaginatedBatch<ContainerTypeLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 8642031910932251369L;
 
     @XmlElement(name = "container-type")

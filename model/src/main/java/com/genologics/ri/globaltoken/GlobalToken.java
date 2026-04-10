@@ -46,6 +46,10 @@ import com.genologics.ri.Linkable;
 @XmlType(name = "global-token", propOrder = { "name", "value", "description", "isCustom" })
 public class GlobalToken implements Linkable<GlobalToken>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 8999326250541104054L;
 
     @XmlElement

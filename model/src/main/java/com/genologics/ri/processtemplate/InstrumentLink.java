@@ -44,6 +44,10 @@ import com.genologics.ri.instrument.Instrument;
 @XmlType(name = "instrument")
 public class InstrumentLink implements LimsEntityLink<Instrument>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -2255676271595073801L;
 
     @XmlAttribute(name = "uri")

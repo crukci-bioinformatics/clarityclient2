@@ -20,8 +20,8 @@ package com.genologics.ri.instrument;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -33,7 +33,6 @@ import com.genologics.ri.Page;
 import com.genologics.ri.PaginatedBatch;
 
 /**
- *
  * The representation of a list of instrument links.
  * <p>
  * The system enforces a maximum number of elements when generating the list of
@@ -49,19 +48,42 @@ import com.genologics.ri.PaginatedBatch;
 @XmlType(name = "instruments", propOrder = { "instruments", "previousPage", "nextPage" })
 public class Instruments implements PaginatedBatch<InstrumentLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -525885513170744397L;
 
+    /**
+     * The list of instrument links.
+     */
     @XmlElement(name = "instrument")
     protected List<InstrumentLink> instruments;
 
+    /**
+     * The previous page reference.
+     */
     @XmlElement(name = "previous-page")
     protected Page previousPage;
 
+    /**
+     * The next page reference.
+     */
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
-    public Instruments() {}
+    /**
+     * Default constructor.
+     */
+    public Instruments()
+    {
+    }
 
+    /**
+     * Get the list of instrument links.
+     *
+     * @return The list of instrument links.
+     */
     public List<InstrumentLink> getInstruments()
     {
         if (instruments == null)
@@ -71,33 +93,51 @@ public class Instruments implements PaginatedBatch<InstrumentLink>, Serializable
         return instruments;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<InstrumentLink> getList()
     {
         return getInstruments();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getSize()
     {
         return instruments == null ? 0 : instruments.size();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public Page getPreviousPage()
     {
         return previousPage;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public void setPreviousPage(Page previousPage)
     {
         this.previousPage = previousPage;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public Page getNextPage()
     {
         return nextPage;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public void setNextPage(Page nextPage)
     {
         this.nextPage = nextPage;

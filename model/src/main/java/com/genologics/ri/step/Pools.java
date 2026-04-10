@@ -49,6 +49,10 @@ import com.genologics.ri.artifact.Artifact;
 @XmlRootElement(name = "pools")
 public class Pools implements Linkable<Pools>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 5682428399776236959L;
 
     @XmlElement(name = "step")

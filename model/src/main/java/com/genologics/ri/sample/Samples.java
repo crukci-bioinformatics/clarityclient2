@@ -49,6 +49,10 @@ import com.genologics.ri.PaginatedBatch;
 @XmlType(name = "samples", propOrder = { "samples", "previousPage", "nextPage" })
 public class Samples implements PaginatedBatch<SampleLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 7481910467952402185L;
 
     @XmlElement(name = "sample")

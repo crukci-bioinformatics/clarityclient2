@@ -33,7 +33,6 @@ import com.genologics.ri.Page;
 import com.genologics.ri.PaginatedBatch;
 
 /**
- *
  * The representation of a list of researcher links.
  * <p>
  * The system enforces a maximum number of elements when generating the list of
@@ -49,19 +48,42 @@ import com.genologics.ri.PaginatedBatch;
 @XmlType(name = "researchers", propOrder = { "researchers", "previousPage", "nextPage" })
 public class Researchers implements PaginatedBatch<ResearcherLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 1730166894555776245L;
 
+    /**
+     * The list of researcher links.
+     */
     @XmlElement(name = "researcher")
     protected List<ResearcherLink> researchers;
 
+    /**
+     * Link to the previous page of results.
+     */
     @XmlElement(name = "previous-page")
     protected Page previousPage;
 
+    /**
+     * Link to the next page of results.
+     */
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
-    public Researchers() {}
+    /**
+     * Default constructor.
+     */
+    public Researchers()
+    {
+    }
 
+    /**
+     * Gets the list of researcher links.
+     *
+     * @return The list of researcher links.
+     */
     public List<ResearcherLink> getResearchers()
     {
         if (researchers == null)
@@ -71,33 +93,63 @@ public class Researchers implements PaginatedBatch<ResearcherLink>, Serializable
         return researchers;
     }
 
+    /**
+     * Gets the list of researcher links.
+     *
+     * @return The list of researcher links.
+     */
     @Override
     public List<ResearcherLink> getList()
     {
         return getResearchers();
     }
 
+    /**
+     * Gets the size of the researcher list.
+     *
+     * @return The number of researchers in the list.
+     */
     @Override
     public int getSize()
     {
         return researchers == null ? 0 : researchers.size();
     }
 
+    /**
+     * Gets the link to the previous page of results.
+     *
+     * @return The previous page link.
+     */
     public Page getPreviousPage()
     {
         return previousPage;
     }
 
+    /**
+     * Sets the link to the previous page of results.
+     *
+     * @param previousPage The previous page link.
+     */
     public void setPreviousPage(Page previousPage)
     {
         this.previousPage = previousPage;
     }
 
+    /**
+     * Gets the link to the next page of results.
+     *
+     * @return The next page link.
+     */
     public Page getNextPage()
     {
         return nextPage;
     }
 
+    /**
+     * Sets the link to the next page of results.
+     *
+     * @param nextPage The next page link.
+     */
     public void setNextPage(Page nextPage)
     {
         this.nextPage = nextPage;

@@ -44,6 +44,10 @@ import com.genologics.ri.PaginatedBatch;
 @XmlType(name = "global-tokens", propOrder = { "globalTokens", "previousPage", "nextPage" })
 public class GlobalTokens implements PaginatedBatch<GlobalTokenLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -6362088116923564852L;
 
     @XmlElement(name = "global-token")

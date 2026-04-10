@@ -41,37 +41,72 @@ import com.genologics.ri.container.Container;
 @XmlType(name = "container")
 public class ContainerLink implements LimsLink<Container>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 7495526539351739682L;
 
+    /**
+     * URI of the container.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public ContainerLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the container.
+     */
     public ContainerLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor from a linkable object.
+     *
+     * @param link The linkable container.
+     */
     public ContainerLink(Linkable<Container> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return The Container class.
+     */
     @Override
     public Class<Container> getEntityClass()
     {

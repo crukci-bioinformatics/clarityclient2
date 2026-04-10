@@ -41,6 +41,10 @@ import com.genologics.ri.Linkable;
 @XmlType(name = "sample-link")
 public class SampleLink implements LimsEntityLink<Sample>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -5247716763134908401L;
 
     @XmlAttribute(name = "uri")

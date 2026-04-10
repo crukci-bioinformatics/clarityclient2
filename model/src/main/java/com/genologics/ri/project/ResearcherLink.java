@@ -43,55 +43,105 @@ import com.genologics.ri.researcher.Researcher;
 @XmlType(name = "researcher")
 public class ResearcherLink implements LimsEntityLink<Researcher>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -7754124824899651369L;
 
+    /**
+     * The URI of the researcher.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Constructor for ResearcherLink.
+     */
     public ResearcherLink()
     {
     }
 
+    /**
+     * Constructor for ResearcherLink with a URI.
+     *
+     * @param uri The URI of the researcher.
+     */
     public ResearcherLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor for ResearcherLink from a Linkable.
+     *
+     * @param link The linkable object.
+     */
     public ResearcherLink(Linkable<Researcher> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * Get the entity class for this link.
+     *
+     * @return The Researcher class.
+     */
     @Override
     public Class<Researcher> getEntityClass()
     {
         return Researcher.class;
     }
 
+    /**
+     * Get the URI of the researcher.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Set the URI of the researcher.
+     *
+     * @param value The new URI.
+     */
     public void setUri(URI value)
     {
         this.uri = value;
     }
 
+    /**
+     * Get the LIMS id of the researcher.
+     *
+     * @return The LIMS id extracted from the URI.
+     */
     @Override
     public String getLimsid()
     {
         return Link.limsIdFromUri(uri);
     }
 
+    /**
+     * Set the LIMS id of the researcher.
+     *
+     * @param id The new LIMS id (ignored by this implementation).
+     */
     @Override
     public void setLimsid(String id)
     {
         // Does nothing.
     }
 
+    /**
+     * Return a string representation of the researcher link.
+     *
+     * @return The LIMS id of the researcher.
+     */
     @Override
     public String toString()
     {

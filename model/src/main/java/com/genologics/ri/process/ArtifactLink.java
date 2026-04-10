@@ -46,50 +46,95 @@ import com.genologics.ri.artifact.OutputType;
 @XmlType(name = "artifact", propOrder = { "parentProcess" })
 public class ArtifactLink implements LimsEntityLink<Artifact>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 5173462831311577367L;
 
+    /**
+     * The URI of the artifact.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The LIMS id of the artifact.
+     */
     @XmlAttribute(name = "limsid")
     protected String limsid;
 
+    /**
+     * The output type of the artifact.
+     */
     @XmlAttribute(name = "output-type")
     protected OutputType outputType;
 
+    /**
+     * The output generation type of the artifact.
+     */
     @XmlAttribute(name = "output-generation-type")
     protected OutputGenerationType outputGenerationType;
 
+    /**
+     * The post-process URI of the artifact.
+     */
     @XmlAttribute(name = "post-process-uri")
     @XmlSchemaType(name = "anyURI")
     protected URI postProcessUri;
 
+    /**
+     * The parent process link.
+     */
     @XmlElement(name = "parent-process")
     protected ParentProcessLink parentProcess;
 
-
+    /**
+     * Default constructor.
+     */
     public ArtifactLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri the URI of the artifact.
+     */
     public ArtifactLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and LIMS id.
+     *
+     * @param uri the URI of the artifact.
+     * @param limsid the LIMS id of the artifact.
+     */
     public ArtifactLink(URI uri, String limsid)
     {
         this.uri = uri;
         this.limsid = limsid;
     }
 
+    /**
+     * Constructor from a linkable object.
+     *
+     * @param link the linkable object.
+     */
     public ArtifactLink(Linkable<Artifact> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Constructor from a LIMS entity linkable object.
+     *
+     * @param link the LIMS entity linkable object.
+     */
     public ArtifactLink(LimsEntityLinkable<Artifact> link)
     {
         requireNonNull(link, "link cannot be null");
@@ -97,6 +142,11 @@ public class ArtifactLink implements LimsEntityLink<Artifact>, Serializable
         limsid = link.getLimsid();
     }
 
+    /**
+     * Constructor from an artifact.
+     *
+     * @param artifact the artifact.
+     */
     public ArtifactLink(Artifact artifact)
     {
         requireNonNull(artifact, "artifact cannot be null");
@@ -106,73 +156,145 @@ public class ArtifactLink implements LimsEntityLink<Artifact>, Serializable
         parentProcess = artifact.getParentProcess() == null ? null : new ParentProcessLink(artifact.getParentProcess());
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return the Artifact class.
+     */
     @Override
     public Class<Artifact> getEntityClass()
     {
         return Artifact.class;
     }
 
+    /**
+     * Gets the parent process link.
+     *
+     * @return the parent process link.
+     */
     public ParentProcessLink getParentProcess()
     {
         return parentProcess;
     }
 
+    /**
+     * Sets the parent process from a LIMS entity linkable object.
+     *
+     * @param parentProcess the parent process LIMS entity linkable.
+     *
+     * @return the created parent process link.
+     */
     public ParentProcessLink setParentProcess(LimsEntityLinkable<ClarityProcess> parentProcess)
     {
         this.parentProcess = new ParentProcessLink(parentProcess);
         return this.parentProcess;
     }
 
+    /**
+     * Gets the LIMS id.
+     *
+     * @return the LIMS id.
+     */
     public String getLimsid()
     {
         return limsid;
     }
 
+    /**
+     * Sets the LIMS id.
+     *
+     * @param limsid the LIMS id to set.
+     */
     public void setLimsid(String limsid)
     {
         this.limsid = limsid;
     }
 
+    /**
+     * Gets the output type.
+     *
+     * @return the output type.
+     */
     public OutputType getOutputType()
     {
         return outputType;
     }
 
+    /**
+     * Sets the output type.
+     *
+     * @param outputType the output type to set.
+     */
     public void setOutputType(OutputType outputType)
     {
         this.outputType = outputType;
     }
 
+    /**
+     * Gets the output generation type.
+     *
+     * @return the output generation type.
+     */
     public OutputGenerationType getOutputGenerationType()
     {
         return outputGenerationType;
     }
 
+    /**
+     * Sets the output generation type.
+     *
+     * @param outputGenerationType the output generation type to set.
+     */
     public void setOutputGenerationType(OutputGenerationType outputGenerationType)
     {
         this.outputGenerationType = outputGenerationType;
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return the URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param uri the URI to set.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the post-process URI.
+     *
+     * @return the post-process URI.
+     */
     public URI getPostProcessUri()
     {
         return postProcessUri;
     }
 
+    /**
+     * Sets the post-process URI.
+     *
+     * @param postProcessUri the post-process URI to set.
+     */
     public void setPostProcessUri(URI postProcessUri)
     {
         this.postProcessUri = postProcessUri;
     }
 
+    /**
+     * Returns a string representation of this object.
+     *
+     * @return the LIMS id as a string.
+     */
     @Override
     public String toString()
     {

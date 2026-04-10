@@ -58,24 +58,46 @@ public class Stage implements Linkable<Stage>, Serializable
      */
     public static final Pattern ID_EXTRACTOR_PATTERN;
 
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -7190421220331989537L;
 
+    /**
+     * Link to the workflow this stage belongs to.
+     */
     @XmlElement(name = "workflow")
     protected WorkflowLink workflow;
 
+    /**
+     * Link to the protocol for this stage.
+     */
     @XmlElement(name = "protocol")
     protected ProtocolLink protocol;
 
+    /**
+     * Link to the protocol step for this stage.
+     */
     @XmlElement(name = "step")
     protected ProtocolStepLink step;
 
+    /**
+     * The URI of the stage.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The name of the stage.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The index of the stage in the workflow.
+     */
     @XmlAttribute(name = "index")
     protected Integer index;
 
@@ -92,15 +114,29 @@ public class Stage implements Linkable<Stage>, Serializable
         ID_EXTRACTOR_PATTERN = Pattern.compile(b.toString());
     }
 
+    /**
+     * Default constructor.
+     */
     public Stage()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the stage.
+     */
     public Stage(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and name.
+     *
+     * @param uri The URI of the stage.
+     * @param name The name of the stage.
+     */
     public Stage(URI uri, String name)
     {
         this.uri = uri;
@@ -151,61 +187,121 @@ public class Stage implements Linkable<Stage>, Serializable
         return id;
     }
 
+    /**
+     * Gets the workflow link for this stage.
+     *
+     * @return The workflow link.
+     */
     public WorkflowLink getWorkflow()
     {
         return workflow;
     }
 
+    /**
+     * Sets the workflow for this stage.
+     *
+     * @param workflow The workflow to set.
+     */
     public void setWorkflow(Linkable<Workflow> workflow)
     {
         this.workflow = new WorkflowLink(workflow);
     }
 
+    /**
+     * Gets the protocol link for this stage.
+     *
+     * @return The protocol link.
+     */
     public ProtocolLink getProtocol()
     {
         return protocol;
     }
 
+    /**
+     * Sets the protocol for this stage.
+     *
+     * @param protocol The protocol to set.
+     */
     public void setProtocol(Linkable<Protocol> protocol)
     {
         this.protocol = new ProtocolLink(protocol);
     }
 
+    /**
+     * Gets the protocol step link for this stage.
+     *
+     * @return The protocol step link.
+     */
     public ProtocolStepLink getStep()
     {
         return step;
     }
 
+    /**
+     * Sets the protocol step for this stage.
+     *
+     * @param step The protocol step to set.
+     */
     public void setStep(Linkable<ProtocolStep> step)
     {
         this.step = new ProtocolStepLink(step);
     }
 
+    /**
+     * Gets the URI of the stage.
+     *
+     * @return The URI of the stage.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the stage.
+     *
+     * @param uri The URI of the stage.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the name of the stage.
+     *
+     * @return The name of the stage.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the stage.
+     *
+     * @param name The name of the stage.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the index of the stage in the workflow.
+     *
+     * @return The index of the stage.
+     */
     public Integer getIndex()
     {
         return index;
     }
 
+    /**
+     * Sets the index of the stage in the workflow.
+     *
+     * @param index The index of the stage.
+     */
     public void setIndex(Integer index)
     {
         this.index = index;

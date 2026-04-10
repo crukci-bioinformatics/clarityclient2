@@ -47,6 +47,10 @@ import com.genologics.ri.Linkable;
 @XmlRootElement(name = "reagents")
 public class Reagents implements Linkable<Reagents>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 4896945008573422890L;
 
     @XmlElement(name = "step")

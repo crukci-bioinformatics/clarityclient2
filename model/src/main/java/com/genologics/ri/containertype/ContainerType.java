@@ -85,6 +85,10 @@ import com.genologics.ri.Linkable;
          propOrder = { "tube", "calibrantWells", "unavailableWells", "columns", "rows" })
 public class ContainerType implements Linkable<ContainerType>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -3778472967085446652L;
 
     @XmlElement(name = "is-tube")

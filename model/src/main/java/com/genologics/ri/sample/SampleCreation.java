@@ -43,6 +43,10 @@ import com.genologics.ri.Location;
 @XmlType(name = "samplecreation", propOrder = { "location" })
 public class SampleCreation extends SampleBase
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 8233679374775813938L;
 
     protected Location location;

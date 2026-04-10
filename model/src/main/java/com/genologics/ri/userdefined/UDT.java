@@ -40,23 +40,46 @@ import com.genologics.ri.configuration.FieldType;
 @XmlType(name = "type")
 public class UDT implements UDFHolder, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -6550385282803073762L;
 
+    /**
+     * The list of user-defined fields in this type.
+     */
     @XmlElement(name = "field", namespace = UDF_NAMESPACE)
     protected List<UDF> fields;
 
+    /**
+     * The name of the user-defined type.
+     */
     @XmlAttribute(name = "name", required = true)
     protected String name;
 
+    /**
+     * Default constructor.
+     */
     public UDT()
     {
     }
 
+    /**
+     * Constructor with name.
+     *
+     * @param name The name of the user-defined type.
+     */
     public UDT(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the list of fields in this user-defined type.
+     *
+     * @return The list of UDF fields.
+     */
     public List<UDF> getFields()
     {
         if (fields == null)
@@ -78,22 +101,46 @@ public class UDT implements UDFHolder, Serializable
         return getFields();
     }
 
+    /**
+     * Adds a UDF to this user-defined type.
+     *
+     * @param udf The UDF to add.
+     * @return The added UDF.
+     */
     public UDF addField(UDF udf)
     {
         getFields().add(udf);
         return udf;
     }
 
+    /**
+     * Adds a UDF to this user-defined type.
+     *
+     * @param name The name of the field.
+     * @param type The type of the field.
+     * @param value The value of the field.
+     * @return The added UDF.
+     */
     public UDF addField(String name, FieldType type, String value)
     {
         return addField(new UDF(name, type, value));
     }
 
+    /**
+     * Gets the name of the user-defined type.
+     *
+     * @return The name of the user-defined type.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the user-defined type.
+     *
+     * @param value The name to set.
+     */
     public void setName(String value)
     {
         this.name = value;

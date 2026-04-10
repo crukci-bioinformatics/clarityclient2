@@ -41,6 +41,10 @@ import com.genologics.ri.Linkable;
 public class PoolsLink implements LimsLink<Pools>, Serializable
 {
 
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 130181334136851112L;
 
     @XmlAttribute(name = "uri")

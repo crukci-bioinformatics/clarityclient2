@@ -34,44 +34,88 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "step-property")
 public class StepProperty extends LockableSetting
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -4406681767879834495L;
 
+    /**
+     * The name of the step property.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The value of the step property.
+     */
     @XmlAttribute(name = "value")
     protected String value;
 
+    /**
+     * Default constructor.
+     */
     public StepProperty()
     {
     }
 
+    /**
+     * Constructor with property name.
+     *
+     * @param name The property name.
+     */
     public StepProperty(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Constructor with property name and value.
+     *
+     * @param name The property name.
+     * @param value The property value.
+     */
     public StepProperty(String name, String value)
     {
         this.name = name;
         this.value = value;
     }
 
+    /**
+     * Gets the name of the step property.
+     *
+     * @return The property name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the step property.
+     *
+     * @param name The property name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the value of the step property.
+     *
+     * @return The property value.
+     */
     public String getValue()
     {
         return value;
     }
 
+    /**
+     * Sets the value of the step property.
+     *
+     * @param value The property value.
+     */
     public void setValue(String value)
     {
         this.value = value;

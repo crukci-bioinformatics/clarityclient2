@@ -44,39 +44,74 @@ import com.genologics.ri.Linkable;
 @XmlType(name = "automatic-next-step-link")
 public class AutomaticNextStepLink implements LimsLink<ProcessStep>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -7710114187126292590L;
 
+    /**
+     * URI of the automatic next step.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public AutomaticNextStepLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the automatic next step.
+     */
     public AutomaticNextStepLink(URI uri)
     {
         setUri(uri);
     }
 
+    /**
+     * Constructor from a linkable object.
+     *
+     * @param link The linkable process step.
+     */
     public AutomaticNextStepLink(Linkable<ProcessStep> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return The URI.
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param uri The URI.
+     */
     @Override
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return The ProcessStep class.
+     */
     @Override
     public Class<ProcessStep> getEntityClass()
     {

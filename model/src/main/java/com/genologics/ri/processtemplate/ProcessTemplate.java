@@ -54,6 +54,10 @@ import com.genologics.ri.userdefined.UDT;
                        "type", "fields", "defaultTemplate" })
 public class ProcessTemplate implements Linkable<ProcessTemplate>, UDFHolder, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 3219761173873030207L;
 
     @XmlElement(name = "name")

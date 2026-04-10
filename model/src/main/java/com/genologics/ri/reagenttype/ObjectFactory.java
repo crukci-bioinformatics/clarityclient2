@@ -41,45 +41,96 @@ import javax.xml.namespace.QName;
  *
  */
 @XmlRegistry
-public class ObjectFactory {
-
+public class ObjectFactory
+{
+    /**
+     * The qualified name for reagent-type elements.
+     */
     private final static QName _ReagentType_QNAME = new QName(REAGENT_TYPE_NAMESPACE, "reagent-type");
+
+    /**
+     * The qualified name for reagent-types elements.
+     */
     private final static QName _ReagentTypes_QNAME = new QName(REAGENT_TYPE_NAMESPACE, "reagent-types");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.reagenttype
-     *
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
-    public ReagentTypes createReagentTypes() {
+    /**
+     * Create an instance of {@link ReagentTypes}.
+     *
+     * @return A new ReagentTypes instance.
+     */
+    public ReagentTypes createReagentTypes()
+    {
         return new ReagentTypes();
     }
 
-    public SpecialType createSpecialType() {
+    /**
+     * Create an instance of {@link SpecialType}.
+     *
+     * @return A new SpecialType instance.
+     */
+    public SpecialType createSpecialType()
+    {
         return new SpecialType();
     }
 
-    public Attribute createAttribute() {
+    /**
+     * Create an instance of {@link Attribute}.
+     *
+     * @return A new Attribute instance.
+     */
+    public Attribute createAttribute()
+    {
         return new Attribute();
     }
 
-    public ReagentTypeLink createReagentTypeLink() {
+    /**
+     * Create an instance of {@link ReagentTypeLink}.
+     *
+     * @return A new ReagentTypeLink instance.
+     */
+    public ReagentTypeLink createReagentTypeLink()
+    {
         return new ReagentTypeLink();
     }
 
-    public ReagentType createReagentType() {
+    /**
+     * Create an instance of {@link ReagentType}.
+     *
+     * @return A new ReagentType instance.
+     */
+    public ReagentType createReagentType()
+    {
         return new ReagentType();
     }
 
+    /**
+     * Create an instance of {@link JAXBElement}&lt;{@link ReagentType}&gt;.
+     *
+     * @param value The ReagentType value.
+     * @return A JAXBElement wrapping the ReagentType.
+     */
     @XmlElementDecl(namespace = REAGENT_TYPE_NAMESPACE, name = "reagent-type")
-    public JAXBElement<ReagentType> createReagentType(ReagentType value) {
+    public JAXBElement<ReagentType> createReagentType(ReagentType value)
+    {
         return new JAXBElement<ReagentType>(_ReagentType_QNAME, ReagentType.class, null, value);
     }
 
+    /**
+     * Create an instance of {@link JAXBElement}&lt;{@link ReagentTypes}&gt;.
+     *
+     * @param value The ReagentTypes value.
+     * @return A JAXBElement wrapping the ReagentTypes.
+     */
     @XmlElementDecl(namespace = REAGENT_TYPE_NAMESPACE, name = "reagent-types")
-    public JAXBElement<ReagentTypes> createReagentTypes(ReagentTypes value) {
+    public JAXBElement<ReagentTypes> createReagentTypes(ReagentTypes value)
+    {
         return new JAXBElement<ReagentTypes>(_ReagentTypes_QNAME, ReagentTypes.class, null, value);
     }
 }

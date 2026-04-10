@@ -1,3 +1,6 @@
+/**
+ * Provides classes for representing researchers in the Clarity LIMS system.
+ */
 @XmlSchema(
         namespace = RESEARCHER_NAMESPACE,
         elementFormDefault = XmlNsForm.UNQUALIFIED,

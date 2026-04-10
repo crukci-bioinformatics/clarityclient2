@@ -44,6 +44,10 @@ import com.genologics.ri.stepconfiguration.ProtocolStep;
 @XmlType(name = "step-configuration")
 public class StepConfiguration implements LimsLink<ProtocolStep>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 7902167896883448736L;
 
     @XmlAttribute(name = "uri")

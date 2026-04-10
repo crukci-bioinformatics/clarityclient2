@@ -33,6 +33,8 @@ import com.genologics.ri.Page;
 import com.genologics.ri.PaginatedBatch;
 
 /**
+ * The representation of a list of instrument type links.
+ *
  * @since 2.24
  */
 @ClarityQueryResult(entityClass = InstrumentType.class)
@@ -41,26 +43,42 @@ import com.genologics.ri.PaginatedBatch;
 @XmlType(name = "instrument-types", propOrder = { "instrumentTypes", "previousPage", "nextPage" })
 public class InstrumentTypes implements PaginatedBatch<InstrumentTypeLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 1268811869773163450L;
 
+    /**
+     * The list of instrument type links.
+     */
     @XmlElement(name = "instrument-type")
     protected List<InstrumentTypeLink> instrumentTypes;
 
     /**
+     * The previous page reference.
+     *
      * @since 2.31
      */
     @XmlElement(name = "previous-page")
     protected Page previousPage;
 
     /**
+     * The next page reference.
+     *
      * @since 2.31
      */
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
-
+    /**
+     * Default constructor.
+     */
     public InstrumentTypes() { }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<InstrumentTypeLink> getList()
     {
@@ -71,30 +89,45 @@ public class InstrumentTypes implements PaginatedBatch<InstrumentTypeLink>, Seri
         return instrumentTypes;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getSize()
     {
         return instrumentTypes == null ? 0 : instrumentTypes.size();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Page getPreviousPage()
     {
         return previousPage;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setPreviousPage(Page previousPage)
     {
         this.previousPage = previousPage;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Page getNextPage()
     {
         return nextPage;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setNextPage(Page nextPage)
     {

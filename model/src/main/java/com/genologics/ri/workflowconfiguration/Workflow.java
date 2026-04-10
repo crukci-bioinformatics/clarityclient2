@@ -58,23 +58,42 @@ public class Workflow implements Linkable<Workflow>, Serializable
      */
     public static final Pattern ID_EXTRACTOR_PATTERN;
 
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -8884000036888230246L;
 
+    /**
+     * The list of protocols associated with this workflow.
+     */
     @XmlElementWrapper(name = "protocols")
     @XmlElement(name = "protocol")
     protected List<ProtocolLink> protocols;
 
+    /**
+     * The list of stages associated with this workflow.
+     */
     @XmlElementWrapper(name = "stages")
     @XmlElement(name = "stage")
     protected List<StageLink> stages;
 
+    /**
+     * The name of the workflow.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The URI of the workflow.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The status of the workflow.
+     */
     @XmlAttribute(name = "status")
     protected Status status;
 
@@ -89,15 +108,29 @@ public class Workflow implements Linkable<Workflow>, Serializable
         ID_EXTRACTOR_PATTERN = Pattern.compile(b.toString());
     }
 
+    /**
+     * Default constructor.
+     */
     public Workflow()
     {
     }
 
+    /**
+     * Constructor accepting a URI.
+     *
+     * @param uri The workflow URI.
+     */
     public Workflow(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor accepting a URI and name.
+     *
+     * @param uri The workflow URI.
+     * @param name The workflow name.
+     */
     public Workflow(URI uri, String name)
     {
         this.uri = uri;
@@ -126,36 +159,71 @@ public class Workflow implements Linkable<Workflow>, Serializable
         return id;
     }
 
+    /**
+     * Gets the name of the workflow.
+     *
+     * @return The workflow name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the workflow.
+     *
+     * @param name The workflow name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the URI of the workflow.
+     *
+     * @return The workflow URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the workflow.
+     *
+     * @param uri The workflow URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the status of the workflow.
+     *
+     * @return The workflow status.
+     */
     public Status getStatus()
     {
         return status;
     }
 
+    /**
+     * Sets the status of the workflow.
+     *
+     * @param status The workflow status.
+     */
     public void setStatus(Status status)
     {
         this.status = status;
     }
 
+    /**
+     * Gets the list of protocols associated with this workflow.
+     *
+     * @return The list of protocol links.
+     */
     public List<ProtocolLink> getProtocols()
     {
         if (protocols == null)
@@ -165,6 +233,12 @@ public class Workflow implements Linkable<Workflow>, Serializable
         return protocols;
     }
 
+    /**
+     * Adds a protocol to this workflow.
+     *
+     * @param protocol The protocol to add.
+     * @return The newly created protocol link.
+     */
     public ProtocolLink addProtocol(Linkable<Protocol> protocol)
     {
         ProtocolLink link = new ProtocolLink(protocol);
@@ -172,6 +246,11 @@ public class Workflow implements Linkable<Workflow>, Serializable
         return link;
     }
 
+    /**
+     * Gets the list of stages associated with this workflow.
+     *
+     * @return The list of stage links.
+     */
     public List<StageLink> getStages()
     {
         if (stages == null)
@@ -181,6 +260,12 @@ public class Workflow implements Linkable<Workflow>, Serializable
         return stages;
     }
 
+    /**
+     * Adds a stage to this workflow.
+     *
+     * @param stage The stage to add.
+     * @return The newly created stage link.
+     */
     public StageLink addStage(Linkable<Stage> stage)
     {
         StageLink link = new StageLink(stage);

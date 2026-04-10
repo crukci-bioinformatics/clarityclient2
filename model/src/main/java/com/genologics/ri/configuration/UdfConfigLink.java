@@ -42,6 +42,10 @@ import com.genologics.ri.LimsLink;
 @XmlType(name = "udfconfig-link")
 public class UdfConfigLink implements LimsLink<Field>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -164190204904044681L;
 
     @XmlAttribute(name = "uri")

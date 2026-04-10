@@ -40,6 +40,10 @@ import com.genologics.ri.Linkable;
 @XmlType(name = "process-template-link", propOrder = { "name" })
 public class ProcessTemplateLink implements LimsLink<ProcessTemplate>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -4745812706787102584L;
 
     @XmlAttribute(name = "uri")

@@ -47,37 +47,77 @@ import com.genologics.ri.userdefined.UDF;
 @Deprecated
 public class BioSource implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -4781585129823907022L;
 
+    /**
+     * The description of the biosource.
+     */
     @XmlElement(name = "description")
     protected String description;
 
+    /**
+     * The user-defined fields for the biosource.
+     */
     @XmlElement(name = "field", namespace = UDF_NAMESPACE)
     protected List<UDF> fields;
 
+    /**
+     * The name of the biosource.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
-
+    /**
+     * Constructor for an empty biosource.
+     */
     public BioSource()
     {
     }
 
+    /**
+     * Constructor for a biosource with a name.
+     *
+     * @param name The biosource name.
+     */
     public BioSource(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the description of the biosource.
+     *
+     * @return The biosource description.
+     */
     public String getDescription()
     {
         return description;
     }
 
+    /**
+     * Sets the description of the biosource.
+     *
+     * @param value The biosource description.
+     */
     public void setDescription(String value)
     {
         this.description = value;
     }
 
+    /**
+     * Gets the list of user-defined fields for the biosource.
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Any modification to the returned list will be
+     * reflected in the object.
+     * </p>
+     *
+     * @return The list of user-defined fields.
+     */
     public List<UDF> getFields()
     {
         if (fields == null)
@@ -87,11 +127,21 @@ public class BioSource implements Serializable
         return this.fields;
     }
 
+    /**
+     * Gets the name of the biosource.
+     *
+     * @return The biosource name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the biosource.
+     *
+     * @param value The biosource name.
+     */
     public void setName(String value)
     {
         this.name = value;

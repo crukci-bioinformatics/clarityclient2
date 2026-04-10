@@ -43,47 +43,93 @@ import com.genologics.ri.Locatable;
 @XmlType(name = "demux", propOrder = { "artifact", "demuxDetails" })
 public class Demux implements Locatable, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 8873892961025197978L;
 
+    /**
+     * The source artifact being demultiplexed.
+     */
     @XmlElement
     protected DemuxSourceArtifact artifact;
 
+    /**
+     * The demux details of this demux.
+     */
     @XmlElement(name = "demux")
     protected DemuxDetails demuxDetails;
 
+    /**
+     * The URI of this demux.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public Demux()
     {
     }
 
+    /**
+     * Gets the artifact.
+     *
+     * @return The demux source artifact.
+     */
     public DemuxSourceArtifact getArtifact()
     {
         return artifact;
     }
 
+    /**
+     * Sets the artifact.
+     *
+     * @param artifact The demux source artifact.
+     */
     public void setArtifact(DemuxSourceArtifact artifact)
     {
         this.artifact = artifact;
     }
 
+    /**
+     * Gets the demux details.
+     *
+     * @return The demux details.
+     */
     public DemuxDetails getDemuxDetails()
     {
         return demuxDetails;
     }
 
+    /**
+     * Sets the demux details.
+     *
+     * @param demuxDetails The demux details.
+     */
     public void setDemuxDetails(DemuxDetails demuxDetails)
     {
         this.demuxDetails = demuxDetails;
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return The demux URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param uri The demux URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;

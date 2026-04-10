@@ -33,30 +33,60 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "reagent-label")
 public class ReagentLabel implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 7859734987217470470L;
 
+    /**
+     * The name of this reagent label.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * Default constructor.
+     */
     public ReagentLabel()
     {
     }
 
+    /**
+     * Constructor taking a name.
+     *
+     * @param name The reagent label name.
+     */
     public ReagentLabel(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the name.
+     *
+     * @return The reagent label name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name.
+     *
+     * @param value The reagent label name.
+     */
     public void setName(String value)
     {
         this.name = value;
     }
 
+    /**
+     * Returns a string representation of this reagent label.
+     *
+     * @return The name, or "null" if not set.
+     */
     @Override
     public String toString()
     {

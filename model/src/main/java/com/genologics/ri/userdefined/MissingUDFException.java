@@ -18,23 +18,49 @@
 
 package com.genologics.ri.userdefined;
 
+/**
+ * Exception thrown when a required user-defined field is not found.
+ */
 public class MissingUDFException extends RuntimeException
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -4554179841298001722L;
 
+    /**
+     * The name of the missing UDF.
+     */
     private String name;
 
+    /**
+     * Constructor with field name.
+     *
+     * @param name The name of the missing UDF.
+     */
     public MissingUDFException(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Constructor with field name and message.
+     *
+     * @param name The name of the missing UDF.
+     * @param message The exception message.
+     */
     public MissingUDFException(String name, String message)
     {
         super(message);
         this.name = name;
     }
 
+    /**
+     * Gets the name of the missing field.
+     *
+     * @return The name of the missing UDF.
+     */
     public String getFieldName()
     {
         return name;

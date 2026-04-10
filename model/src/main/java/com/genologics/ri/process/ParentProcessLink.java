@@ -34,7 +34,6 @@ import com.genologics.ri.LimsEntityLinkable;
 import com.genologics.ri.Linkable;
 
 /**
- *
  * Parent-process is a child element of Artifact and provides a URI linking to
  * the Process that created the Artifact.
  */
@@ -42,36 +41,70 @@ import com.genologics.ri.Linkable;
 @XmlType(name = "parent-process")
 public class ParentProcessLink implements LimsEntityLink<ClarityProcess>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -6557381570589306115L;
 
+    /**
+     * The URI of the parent process.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The LIMS id of the parent process.
+     */
     @XmlAttribute(name = "limsid")
     protected String limsid;
 
+    /**
+     * Default constructor.
+     */
     public ParentProcessLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri the URI of the parent process.
+     */
     public ParentProcessLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and LIMS id.
+     *
+     * @param uri the URI of the parent process.
+     * @param limsid the LIMS id of the parent process.
+     */
     public ParentProcessLink(URI uri, String limsid)
     {
         this.uri = uri;
         this.limsid = limsid;
     }
 
+    /**
+     * Constructor from a linkable object.
+     *
+     * @param link the linkable object.
+     */
     public ParentProcessLink(Linkable<ClarityProcess> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * Constructor from a LIMS entity linkable object.
+     *
+     * @param link the LIMS entity linkable object.
+     */
     public ParentProcessLink(LimsEntityLinkable<ClarityProcess> link)
     {
         requireNonNull(link, "link cannot be null");
@@ -79,32 +112,62 @@ public class ParentProcessLink implements LimsEntityLink<ClarityProcess>, Serial
         this.limsid = link.getLimsid();
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return the ClarityProcess class.
+     */
     @Override
     public Class<ClarityProcess> getEntityClass()
     {
         return ClarityProcess.class;
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return the URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param uri the URI to set.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the LIMS id.
+     *
+     * @return the LIMS id.
+     */
     public String getLimsid()
     {
         return limsid;
     }
 
+    /**
+     * Sets the LIMS id.
+     *
+     * @param limsid the LIMS id to set.
+     */
     public void setLimsid(String limsid)
     {
         this.limsid = limsid;
     }
 
+    /**
+     * Returns a string representation of this object.
+     *
+     * @return the LIMS id as a string.
+     */
     @Override
     public String toString()
     {

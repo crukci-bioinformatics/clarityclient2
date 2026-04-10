@@ -40,62 +40,121 @@ import com.genologics.ri.Linkable;
 @XmlType(name = "artifactgroup-link")
 public class ArtifactGroupLink implements LimsLink<ArtifactGroup>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 3168021328679428589L;
 
+    /**
+     * The URI of the artifact group.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The name of the artifact group.
+     */
     protected String name;
 
+    /**
+     * Default constructor.
+     */
     public ArtifactGroupLink()
     {
     }
 
+    /**
+     * Constructs a link with the given URI.
+     *
+     * @param uri The URI of the artifact group.
+     */
     public ArtifactGroupLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructs a link with the given URI and name.
+     *
+     * @param uri The URI of the artifact group.
+     * @param name The name of the artifact group.
+     */
     public ArtifactGroupLink(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Constructs a link from a Linkable object.
+     *
+     * @param link The linkable object to create a link from.
+     */
     public ArtifactGroupLink(Linkable<ArtifactGroup> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * Gets the entity class this link refers to.
+     *
+     * @return The ArtifactGroup class.
+     */
     @Override
     public Class<ArtifactGroup> getEntityClass()
     {
         return ArtifactGroup.class;
     }
 
+    /**
+     * Gets the name of the artifact group.
+     *
+     * @return The name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the artifact group.
+     *
+     * @param value The name to set.
+     */
     public void setName(String value)
     {
         this.name = value;
     }
 
+    /**
+     * Gets the URI of the artifact group.
+     *
+     * @return The URI.
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the artifact group.
+     *
+     * @param value The URI to set.
+     */
     public void setUri(URI value)
     {
         this.uri = value;
     }
 
+    /**
+     * Returns a string representation of this link.
+     *
+     * @return The name of the artifact group.
+     */
     @Override
     public String toString()
     {

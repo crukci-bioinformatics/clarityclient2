@@ -50,22 +50,47 @@ import com.genologics.ri.container.Container;
 @XmlType(name = "location", propOrder = { "container", "wellPosition" })
 public class Location implements LimsEntityLink<Container>, Serializable, Comparable<Location>
 {
+    /**
+     * Pattern for splitting well position strings.
+     */
     public static final Pattern WELL_POSITION_SPLITTER = Pattern.compile(":");
 
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -2461753783129402323L;
 
+    /**
+     * The container link.
+     */
     @XmlElement(name = "container")
     private ContainerLink container;
 
+    /**
+     * The well position within the container.
+     */
     @XmlElement(name = "value")
     private String wellPosition;
 
+    /**
+     * Cached hash code.
+     */
     private transient Integer hc;
 
+    /**
+     * Default constructor.
+     */
     public Location()
     {
     }
 
+    /**
+     * Constructor with container and position.
+     *
+     * @param container The container link.
+     * @param position The well position.
+     */
     public Location(LimsEntityLinkable<Container> container, String position)
     {
         requireNonNull(container, "container cannot be null");
@@ -73,6 +98,12 @@ public class Location implements LimsEntityLink<Container>, Serializable, Compar
         this.wellPosition = position;
     }
 
+    /**
+     * Constructor with container and position.
+     *
+     * @param container The linkable container.
+     * @param position The well position.
+     */
     public Location(Linkable<Container> container, String position)
     {
         requireNonNull(container, "container cannot be null");
@@ -80,11 +111,22 @@ public class Location implements LimsEntityLink<Container>, Serializable, Compar
         this.wellPosition = position;
     }
 
+    /**
+     * Gets the container link.
+     *
+     * @return The container link.
+     */
     public ContainerLink getContainer()
     {
         return container;
     }
 
+    /**
+     * Sets the container from a LIMS entity linkable.
+     *
+     * @param link The LIMS entity linkable container.
+     * @return The new container link.
+     */
     public ContainerLink setContainer(LimsEntityLinkable<Container> link)
     {
         container = new ContainerLink(link);
@@ -92,17 +134,32 @@ public class Location implements LimsEntityLink<Container>, Serializable, Compar
         return container;
     }
 
+    /**
+     * Gets the well position.
+     *
+     * @return The well position.
+     */
     public String getWellPosition()
     {
         return wellPosition;
     }
 
+    /**
+     * Sets the well position.
+     *
+     * @param wellPosition The well position.
+     */
     public void setWellPosition(String wellPosition)
     {
         this.wellPosition = wellPosition;
         hc = null;
     }
 
+    /**
+     * Computes a hash code for this location.
+     *
+     * @return The hash code.
+     */
     @Override
     public int hashCode()
     {
@@ -116,6 +173,12 @@ public class Location implements LimsEntityLink<Container>, Serializable, Compar
         return hc.intValue();
     }
 
+    /**
+     * Compares this location with another object for equality.
+     *
+     * @param obj The object to compare with.
+     * @return {@code true} if the objects are equal, {@code false} otherwise.
+     */
     @Override
     public boolean equals(Object obj)
     {
@@ -135,6 +198,13 @@ public class Location implements LimsEntityLink<Container>, Serializable, Compar
         return equal;
     }
 
+    /**
+     * Compares this location with another location.
+     *
+     * @param o The location to compare with.
+     * @return A negative integer, zero, or a positive integer as this location
+     *         is less than, equal to, or greater than the specified location.
+     */
     @Override
     public int compareTo(Location o)
     {
@@ -168,6 +238,11 @@ public class Location implements LimsEntityLink<Container>, Serializable, Compar
         return result;
     }
 
+    /**
+     * Returns a string representation of this location.
+     *
+     * @return The container and well position as a string.
+     */
     @Override
     public String toString()
     {
@@ -177,12 +252,22 @@ public class Location implements LimsEntityLink<Container>, Serializable, Compar
     // Convenience methods to implement LimsEntityLink.
     // Just pass through to the container link.
 
+    /**
+     * Gets the LIMS id of the container.
+     *
+     * @return The LIMS id.
+     */
     @Override
     public String getLimsid()
     {
         return container == null ? null : container.getLimsid();
     }
 
+    /**
+     * Sets the LIMS id of the container.
+     *
+     * @param id The LIMS id.
+     */
     @Override
     public void setLimsid(String id)
     {
@@ -192,12 +277,22 @@ public class Location implements LimsEntityLink<Container>, Serializable, Compar
         }
     }
 
+    /**
+     * Gets the URI of the container.
+     *
+     * @return The URI.
+     */
     @Override
     public URI getUri()
     {
         return container == null ? null : container.getUri();
     }
 
+    /**
+     * Sets the URI of the container.
+     *
+     * @param uri The URI.
+     */
     @Override
     public void setUri(URI uri)
     {
@@ -207,6 +302,11 @@ public class Location implements LimsEntityLink<Container>, Serializable, Compar
         }
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The Container class.
+     */
     @Override
     public Class<Container> getEntityClass()
     {

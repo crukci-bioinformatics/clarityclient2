@@ -40,6 +40,10 @@ import com.genologics.ri.LimsLink;
 @XmlType(name = "global-token-link")
 public class GlobalTokenLink implements LimsLink<GlobalToken>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 2340905402174078413L;
 
     @XmlAttribute(name = "uri")

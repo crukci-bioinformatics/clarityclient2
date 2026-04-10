@@ -1,3 +1,7 @@
+/**
+ * Provides JAXB bindings for artifacts in the Genologics REST API.
+ * Artifacts represent inputs to or outputs from processes in the LIMS system.
+ */
 @XmlSchema(
     namespace = ARTIFACT_NAMESPACE,
     elementFormDefault = XmlNsForm.UNQUALIFIED,

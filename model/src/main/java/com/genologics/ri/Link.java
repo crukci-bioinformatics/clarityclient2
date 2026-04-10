@@ -40,32 +40,64 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "link")
 public class Link implements Locatable, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 7144458168274015747L;
 
+    /**
+     * Pattern for splitting URI paths.
+     */
     private static final Pattern PATH_SPLITTER = Pattern.compile("/+");
 
+    /**
+     * The relative part of the link.
+     */
     @XmlAttribute(name = "rel")
     protected String relative;
 
+    /**
+     * The URI of the link.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public Link()
     {
     }
 
+    /**
+     * Constructor with relative part.
+     *
+     * @param rel The relative part of the link.
+     */
     public Link(String rel)
     {
         this.relative = rel;
     }
 
+    /**
+     * Constructor with relative part and URI.
+     *
+     * @param rel The relative part of the link.
+     * @param uri The URI.
+     */
     public Link(String rel, URI uri)
     {
         this.relative = rel;
         this.uri = uri;
     }
 
+    /**
+     * Constructor from a linkable object.
+     *
+     * @param limsLink The linkable object.
+     */
     public Link(Linkable<?> limsLink)
     {
         uri = limsLink.getUri();
@@ -78,26 +110,51 @@ public class Link implements Locatable, Serializable
         relative = pathParts[pathParts.length - 2];
     }
 
+    /**
+     * Gets the relative part of the link.
+     *
+     * @return The relative part.
+     */
     public String getRelative()
     {
         return relative;
     }
 
+    /**
+     * Sets the relative part of the link.
+     *
+     * @param rel The relative part.
+     */
     public void setRelative(String rel)
     {
         this.relative = rel;
     }
 
+    /**
+     * Gets the URI of the link.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the link.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets a string representation of the link.
+     *
+     * @return The URI as a string, or "Unset" if the URI is null.
+     */
     @Override
     public String toString()
     {

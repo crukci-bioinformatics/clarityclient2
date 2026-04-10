@@ -44,17 +44,37 @@ import com.genologics.ri.ClarityQueryResult;
 @XmlType(name = "control-types")
 public class ControlTypes implements Batch<ControlTypeLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 5668622843069816173L;
 
+    /**
+     * The list of control type links.
+     */
     @XmlElement(name = "control-type")
     protected List<ControlTypeLink> controlTypes;
 
+    /**
+     * The URI of the control types collection.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
-    public ControlTypes() { }
+    /**
+     * Default constructor.
+     */
+    public ControlTypes()
+    {
+    }
 
+    /**
+     * Gets the list of control types.
+     *
+     * @return The list of control type links.
+     */
     public List<ControlTypeLink> getControlTypes()
     {
         if (controlTypes == null)
@@ -76,11 +96,21 @@ public class ControlTypes implements Batch<ControlTypeLink>, Serializable
         return controlTypes == null ? 0 : controlTypes.size();
     }
 
+    /**
+     * Gets the URI of the control types collection.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the control types collection.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;

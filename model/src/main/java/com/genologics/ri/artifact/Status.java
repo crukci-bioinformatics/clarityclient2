@@ -30,13 +30,52 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum Status
 {
-    QUEUED, IN_PROGRESS, SKIPPED, REMOVED, COMPLETE, REWORKED;
+    /**
+     * Queued status.
+     */
+    QUEUED,
+    
+    /**
+     * In progress status.
+     */
+    IN_PROGRESS,
+    
+    /**
+     * Skipped status.
+     */
+    SKIPPED,
+    
+    /**
+     * Removed status.
+     */
+    REMOVED,
+    
+    /**
+     * Complete status.
+     */
+    COMPLETE,
+    
+    /**
+     * Reworked status.
+     */
+    REWORKED;
 
+    /**
+     * Gets the string value.
+     *
+     * @return The string value.
+     */
     public String value()
     {
         return name();
     }
 
+    /**
+     * Gets the Status from a string value.
+     *
+     * @param v The string value.
+     * @return The corresponding Status.
+     */
     public static Status fromValue(String v)
     {
         return valueOf(v);

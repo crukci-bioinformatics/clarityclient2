@@ -55,6 +55,10 @@ import com.genologics.ri.researcher.Researcher;
                        "status", "usageCount" })
 public class ReagentLot implements LimsEntity<ReagentLot>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 8414977581247533239L;
 
     @XmlElement(name = "reagent-kit")

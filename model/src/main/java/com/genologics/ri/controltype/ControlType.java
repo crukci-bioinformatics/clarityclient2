@@ -33,6 +33,9 @@ import com.genologics.ri.ClarityEntity;
 import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 
+/**
+ * Represents a control type in the Clarity LIMS system.
+ */
 @ClarityEntity(uriSection = "controltypes", creatable = true, updateable = true)
 @XmlRootElement(name = "control-type")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -40,112 +43,219 @@ import com.genologics.ri.Linkable;
          propOrder = { "supplier", "catalogueNumber", "website", "concentration", "archived", "singleStep" })
 public class ControlType implements Linkable<ControlType>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -3152986669595427342L;
 
+    /**
+     * The supplier of the control type.
+     */
     @XmlElement
     protected String supplier;
 
+    /**
+     * The catalogue number of the control type.
+     */
     @XmlElement(name = "catalogue-number")
     protected String catalogueNumber;
 
+    /**
+     * The website URL for the control type.
+     */
     @XmlSchemaType(name = "anyURI")
     protected String website;
 
     /**
+     * The concentration of the control type.
+     *
      * @since 2.20
      */
     @XmlElement
     protected String concentration;
 
+    /**
+     * Flag indicating if the control type is archived.
+     */
     @XmlElement
     protected Boolean archived;
 
+    /**
+     * Flag indicating if the control type is for single step.
+     */
     @XmlElement(name = "single-step")
     protected Boolean singleStep;
 
+    /**
+     * The URI of the control type.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The name of the control type.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
 
+    /**
+     * Gets the supplier of the control type.
+     *
+     * @return The supplier.
+     */
     public String getSupplier()
     {
         return supplier;
     }
 
+    /**
+     * Sets the supplier of the control type.
+     *
+     * @param supplier The supplier.
+     */
     public void setSupplier(String supplier)
     {
         this.supplier = supplier;
     }
 
+    /**
+     * Gets the catalogue number of the control type.
+     *
+     * @return The catalogue number.
+     */
     public String getCatalogueNumber()
     {
         return catalogueNumber;
     }
 
+    /**
+     * Sets the catalogue number of the control type.
+     *
+     * @param catalogueNumber The catalogue number.
+     */
     public void setCatalogueNumber(String catalogueNumber)
     {
         this.catalogueNumber = catalogueNumber;
     }
 
+    /**
+     * Gets the website URL for the control type.
+     *
+     * @return The website URL.
+     */
     public String getWebsite()
     {
         return website;
     }
 
+    /**
+     * Sets the website URL for the control type.
+     *
+     * @param website The website URL.
+     */
     public void setWebsite(String website)
     {
         this.website = website;
     }
 
+    /**
+     * Gets the concentration of the control type.
+     *
+     * @return The concentration.
+     */
     public String getConcentration()
     {
         return concentration;
     }
 
+    /**
+     * Sets the concentration of the control type.
+     *
+     * @param concentration The concentration.
+     */
     public void setConcentration(String concentration)
     {
         this.concentration = concentration;
     }
 
+    /**
+     * Gets the archived flag.
+     *
+     * @return The archived flag.
+     */
     public Boolean getArchived()
     {
         return archived;
     }
 
+    /**
+     * Sets the archived flag.
+     *
+     * @param archived The archived flag.
+     */
     public void setArchived(Boolean archived)
     {
         this.archived = archived;
     }
 
+    /**
+     * Gets the single step flag.
+     *
+     * @return The single step flag.
+     */
     public Boolean getSingleStep()
     {
         return singleStep;
     }
 
+    /**
+     * Sets the single step flag.
+     *
+     * @param singleStep The single step flag.
+     */
     public void setSingleStep(Boolean singleStep)
     {
         this.singleStep = singleStep;
     }
 
+    /**
+     * Gets the URI of the control type.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the control type.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the name of the control type.
+     *
+     * @return The name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the control type.
+     *
+     * @param name The name.
+     */
     public void setName(String name)
     {
         this.name = name;

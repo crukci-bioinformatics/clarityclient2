@@ -36,28 +36,56 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "property-link")
 public class PropertyLink implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -6134863203392574429L;
 
+    /**
+     * The URI of the property.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The name of the property.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The value of the property.
+     */
     @XmlAttribute(name = "value")
     protected String value;
 
 
+    /**
+     * Default constructor.
+     */
     public PropertyLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the property.
+     */
     public PropertyLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI, name, and value.
+     *
+     * @param uri The URI of the property.
+     * @param name The name of the property.
+     * @param value The value of the property.
+     */
     public PropertyLink(URI uri, String name, String value)
     {
         this.uri = uri;
@@ -65,31 +93,61 @@ public class PropertyLink implements Serializable
         this.value = value;
     }
 
+    /**
+     * Gets the URI of the property.
+     *
+     * @return The property URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the property.
+     *
+     * @param uri The property URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the name of the property.
+     *
+     * @return The property name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the property.
+     *
+     * @param name The property name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the value of the property.
+     *
+     * @return The property value.
+     */
     public String getValue()
     {
         return value;
     }
 
+    /**
+     * Sets the value of the property.
+     *
+     * @param value The property value.
+     */
     public void setValue(String value)
     {
         this.value = value;

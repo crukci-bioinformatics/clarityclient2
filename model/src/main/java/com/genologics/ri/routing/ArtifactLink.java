@@ -37,6 +37,10 @@ import com.genologics.ri.artifact.Artifact;
 @XmlType(name = "artifact")
 public class ArtifactLink implements LimsLink<Artifact>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -5098969484639468234L;
 
     @XmlAttribute(name = "uri")

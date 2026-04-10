@@ -34,8 +34,7 @@ import com.genologics.ri.ClarityBatchRetrieveResult;
 import com.genologics.ri.Namespaces;
 
 /**
- *
- * The representation of a list of resource details.
+ * The representation of a list of resource details for batch operations on containers.
  */
 @ClarityBatchRetrieveResult(entityClass = Container.class, batchCreate = true, batchUpdate = true)
 @XmlRootElement(name = "details")
@@ -43,20 +42,40 @@ import com.genologics.ri.Namespaces;
 @XmlType(name = "details", propOrder = { "containers" })
 public class ContainerBatchFetchResult implements BatchUpdate<Container>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 3942410984112211790L;
 
+    /**
+     * The list of containers.
+     */
     @XmlElement(name = "container", namespace = Namespaces.CONTAINER_NAMESPACE)
     protected List<Container> containers;
 
+    /**
+     * Default constructor.
+     */
     public ContainerBatchFetchResult()
     {
     }
 
+    /**
+     * Constructor with a collection of containers.
+     *
+     * @param containers the collection of containers.
+     */
     public ContainerBatchFetchResult(Collection<Container> containers)
     {
         this.containers = new ArrayList<>(containers);
     }
 
+    /**
+     * Gets the list of containers.
+     *
+     * @return the list of containers.
+     */
     public List<Container> getContainers()
     {
         if (containers == null)
@@ -66,24 +85,44 @@ public class ContainerBatchFetchResult implements BatchUpdate<Container>, Serial
         return containers;
     }
 
+    /**
+     * Gets the list of containers.
+     *
+     * @return the list of containers.
+     */
     @Override
     public List<Container> getList()
     {
         return getContainers();
     }
 
+    /**
+     * Gets the size of the container list.
+     *
+     * @return the size.
+     */
     @Override
     public int getSize()
     {
         return containers == null ? 0 : containers.size();
     }
 
+    /**
+     * Adds containers for batch creation.
+     *
+     * @param entities the containers to add.
+     */
     @Override
     public void addForCreate(Collection<Container> entities)
     {
         getContainers().addAll(entities);
     }
 
+    /**
+     * Adds containers for batch update.
+     *
+     * @param entities the containers to add.
+     */
     @Override
     public void addForUpdate(Collection<Container> entities)
     {

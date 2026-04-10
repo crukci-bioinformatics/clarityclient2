@@ -25,9 +25,31 @@ package com.genologics.ri;
  */
 public interface PaginatedBatch<L> extends Batch<L>
 {
+    /**
+     * Gets the previous page of results.
+     *
+     * @return The previous page, or null if there is no previous page.
+     */
     Page getPreviousPage();
+
+    /**
+     * Sets the previous page of results.
+     *
+     * @param previous The previous page.
+     */
     void setPreviousPage(Page previous);
 
+    /**
+     * Gets the next page of results.
+     *
+     * @return The next page, or null if there is no next page.
+     */
     Page getNextPage();
+
+    /**
+     * Sets the next page of results.
+     *
+     * @param next The next page.
+     */
     void setNextPage(Page next);
 }

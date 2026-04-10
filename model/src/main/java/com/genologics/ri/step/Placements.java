@@ -49,6 +49,10 @@ import com.genologics.ri.container.Container;
 @XmlRootElement(name = "placements")
 public class Placements implements Linkable<Placements>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -1949893881292269955L;
 
     @XmlElement(name = "step")

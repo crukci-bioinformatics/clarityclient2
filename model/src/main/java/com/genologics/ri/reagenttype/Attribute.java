@@ -34,45 +34,89 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "attribute")
 public class Attribute implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -1114923515136408861L;
 
+    /**
+     * The name of the attribute.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The value of the attribute.
+     */
     @XmlAttribute(name = "value")
     protected String value;
 
 
+    /**
+     * Default constructor.
+     */
     public Attribute()
     {
     }
 
+    /**
+     * Constructor with name.
+     *
+     * @param name The attribute name.
+     */
     public Attribute(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Constructor with name and value.
+     *
+     * @param name The attribute name.
+     * @param value The attribute value.
+     */
     public Attribute(String name, String value)
     {
         this.name = name;
         this.value = value;
     }
 
+    /**
+     * Gets the name of the attribute.
+     *
+     * @return The attribute name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the attribute.
+     *
+     * @param name The attribute name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the value of the attribute.
+     *
+     * @return The attribute value.
+     */
     public String getValue()
     {
         return value;
     }
 
+    /**
+     * Sets the value of the attribute.
+     *
+     * @param value The attribute value.
+     */
     public void setValue(String value)
     {
         this.value = value;

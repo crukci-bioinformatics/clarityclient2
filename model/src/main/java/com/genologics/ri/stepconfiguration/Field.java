@@ -34,60 +34,116 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlSeeAlso({ QueueField.class, IceBucketField.class })
 public class Field extends LockableSetting
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 2627702301901466857L;
 
+    /**
+     * The name of the field.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * Defines what entity this field is attached to.
+     */
     @XmlAttribute(name = "attach-to")
     protected String attachTo;
 
     /**
+     * The style of the field (user-defined or built-in).
+     *
      * @since 2.23
      */
     @XmlAttribute(name = "style")
     protected Style style;
 
+    /**
+     * Default constructor.
+     */
     public Field()
     {
     }
 
+    /**
+     * Constructor with field name.
+     *
+     * @param name The field name.
+     */
     public Field(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Constructor with field name and attach-to value.
+     *
+     * @param name The field name.
+     * @param attachTo What entity this field is attached to.
+     */
     public Field(String name, String attachTo)
     {
         this.name = name;
         this.attachTo = attachTo;
     }
 
+    /**
+     * Gets the name of the field.
+     *
+     * @return The field name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the field.
+     *
+     * @param name The field name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the attach-to value indicating what entity this field is attached to.
+     *
+     * @return The attach-to value.
+     */
     public String getAttachTo()
     {
         return attachTo;
     }
 
+    /**
+     * Sets the attach-to value indicating what entity this field is attached to.
+     *
+     * @param attachTo The attach-to value.
+     */
     public void setAttachTo(String attachTo)
     {
         this.attachTo = attachTo;
     }
 
+    /**
+     * Gets the style of the field.
+     *
+     * @return The field style.
+     */
     public Style getStyle()
     {
         return style;
     }
 
+    /**
+     * Sets the style of the field.
+     *
+     * @param style The field style.
+     */
     public void setStyle(Style style)
     {
         this.style = style;

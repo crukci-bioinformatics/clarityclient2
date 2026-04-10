@@ -34,40 +34,75 @@ import com.genologics.ri.Linkable;
 
 
 /**
+ * Instrument-type-link provides a URI linking to the detailed representation of an instrument type.
+ *
  * @since 2.24
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "instrument-type-link")
 public class InstrumentTypeLink implements LimsLink<InstrumentType>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 3927957034901059387L;
 
+    /**
+     * The URI of the instrument type.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The instrument type name.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The instrument vendor.
+     */
     @XmlAttribute(name = "vendor")
     protected String vendor;
 
-
+    /**
+     * Default constructor.
+     */
     public InstrumentTypeLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The instrument type URI.
+     */
     public InstrumentTypeLink(URI uri)
     {
         setUri(uri);
     }
 
+    /**
+     * Constructor with URI and name.
+     *
+     * @param uri The instrument type URI.
+     * @param name The instrument type name.
+     */
     public InstrumentTypeLink(URI uri, String name)
     {
         setUri(uri);
         setName(name);
     }
 
+    /**
+     * Constructor with URI, name and vendor.
+     *
+     * @param uri The instrument type URI.
+     * @param name The instrument type name.
+     * @param vendor The instrument vendor.
+     */
     public InstrumentTypeLink(URI uri, String name, String vendor)
     {
         setUri(uri);
@@ -75,12 +110,22 @@ public class InstrumentTypeLink implements LimsLink<InstrumentType>, Serializabl
         setVendor(vendor);
     }
 
+    /**
+     * Constructor from a linkable instrument type.
+     *
+     * @param link The linkable instrument type.
+     */
     public InstrumentTypeLink(Linkable<InstrumentType> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Constructor from an instrument type.
+     *
+     * @param instrumentType The instrument type.
+     */
     public InstrumentTypeLink(InstrumentType instrumentType)
     {
         requireNonNull(instrumentType, "instrumentType cannot be null");
@@ -89,38 +134,67 @@ public class InstrumentTypeLink implements LimsLink<InstrumentType>, Serializabl
         vendor = instrumentType.getVendor();
     }
 
+    /**
+     * Get the instrument type name.
+     *
+     * @return The instrument type name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Set the instrument type name.
+     *
+     * @param value The instrument type name.
+     */
     public void setName(String value)
     {
         this.name = value;
     }
 
+    /**
+     * Get the instrument vendor.
+     *
+     * @return The instrument vendor.
+     */
     public String getVendor()
     {
         return vendor;
     }
 
+    /**
+     * Set the instrument vendor.
+     *
+     * @param value The instrument vendor.
+     */
     public void setVendor(String value)
     {
         this.vendor = value;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setUri(URI value)
     {
         this.uri = value;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Class<InstrumentType> getEntityClass()
     {

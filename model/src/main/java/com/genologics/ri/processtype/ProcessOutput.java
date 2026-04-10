@@ -39,6 +39,10 @@ import com.genologics.ri.configuration.FieldLink;
                        "fieldDefinitions", "assignWorkingFlag" })
 public class ProcessOutput implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 3584171153300804850L;
 
     @XmlElement(name = "artifact-type")

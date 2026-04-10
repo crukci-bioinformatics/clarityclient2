@@ -33,6 +33,8 @@ import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 
 /**
+ * The detailed representation of a permission.
+ *
  * @since 2.19
  */
 @ClarityEntity(uriSection = "permissions")
@@ -41,70 +43,135 @@ import com.genologics.ri.Linkable;
 @XmlRootElement(name = "permission")
 public class Permission implements Linkable<Permission>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 5000872708185118382L;
 
+    /**
+     * The permission name.
+     */
     protected String name;
 
+    /**
+     * The permission action.
+     */
     protected String action;
 
+    /**
+     * The permission description.
+     */
     protected String description;
 
+    /**
+     * The URI of the permission.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
-
+    /**
+     * Default constructor.
+     */
     public Permission()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The permission URI.
+     */
     public Permission(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and name.
+     *
+     * @param uri The permission URI.
+     * @param name The permission name.
+     */
     public Permission(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Get the permission name.
+     *
+     * @return The permission name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Set the permission name.
+     *
+     * @param name The permission name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Get the permission action.
+     *
+     * @return The permission action.
+     */
     public String getAction()
     {
         return action;
     }
 
+    /**
+     * Set the permission action.
+     *
+     * @param action The permission action.
+     */
     public void setAction(String action)
     {
         this.action = action;
     }
 
+    /**
+     * Get the permission description.
+     *
+     * @return The permission description.
+     */
     public String getDescription()
     {
         return description;
     }
 
+    /**
+     * Set the permission description.
+     *
+     * @param description The permission description.
+     */
     public void setDescription(String description)
     {
         this.description = description;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setUri(URI uri)
     {

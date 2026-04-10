@@ -20,7 +20,6 @@ package com.genologics.ri.artifact;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -50,19 +49,40 @@ import com.genologics.ri.PaginatedBatch;
 @XmlType(name = "artifacts", propOrder = { "artifacts", "previousPage", "nextPage" })
 public class Artifacts implements PaginatedBatch<ArtifactLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 2523274106664095426L;
 
+    /**
+     * The list of artifact links.
+     */
     @XmlElement(name = "artifact")
     protected List<ArtifactLink> artifacts;
 
+    /**
+     * The previous page of results.
+     */
     @XmlElement(name = "previous-page")
     protected Page previousPage;
 
+    /**
+     * The next page of results.
+     */
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    /**
+     * Constructor.
+     */
     public Artifacts() { }
 
+    /**
+     * Gets the list of artifact links.
+     *
+     * @return The list of artifact links.
+     */
     public List<ArtifactLink> getArtifacts()
     {
         if (artifacts == null)
@@ -72,36 +92,66 @@ public class Artifacts implements PaginatedBatch<ArtifactLink>, Serializable
         return this.artifacts;
     }
 
+    /**
+     * Gets the list of artifact links.
+     *
+     * @return The list of artifact links.
+     */
     @Override
     public List<ArtifactLink> getList()
     {
         return getArtifacts();
     }
 
+    /**
+     * Gets the size of the artifact list.
+     *
+     * @return The number of artifacts.
+     */
     @Override
     public int getSize()
     {
         return artifacts == null ? 0 : artifacts.size();
     }
 
+    /**
+     * Gets the previous page of results.
+     *
+     * @return The previous page.
+     */
     @Override
     public Page getPreviousPage()
     {
         return previousPage;
     }
 
+    /**
+     * Sets the previous page of results.
+     *
+     * @param value The previous page.
+     */
     @Override
     public void setPreviousPage(Page value)
     {
         this.previousPage = value;
     }
 
+    /**
+     * Gets the next page of results.
+     *
+     * @return The next page.
+     */
     @Override
     public Page getNextPage()
     {
         return nextPage;
     }
 
+    /**
+     * Sets the next page of results.
+     *
+     * @param value The next page.
+     */
     @Override
     public void setNextPage(Page value)
     {

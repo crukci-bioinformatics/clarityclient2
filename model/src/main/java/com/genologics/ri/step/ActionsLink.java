@@ -35,45 +35,79 @@ import com.genologics.ri.Linkable;
 
 
 /**
- *
- *         Identifies the resource that represents the actions applied or to be applied by the step.
+ * Identifies the resource that represents the actions applied or to be applied by the step.
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "actions-link")
 public class ActionsLink implements LimsLink<Actions>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 3468768301588893685L;
 
+    /**
+     * URI of the actions resource.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public ActionsLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the actions resource.
+     */
     public ActionsLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor from a linkable object.
+     *
+     * @param link The linkable object.
+     */
     public ActionsLink(Linkable<Actions> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return The Actions class.
+     */
     @Override
     public Class<Actions> getEntityClass()
     {
         return Actions.class;
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;

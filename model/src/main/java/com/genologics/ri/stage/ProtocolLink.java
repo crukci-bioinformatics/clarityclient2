@@ -40,39 +40,74 @@ import com.genologics.ri.protocolconfiguration.Protocol;
 @XmlType(name = "protocol")
 public class ProtocolLink implements LimsLink<Protocol>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 2132801688423667843L;
 
+    /**
+     * The URI of the protocol.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public ProtocolLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the protocol.
+     */
     public ProtocolLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor from a linkable protocol object.
+     *
+     * @param link The linkable protocol object.
+     */
     public ProtocolLink(Linkable<Protocol> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The Protocol class.
+     */
     @Override
     public Class<Protocol> getEntityClass()
     {
         return Protocol.class;
     }
 
+    /**
+     * Gets the URI of the protocol.
+     *
+     * @return The URI of the protocol.
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the protocol.
+     *
+     * @param uri The URI of the protocol.
+     */
     @Override
     public void setUri(URI uri)
     {

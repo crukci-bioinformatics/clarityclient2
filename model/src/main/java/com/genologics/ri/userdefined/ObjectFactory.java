@@ -53,19 +53,41 @@ public class ObjectFactory {
     public ObjectFactory() {
     }
 
+    /**
+     * Create an instance of {@link UDT}
+     *
+     * @return A new UDT instance.
+     */
     public UDT createType() {
         return new UDT();
     }
 
+    /**
+     * Create an instance of {@link UDF}
+     *
+     * @return A new UDF instance.
+     */
     public UDF createField() {
         return new UDF();
     }
 
+    /**
+     * Create an instance of {@link JAXBElement}{@code <}{@link UDF}{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return The new instance of {@link JAXBElement}{@code <}{@link UDF}{@code >}
+     */
     @XmlElementDecl(namespace = UDF_NAMESPACE, name = "field")
     public JAXBElement<UDF> createField(UDF value) {
         return new JAXBElement<UDF>(_Field_QNAME, UDF.class, null, value);
     }
 
+    /**
+     * Create an instance of {@link JAXBElement}{@code <}{@link UDT}{@code >}
+     *
+     * @param value Java instance representing xml element's value.
+     * @return The new instance of {@link JAXBElement}{@code <}{@link UDT}{@code >}
+     */
     @XmlElementDecl(namespace = UDF_NAMESPACE, name = "type")
     public JAXBElement<UDT> createType(UDT value) {
         return new JAXBElement<UDT>(_Type_QNAME, UDT.class, null, value);

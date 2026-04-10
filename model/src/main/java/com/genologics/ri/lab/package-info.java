@@ -1,3 +1,11 @@
+/**
+ * Provides classes for representing and managing laboratory entities in the Clarity LIMS system.
+ * <p>
+ * This package contains the representation of labs, including detailed lab information,
+ * lab links for navigation, and paginated collections of labs. The classes support
+ * JAXB XML serialization and deserialization for communication with the Clarity REST API.
+ * </p>
+ */
 @XmlSchema(
         namespace = LAB_NAMESPACE,
         elementFormDefault = XmlNsForm.UNQUALIFIED,

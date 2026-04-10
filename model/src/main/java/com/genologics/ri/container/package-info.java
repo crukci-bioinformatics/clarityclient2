@@ -1,3 +1,6 @@
+/**
+ * Container entity and support classes for the Clarity REST API.
+ */
 @XmlSchema(
     namespace = CONTAINER_NAMESPACE,
     elementFormDefault = XmlNsForm.UNQUALIFIED,

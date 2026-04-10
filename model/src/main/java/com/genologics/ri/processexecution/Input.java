@@ -41,27 +41,53 @@ import com.genologics.ri.artifact.Artifact;
 @XmlType(name = "input")
 public class Input extends ArtifactBase implements LimsLink<Artifact>
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -8366721361957628940L;
 
+    /**
+     * The URI of the input artifact.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public Input()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The artifact URI.
+     */
     public Input(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and QC flag.
+     *
+     * @param uri The artifact URI.
+     * @param qc The QC flag.
+     */
     public Input(URI uri, QCFlag qc)
     {
         this.uri = uri;
         this.qcFlag = qc;
     }
 
+    /**
+     * Constructor from a linkable artifact.
+     *
+     * @param link The artifact link.
+     */
     public Input(Linkable<Artifact> link)
     {
         requireNonNull(link, "link cannot be null");
@@ -69,17 +95,32 @@ public class Input extends ArtifactBase implements LimsLink<Artifact>
         updateQCFlag(link);
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return The Artifact class.
+     */
     @Override
     public Class<Artifact> getEntityClass()
     {
         return Artifact.class;
     }
 
+    /**
+     * Gets the URI of the input artifact.
+     *
+     * @return The artifact URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the input artifact.
+     *
+     * @param uri The artifact URI to set.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;

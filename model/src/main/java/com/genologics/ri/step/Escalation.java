@@ -40,39 +40,77 @@ import com.genologics.ri.artifact.Artifact;
 @XmlType(name = "escalation", propOrder = { "request", "review", "escalatedArtifacts" })
 public class Escalation implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -7363821101050828859L;
 
+    /**
+     * The escalation request.
+     */
     @XmlElement
     protected EscalationRequest request;
 
+    /**
+     * The escalation review.
+     */
     @XmlElement
     protected EscalationReview review;
 
+    /**
+     * List of escalated artifacts.
+     */
     @XmlElementWrapper(name = "escalated-artifacts")
     @XmlElement(name = "escalated-artifact")
     protected List<EscalatedArtifact> escalatedArtifacts;
 
 
+    /**
+     * Gets the escalation request.
+     *
+     * @return The escalation request.
+     */
     public EscalationRequest getRequest()
     {
         return request;
     }
 
+    /**
+     * Sets the escalation request.
+     *
+     * @param request The escalation request.
+     */
     public void setRequest(EscalationRequest request)
     {
         this.request = request;
     }
 
+    /**
+     * Gets the escalation review.
+     *
+     * @return The escalation review.
+     */
     public EscalationReview getReview()
     {
         return review;
     }
 
+    /**
+     * Sets the escalation review.
+     *
+     * @param review The escalation review.
+     */
     public void setReview(EscalationReview review)
     {
         this.review = review;
     }
 
+    /**
+     * Gets the list of escalated artifacts, creating it if it doesn't exist.
+     *
+     * @return The list of escalated artifacts.
+     */
     public List<EscalatedArtifact> getEscalatedArtifacts()
     {
         if (escalatedArtifacts == null)
@@ -82,12 +120,24 @@ public class Escalation implements Serializable
         return escalatedArtifacts;
     }
 
+    /**
+     * Adds an escalated artifact to the list.
+     *
+     * @param a The escalated artifact to add.
+     * @return The added escalated artifact.
+     */
     public EscalatedArtifact addEscalatedArtifact(EscalatedArtifact a)
     {
         getEscalatedArtifacts().add(a);
         return a;
     }
 
+    /**
+     * Adds an escalated artifact to the list from a linkable artifact.
+     *
+     * @param link The linkable artifact.
+     * @return The added escalated artifact.
+     */
     public EscalatedArtifact addEscalatedArtifact(Linkable<Artifact> link)
     {
         EscalatedArtifact a = new EscalatedArtifact(link);

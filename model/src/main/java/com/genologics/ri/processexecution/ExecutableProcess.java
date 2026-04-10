@@ -53,85 +53,166 @@ import com.genologics.ri.userdefined.UDT;
                        "type", "fields", "instrument", "parameter" })
 public class ExecutableProcess implements UDFHolder, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -4582482597481524823L;
 
+    /**
+     * The process type name.
+     */
     @XmlElement(name = "type")
     protected String processType;
 
+    /**
+     * The date the process was run.
+     */
     @XmlElement(name = "date-run")
     @XmlSchemaType(name = "date")
     @XmlJavaTypeAdapter(ShortDateAdapter.class)
     protected Date dateRun;
 
+    /**
+     * The technician who ran the process.
+     */
     @XmlElement(name = "technician")
     protected Technician technician;
 
+    /**
+     * The input-output mappings for the process.
+     */
     @XmlElement(name = "input-output-map")
     protected List<ExecutableInputOutputMap> inputOutputMaps;
 
+    /**
+     * The user-defined type.
+     */
     @XmlElement(name = "type", namespace = UDF_NAMESPACE)
     protected UDT type;
 
+    /**
+     * The user-defined fields.
+     */
     @XmlElement(name = "field", namespace = UDF_NAMESPACE)
     protected List<UDF> fields;
 
+    /**
+     * The instrument used for the process.
+     */
     @XmlElement(name = "instrument")
     protected InstrumentLink instrument;
 
+    /**
+     * The process parameter for external program integration.
+     */
     @XmlElement(name = "process-parameter")
     protected Parameter parameter;
 
-
+    /**
+     * Default constructor.
+     */
     public ExecutableProcess()
     {
     }
 
+    /**
+     * Constructor with process type.
+     *
+     * @param processType The process type name.
+     */
     public ExecutableProcess(String processType)
     {
         this.processType = processType;
     }
 
+    /**
+     * Constructor with process type and technician.
+     *
+     * @param processType The process type name.
+     * @param technician The technician link.
+     */
     public ExecutableProcess(String processType, Linkable<Researcher> technician)
     {
         this.processType = processType;
         setTechnician(technician);
     }
 
+    /**
+     * Gets the process type name.
+     *
+     * @return The process type name.
+     */
     public String getProcessType()
     {
         return processType;
     }
 
+    /**
+     * Sets the process type name.
+     *
+     * @param processType The process type name to set.
+     */
     public void setProcessType(String processType)
     {
         this.processType = processType;
     }
 
+    /**
+     * Sets the process type from a ProcessType object.
+     *
+     * @param processType The process type object.
+     */
     public void setProcessType(ProcessType processType)
     {
         this.processType = processType.getName();
     }
 
+    /**
+     * Gets the date the process was run.
+     *
+     * @return The run date.
+     */
     public Date getDateRun()
     {
         return dateRun;
     }
 
+    /**
+     * Sets the date the process was run.
+     *
+     * @param dateRun The run date to set.
+     */
     public void setDateRun(Date dateRun)
     {
         this.dateRun = dateRun;
     }
 
+    /**
+     * Gets the technician who ran the process.
+     *
+     * @return The technician.
+     */
     public Technician getTechnician()
     {
         return technician;
     }
 
+    /**
+     * Sets the technician from a researcher link.
+     *
+     * @param link The researcher link.
+     */
     public void setTechnician(Linkable<Researcher> link)
     {
         this.technician = new Technician(link);
     }
 
+    /**
+     * Gets the input-output mappings.
+     *
+     * @return The input-output mappings (never null).
+     */
     public List<ExecutableInputOutputMap> getInputOutputMaps()
     {
         if (inputOutputMaps == null)
@@ -141,34 +222,67 @@ public class ExecutableProcess implements UDFHolder, Serializable
         return inputOutputMaps;
     }
 
+    /**
+     * Adds an input-output map to the list.
+     *
+     * @param ioMap The input-output map to add.
+     * @return The added input-output map.
+     */
     public ExecutableInputOutputMap addInputOutputMap(ExecutableInputOutputMap ioMap)
     {
         getInputOutputMaps().add(ioMap);
         return ioMap;
     }
 
+    /**
+     * Creates and adds a new input-output map.
+     *
+     * @return The newly created input-output map.
+     */
     public ExecutableInputOutputMap newInputOutputMap()
     {
         return addInputOutputMap(new ExecutableInputOutputMap());
     }
 
+    /**
+     * Gets the user-defined type.
+     *
+     * @return The user-defined type.
+     */
     public UDT getUserDefinedType()
     {
         return type;
     }
 
+    /**
+     * Sets the user-defined type.
+     *
+     * @param type The user-defined type to set.
+     * @return The user-defined type that was set.
+     */
     public UDT setUserDefinedType(UDT type)
     {
         this.type = type;
         return this.type;
     }
 
+    /**
+     * Sets the user-defined type by name.
+     *
+     * @param type The type name.
+     * @return The created user-defined type.
+     */
     public UDT setUserDefinedType(String type)
     {
         this.type = new UDT(type);
         return this.type;
     }
 
+    /**
+     * Gets the user-defined fields.
+     *
+     * @return The user-defined fields (never null).
+     */
     @Override
     public List<UDF> getUserDefinedFields()
     {
@@ -179,21 +293,41 @@ public class ExecutableProcess implements UDFHolder, Serializable
         return fields;
     }
 
+    /**
+     * Gets the instrument used for the process.
+     *
+     * @return The instrument link.
+     */
     public InstrumentLink getInstrument()
     {
         return instrument;
     }
 
+    /**
+     * Sets the instrument from an instrument link.
+     *
+     * @param link The instrument link.
+     */
     public void setInstrument(Linkable<Instrument> link)
     {
         this.instrument = new InstrumentLink(link);
     }
 
+    /**
+     * Gets the process parameter.
+     *
+     * @return The parameter.
+     */
     public Parameter getParameter()
     {
         return parameter;
     }
 
+    /**
+     * Sets the process parameter.
+     *
+     * @param parameter The parameter to set.
+     */
     public void setParameter(Parameter parameter)
     {
         this.parameter = parameter;

@@ -48,19 +48,40 @@ import com.genologics.ri.protocolconfiguration.Protocol;
 @XmlType(name = "properties", propOrder = { "properties", "previousPage", "nextPage" })
 public class Properties implements PaginatedBatch<PropertyLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -4193984606951017687L;
 
+    /**
+     * The list of property links.
+     */
     @XmlElement(name = "property")
     protected List<PropertyLink> properties;
 
+    /**
+     * The link to the previous page of results.
+     */
     @XmlElement(name = "previous-page")
     protected Page previousPage;
 
+    /**
+     * The link to the next page of results.
+     */
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    /**
+     * Default constructor.
+     */
     public Properties() {}
 
+    /**
+     * Gets the list of property links.
+     *
+     * @return The list of property links.
+     */
     public List<PropertyLink> getProperties()
     {
         if (properties == null)
@@ -70,33 +91,59 @@ public class Properties implements PaginatedBatch<PropertyLink>, Serializable
         return properties;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<PropertyLink> getList()
     {
         return getProperties();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getSize()
     {
         return properties == null ? 0 : properties.size();
     }
 
+    /**
+     * Gets the previous page link.
+     *
+     * @return The previous page link.
+     */
     public Page getPreviousPage()
     {
         return previousPage;
     }
 
+    /**
+     * Sets the previous page link.
+     *
+     * @param previousPage The previous page link.
+     */
     public void setPreviousPage(Page previousPage)
     {
         this.previousPage = previousPage;
     }
 
+    /**
+     * Gets the next page link.
+     *
+     * @return The next page link.
+     */
     public Page getNextPage()
     {
         return nextPage;
     }
 
+    /**
+     * Sets the next page link.
+     *
+     * @param nextPage The next page link.
+     */
     public void setNextPage(Page nextPage)
     {
         this.nextPage = nextPage;

@@ -35,6 +35,10 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "icebucketfield")
 public class IceBucketField extends Field
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 8915614372544937283L;
 
     @XmlAttribute(name = "detail")

@@ -41,33 +41,67 @@ import com.genologics.ri.Linkable;
 @XmlType(name = "next-step")
 public class NextStep implements LimsLink<ProtocolStep>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -955680094983735241L;
 
+    /**
+     * The name of the next step.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The sequence index of the next step.
+     */
     @XmlAttribute(name = "sequence")
     protected Integer sequence;
 
+    /**
+     * The URI of the next step.
+     */
     @XmlAttribute(name = "next-step-uri")
     @XmlSchemaType(name = "anyURI")
     protected URI nextStepUri;
 
+    /**
+     * Default constructor.
+     */
     public NextStep()
     {
     }
 
+    /**
+     * Constructor with next step URI.
+     *
+     * @param nextStepUri The URI of the next step.
+     */
     public NextStep(URI nextStepUri)
     {
         this.nextStepUri = nextStepUri;
     }
 
+    /**
+     * Constructor with next step URI and name.
+     *
+     * @param nextStepUri The URI of the next step.
+     * @param name The name of the next step.
+     */
     public NextStep(URI nextStepUri, String name)
     {
         this.nextStepUri = nextStepUri;
         this.name = name;
     }
 
+    /**
+     * Constructor with next step URI, name, and sequence.
+     *
+     * @param nextStepUri The URI of the next step.
+     * @param name The name of the next step.
+     * @param sequence The sequence index of the next step.
+     */
     public NextStep(URI nextStepUri, String name, Integer sequence)
     {
         this.nextStepUri = nextStepUri;
@@ -75,6 +109,11 @@ public class NextStep implements LimsLink<ProtocolStep>, Serializable
         this.sequence = sequence;
     }
 
+    /**
+     * Constructor from a protocol step entity.
+     *
+     * @param step The protocol step entity.
+     */
     public NextStep(ProtocolStep step)
     {
         requireNonNull(step, "step cannot be null");
@@ -83,51 +122,101 @@ public class NextStep implements LimsLink<ProtocolStep>, Serializable
         sequence = step.getProtocolStepIndex();
     }
 
+    /**
+     * Gets the name of the next step.
+     *
+     * @return The next step name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the next step.
+     *
+     * @param name The next step name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the sequence index of the next step.
+     *
+     * @return The sequence index.
+     */
     public Integer getSequence()
     {
         return sequence;
     }
 
+    /**
+     * Sets the sequence index of the next step.
+     *
+     * @param sequence The sequence index.
+     */
     public void setSequence(Integer sequence)
     {
         this.sequence = sequence;
     }
 
+    /**
+     * Gets the URI of the next step.
+     *
+     * @return The next step URI.
+     */
     public URI getNextStepUri()
     {
         return nextStepUri;
     }
 
+    /**
+     * Gets the URI of the next step (alias for getNextStepUri).
+     *
+     * @return The next step URI.
+     */
     public URI getUri()
     {
         return nextStepUri;
     }
 
+    /**
+     * Sets the URI of the next step.
+     *
+     * @param nextStepUri The next step URI.
+     */
     public void setNextStepUri(URI nextStepUri)
     {
         this.nextStepUri = nextStepUri;
     }
 
+    /**
+     * Sets the next step from a linkable protocol step.
+     *
+     * @param step The linkable protocol step.
+     */
     public void setNextStep(Linkable<ProtocolStep> step)
     {
         this.nextStepUri = step.getUri();
     }
 
+    /**
+     * Sets the URI of the next step (alias for setNextStepUri).
+     *
+     * @param nextStepUri The next step URI.
+     */
     public void setUri(URI nextStepUri)
     {
         this.nextStepUri = nextStepUri;
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The ProtocolStep class.
+     */
     @Override
     public Class<ProtocolStep> getEntityClass()
     {

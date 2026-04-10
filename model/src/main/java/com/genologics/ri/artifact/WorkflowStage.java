@@ -52,34 +52,67 @@ public class WorkflowStage implements LimsLink<Stage>, Serializable
      */
     public static final Pattern ID_EXTRACTOR_PATTERN = Stage.ID_EXTRACTOR_PATTERN;
 
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 8029803456211993608L;
 
+    /**
+     * The URI of this workflow stage.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The name of this workflow stage.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The status of this workflow stage.
+     */
     @XmlAttribute(name = "status")
     protected Status status;
 
-
+    /**
+     * Default constructor.
+     */
     public WorkflowStage()
     {
     }
 
+    /**
+     * Constructor taking a URI.
+     *
+     * @param uri The workflow stage URI.
+     */
     public WorkflowStage(URI uri)
     {
         setUri(uri);
     }
 
+    /**
+     * Constructor taking a URI and name.
+     *
+     * @param uri The workflow stage URI.
+     * @param name The workflow stage name.
+     */
     public WorkflowStage(URI uri, String name)
     {
         setUri(uri);
         setName(name);
     }
 
+    /**
+     * Constructor taking a URI, name and status.
+     *
+     * @param uri The workflow stage URI.
+     * @param name The workflow stage name.
+     * @param status The workflow stage status.
+     */
     public WorkflowStage(URI uri, String name, Status status)
     {
         setUri(uri);
@@ -87,12 +120,22 @@ public class WorkflowStage implements LimsLink<Stage>, Serializable
         setStatus(status);
     }
 
+    /**
+     * Constructor from a Linkable.
+     *
+     * @param link The linkable object to copy.
+     */
     public WorkflowStage(Linkable<Stage> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Constructor from a Stage.
+     *
+     * @param stage The stage to copy.
+     */
     public WorkflowStage(Stage stage)
     {
         requireNonNull(stage, "stage cannot be null");
@@ -100,6 +143,12 @@ public class WorkflowStage implements LimsLink<Stage>, Serializable
         name = stage.getName();
     }
 
+    /**
+     * Constructor from a Stage with status.
+     *
+     * @param stage The stage to copy.
+     * @param status The workflow stage status.
+     */
     public WorkflowStage(Stage stage, Status status)
     {
         this(stage);
@@ -150,42 +199,82 @@ public class WorkflowStage implements LimsLink<Stage>, Serializable
         return id;
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return The workflow stage URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param uri The workflow stage URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the name.
+     *
+     * @return The workflow stage name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name.
+     *
+     * @param name The workflow stage name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the status.
+     *
+     * @return The workflow stage status.
+     */
     public Status getStatus()
     {
         return status;
     }
 
+    /**
+     * Sets the status.
+     *
+     * @param status The workflow stage status.
+     */
     public void setStatus(Status status)
     {
         this.status = status;
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return The Stage class.
+     */
     @Override
     public Class<Stage> getEntityClass()
     {
         return Stage.class;
     }
 
+    /**
+     * Returns a string representation of this workflow stage.
+     *
+     * @return The name, status and URI.
+     */
     @Override
     public String toString()
     {

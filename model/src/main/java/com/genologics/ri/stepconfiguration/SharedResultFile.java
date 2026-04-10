@@ -34,29 +34,59 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "file")
 public class SharedResultFile implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 5837529395773779245L;
 
+    /**
+     * The message associated with this shared result file.
+     */
     @XmlElement(name = "message")
     protected String message;
 
+    /**
+     * The index of this shared result file.
+     */
     @XmlAttribute(name = "shared-result-file-index")
     protected String sharedResultFileIndex;
 
+    /**
+     * Gets the message associated with this shared result file.
+     *
+     * @return The message.
+     */
     public String getMessage()
     {
         return message;
     }
 
+    /**
+     * Sets the message associated with this shared result file.
+     *
+     * @param message The message.
+     */
     public void setMessage(String message)
     {
         this.message = message;
     }
 
+    /**
+     * Gets the index of this shared result file.
+     *
+     * @return The shared result file index.
+     */
     public String getSharedResultFileIndex()
     {
         return sharedResultFileIndex;
     }
 
+    /**
+     * Sets the index of this shared result file.
+     *
+     * @param sharedResultFileIndex The shared result file index.
+     */
     public void setSharedResultFileIndex(String sharedResultFileIndex)
     {
         this.sharedResultFileIndex = sharedResultFileIndex;

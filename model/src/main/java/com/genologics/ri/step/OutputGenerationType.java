@@ -23,34 +23,64 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 import jakarta.xml.bind.annotation.XmlType;
 
 /**
+ * Enumeration of output generation types for step artifacts.
+ *
  * @since 2.18
  */
 @XmlType(name = "output-generation-type")
 @XmlEnum
 public enum OutputGenerationType
 {
-
+    /**
+     * Generate one output per input.
+     */
     @XmlEnumValue("PerInput")
     PER_INPUT("PerInput"),
 
+    /**
+     * Generate one output per all inputs.
+     */
     @XmlEnumValue("PerAllInputs")
     PER_ALL_INPUTS("PerAllInputs"),
 
+    /**
+     * Generate one output per reagent label.
+     */
     @XmlEnumValue("PerReagentLabel")
     PER_REAGENT_LABEL("PerReagentLabel");
 
+    /**
+     * The string value of the output generation type.
+     */
     private final String value;
 
+    /**
+     * Constructor.
+     *
+     * @param v The string value.
+     */
     private OutputGenerationType(String v)
     {
         value = v;
     }
 
+    /**
+     * Gets the string value.
+     *
+     * @return The string value.
+     */
     public String value()
     {
         return value;
     }
 
+    /**
+     * Converts a string value to an OutputGenerationType.
+     *
+     * @param v The string value.
+     * @return The corresponding OutputGenerationType.
+     * @throws IllegalArgumentException if the value doesn't match any output generation type.
+     */
     public static OutputGenerationType fromValue(String v)
     {
         for (OutputGenerationType c : OutputGenerationType.values())

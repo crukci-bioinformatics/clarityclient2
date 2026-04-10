@@ -21,18 +21,50 @@ package com.genologics.ri.processexecution;
 import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlType;
 
+/**
+ * Quality control flag enumeration for artifacts in process execution.
+ * Represents the QC status of an artifact during or after processing.
+ */
 @XmlType(name = "qc-flag")
 @XmlEnum
 public enum QCFlag
 {
+    /**
+     * QC status is unknown.
+     */
+    UNKNOWN,
+    
+    /**
+     * QC check passed.
+     */
+    PASSED,
+    
+    /**
+     * QC check failed.
+     */
+    FAILED,
+    
+    /**
+     * Continue processing despite QC concerns.
+     */
+    CONTINUE;
 
-    UNKNOWN, PASSED, FAILED, CONTINUE;
-
+    /**
+     * Gets the string value of the enum constant.
+     *
+     * @return The name of this enum constant.
+     */
     public String value()
     {
         return name();
     }
 
+    /**
+     * Converts a string value to a QCFlag enum constant.
+     *
+     * @param v The string value.
+     * @return The corresponding QCFlag enum constant.
+     */
     public static QCFlag fromValue(String v)
     {
         return valueOf(v);

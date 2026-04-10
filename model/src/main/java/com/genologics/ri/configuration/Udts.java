@@ -20,7 +20,6 @@ package com.genologics.ri.configuration;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -50,6 +49,10 @@ import com.genologics.ri.PaginatedBatch;
 @XmlType(name = "udts", propOrder = { "udtConfigLinks", "previousPage", "nextPage" })
 public class Udts implements PaginatedBatch<UdtConfigLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -3512684674322879203L;
 
     @XmlElement(name = "udtconfig")

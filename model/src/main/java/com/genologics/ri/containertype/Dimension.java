@@ -42,6 +42,10 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "dimension", propOrder = { "alpha", "offset", "size" })
 public class Dimension implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -1931190014491768673L;
 
     /**

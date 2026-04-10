@@ -42,49 +42,90 @@ import com.genologics.ri.artifact.Artifact;
 
 
 /**
+ * Artifact-Link provides a URI linking to the detailed representation of an artifact in a queue.
  * @since 2.19
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "artifact-link", propOrder = { "queueTime", "location" })
 public class ArtifactLink implements LimsEntityLink<Artifact>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -531351200403814712L;
 
+    /**
+     * The time when the artifact was queued.
+     */
     @XmlElement(name = "queue-time")
     @XmlSchemaType(name = "dateTime")
     @XmlJavaTypeAdapter(LongTimestampAdapter.class)
     protected Date queueTime;
 
+    /**
+     * The location of the artifact.
+     */
     protected Location location;
 
+    /**
+     * The URI of the artifact.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The LIMS id of the artifact.
+     */
     @XmlAttribute(name = "limsid")
     protected String limsid;
 
+    /**
+     * Default constructor.
+     */
     public ArtifactLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the artifact.
+     */
     public ArtifactLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and LIMS id.
+     *
+     * @param uri The URI of the artifact.
+     * @param limsid The LIMS id of the artifact.
+     */
     public ArtifactLink(URI uri, String limsid)
     {
         this.uri = uri;
         this.limsid = limsid;
     }
 
+    /**
+     * Constructor from a Linkable.
+     *
+     * @param link The linkable artifact.
+     */
     public ArtifactLink(Linkable<Artifact> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Constructor from a LimsEntityLinkable.
+     *
+     * @param link The LIMS entity linkable artifact.
+     */
     public ArtifactLink(LimsEntityLinkable<Artifact> link)
     {
         requireNonNull(link, "link cannot be null");
@@ -92,6 +133,11 @@ public class ArtifactLink implements LimsEntityLink<Artifact>, Serializable
         limsid = link.getLimsid();
     }
 
+    /**
+     * Constructor from an Artifact.
+     *
+     * @param artifact The artifact.
+     */
     public ArtifactLink(Artifact artifact)
     {
         requireNonNull(artifact, "artifact cannot be null");
@@ -100,55 +146,95 @@ public class ArtifactLink implements LimsEntityLink<Artifact>, Serializable
         location = artifact.getLocation();
     }
 
+    /**
+     * Gets the time when the artifact was queued.
+     *
+     * @return The queue time.
+     */
     public Date getQueueTime()
     {
         return queueTime;
     }
 
+    /**
+     * Sets the time when the artifact was queued.
+     *
+     * @param queueTime The queue time.
+     */
     public void setQueueTime(Date queueTime)
     {
         this.queueTime = queueTime;
     }
 
+    /**
+     * Gets the location of the artifact.
+     *
+     * @return The artifact location.
+     */
     public Location getLocation()
     {
         return location;
     }
 
+    /**
+     * Sets the location of the artifact.
+     *
+     * @param location The artifact location.
+     */
     public void setLocation(Location location)
     {
         this.location = location;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getLimsid()
     {
         return limsid;
     }
 
+    /**
+     * Sets the LIMS id of the artifact.
+     *
+     * @param limsid The LIMS id.
+     */
     public void setLimsid(String limsid)
     {
         this.limsid = limsid;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Class<Artifact> getEntityClass()
     {
         return Artifact.class;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString()
     {

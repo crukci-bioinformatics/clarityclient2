@@ -42,62 +42,121 @@ import com.genologics.ri.step.ProcessStep;
 @XmlType(name = "pool-step")
 public class PoolStep implements LimsLink<ProcessStep>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 2462830072429085619L;
 
+    /**
+     * The URI of this pool step.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The name of this pool step.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * Default constructor.
+     */
     public PoolStep()
     {
     }
 
+    /**
+     * Constructor taking a URI.
+     *
+     * @param uri The pool step URI.
+     */
     public PoolStep(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor taking a URI and name.
+     *
+     * @param uri The pool step URI.
+     * @param name The pool step name.
+     */
     public PoolStep(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Constructor from a Linkable.
+     *
+     * @param step The linkable step to copy.
+     */
     public PoolStep(Linkable<ProcessStep> step)
     {
         requireNonNull(step, "step cannot be null");
         this.uri = step.getUri();
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return The pool step URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param uri The pool step URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the name.
+     *
+     * @return The pool step name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name.
+     *
+     * @param name The pool step name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return The ProcessStep class.
+     */
     @Override
     public Class<ProcessStep> getEntityClass()
     {
         return ProcessStep.class;
     }
 
+    /**
+     * Returns a string representation of this pool step.
+     *
+     * @return The name, or "null" if not set.
+     */
     @Override
     public String toString()
     {

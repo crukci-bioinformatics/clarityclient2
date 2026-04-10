@@ -41,6 +41,10 @@ import com.genologics.ri.controltype.ControlType;
 @XmlType(name = "control-type-link")
 public class ControlTypeLink implements LimsLink<ControlType>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 3029231159973544772L;
 
     @XmlAttribute(name = "name")

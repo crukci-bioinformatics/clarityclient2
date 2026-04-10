@@ -39,6 +39,10 @@ import com.genologics.ri.container.Container;
 @XmlType(name = "sample")
 public class Sample extends SampleBase implements LimsEntity<Sample>
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 5852545940907097947L;
 
     /**

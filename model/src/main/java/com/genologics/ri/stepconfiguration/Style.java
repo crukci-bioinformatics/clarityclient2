@@ -22,20 +22,40 @@ import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlType;
 
 /**
+ * Enumeration of field styles.
+ *
  * @since 2.23
  */
 @XmlType(name = "style")
 @XmlEnum
 public enum Style
 {
+    /**
+     * User-defined field style.
+     */
     USER_DEFINED,
+
+    /**
+     * Built-in field style.
+     */
     BUILT_IN;
 
+    /**
+     * Gets the value of this enum constant.
+     *
+     * @return The name of this enum constant.
+     */
     public String value()
     {
         return name();
     }
 
+    /**
+     * Converts a string value to a Style enum constant.
+     *
+     * @param v The string value.
+     * @return The corresponding Style enum constant.
+     */
     public static Style fromValue(String v)
     {
         return valueOf(v);

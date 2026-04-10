@@ -39,6 +39,10 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "field-dynamic-preset")
 public class FieldDynamicPreset implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -7014673523064270714L;
 
     @XmlElement(name = "value")

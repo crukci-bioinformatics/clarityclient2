@@ -46,23 +46,47 @@ import com.genologics.ri.PaginatedBatch;
 @XmlType(name = "reagent-kits", propOrder = { "reagentKits", "nextPage", "previousPage" })
 public class ReagentKits implements PaginatedBatch<ReagentKitLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 719305311109268363L;
 
+    /**
+     * The list of reagent kit links.
+     */
     @XmlElement(name = "reagent-kit")
     protected List<ReagentKitLink> reagentKits;
 
+    /**
+     * The link to the next page of results.
+     */
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    /**
+     * The link to the previous page of results.
+     */
     @XmlElement(name = "previous-page")
     protected Page previousPage;
 
+    /**
+     * The URI of the reagent kits list.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public ReagentKits() {}
 
+    /**
+     * Gets the list of reagent kit links.
+     *
+     * @return The list of reagent kit links.
+     */
     public List<ReagentKitLink> getReagentKits()
     {
         if (reagentKits == null)
@@ -72,43 +96,79 @@ public class ReagentKits implements PaginatedBatch<ReagentKitLink>, Serializable
         return reagentKits;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<ReagentKitLink> getList()
     {
         return getReagentKits();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getSize()
     {
         return reagentKits == null ? 0 : reagentKits.size();
     }
 
+    /**
+     * Gets the next page link.
+     *
+     * @return The next page link.
+     */
     public Page getNextPage()
     {
         return nextPage;
     }
 
+    /**
+     * Sets the next page link.
+     *
+     * @param nextPage The next page link.
+     */
     public void setNextPage(Page nextPage)
     {
         this.nextPage = nextPage;
     }
 
+    /**
+     * Gets the previous page link.
+     *
+     * @return The previous page link.
+     */
     public Page getPreviousPage()
     {
         return previousPage;
     }
 
+    /**
+     * Sets the previous page link.
+     *
+     * @param previousPage The previous page link.
+     */
     public void setPreviousPage(Page previousPage)
     {
         this.previousPage = previousPage;
     }
 
+    /**
+     * Gets the URI of the reagent kits list.
+     *
+     * @return The reagent kits list URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the reagent kits list.
+     *
+     * @param uri The reagent kits list URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;

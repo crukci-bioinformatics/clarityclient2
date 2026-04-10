@@ -43,6 +43,10 @@ import com.genologics.ri.permission.Permission;
 @XmlType(name = "permission-link")
 public class PermissionLink implements LimsLink<Permission>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 6570314965797232412L;
 
     @XmlAttribute(name = "action")

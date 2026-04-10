@@ -43,33 +43,64 @@ import com.genologics.ri.researcher.Researcher;
 @XmlType(name = "technician", propOrder = { "firstName", "lastName" })
 public class Technician implements LimsLink<Researcher>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 7149503177948978718L;
 
+    /**
+     * The first name of the technician.
+     */
     @XmlElement(name = "first-name")
     protected String firstName;
 
+    /**
+     * The last name of the technician.
+     */
     @XmlElement(name = "last-name")
     protected String lastName;
 
+    /**
+     * The URI of the technician.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public Technician()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri the URI of the technician.
+     */
     public Technician(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor from a linkable object.
+     *
+     * @param link the linkable object.
+     */
     public Technician(Linkable<Researcher> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Constructor from a researcher.
+     *
+     * @param researcher the researcher.
+     */
     public Technician(Researcher researcher)
     {
         requireNonNull(researcher, "researcher cannot be null");
@@ -78,42 +109,82 @@ public class Technician implements LimsLink<Researcher>, Serializable
         lastName = researcher.getLastName();
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return the Researcher class.
+     */
     @Override
     public Class<Researcher> getEntityClass()
     {
         return Researcher.class;
     }
 
+    /**
+     * Gets the first name.
+     *
+     * @return the first name.
+     */
     public String getFirstName()
     {
         return firstName;
     }
 
+    /**
+     * Sets the first name.
+     *
+     * @param firstName the first name to set.
+     */
     public void setFirstName(String firstName)
     {
         this.firstName = firstName;
     }
 
+    /**
+     * Gets the last name.
+     *
+     * @return the last name.
+     */
     public String getLastName()
     {
         return lastName;
     }
 
+    /**
+     * Sets the last name.
+     *
+     * @param lastName the last name to set.
+     */
     public void setLastName(String lastName)
     {
         this.lastName = lastName;
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return the URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param uri the URI to set.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Returns a string representation of this object.
+     *
+     * @return the technician's full name.
+     */
     @Override
     public String toString()
     {

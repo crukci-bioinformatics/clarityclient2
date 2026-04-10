@@ -37,6 +37,10 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "routing")
 public class Routing implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 4810146731548918326L;
 
     @XmlElement(name = "assign")

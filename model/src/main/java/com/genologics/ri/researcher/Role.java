@@ -33,7 +33,6 @@ import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 
 /**
- *
  * The role element defines a researcher's level of access in the system. You
  * can repeat the element to provide a researcher with access to more than one
  * area of the system. When submitting a PUT request to update a researcher's
@@ -47,14 +46,35 @@ import com.genologics.ri.Linkable;
 @XmlType(name = "role")
 public class Role implements LimsLink<com.genologics.ri.role.Role>, Serializable
 {
+    /**
+     * The name for the system administrator role.
+     */
     public static final String SYSTEM_ADMIN_ROLE = "System Administrator";
+
+    /**
+     * The name for the researcher role.
+     */
     public static final String CLARITY_ROLE = "Researcher";
+
+    /**
+     * The name for the facility administrator role.
+     */
     public static final String ADMIN_ROLE = "Facility Administrator";
+
+    /**
+     * The name for the collaborator role.
+     */
     public static final String LABLINK_ROLE = "Collaborator";
 
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -4641418115009008515L;
 
     /**
+     * The role name. Deprecated from version 2.19.
+     *
      * @deprecated Deprecated from version 2.19.
      */
     @XmlAttribute(name = "roleName")
@@ -62,12 +82,16 @@ public class Role implements LimsLink<com.genologics.ri.role.Role>, Serializable
     protected String roleName;
 
     /**
+     * The user-facing name of the security role.
+     *
      * @since 2.19
      */
     @XmlAttribute(name = "name")
     protected String name;
 
     /**
+     * The URI to the role.
+     *
      * @since 2.19
      */
     @XmlAttribute(name = "uri")
@@ -75,27 +99,51 @@ public class Role implements LimsLink<com.genologics.ri.role.Role>, Serializable
     protected URI uri;
 
 
+    /**
+     * Default constructor.
+     */
     public Role()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI to the role.
+     */
     public Role(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and name.
+     *
+     * @param uri The URI to the role.
+     * @param name The name of the role.
+     */
     public Role(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Constructor from a linkable object.
+     *
+     * @param link The linkable object containing the role URI.
+     */
     public Role(Linkable<com.genologics.ri.role.Role> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * Constructor from another role object.
+     *
+     * @param otherRole The role to create this role from.
+     */
     public Role(com.genologics.ri.role.Role otherRole)
     {
         requireNonNull(otherRole, "otherRole cannot be null");
@@ -110,6 +158,7 @@ public class Role implements LimsLink<com.genologics.ri.role.Role>, Serializable
      * and "webclient".
      *
      * @return The role name.
+     *
      * @deprecated Deprecated from version 2.19.
      */
     @Deprecated
@@ -120,7 +169,9 @@ public class Role implements LimsLink<com.genologics.ri.role.Role>, Serializable
 
     /**
      * Set the role name.
+     *
      * @param value The role name.
+     *
      * @deprecated Deprecated from version 2.19.
      */
     @Deprecated
@@ -143,7 +194,9 @@ public class Role implements LimsLink<com.genologics.ri.role.Role>, Serializable
 
     /**
      * Set the role name.
+     *
      * @param name The role name.
+     *
      * @since 2.19
      */
     public void setName(String name)
@@ -152,8 +205,10 @@ public class Role implements LimsLink<com.genologics.ri.role.Role>, Serializable
     }
 
     /**
-     * Get the URI to the researcher.
+     * Get the URI to the role.
+     *
      * @return The URI.
+     *
      * @since 2.19
      */
     @Override
@@ -163,8 +218,10 @@ public class Role implements LimsLink<com.genologics.ri.role.Role>, Serializable
     }
 
     /**
-     * Set the URI to the researcher.
+     * Set the URI to the role.
+     *
      * @param uri The URI.
+     *
      * @since 2.19
      */
     @Override
@@ -173,12 +230,22 @@ public class Role implements LimsLink<com.genologics.ri.role.Role>, Serializable
         this.uri = uri;
     }
 
+    /**
+     * Gets the entity class this link refers to.
+     *
+     * @return The Role class.
+     */
     @Override
     public Class<com.genologics.ri.role.Role> getEntityClass()
     {
         return com.genologics.ri.role.Role.class;
     }
 
+    /**
+     * Gets a string representation of the role.
+     *
+     * @return The role name.
+     */
     @Override
     public String toString()
     {

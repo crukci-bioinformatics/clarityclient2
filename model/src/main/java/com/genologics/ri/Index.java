@@ -20,8 +20,8 @@ package com.genologics.ri;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -35,13 +35,28 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "index")
 public class Index implements Batch<Link>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -458228684534981324L;
 
+    /**
+     * The list of links in this index.
+     */
     @XmlElement(name = "link")
     protected List<Link> links;
 
+    /**
+     * Default constructor.
+     */
     public Index() {}
 
+    /**
+     * Gets the list of links in this index.
+     *
+     * @return The list of links.
+     */
     public List<Link> getLinks()
     {
         if (links == null)
@@ -51,12 +66,22 @@ public class Index implements Batch<Link>, Serializable
         return links;
     }
 
+    /**
+     * Gets the list of links for the Batch interface.
+     *
+     * @return The list of links.
+     */
     @Override
     public List<Link> getList()
     {
         return getLinks();
     }
 
+    /**
+     * Gets the number of links in this index.
+     *
+     * @return The number of links.
+     */
     @Override
     public int getSize()
     {

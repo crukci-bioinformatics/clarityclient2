@@ -34,6 +34,8 @@ import com.genologics.ri.PaginatedBatch;
 
 
 /**
+ * Represents a paginated list of saved queries.
+ *
  * @since 2.34
  */
 @ClarityQueryResult(entityClass = SavedQuery.class)
@@ -42,19 +44,40 @@ import com.genologics.ri.PaginatedBatch;
 @XmlType(name = "saved-queries", propOrder = { "savedQueries", "previousPage", "nextPage" })
 public class SavedQueries implements PaginatedBatch<SavedQueryLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -1608597563242261675L;
 
+    /**
+     * The list of saved query links.
+     */
     @XmlElement(name = "saved-query")
     protected List<SavedQueryLink> savedQueries;
 
+    /**
+     * The link to the previous page of results.
+     */
     @XmlElement(name = "previous-page")
     protected Page previousPage;
 
+    /**
+     * The link to the next page of results.
+     */
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    /**
+     * Default constructor.
+     */
     public SavedQueries() {}
 
+    /**
+     * Gets the list of saved query links.
+     *
+     * @return The list of saved query links.
+     */
     public List<SavedQueryLink> getSavedQueries()
     {
         if (savedQueries == null)
@@ -64,33 +87,63 @@ public class SavedQueries implements PaginatedBatch<SavedQueryLink>, Serializabl
         return savedQueries;
     }
 
+    /**
+     * Gets the list of saved query links.
+     *
+     * @return The list of saved query links.
+     */
     @Override
     public List<SavedQueryLink> getList()
     {
         return getSavedQueries();
     }
 
+    /**
+     * Gets the size of the saved query list.
+     *
+     * @return The number of saved queries in the list.
+     */
     @Override
     public int getSize()
     {
         return savedQueries == null ? 0 : savedQueries.size();
     }
 
+    /**
+     * Gets the previous page of results.
+     *
+     * @return The previous page.
+     */
     public Page getPreviousPage()
     {
         return previousPage;
     }
 
+    /**
+     * Sets the previous page of results.
+     *
+     * @param previousPage The previous page.
+     */
     public void setPreviousPage(Page previousPage)
     {
         this.previousPage = previousPage;
     }
 
+    /**
+     * Gets the next page of results.
+     *
+     * @return The next page.
+     */
     public Page getNextPage()
     {
         return nextPage;
     }
 
+    /**
+     * Sets the next page of results.
+     *
+     * @param nextPage The next page.
+     */
     public void setNextPage(Page nextPage)
     {
         this.nextPage = nextPage;

@@ -52,14 +52,31 @@ public class ObjectFactory {
     public ObjectFactory() {
     }
 
+    /**
+     * Creates a new PropertyLink instance.
+     *
+     * @return A new PropertyLink object.
+     */
     public PropertyLink createPropertyLink() {
         return new PropertyLink();
     }
 
+    /**
+     * Creates a new Properties instance.
+     *
+     * @return A new Properties object.
+     */
     public Properties createProperties() {
         return new Properties();
     }
 
+    /**
+     * Creates a JAXBElement for Properties.
+     *
+     * @param value The Properties value to wrap.
+     *
+     * @return A JAXBElement containing the Properties.
+     */
     @XmlElementDecl(namespace = PROPERTY_NAMESPACE, name = "properties")
     public JAXBElement<Properties> createProperties(Properties value) {
         return new JAXBElement<Properties>(_Properties_QNAME, Properties.class, null, value);

@@ -1,3 +1,6 @@
+/**
+ * Project entity and supporting classes for the Clarity REST API.
+ */
 @XmlSchema(
         namespace = PROJECT_NAMESPACE,
         elementFormDefault = XmlNsForm.UNQUALIFIED,

@@ -42,6 +42,10 @@ import com.genologics.ri.LimsLink;
 @XmlType(name = "udtconfig-link")
 public class UdtConfigLink implements LimsLink<Type>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -9221186839753173309L;
 
     @XmlAttribute(name = "uri")

@@ -21,18 +21,64 @@ package com.genologics.ri.stepconfiguration;
 import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlType;
 
+/**
+ * Enumeration of step statuses at which EPP triggers can execute.
+ */
 @XmlType(name = "trigger-status")
 @XmlEnum
 public enum TriggerStatus
 {
+    /**
+     * Trigger executes when the step is started.
+     */
+    STARTED,
 
-    STARTED, STEP_SETUP, POOLING, PLACEMENT, ADD_REAGENT, RECORD_DETAILS, COMPLETE;
+    /**
+     * Trigger executes during step setup.
+     */
+    STEP_SETUP,
 
+    /**
+     * Trigger executes during pooling.
+     */
+    POOLING,
+
+    /**
+     * Trigger executes during placement.
+     */
+    PLACEMENT,
+
+    /**
+     * Trigger executes when adding reagents.
+     */
+    ADD_REAGENT,
+
+    /**
+     * Trigger executes when recording details.
+     */
+    RECORD_DETAILS,
+
+    /**
+     * Trigger executes when the step is completed.
+     */
+    COMPLETE;
+
+    /**
+     * Gets the value of this enum constant.
+     *
+     * @return The name of this enum constant.
+     */
     public String value()
     {
         return name();
     }
 
+    /**
+     * Converts a string value to a TriggerStatus enum constant.
+     *
+     * @param v The string value.
+     * @return The corresponding TriggerStatus enum constant.
+     */
     public static TriggerStatus fromValue(String v)
     {
         return valueOf(v);

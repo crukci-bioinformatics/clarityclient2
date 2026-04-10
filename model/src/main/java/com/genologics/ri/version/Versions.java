@@ -20,8 +20,8 @@ package com.genologics.ri.version;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -42,13 +42,28 @@ import com.genologics.ri.ClarityQueryResult;
 @XmlType(name = "versions")
 public class Versions implements Batch<Version>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -1555363240810423322L;
 
+    /**
+     * The list of versions.
+     */
     @XmlElement(name = "version")
     protected List<Version> versions;
 
+    /**
+     * Default constructor.
+     */
     public Versions() {}
 
+    /**
+     * Gets the list of versions.
+     *
+     * @return The list of versions.
+     */
     public List<Version> getVersions()
     {
         if (versions == null)
@@ -58,12 +73,22 @@ public class Versions implements Batch<Version>, Serializable
         return versions;
     }
 
+    /**
+     * Gets the list of versions.
+     *
+     * @return The list of versions.
+     */
     @Override
     public List<Version> getList()
     {
         return getVersions();
     }
 
+    /**
+     * Gets the size of the versions list.
+     *
+     * @return The number of versions in the list.
+     */
     @Override
     public int getSize()
     {

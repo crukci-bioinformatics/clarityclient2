@@ -50,32 +50,73 @@ public class ObjectFactory {
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.project
      *
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
-    public ProjectLink createProjectLink() {
+    /**
+     * Create an instance of {@link ProjectLink}.
+     *
+     * @return A new ProjectLink instance.
+     */
+    public ProjectLink createProjectLink()
+    {
         return new ProjectLink();
     }
 
-    public ResearcherLink createResearcher() {
+    /**
+     * Create an instance of {@link ResearcherLink}.
+     *
+     * @return A new ResearcherLink instance.
+     */
+    public ResearcherLink createResearcher()
+    {
         return new ResearcherLink();
     }
 
-    public Projects createProjects() {
+    /**
+     * Create an instance of {@link Projects}.
+     *
+     * @return A new Projects instance.
+     */
+    public Projects createProjects()
+    {
         return new Projects();
     }
 
-    public Project createProject() {
+    /**
+     * Create an instance of {@link Project}.
+     *
+     * @return A new Project instance.
+     */
+    public Project createProject()
+    {
         return new Project();
     }
 
+    /**
+     * Create an instance of {@link JAXBElement}{@code <}{@link Project}{@code >}.
+     *
+     * @param value The Project to wrap.
+     *
+     * @return A JAXBElement wrapping the Project.
+     */
     @XmlElementDecl(namespace = PROJECT_NAMESPACE, name = "project")
-    public JAXBElement<Project> createProject(Project value) {
+    public JAXBElement<Project> createProject(Project value)
+    {
         return new JAXBElement<Project>(_Project_QNAME, Project.class, null, value);
     }
 
+    /**
+     * Create an instance of {@link JAXBElement}{@code <}{@link Projects}{@code >}.
+     *
+     * @param value The Projects to wrap.
+     *
+     * @return A JAXBElement wrapping the Projects.
+     */
     @XmlElementDecl(namespace = PROJECT_NAMESPACE, name = "projects")
-    public JAXBElement<Projects> createProjects(Projects value) {
+    public JAXBElement<Projects> createProjects(Projects value)
+    {
         return new JAXBElement<Projects>(_Projects_QNAME, Projects.class, null, value);
     }
 }

@@ -47,69 +47,141 @@ import com.genologics.ri.artifact.Artifact;
 @XmlType(name = "input-output-map", propOrder = { "input", "output" })
 public class InputOutputMap implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -6553131277891392216L;
 
+    /**
+     * The input artifact link.
+     */
     protected ArtifactLink input;
+
+    /**
+     * The output artifact link.
+     */
     protected ArtifactLink output;
 
 
+    /**
+     * Default constructor.
+     */
     public InputOutputMap()
     {
     }
 
+    /**
+     * Constructor with input and output artifact links.
+     *
+     * @param input The input artifact link.
+     * @param output The output artifact link.
+     */
     public InputOutputMap(ArtifactLink input, ArtifactLink output)
     {
         setInput(input);
         setOutput(output);
     }
 
+    /**
+     * Constructor with linkable input and output artifacts.
+     *
+     * @param input The linkable input artifact.
+     * @param output The linkable output artifact.
+     */
     public InputOutputMap(Linkable<Artifact> input, Linkable<Artifact> output)
     {
         setInput(input);
         setOutput(output);
     }
 
+    /**
+     * Constructor with LIMS entity linkable input and output artifacts.
+     *
+     * @param input The LIMS entity linkable input artifact.
+     * @param output The LIMS entity linkable output artifact.
+     */
     public InputOutputMap(LimsEntityLinkable<Artifact> input, LimsEntityLinkable<Artifact> output)
     {
         setInput(input);
         setOutput(output);
     }
 
+    /**
+     * Gets the input artifact link.
+     *
+     * @return The input artifact link.
+     */
     public ArtifactLink getInput()
     {
         return input;
     }
 
+    /**
+     * Sets the input artifact link.
+     *
+     * @param value The input artifact link.
+     */
     public void setInput(ArtifactLink value)
     {
         this.input = value;
     }
 
+    /**
+     * Sets the input from a linkable artifact.
+     *
+     * @param link The linkable artifact.
+     */
     public void setInput(Linkable<Artifact> link)
     {
         this.input = link == null ? null : new ArtifactLink(link);
     }
 
+    /**
+     * Sets the input from a LIMS entity linkable artifact.
+     *
+     * @param link The LIMS entity linkable artifact.
+     */
     public void setInput(LimsEntityLinkable<Artifact> link)
     {
         this.input = link == null ? null : new ArtifactLink(link);
     }
 
+    /**
+     * Gets the output artifact link.
+     *
+     * @return The output artifact link.
+     */
     public ArtifactLink getOutput()
     {
         return output;
     }
 
+    /**
+     * Sets the output artifact link.
+     *
+     * @param value The output artifact link.
+     */
     public void setOutput(ArtifactLink value)
     {
         this.output = value;
     }
 
+    /**
+     * Sets the output from a linkable artifact.
+     *
+     * @param link The linkable artifact.
+     */
     public void setOutput(Linkable<Artifact> link)
     {
         this.output = link == null ? null : new ArtifactLink(link);
     }
 
+    /**
+     * Sets the output from a LIMS entity linkable artifact.
+     *
+     * @param link The LIMS entity linkable artifact.
+     */
     public void setOutput(LimsEntityLinkable<Artifact> link)
     {
         this.output = link == null ? null : new ArtifactLink(link);

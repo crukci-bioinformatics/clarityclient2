@@ -44,6 +44,10 @@ import com.genologics.ri.configuration.Field;
 @XmlType(name = "type-definition")
 public class TypeDefinition implements LimsLink<Field>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 2990437613974395091L;
 
     @XmlAttribute(name = "uri")

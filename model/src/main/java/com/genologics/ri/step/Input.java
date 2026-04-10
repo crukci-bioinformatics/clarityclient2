@@ -41,54 +41,101 @@ import com.genologics.ri.artifact.Artifact;
 @XmlType(name = "input")
 public class Input implements LimsLink<Artifact>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -2525215280378480778L;
 
+    /**
+     * URI of the input artifact.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
     /**
+     * Number of replicates for the input.
+     *
      * @since 2.18
      */
     @XmlAttribute
     protected Long replicates;
 
+    /**
+     * Default constructor.
+     */
     public Input()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the input artifact.
+     */
     public Input(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor from a linkable object.
+     *
+     * @param link The linkable artifact.
+     */
     public Input(Linkable<Artifact> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return The Artifact class.
+     */
     @Override
     public Class<Artifact> getEntityClass()
     {
         return Artifact.class;
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the number of replicates.
+     *
+     * @return The number of replicates.
+     */
     public Long getReplicates()
     {
         return replicates;
     }
 
+    /**
+     * Sets the number of replicates.
+     *
+     * @param replicates The number of replicates.
+     */
     public void setReplicates(Long replicates)
     {
         this.replicates = replicates;

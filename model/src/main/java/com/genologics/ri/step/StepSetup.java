@@ -46,6 +46,10 @@ import com.genologics.ri.Linkable;
 @XmlRootElement(name = "setup")
 public class StepSetup implements Linkable<StepSetup>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 1161115098255552451L;
 
     @XmlElement

@@ -38,44 +38,87 @@ import org.apache.commons.lang3.ClassUtils;
 @XmlType(name = "generic-type-link", propOrder = { "value" })
 public class GenericTypeLink implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -7599295833392440499L;
 
+    /**
+     * The value of the generic type link.
+     */
     @XmlValue
     protected String value;
 
+    /**
+     * Indicates whether this generic type link is locked.
+     */
     @XmlAttribute(name = "locked")
     protected Boolean locked;
 
 
+    /**
+     * Default constructor.
+     */
     public GenericTypeLink()
     {
     }
 
+    /**
+     * Constructor with value.
+     *
+     * @param value The value of the generic type link.
+     */
     public GenericTypeLink(String value)
     {
         this.value = value;
     }
 
+    /**
+     * Gets the value of the generic type link.
+     *
+     * @return The value.
+     */
     public String getValue()
     {
         return value;
     }
 
+    /**
+     * Sets the value of the generic type link.
+     *
+     * @param value The value.
+     */
     public void setValue(String value)
     {
         this.value = value;
     }
 
+    /**
+     * Gets whether this generic type link is locked.
+     *
+     * @return True if locked, false otherwise.
+     */
     public Boolean getLocked()
     {
         return locked;
     }
 
+    /**
+     * Sets whether this generic type link is locked.
+     *
+     * @param locked True to lock, false to unlock.
+     */
     public void setLocked(Boolean locked)
     {
         this.locked = locked;
     }
 
+    /**
+     * Returns a string representation of this generic type link.
+     *
+     * @return The class name with optional value.
+     */
     @Override
     public String toString()
     {

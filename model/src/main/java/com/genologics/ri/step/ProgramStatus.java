@@ -45,6 +45,10 @@ import com.genologics.ri.Linkable;
 @XmlRootElement(name = "program-status")
 public class ProgramStatus implements Linkable<ProgramStatus>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -3133977224031042653L;
 
     @XmlElement(name = "step")

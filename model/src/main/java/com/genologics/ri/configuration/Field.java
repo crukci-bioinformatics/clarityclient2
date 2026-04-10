@@ -50,6 +50,10 @@ import com.genologics.ri.Linkable;
                        "minValue", "maxValue", "required", "attachToCategory" })
 public class Field implements Linkable<Field>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -1997333408044717019L;
 
     @XmlElement(name = "name")

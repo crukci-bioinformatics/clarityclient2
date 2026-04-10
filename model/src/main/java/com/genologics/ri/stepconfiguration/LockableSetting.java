@@ -38,21 +38,41 @@ import jakarta.xml.bind.annotation.XmlType;
               ControlTypeLink.class, ReagentKitLink.class, StepProperty.class })
 public class LockableSetting implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 1977151383272159438L;
 
+    /**
+     * Indicates whether this setting is locked by the master step.
+     */
     @XmlAttribute(name = "locked")
     protected Boolean locked;
 
 
+    /**
+     * Default constructor.
+     */
     public LockableSetting()
     {
     }
 
+    /**
+     * Gets whether this setting is locked by the master step.
+     *
+     * @return True if locked, false otherwise.
+     */
     public Boolean isLocked()
     {
         return locked;
     }
 
+    /**
+     * Sets whether this setting is locked by the master step.
+     *
+     * @param value True to lock, false to unlock.
+     */
     public void setLocked(Boolean value)
     {
         this.locked = value;

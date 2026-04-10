@@ -49,6 +49,10 @@ import com.genologics.ri.PaginatedBatch;
 @XmlType(name = "udfs", propOrder = { "udfConfigLinks", "previousPage", "nextPage" })
 public class Udfs implements PaginatedBatch<UdfConfigLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -5458422132487888319L;
 
     @XmlElement(name = "udfconfig")

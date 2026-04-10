@@ -47,56 +47,110 @@ import com.genologics.ri.Linkable;
 @XmlType(name = "instrument-type", propOrder = { "name", "vendor", "processTypes" })
 public class InstrumentType implements Linkable<InstrumentType>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 7273963191417975L;
 
+    /**
+     * The instrument type name.
+     */
     protected String name;
 
+    /**
+     * The instrument vendor.
+     */
     protected String vendor;
 
+    /**
+     * The list of process types associated with this instrument type.
+     */
     @XmlElementWrapper(name = "process-types")
     @XmlElement(name = "process-type")
     protected List<InstrumentTypeProcessType> processTypes;
 
+    /**
+     * The URI of the instrument type.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
-
+    /**
+     * Default constructor.
+     */
     public InstrumentType()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The instrument type URI.
+     */
     public InstrumentType(URI uri)
     {
         setUri(uri);
     }
 
+    /**
+     * Constructor with URI and name.
+     *
+     * @param uri The instrument type URI.
+     * @param name The instrument type name.
+     */
     public InstrumentType(URI uri, String name)
     {
         setUri(uri);
         setName(name);
     }
 
+    /**
+     * Get the instrument type name.
+     *
+     * @return The instrument type name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Set the instrument type name.
+     *
+     * @param value The instrument type name.
+     */
     public void setName(String value)
     {
         this.name = value;
     }
 
+    /**
+     * Get the instrument vendor.
+     *
+     * @return The instrument vendor.
+     */
     public String getVendor()
     {
         return vendor;
     }
 
+    /**
+     * Set the instrument vendor.
+     *
+     * @param value The instrument vendor.
+     */
     public void setVendor(String value)
     {
         this.vendor = value;
     }
 
+    /**
+     * Get the list of process types associated with this instrument type.
+     *
+     * @return The list of process types.
+     */
     public List<InstrumentTypeProcessType> getProcessTypes()
     {
         if (processTypes == null)
@@ -106,12 +160,18 @@ public class InstrumentType implements Linkable<InstrumentType>, Serializable
         return processTypes;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setUri(URI value)
     {

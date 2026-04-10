@@ -18,6 +18,10 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "rack-location", propOrder = { "rackIndex", "rackRow", "rackColumn" })
 public class RackLocation implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 1531522948721112254L;
 
     @XmlElement(name = "rack-index")

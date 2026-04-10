@@ -45,26 +45,51 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "page")
 public class Page implements Locatable, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -5699038454764689725L;
 
+    /**
+     * The URI to the page.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public Page()
     {
     }
 
+    /**
+     * Gets the URI to the page.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI to the page.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets a string representation of the page.
+     *
+     * @return The URI as a string, or an empty string if the URI is null.
+     */
     @Override
     public String toString()
     {

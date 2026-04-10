@@ -39,6 +39,10 @@ import com.genologics.ri.Linkable;
 @XmlType(name = "automation-link")
 public class AutomationLink implements LimsLink<Automation>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 3268594731404978793L;
 
     @XmlAttribute(name = "uri")

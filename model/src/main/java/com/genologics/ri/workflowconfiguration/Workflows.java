@@ -41,13 +41,28 @@ import com.genologics.ri.ClarityQueryResult;
 @XmlRootElement(name = "workflows")
 public class Workflows implements Batch<WorkflowLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -7678105241108473919L;
 
+    /**
+     * The list of workflow links.
+     */
     @XmlElement(name = "workflow")
     protected List<WorkflowLink> workflows;
 
+    /**
+     * Default constructor.
+     */
     public Workflows() {}
 
+    /**
+     * Gets the list of workflows.
+     *
+     * @return The list of workflow links.
+     */
     public List<WorkflowLink> getWorkflows()
     {
         if (workflows == null)
@@ -57,12 +72,22 @@ public class Workflows implements Batch<WorkflowLink>, Serializable
         return workflows;
     }
 
+    /**
+     * Gets the list of workflows.
+     *
+     * @return The list of workflow links.
+     */
     @Override
     public List<WorkflowLink> getList()
     {
         return getWorkflows();
     }
 
+    /**
+     * Gets the number of workflows in the list.
+     *
+     * @return The size of the workflow list.
+     */
     @Override
     public int getSize()
     {

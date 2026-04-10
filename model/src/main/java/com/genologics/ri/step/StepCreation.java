@@ -48,6 +48,10 @@ import com.genologics.ri.stepconfiguration.ProtocolStep;
 @XmlRootElement(name = "step-creation")
 public class StepCreation implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 3624008363559662022L;
 
     @XmlElement

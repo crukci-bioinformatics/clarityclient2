@@ -16,47 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.genologics.ri.reagentlot;
-
-import jakarta.xml.bind.annotation.XmlEnum;
-
 /**
- * The status of a reagent lot.
+ * Root package for Genologics classes.
  */
-@XmlEnum
-public enum Status
-{
-    /**
-     * The reagent lot is pending.
-     */
-    PENDING,
-
-    /**
-     * The reagent lot is active.
-     */
-    ACTIVE,
-
-    /**
-     * The reagent lot is archived.
-     */
-    ARCHIVED;
-
-    /**
-     * Default constructor.
-     */
-    private Status()
-    {
-    }
-
-    /**
-     * Returns the Status enum constant for the given string value.
-     *
-     * @param v The string value.
-     * @return The Status enum constant.
-     */
-    public static Status fromValue(String v)
-    {
-        return Status.valueOf(v);
-    }
-
-}
+package com;

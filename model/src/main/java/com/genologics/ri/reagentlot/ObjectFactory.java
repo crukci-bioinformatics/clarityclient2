@@ -53,31 +53,68 @@ public class ObjectFactory {
     public ObjectFactory() {
     }
 
+    /**
+     * Create an instance of {@link ReagentLotLink}.
+     *
+     * @return A new ReagentLotLink instance.
+     */
     public ReagentLotLink createReagentLotLink() {
         return new ReagentLotLink();
     }
 
+    /**
+     * Create an instance of {@link ReagentLot}.
+     *
+     * @return A new ReagentLot instance.
+     */
     public ReagentLot createReagentLot() {
         return new ReagentLot();
     }
 
+    /**
+     * Create an instance of {@link ResearcherLink}.
+     *
+     * @return A new ResearcherLink instance.
+     */
     public ResearcherLink createResearcher() {
         return new ResearcherLink();
     }
 
+    /**
+     * Create an instance of {@link ReagentLots}.
+     *
+     * @return A new ReagentLots instance.
+     */
     public ReagentLots createReagentLots() {
         return new ReagentLots();
     }
 
+    /**
+     * Create an instance of {@link ReagentKitLink}.
+     *
+     * @return A new ReagentKitLink instance.
+     */
     public ReagentKitLink createReagentKitLink() {
         return new ReagentKitLink();
     }
 
+    /**
+     * Create an instance of {@link JAXBElement}&lt;{@link ReagentLots}&gt;.
+     *
+     * @param value The ReagentLots value.
+     * @return A JAXBElement wrapping the ReagentLots.
+     */
     @XmlElementDecl(namespace = REAGENT_LOT_NAMESPACE, name = "reagent-lots")
     public JAXBElement<ReagentLots> createReagentLots(ReagentLots value) {
         return new JAXBElement<ReagentLots>(_ReagentLots_QNAME, ReagentLots.class, null, value);
     }
 
+    /**
+     * Create an instance of {@link JAXBElement}&lt;{@link ReagentLot}&gt;.
+     *
+     * @param value The ReagentLot value.
+     * @return A JAXBElement wrapping the ReagentLot.
+     */
     @XmlElementDecl(namespace = REAGENT_LOT_NAMESPACE, name = "reagent-lot")
     public JAXBElement<ReagentLot> createReagentLot(ReagentLot value) {
         return new JAXBElement<ReagentLot>(_ReagentLot_QNAME, ReagentLot.class, null, value);

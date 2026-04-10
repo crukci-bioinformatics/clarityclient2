@@ -43,6 +43,10 @@ import com.genologics.ri.LimsEntityLinkable;
 @XmlType(name = "file-link")
 public class FileLink implements LimsLink<ClarityFile>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -2151598768590902010L;
 
     @XmlAttribute(name = "uri")

@@ -21,18 +21,44 @@ package com.genologics.ri.stepconfiguration;
 import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlType;
 
+/**
+ * Enumeration of EPP trigger types.
+ */
 @XmlType(name = "trigger-type")
 @XmlEnum
 public enum TriggerType
 {
+    /**
+     * Manual trigger that must be invoked by a user.
+     */
+    MANUAL,
 
-    MANUAL, AUTOMATIC, UNUSED;
+    /**
+     * Automatic trigger that executes automatically.
+     */
+    AUTOMATIC,
 
+    /**
+     * Unused trigger.
+     */
+    UNUSED;
+
+    /**
+     * Gets the value of this enum constant.
+     *
+     * @return The name of this enum constant.
+     */
     public String value()
     {
         return name();
     }
 
+    /**
+     * Converts a string value to a TriggerType enum constant.
+     *
+     * @param v The string value.
+     * @return The corresponding TriggerType enum constant.
+     */
     public static TriggerType fromValue(String v)
     {
         return valueOf(v);

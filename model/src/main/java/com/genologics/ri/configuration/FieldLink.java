@@ -44,6 +44,10 @@ import com.genologics.ri.Linkable;
 @XmlType(name = "field-link")
 public class FieldLink implements LimsLink<Field>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 5031274064780081067L;
 
     @XmlAttribute(name = "name")

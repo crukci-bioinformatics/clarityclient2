@@ -21,18 +21,39 @@ package com.genologics.ri.stepconfiguration;
 import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlType;
 
+/**
+ * Enumeration of EPP trigger execution points.
+ */
 @XmlType(name = "trigger-point")
 @XmlEnum
 public enum TriggerPoint
 {
+    /**
+     * Trigger executes before the step action.
+     */
+    BEFORE,
 
-    BEFORE, AFTER;
+    /**
+     * Trigger executes after the step action.
+     */
+    AFTER;
 
+    /**
+     * Gets the value of this enum constant.
+     *
+     * @return The name of this enum constant.
+     */
     public String value()
     {
         return name();
     }
 
+    /**
+     * Converts a string value to a TriggerPoint enum constant.
+     *
+     * @param v The string value.
+     * @return The corresponding TriggerPoint enum constant.
+     */
     public static TriggerPoint fromValue(String v)
     {
         return valueOf(v);

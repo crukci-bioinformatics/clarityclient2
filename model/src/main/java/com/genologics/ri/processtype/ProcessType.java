@@ -53,6 +53,10 @@ import com.genologics.ri.configuration.FieldLink;
                        "stepProperties", "stepSetup", "eppTriggers" })
 public class ProcessType implements Linkable<ProcessType>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 3103866326222677563L;
 
     @XmlElement(name = "field-definition")

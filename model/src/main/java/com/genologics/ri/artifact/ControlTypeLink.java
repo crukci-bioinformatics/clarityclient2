@@ -42,44 +42,78 @@ import com.genologics.ri.controltype.ControlType;
 @XmlType(name = "control-type")
 public class ControlTypeLink implements LimsLink<ControlType>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -4203696627970925073L;
 
+    /**
+     * The URI of this control type.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
-
+    /**
+     * Default constructor.
+     */
     public ControlTypeLink()
     {
     }
 
+    /**
+     * Constructor taking a URI.
+     *
+     * @param uri The control type URI.
+     */
     public ControlTypeLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor from a Linkable.
+     *
+     * @param link The linkable object to copy.
+     */
     public ControlTypeLink(Linkable<ControlType> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return The ControlType class.
+     */
+    @Override
+    public Class<ControlType> getEntityClass()
+    {
+        return ControlType.class;
+    }
+
+    /**
+     * Gets the URI.
+     *
+     * @return The control type URI.
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param value The control type URI.
+     */
     @Override
     public void setUri(URI value)
     {
         this.uri = value;
-    }
-
-    @Override
-    public Class<ControlType> getEntityClass()
-    {
-        return ControlType.class;
     }
 
 }

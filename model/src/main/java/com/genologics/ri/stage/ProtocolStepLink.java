@@ -41,38 +41,73 @@ import com.genologics.ri.stepconfiguration.ProtocolStep;
 @XmlType(name = "step")
 public class ProtocolStepLink implements LimsLink<ProtocolStep>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -8628711111931596088L;
 
+    /**
+     * The URI of the protocol step.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public ProtocolStepLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the protocol step.
+     */
     public ProtocolStepLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor from a linkable protocol step object.
+     *
+     * @param link The linkable protocol step object.
+     */
     public ProtocolStepLink(Linkable<ProtocolStep> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The ProtocolStep class.
+     */
     @Override
     public Class<ProtocolStep> getEntityClass()
     {
         return ProtocolStep.class;
     }
 
+    /**
+     * Gets the URI of the protocol step.
+     *
+     * @return The URI of the protocol step.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the protocol step.
+     *
+     * @param uri The URI of the protocol step.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;

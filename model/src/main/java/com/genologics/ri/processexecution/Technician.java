@@ -43,38 +43,73 @@ import com.genologics.ri.researcher.Researcher;
 @XmlType(name = "technician")
 public class Technician implements LimsLink<Researcher>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 6342603327961394878L;
 
+    /**
+     * The URI of the researcher acting as technician.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public Technician()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The researcher URI.
+     */
     public Technician(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor from a linkable researcher.
+     *
+     * @param link The researcher link.
+     */
     public Technician(Linkable<Researcher> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return The Researcher class.
+     */
     @Override
     public Class<Researcher> getEntityClass()
     {
         return Researcher.class;
     }
 
+    /**
+     * Gets the URI of the researcher.
+     *
+     * @return The researcher URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the researcher.
+     *
+     * @param value The researcher URI to set.
+     */
     public void setUri(URI value)
     {
         this.uri = value;

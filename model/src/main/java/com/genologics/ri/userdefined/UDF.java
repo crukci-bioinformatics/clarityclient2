@@ -46,34 +46,72 @@ import com.genologics.ri.configuration.FieldType;
 @XmlType(name = "field")
 public class UDF implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -3019516615900521203L;
 
+    /**
+     * The name of the user-defined field.
+     */
     @XmlAttribute(name = "name", required = true)
     protected String name;
 
+    /**
+     * The data type of the user-defined field.
+     */
     @XmlAttribute(name = "type")
     protected FieldType type;
 
+    /**
+     * The unit of the user-defined field (if applicable).
+     */
     @XmlAttribute(name = "unit")
     protected String unit;
 
+    /**
+     * The value of the user-defined field.
+     */
     @XmlValue
     protected String value;
 
+    /**
+     * Default constructor.
+     */
     public UDF()
     {
     }
 
+    /**
+     * Constructor with name and type.
+     *
+     * @param name The name of the UDF.
+     * @param type The type of the UDF.
+     */
     public UDF(String name, FieldType type)
     {
         this(name, type, null);
     }
 
+    /**
+     * Constructor with name and value.
+     *
+     * @param name The name of the UDF.
+     * @param value The value of the UDF.
+     */
     public UDF(String name, Object value)
     {
         this(name, null, value);
     }
 
+    /**
+     * Constructor with name, type and value.
+     *
+     * @param name The name of the UDF.
+     * @param type The type of the UDF.
+     * @param value The value of the UDF.
+     */
     public UDF(String name, FieldType type, Object value)
     {
         setName(name);
@@ -81,41 +119,81 @@ public class UDF implements Serializable
         setValue(value);
     }
 
+    /**
+     * Gets the value of the UDF.
+     *
+     * @return The value of the UDF.
+     */
     public String getValue()
     {
         return value;
     }
 
+    /**
+     * Sets the value of the UDF.
+     *
+     * @param value The value to set.
+     */
     public void setValue(Object value)
     {
         this.value = value == null ? null : value.toString();
     }
 
+    /**
+     * Gets the unit of the UDF.
+     *
+     * @return The unit of the UDF.
+     */
     public String getUnit()
     {
         return unit;
     }
 
+    /**
+     * Gets the name of the UDF.
+     *
+     * @return The name of the UDF.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the UDF.
+     *
+     * @param name The name to set.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the type of the UDF.
+     *
+     * @return The type of the UDF.
+     */
     public FieldType getType()
     {
         return type;
     }
 
+    /**
+     * Sets the type of the UDF.
+     *
+     * @param type The type to set.
+     */
     public void setType(FieldType type)
     {
         this.type = type;
     }
 
+    /**
+     * Returns the string representation of the UDF.
+     *
+     * @return A string representation of the UDF.
+     */
     @Override
     public String toString()
     {

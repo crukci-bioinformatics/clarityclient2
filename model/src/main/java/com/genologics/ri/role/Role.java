@@ -48,6 +48,10 @@ import com.genologics.ri.Linkable;
 @XmlRootElement(name = "role")
 public class Role implements Linkable<Role>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 5417064490465819346L;
 
     @XmlElement

@@ -49,44 +49,90 @@ import com.genologics.ri.Linkable;
 @XmlRootElement(name = "arrangements")
 public class Arrangements implements Linkable<Arrangements>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -5065733682752946764L;
 
+    /**
+     * Link to the step.
+     */
     @XmlElement
     protected Link step;
 
+    /**
+     * Configuration of the step.
+     */
     @XmlElement
     protected StepConfiguration configuration;
 
+    /**
+     * List of output arrangements.
+     */
     @XmlElementWrapper(name = "output-arrangements")
     @XmlElement(name = "output-arrangement")
     protected List<OutputArrangement> outputArrangements;
 
+    /**
+     * URI of the arrangements resource.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
-    public Arrangements() { }
+    /**
+     * Default constructor.
+     */
+    public Arrangements()
+    {
+    }
 
+    /**
+     * Gets the step link.
+     *
+     * @return The step link.
+     */
     public Link getStep()
     {
         return step;
     }
 
+    /**
+     * Sets the step link.
+     *
+     * @param step The step link.
+     */
     public void setStep(Link step)
     {
         this.step = step;
     }
 
+    /**
+     * Gets the step configuration.
+     *
+     * @return The step configuration.
+     */
     public StepConfiguration getConfiguration()
     {
         return configuration;
     }
 
+    /**
+     * Sets the step configuration.
+     *
+     * @param configuration The step configuration.
+     */
     public void setConfiguration(StepConfiguration configuration)
     {
         this.configuration = configuration;
     }
 
+    /**
+     * Gets the list of output arrangements, creating it if it doesn't exist.
+     *
+     * @return The list of output arrangements.
+     */
     public List<OutputArrangement> getOutputArrangements()
     {
         if (outputArrangements == null)
@@ -96,11 +142,21 @@ public class Arrangements implements Linkable<Arrangements>, Serializable
         return outputArrangements;
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;

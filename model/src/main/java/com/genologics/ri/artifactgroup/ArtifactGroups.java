@@ -20,7 +20,6 @@ package com.genologics.ri.artifactgroup;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -50,19 +49,40 @@ import com.genologics.ri.PaginatedBatch;
 @XmlType(name = "artifactgroups", propOrder = { "artifactGroups", "previousPage", "nextPage" })
 public class ArtifactGroups implements PaginatedBatch<ArtifactGroupLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 2682947388238084051L;
 
+    /**
+     * The list of artifact group links.
+     */
     @XmlElement(name = "artifactgroup")
     protected List<ArtifactGroupLink> artifactGroups;
 
+    /**
+     * Link to the previous page of results.
+     */
     @XmlElement(name = "previous-page")
     protected Page previousPage;
 
+    /**
+     * Link to the next page of results.
+     */
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    /**
+     * Default constructor.
+     */
     public ArtifactGroups() {}
 
+    /**
+     * Gets the list of artifact groups.
+     *
+     * @return The list of artifact group links.
+     */
     public List<ArtifactGroupLink> getArtifactGroups()
     {
         if (artifactGroups == null)
@@ -72,33 +92,63 @@ public class ArtifactGroups implements PaginatedBatch<ArtifactGroupLink>, Serial
         return this.artifactGroups;
     }
 
+    /**
+     * Gets the list of artifact group links.
+     *
+     * @return The list of artifact group links.
+     */
     @Override
     public List<ArtifactGroupLink> getList()
     {
         return getArtifactGroups();
     }
 
+    /**
+     * Gets the size of the artifact groups list.
+     *
+     * @return The number of artifact groups.
+     */
     @Override
     public int getSize()
     {
         return artifactGroups == null ? 0 : artifactGroups.size();
     }
 
+    /**
+     * Gets the link to the previous page.
+     *
+     * @return The previous page link.
+     */
     public Page getPreviousPage()
     {
         return previousPage;
     }
 
+    /**
+     * Sets the link to the previous page.
+     *
+     * @param value The previous page to set.
+     */
     public void setPreviousPage(Page value)
     {
         this.previousPage = value;
     }
 
+    /**
+     * Gets the link to the next page.
+     *
+     * @return The next page link.
+     */
     public Page getNextPage()
     {
         return nextPage;
     }
 
+    /**
+     * Sets the link to the next page.
+     *
+     * @param value The next page to set.
+     */
     public void setNextPage(Page value)
     {
         this.nextPage = value;

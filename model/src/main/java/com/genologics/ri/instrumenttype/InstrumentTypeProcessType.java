@@ -35,43 +35,78 @@ import com.genologics.ri.Linkable;
 import com.genologics.ri.processtype.ProcessType;
 
 /**
+ * Process type link for instrument types.
+ *
  * @since 2.24
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "instrument-type-process-type")
 public class InstrumentTypeProcessType implements LimsLink<ProcessType>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 89917917703984734L;
 
+    /**
+     * The process type name.
+     */
     @XmlValue
     protected String name;
 
+    /**
+     * The process type URI.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
-
+    /**
+     * Default constructor.
+     */
     public InstrumentTypeProcessType()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The process type URI.
+     */
     public InstrumentTypeProcessType(URI uri)
     {
         setUri(uri);
     }
 
+    /**
+     * Constructor with URI and name.
+     *
+     * @param uri The process type URI.
+     * @param name The process type name.
+     */
     public InstrumentTypeProcessType(URI uri, String name)
     {
         setUri(uri);
         setName(name);
     }
 
+    /**
+     * Constructor from a linkable process type.
+     *
+     * @param link The linkable process type.
+     */
     public InstrumentTypeProcessType(Linkable<ProcessType> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Constructor from a process type.
+     *
+     * @param processType The process type.
+     */
     public InstrumentTypeProcessType(ProcessType processType)
     {
         requireNonNull(processType, "processType cannot be null");
@@ -79,28 +114,47 @@ public class InstrumentTypeProcessType implements LimsLink<ProcessType>, Seriali
         name = processType.getName();
     }
 
+    /**
+     * Get the process type name.
+     *
+     * @return The process type name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Set the process type name.
+     *
+     * @param value The process type name.
+     */
     public void setName(String value)
     {
         this.name = value;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setUri(URI value)
     {
         this.uri = value;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Class<ProcessType> getEntityClass()
     {

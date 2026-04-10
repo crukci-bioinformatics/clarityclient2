@@ -51,32 +51,73 @@ public class ObjectFactory {
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.protocolconfiguration
      *
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
-    public Protocols createProtocols() {
+    /**
+     * Creates a new Protocols instance.
+     *
+     * @return A new Protocols object.
+     */
+    public Protocols createProtocols()
+    {
         return new Protocols();
     }
 
-    public ProtocolProperty createProtocolProperty() {
+    /**
+     * Creates a new ProtocolProperty instance.
+     *
+     * @return A new ProtocolProperty object.
+     */
+    public ProtocolProperty createProtocolProperty()
+    {
         return new ProtocolProperty();
     }
 
-    public ProtocolLink createProtocolLink() {
+    /**
+     * Creates a new ProtocolLink instance.
+     *
+     * @return A new ProtocolLink object.
+     */
+    public ProtocolLink createProtocolLink()
+    {
         return new ProtocolLink();
     }
 
-    public Protocol createProtocol() {
+    /**
+     * Creates a new Protocol instance.
+     *
+     * @return A new Protocol object.
+     */
+    public Protocol createProtocol()
+    {
         return new Protocol();
     }
 
+    /**
+     * Creates a JAXBElement for a Protocol.
+     *
+     * @param value The Protocol value to wrap.
+     *
+     * @return A JAXBElement containing the Protocol.
+     */
     @XmlElementDecl(namespace = PROTOCOL_CONFIGURATION_NAMESPACE, name = "protocol")
-    public JAXBElement<Protocol> createProtocol(Protocol value) {
+    public JAXBElement<Protocol> createProtocol(Protocol value)
+    {
         return new JAXBElement<Protocol>(_Protocol_QNAME, Protocol.class, null, value);
     }
 
+    /**
+     * Creates a JAXBElement for Protocols.
+     *
+     * @param value The Protocols value to wrap.
+     *
+     * @return A JAXBElement containing the Protocols.
+     */
     @XmlElementDecl(namespace = PROTOCOL_CONFIGURATION_NAMESPACE, name = "protocols")
-    public JAXBElement<Protocols> createProtocols(Protocols value) {
+    public JAXBElement<Protocols> createProtocols(Protocols value)
+    {
         return new JAXBElement<Protocols>(_Protocols_QNAME, Protocols.class, null, value);
     }
 }

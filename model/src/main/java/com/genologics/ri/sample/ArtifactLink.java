@@ -42,36 +42,70 @@ import com.genologics.ri.artifact.Artifact;
 @XmlType(name = "artifact")
 public class ArtifactLink implements LimsEntityLink<Artifact>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 3393329302381963246L;
 
+    /**
+     * The URI of the artifact.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The LIMS id of the artifact.
+     */
     @XmlAttribute(name = "limsid")
     protected String limsid;
 
+    /**
+     * Constructor for an empty artifact link.
+     */
     public ArtifactLink()
     {
     }
 
+    /**
+     * Constructor for an artifact link with a URI.
+     *
+     * @param uri The URI of the artifact.
+     */
     public ArtifactLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor for an artifact link with a URI and LIMS id.
+     *
+     * @param uri The URI of the artifact.
+     * @param limsid The LIMS id of the artifact.
+     */
     public ArtifactLink(URI uri, String limsid)
     {
         this.uri = uri;
         this.limsid = limsid;
     }
 
+    /**
+     * Constructor for an artifact link from a linkable artifact.
+     *
+     * @param link The linkable artifact.
+     */
     public ArtifactLink(Linkable<Artifact> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Constructor for an artifact link from a LIMS entity linkable artifact.
+     *
+     * @param link The LIMS entity linkable artifact.
+     */
     public ArtifactLink(LimsEntityLinkable<Artifact> link)
     {
         requireNonNull(link, "link cannot be null");
@@ -79,32 +113,62 @@ public class ArtifactLink implements LimsEntityLink<Artifact>, Serializable
         limsid = link.getLimsid();
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The Artifact class.
+     */
     @Override
     public Class<Artifact> getEntityClass()
     {
         return Artifact.class;
     }
 
+    /**
+     * Gets the URI of the artifact.
+     *
+     * @return The artifact URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the artifact.
+     *
+     * @param value The artifact URI.
+     */
     public void setUri(URI value)
     {
         this.uri = value;
     }
 
+    /**
+     * Gets the LIMS id of the artifact.
+     *
+     * @return The LIMS id.
+     */
     public String getLimsid()
     {
         return limsid;
     }
 
+    /**
+     * Sets the LIMS id of the artifact.
+     *
+     * @param value The LIMS id.
+     */
     public void setLimsid(String value)
     {
         this.limsid = value;
     }
 
+    /**
+     * Returns a string representation of this artifact link.
+     *
+     * @return The LIMS id.
+     */
     @Override
     public String toString()
     {

@@ -40,6 +40,10 @@ import com.genologics.ri.Linkable;
 @XmlType(name = "placements-link")
 public class PlacementsLink implements LimsLink<Placements>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 2017533453426861528L;
 
     @XmlAttribute(name = "uri")

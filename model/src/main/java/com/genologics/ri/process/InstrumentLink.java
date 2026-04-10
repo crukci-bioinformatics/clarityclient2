@@ -43,49 +43,95 @@ import com.genologics.ri.instrument.Instrument;
 @XmlType(name = "instrument")
 public class InstrumentLink implements LimsEntityLink<Instrument>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -5626088397896460506L;
 
+    /**
+     * The URI of the instrument.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public InstrumentLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri the URI of the instrument.
+     */
     public InstrumentLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor from a linkable object.
+     *
+     * @param link the linkable object.
+     */
     public InstrumentLink(Linkable<Instrument> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return the Instrument class.
+     */
     @Override
     public Class<Instrument> getEntityClass()
     {
         return Instrument.class;
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return the URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param value the URI to set.
+     */
     public void setUri(URI value)
     {
         this.uri = value;
     }
 
+    /**
+     * Gets the LIMS id extracted from the URI.
+     *
+     * @return the LIMS id.
+     */
     @Override
     public String getLimsid()
     {
         return Link.limsIdFromUri(uri);
     }
 
+    /**
+     * Sets the LIMS id.
+     * This method does nothing as the LIMS id is extracted from the URI.
+     *
+     * @param id the LIMS id to set.
+     */
     @Override
     public void setLimsid(String id)
     {

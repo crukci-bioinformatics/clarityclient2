@@ -37,30 +37,60 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "links")
 public class Links implements Batch<Link>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 8838137119064380847L;
 
+    /**
+     * The list of links.
+     */
     @XmlElement(name = "link")
     protected List<Link> linkList;
 
+    /**
+     * Default constructor.
+     */
     public Links()
     {
     }
 
+    /**
+     * Constructor with initial capacity.
+     *
+     * @param capacity The initial capacity of the link list.
+     */
     public Links(int capacity)
     {
         linkList = new ArrayList<>(capacity);
     }
 
+    /**
+     * Constructor from a collection of links.
+     *
+     * @param links The collection of links.
+     */
     public Links(Collection<Link> links)
     {
         linkList = new ArrayList<>(links);
     }
 
+    /**
+     * Copy constructor.
+     *
+     * @param links The Links object to copy.
+     */
     public Links(Links links)
     {
         this(links.getLinks());
     }
 
+    /**
+     * Gets the list of links.
+     *
+     * @return The list of links.
+     */
     public List<Link> getLinks()
     {
         if (linkList == null)
@@ -70,12 +100,24 @@ public class Links implements Batch<Link>, Serializable
         return this.linkList;
     }
 
+    /**
+     * Adds a link to this collection.
+     *
+     * @param link The link to add.
+     * @return The link that was added.
+     */
     public Link add(Link link)
     {
         getLinks().add(link);
         return link;
     }
 
+    /**
+     * Adds a linkable object as a link to this collection.
+     *
+     * @param link The linkable object to add.
+     * @return The link that was created and added.
+     */
     public Link add(Linkable<?> link)
     {
         Link l = new Link(link);
@@ -83,22 +125,42 @@ public class Links implements Batch<Link>, Serializable
         return l;
     }
 
+    /**
+     * Adds all links from another Links object.
+     *
+     * @param links The Links object containing links to add.
+     */
     public void addAll(Links links)
     {
         addAll(links.getLinks());
     }
 
+    /**
+     * Adds all links from a collection.
+     *
+     * @param links The collection of links to add.
+     */
     public void addAll(Collection<Link> links)
     {
         getLinks().addAll(links);
     }
 
+    /**
+     * Gets the list of links for the Batch interface.
+     *
+     * @return The list of links.
+     */
     @Override
     public List<Link> getList()
     {
         return getLinks();
     }
 
+    /**
+     * Gets the number of links in this collection.
+     *
+     * @return The number of links.
+     */
     @Override
     public int getSize()
     {

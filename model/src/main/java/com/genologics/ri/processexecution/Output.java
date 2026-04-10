@@ -38,50 +38,103 @@ import com.genologics.ri.container.Container;
 @XmlType(name = "output", propOrder = { "location" })
 public class Output extends ArtifactBase
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -923589090274221714L;
 
+    /**
+     * The location of the output artifact.
+     */
     protected Location location;
 
+    /**
+     * The output type.
+     */
     @XmlAttribute(name = "type")
     protected OutputType type;
 
+    /**
+     * Default constructor.
+     */
     public Output()
     {
     }
 
+    /**
+     * Constructor with output type.
+     *
+     * @param type The output type.
+     */
     public Output(OutputType type)
     {
         this.type = type;
     }
 
+    /**
+     * Constructor with output type, container, and position.
+     *
+     * @param type The output type.
+     * @param container The container link.
+     * @param position The position in the container.
+     */
     public Output(OutputType type, LimsEntityLinkable<Container> container, String position)
     {
         this.type = type;
         setLocation(container, position);
     }
 
+    /**
+     * Gets the location of the output artifact.
+     *
+     * @return The location.
+     */
     public Location getLocation()
     {
         return location;
     }
 
+    /**
+     * Sets the location of the output artifact.
+     *
+     * @param location The location to set.
+     * @return The location that was set.
+     */
     public Location setLocation(Location location)
     {
         this.location = location;
         return this.location;
     }
 
+    /**
+     * Sets the location of the output artifact with container and position.
+     *
+     * @param container The container link.
+     * @param position The position in the container.
+     * @return The created location.
+     */
     public Location setLocation(LimsEntityLinkable<Container> container, String position)
     {
         this.location = container == null ? null : new Location(container, position);
         return this.location;
     }
 
+    /**
+     * Gets the output type.
+     *
+     * @return The output type.
+     */
     public OutputType getType()
     {
         return type;
     }
 
+    /**
+     * Sets the output type.
+     *
+     * @param type The output type to set.
+     */
     public void setType(OutputType type)
     {
         this.type = type;

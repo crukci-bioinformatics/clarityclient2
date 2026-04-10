@@ -42,6 +42,10 @@ import com.genologics.ri.artifact.Artifact;
 @XmlType(name = "pooled-inputs", propOrder = { "inputs" })
 public class PooledInputs implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -3807477794297469797L;
 
     @XmlElement(name = "input")

@@ -36,25 +36,50 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "parameter")
 public class Parameter implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 8161442493380982959L;
 
+    /**
+     * The name of the parameter.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * Default constructor.
+     */
     public Parameter()
     {
     }
 
+    /**
+     * Constructor with parameter name.
+     *
+     * @param name The parameter name.
+     */
     public Parameter(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the parameter name.
+     *
+     * @return The parameter name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the parameter name.
+     *
+     * @param value The parameter name to set.
+     */
     public void setName(String value)
     {
         this.name = value;

@@ -64,6 +64,10 @@ import com.genologics.ri.userdefined.UDT;
 @XmlSeeAlso({ SampleCreation.class, Sample.class })
 public class SampleBase implements UDFHolder, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 7926341075019764297L;
 
     protected String name;

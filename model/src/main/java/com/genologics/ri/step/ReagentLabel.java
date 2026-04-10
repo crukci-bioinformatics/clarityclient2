@@ -35,6 +35,10 @@ import jakarta.xml.bind.annotation.XmlType;
 public class ReagentLabel implements Serializable
 {
 
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -5256319945578711720L;
 
     @XmlAttribute(name = "name")

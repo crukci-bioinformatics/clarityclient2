@@ -35,39 +35,78 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "protocol-property")
 public class ProtocolProperty implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -2121684009872156372L;
 
+    /**
+     * The name of the protocol property.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The value of the protocol property.
+     */
     @XmlAttribute(name = "value")
     protected String value;
 
+    /**
+     * Default constructor.
+     */
     public ProtocolProperty()
     {
     }
 
+    /**
+     * Constructor with name and value.
+     *
+     * @param name The name of the protocol property.
+     * @param value The value of the protocol property.
+     */
     public ProtocolProperty(String name, String value)
     {
         this.name = name;
         this.value = value;
     }
 
+    /**
+     * Gets the name of the protocol property.
+     *
+     * @return The protocol property name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the protocol property.
+     *
+     * @param name The protocol property name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the value of the protocol property.
+     *
+     * @return The protocol property value.
+     */
     public String getValue()
     {
         return value;
     }
 
+    /**
+     * Sets the value of the protocol property.
+     *
+     * @param value The protocol property value.
+     */
     public void setValue(String value)
     {
         this.value = value;

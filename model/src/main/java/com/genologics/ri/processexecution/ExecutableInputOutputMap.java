@@ -52,26 +52,52 @@ import com.genologics.ri.container.Container;
 @XmlType(name = "input-output-map", propOrder = { "inputs", "output" })
 public class ExecutableInputOutputMap implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -5751963471358280360L;
 
+    /**
+     * List of input artifacts.
+     */
     @XmlElement(name = "input")
     protected List<Input> inputs;
 
+    /**
+     * The output artifact.
+     */
     @XmlElement(name = "output")
     protected Output output;
 
+    /**
+     * Indicates whether the output is shared among multiple inputs.
+     */
     @XmlAttribute(name = "shared")
     protected Boolean shared;
 
+    /**
+     * Default constructor.
+     */
     public ExecutableInputOutputMap()
     {
     }
 
+    /**
+     * Constructor with shared flag.
+     *
+     * @param shared Whether the output is shared.
+     */
     public ExecutableInputOutputMap(Boolean shared)
     {
         this.shared = shared;
     }
 
+    /**
+     * Gets the list of inputs.
+     *
+     * @return The input list (never null).
+     */
     public List<Input> getInputs()
     {
         if (inputs == null)
@@ -81,6 +107,11 @@ public class ExecutableInputOutputMap implements Serializable
         return this.inputs;
     }
 
+    /**
+     * Sets the inputs from a collection of artifact links.
+     *
+     * @param links The artifact links to set as inputs.
+     */
     public void setInputs(Collection<? extends Linkable<Artifact>> links)
     {
         getInputs().clear();
@@ -90,12 +121,25 @@ public class ExecutableInputOutputMap implements Serializable
         }
     }
 
+    /**
+     * Adds an input to the input list.
+     *
+     * @param input The input to add.
+     * @return The added input.
+     */
     public Input addInput(Input input)
     {
         getInputs().add(input);
         return input;
     }
 
+    /**
+     * Adds an input with a QC flag to the input list.
+     *
+     * @param link The artifact link.
+     * @param qc The QC flag.
+     * @return The added input.
+     */
     public Input addInput(Linkable<Artifact> link, QCFlag qc)
     {
         Input input = new Input(link);
@@ -104,28 +148,57 @@ public class ExecutableInputOutputMap implements Serializable
         return input;
     }
 
+    /**
+     * Gets the output artifact.
+     *
+     * @return The output.
+     */
     public Output getOutput()
     {
         return output;
     }
 
+    /**
+     * Sets the output artifact.
+     *
+     * @param output The output to set.
+     * @return The output that was set.
+     */
     public Output setOutput(Output output)
     {
         this.output = output;
         return this.output;
     }
 
+    /**
+     * Sets the output artifact with type, container, and position.
+     *
+     * @param type The output type.
+     * @param container The container link.
+     * @param position The position in the container.
+     * @return The created output.
+     */
     public Output setOutput(OutputType type, LimsEntityLinkable<Container> container, String position)
     {
         this.output = new Output(type, container, position);
         return this.output;
     }
 
+    /**
+     * Checks if the output is shared among multiple inputs.
+     *
+     * @return True if shared, false otherwise.
+     */
     public Boolean isShared()
     {
         return shared;
     }
 
+    /**
+     * Sets whether the output is shared.
+     *
+     * @param shared Whether the output is shared.
+     */
     public void setShared(Boolean shared)
     {
         this.shared = shared;

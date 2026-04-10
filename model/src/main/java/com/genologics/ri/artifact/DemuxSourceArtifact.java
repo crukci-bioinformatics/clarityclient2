@@ -34,42 +34,78 @@ import com.genologics.ri.Linkable;
 
 
 /**
+ * Link to a source artifact for demultiplexing.
+ *
  * @since 2.26
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "demux-source-artifact")
 public class DemuxSourceArtifact implements LimsLink<Artifact>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -3058956251238626047L;
 
+    /**
+     * The URI of this demux source artifact.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The name of this demux source artifact.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * Default constructor.
+     */
     public DemuxSourceArtifact()
     {
     }
 
+    /**
+     * Constructor taking a URI.
+     *
+     * @param uri The artifact URI.
+     */
     public DemuxSourceArtifact(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor taking a URI and name.
+     *
+     * @param uri The artifact URI.
+     * @param name The artifact name.
+     */
     public DemuxSourceArtifact(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Constructor from a Linkable.
+     *
+     * @param link The linkable object to copy.
+     */
     public DemuxSourceArtifact(Linkable<Artifact> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * Constructor from an Artifact.
+     *
+     * @param artifact The artifact to copy.
+     */
     public DemuxSourceArtifact(Artifact artifact)
     {
         requireNonNull(artifact, "artifact cannot be null");
@@ -77,37 +113,72 @@ public class DemuxSourceArtifact implements LimsLink<Artifact>, Serializable
         this.name = artifact.getName();
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return The artifact URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param uri The artifact URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Sets the artifact from a Linkable.
+     *
+     * @param artifact The linkable artifact to set.
+     */
     public void setArtifact(Linkable<Artifact> artifact)
     {
         this.uri = artifact == null ? null : artifact.getUri();
     }
 
+    /**
+     * Gets the name.
+     *
+     * @return The artifact name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name.
+     *
+     * @param name The artifact name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return The Artifact class.
+     */
     @Override
     public Class<Artifact> getEntityClass()
     {
         return Artifact.class;
     }
 
+    /**
+     * Returns a string representation of this artifact.
+     *
+     * @return The name, or "null" if not set.
+     */
     @Override
     public String toString()
     {

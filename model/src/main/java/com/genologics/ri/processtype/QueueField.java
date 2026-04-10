@@ -36,6 +36,10 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "queuefield")
 public class QueueField extends Field
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 2849413901300410668L;
 
     @XmlAttribute(name = "detail")

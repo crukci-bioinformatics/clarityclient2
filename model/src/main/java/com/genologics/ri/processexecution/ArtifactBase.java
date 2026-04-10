@@ -41,21 +41,43 @@ import com.genologics.ri.artifact.Artifact;
 @XmlSeeAlso({ Input.class, Output.class })
 public abstract class ArtifactBase implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -946571040944446567L;
 
+    /**
+     * The quality control flag for this artifact.
+     */
     @XmlElement(name = "qc-flag")
     protected QCFlag qcFlag;
 
+    /**
+     * Gets the quality control flag for this artifact.
+     *
+     * @return The QC flag.
+     */
     public QCFlag getQCFlag()
     {
         return qcFlag;
     }
 
+    /**
+     * Sets the quality control flag for this artifact.
+     *
+     * @param value The QC flag to set.
+     */
     public void setQCFlag(QCFlag value)
     {
         this.qcFlag = value;
     }
 
+    /**
+     * Updates the QC flag from a linkable artifact.
+     *
+     * @param link The linkable artifact to get the QC flag from.
+     */
     protected void updateQCFlag(Linkable<Artifact> link)
     {
         qcFlag = null;

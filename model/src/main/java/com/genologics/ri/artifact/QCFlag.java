@@ -21,18 +21,49 @@ package com.genologics.ri.artifact;
 import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlType;
 
+/**
+ * Enumeration of quality control flag values.
+ */
 @XmlType(name = "qc-flag")
 @XmlEnum
 public enum QCFlag
 {
+    /**
+     * Unknown quality control status.
+     */
+    UNKNOWN,
+    
+    /**
+     * Passed quality control.
+     */
+    PASSED,
+    
+    /**
+     * Failed quality control.
+     */
+    FAILED,
+    
+    /**
+     * Continue despite quality control status.
+     */
+    CONTINUE;
 
-    UNKNOWN, PASSED, FAILED, CONTINUE;
-
+    /**
+     * Gets the string value.
+     *
+     * @return The string value.
+     */
     public String value()
     {
         return name();
     }
 
+    /**
+     * Gets the QCFlag from a string value.
+     *
+     * @param v The string value.
+     * @return The corresponding QCFlag.
+     */
     public static QCFlag fromValue(String v)
     {
         return valueOf(v);

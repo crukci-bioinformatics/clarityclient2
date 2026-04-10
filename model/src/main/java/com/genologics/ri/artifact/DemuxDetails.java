@@ -40,34 +40,68 @@ import com.genologics.ri.step.ProcessStep;
 @XmlType(name = "demux-details", propOrder = { "poolStep", "artifacts" })
 public class DemuxDetails implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -6725351237693935651L;
 
+    /**
+     * The pool step of this demux details.
+     */
     @XmlElement(name = "pool-step")
     protected PoolStep poolStep;
 
+    /**
+     * The artifacts in this demux details.
+     */
     @XmlElementWrapper(name = "artifacts")
     @XmlElement(name = "artifact")
     protected List<DemuxArtifact> artifacts;
 
+    /**
+     * Default constructor.
+     */
     public DemuxDetails()
     {
     }
 
+    /**
+     * Gets the pool step.
+     *
+     * @return The pool step.
+     */
     public PoolStep getPoolStep()
     {
         return poolStep;
     }
 
+    /**
+     * Sets the pool step.
+     *
+     * @param poolStep The pool step.
+     */
     public void setPoolStep(PoolStep poolStep)
     {
         this.poolStep = poolStep;
     }
 
+    /**
+     * Sets the pool step from a Linkable.
+     *
+     * @param poolStep The linkable pool step.
+     */
     public void setPoolStep(Linkable<ProcessStep> poolStep)
     {
         this.poolStep = poolStep == null ? null : new PoolStep(poolStep.getUri());
     }
 
+    /**
+     * Gets the list of artifacts.
+     * Creates an empty list if it doesn't exist.
+     *
+     * @return The list of demux artifacts.
+     */
     public List<DemuxArtifact> getArtifacts()
     {
         if (artifacts == null)

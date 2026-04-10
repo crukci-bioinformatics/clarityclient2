@@ -31,56 +31,112 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "epp-trigger")
 public class EppTrigger extends LockableSetting
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 8850458905996420686L;
 
+    /**
+     * The name of the EPP trigger.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The type of the EPP trigger.
+     */
     @XmlAttribute(name = "type")
     protected TriggerType type;
 
+    /**
+     * The point when the EPP trigger executes.
+     */
     @XmlAttribute(name = "point")
     protected TriggerPoint point;
 
+    /**
+     * The status at which the EPP trigger executes.
+     */
     @XmlAttribute(name = "status")
     protected TriggerStatus status;
 
 
+    /**
+     * Gets the name of the EPP trigger.
+     *
+     * @return The EPP trigger name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the EPP trigger.
+     *
+     * @param name The EPP trigger name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the type of the EPP trigger.
+     *
+     * @return The EPP trigger type.
+     */
     public TriggerType getType()
     {
         return type;
     }
 
+    /**
+     * Sets the type of the EPP trigger.
+     *
+     * @param type The EPP trigger type.
+     */
     public void setType(TriggerType type)
     {
         this.type = type;
     }
 
+    /**
+     * Gets the point when the EPP trigger executes.
+     *
+     * @return The trigger point.
+     */
     public TriggerPoint getPoint()
     {
         return point;
     }
 
+    /**
+     * Sets the point when the EPP trigger executes.
+     *
+     * @param point The trigger point.
+     */
     public void setPoint(TriggerPoint point)
     {
         this.point = point;
     }
 
+    /**
+     * Gets the status at which the EPP trigger executes.
+     *
+     * @return The trigger status.
+     */
     public TriggerStatus getStatus()
     {
         return status;
     }
 
+    /**
+     * Sets the status at which the EPP trigger executes.
+     *
+     * @param status The trigger status.
+     */
     public void setStatus(TriggerStatus status)
     {
         this.status = status;

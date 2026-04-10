@@ -44,6 +44,10 @@ import com.genologics.ri.reagentlot.ReagentLot;
 @XmlType(name = "reagent-lot-link")
 public class ReagentLotLink implements LimsEntityLink<ReagentLot>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -5183820950832194933L;
 
     @XmlAttribute(name = "limsid")

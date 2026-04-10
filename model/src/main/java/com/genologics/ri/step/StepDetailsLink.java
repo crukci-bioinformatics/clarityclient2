@@ -42,6 +42,10 @@ import com.genologics.ri.Linkable;
 @XmlType(name = "details-link")
 public class StepDetailsLink implements LimsLink<StepDetails>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -3461183102550868643L;
 
     @XmlAttribute(name = "uri")

@@ -33,37 +33,75 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "queuefield")
 public class QueueField extends Field
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -3020055581011697956L;
 
+    /**
+     * Indicates whether this queue field should be shown in detail view.
+     */
     @XmlAttribute(name = "detail")
     protected Boolean detail;
 
 
+    /**
+     * Default constructor.
+     */
     public QueueField()
     {
     }
 
+    /**
+     * Constructor with field name.
+     *
+     * @param name The field name.
+     */
     public QueueField(String name)
     {
         super(name);
     }
 
+    /**
+     * Constructor with field name and attach-to value.
+     *
+     * @param name The field name.
+     * @param attachTo What entity this field is attached to.
+     */
     public QueueField(String name, String attachTo)
     {
         super(name, attachTo);
     }
 
+    /**
+     * Constructor with field name, attach-to value, and detail flag.
+     *
+     * @param name The field name.
+     * @param attachTo What entity this field is attached to.
+     * @param detail Whether to show in detail view.
+     */
     public QueueField(String name, String attachTo, Boolean detail)
     {
         super(name, attachTo);
         this.detail = detail;
     }
 
+    /**
+     * Gets whether this field should be shown in detail view.
+     *
+     * @return True if shown in detail view, false otherwise.
+     */
     public Boolean getDetail()
     {
         return detail;
     }
 
+    /**
+     * Sets whether this field should be shown in detail view.
+     *
+     * @param detail True to show in detail view, false otherwise.
+     */
     public void setDetail(Boolean detail)
     {
         this.detail = detail;

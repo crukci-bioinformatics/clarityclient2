@@ -1,3 +1,10 @@
+/**
+ * Provides classes for sample entities in the Clarity LIMS API.
+ * <p>
+ * This package contains representations and helper classes for working with
+ * samples, including sample links, sample creation, and batch operations.
+ * </p>
+ */
 @XmlSchema(
         namespace = SAMPLE_NAMESPACE,
         elementFormDefault = XmlNsForm.UNQUALIFIED,

@@ -38,85 +38,195 @@ import javax.xml.namespace.QName;
  * type definitions, element declarations and model
  * groups.  Factory methods for each of these are
  * provided in this class.
- *
+ * </p>
  */
 @XmlRegistry
-public class ObjectFactory {
-
+public class ObjectFactory
+{
+    /**
+     * The qualified name for the sample element.
+     */
     private final static QName _Sample_QNAME = new QName(SAMPLE_NAMESPACE, "sample");
+
+    /**
+     * The qualified name for the samplecreation element.
+     */
     private final static QName _Samplecreation_QNAME = new QName(SAMPLE_NAMESPACE, "samplecreation");
+
+    /**
+     * The qualified name for the samples element.
+     */
     private final static QName _Samples_QNAME = new QName(SAMPLE_NAMESPACE, "samples");
+
+    /**
+     * The qualified name for the details element.
+     */
     private final static QName _Details_QNAME = new QName(SAMPLE_NAMESPACE, "details");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.sample
-     *
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
-    public SampleCreation createSamplecreation() {
+    /**
+     * Create an instance of {@link SampleCreation}.
+     *
+     * @return The new SampleCreation instance.
+     */
+    public SampleCreation createSamplecreation()
+    {
         return new SampleCreation();
     }
 
-    public Sample createSample() {
+    /**
+     * Create an instance of {@link Sample}.
+     *
+     * @return The new Sample instance.
+     */
+    public Sample createSample()
+    {
         return new Sample();
     }
 
-    public SampleBatchFetchResult createDetails() {
+    /**
+     * Create an instance of {@link SampleBatchFetchResult}.
+     *
+     * @return The new SampleBatchFetchResult instance.
+     */
+    public SampleBatchFetchResult createDetails()
+    {
         return new SampleBatchFetchResult();
     }
 
-    public ArtifactLink createArtifact() {
+    /**
+     * Create an instance of {@link ArtifactLink}.
+     *
+     * @return The new ArtifactLink instance.
+     */
+    public ArtifactLink createArtifact()
+    {
         return new ArtifactLink();
     }
 
-    public Samples createSamples() {
+    /**
+     * Create an instance of {@link Samples}.
+     *
+     * @return The new Samples instance.
+     */
+    public Samples createSamples()
+    {
         return new Samples();
     }
 
-    public SampleBase createSamplebase() {
+    /**
+     * Create an instance of {@link SampleBase}.
+     *
+     * @return The new SampleBase instance.
+     */
+    public SampleBase createSamplebase()
+    {
         return new SampleBase();
     }
 
+    /**
+     * Create an instance of {@link BioSource}.
+     *
+     * @deprecated Biosource is not supported in Clarity.
+     * @return The new BioSource instance.
+     */
     @Deprecated
-    public BioSource createBiosource() {
+    public BioSource createBiosource()
+    {
         return new BioSource();
     }
 
-    public Submitter createSubmitter() {
+    /**
+     * Create an instance of {@link Submitter}.
+     *
+     * @return The new Submitter instance.
+     */
+    public Submitter createSubmitter()
+    {
         return new Submitter();
     }
 
-    public SampleLink createSampleLink() {
+    /**
+     * Create an instance of {@link SampleLink}.
+     *
+     * @return The new SampleLink instance.
+     */
+    public SampleLink createSampleLink()
+    {
         return new SampleLink();
     }
 
-    public ProjectLink createProject() {
+    /**
+     * Create an instance of {@link ProjectLink}.
+     *
+     * @return The new ProjectLink instance.
+     */
+    public ProjectLink createProject()
+    {
         return new ProjectLink();
     }
 
-    public ControlTypeLink createControlTypeLink() {
+    /**
+     * Create an instance of {@link ControlTypeLink}.
+     *
+     * @return The new ControlTypeLink instance.
+     */
+    public ControlTypeLink createControlTypeLink()
+    {
         return new ControlTypeLink();
     }
 
+    /**
+     * Create an instance of {@link JAXBElement}{@code <}{@link Sample}{@code >}.
+     *
+     * @param value The Sample instance value.
+     * @return The JAXBElement wrapper for the Sample.
+     */
     @XmlElementDecl(namespace = SAMPLE_NAMESPACE, name = "sample")
-    public JAXBElement<Sample> createSample(Sample value) {
+    public JAXBElement<Sample> createSample(Sample value)
+    {
         return new JAXBElement<Sample>(_Sample_QNAME, Sample.class, null, value);
     }
 
+    /**
+     * Create an instance of {@link JAXBElement}{@code <}{@link SampleCreation}{@code >}.
+     *
+     * @param value The SampleCreation instance value.
+     * @return The JAXBElement wrapper for the SampleCreation.
+     */
     @XmlElementDecl(namespace = SAMPLE_NAMESPACE, name = "samplecreation")
-    public JAXBElement<SampleCreation> createSamplecreation(SampleCreation value) {
+    public JAXBElement<SampleCreation> createSamplecreation(SampleCreation value)
+    {
         return new JAXBElement<SampleCreation>(_Samplecreation_QNAME, SampleCreation.class, null, value);
     }
 
+    /**
+     * Create an instance of {@link JAXBElement}{@code <}{@link Samples}{@code >}.
+     *
+     * @param value The Samples instance value.
+     * @return The JAXBElement wrapper for the Samples.
+     */
     @XmlElementDecl(namespace = SAMPLE_NAMESPACE, name = "samples")
-    public JAXBElement<Samples> createSamples(Samples value) {
+    public JAXBElement<Samples> createSamples(Samples value)
+    {
         return new JAXBElement<Samples>(_Samples_QNAME, Samples.class, null, value);
     }
 
+    /**
+     * Create an instance of {@link JAXBElement}{@code <}{@link SampleBatchFetchResult}{@code >}.
+     *
+     * @param value The SampleBatchFetchResult instance value.
+     * @return The JAXBElement wrapper for the SampleBatchFetchResult.
+     */
     @XmlElementDecl(namespace = SAMPLE_NAMESPACE, name = "details")
-    public JAXBElement<SampleBatchFetchResult> createDetails(SampleBatchFetchResult value) {
+    public JAXBElement<SampleBatchFetchResult> createDetails(SampleBatchFetchResult value)
+    {
         return new JAXBElement<SampleBatchFetchResult>(_Details_QNAME, SampleBatchFetchResult.class, null, value);
     }
 }

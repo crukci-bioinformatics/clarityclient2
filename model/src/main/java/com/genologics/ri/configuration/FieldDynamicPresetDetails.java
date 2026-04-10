@@ -60,6 +60,10 @@ https://d10e8rzir0haj8.cloudfront.net/6.3/rest.version.configuration.udfs.udfid.
 @XmlType(name = "field-dynamic-preset-details")
 public class FieldDynamicPresetDetails implements Locatable, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -8814597927446111161L;
 
     // With Clarity 6.3.3, this element must have the namespace set on it as well.

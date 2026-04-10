@@ -54,23 +54,52 @@ public class ObjectFactory {
     public ObjectFactory() {
     }
 
+    /**
+     * Creates a new ReagentKit instance.
+     *
+     * @return A new ReagentKit object.
+     */
     public ReagentKit createReagentKit() {
         return new ReagentKit();
     }
 
+    /**
+     * Creates a new ReagentKits instance.
+     *
+     * @return A new ReagentKits object.
+     */
     public ReagentKits createReagentKits() {
         return new ReagentKits();
     }
 
+    /**
+     * Creates a new ReagentKitLink instance.
+     *
+     * @return A new ReagentKitLink object.
+     */
     public ReagentKitLink createReagentKitLink() {
         return new ReagentKitLink();
     }
 
+    /**
+     * Creates a JAXBElement for ReagentKits.
+     *
+     * @param value The ReagentKits value to wrap.
+     *
+     * @return A JAXBElement containing the ReagentKits.
+     */
     @XmlElementDecl(namespace = REAGENT_KIT_NAMESPACE, name = "reagent-kits")
     public JAXBElement<ReagentKits> createReagentKits(ReagentKits value) {
         return new JAXBElement<ReagentKits>(_ReagentKits_QNAME, ReagentKits.class, null, value);
     }
 
+    /**
+     * Creates a JAXBElement for a ReagentKit.
+     *
+     * @param value The ReagentKit value to wrap.
+     *
+     * @return A JAXBElement containing the ReagentKit.
+     */
     @XmlElementDecl(namespace = REAGENT_KIT_NAMESPACE, name = "reagent-kit")
     public JAXBElement<ReagentKit> createReagentKit(ReagentKit value) {
         return new JAXBElement<ReagentKit>(_ReagentKit_QNAME, ReagentKit.class, null, value);

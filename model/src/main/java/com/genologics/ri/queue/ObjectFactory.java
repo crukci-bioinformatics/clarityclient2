@@ -53,14 +53,31 @@ public class ObjectFactory {
     public ObjectFactory() {
     }
 
+    /**
+     * Creates a new Queue instance.
+     *
+     * @return A new Queue object.
+     */
     public Queue createQueue() {
         return new Queue();
     }
 
+    /**
+     * Creates a new ArtifactLink instance.
+     *
+     * @return A new ArtifactLink object.
+     */
     public ArtifactLink createArtifactLink() {
         return new ArtifactLink();
     }
 
+    /**
+     * Creates a JAXBElement for a Queue.
+     *
+     * @param value The Queue value to wrap.
+     *
+     * @return A JAXBElement containing the Queue.
+     */
     @XmlElementDecl(namespace = QUEUE_NAMESPACE, name = "queue")
     public JAXBElement<Queue> createQueue(Queue value) {
         return new JAXBElement<Queue>(_Queue_QNAME, Queue.class, null, value);

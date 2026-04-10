@@ -43,6 +43,10 @@ import com.genologics.ri.Namespaces;
 @XmlType(name = "details")
 public class ClarityFileBatchFetchResult implements BatchUpdate<ClarityFile>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -536166874357106044L;
 
     @XmlElement(name = "file", namespace = Namespaces.FILE_NAMESPACE)

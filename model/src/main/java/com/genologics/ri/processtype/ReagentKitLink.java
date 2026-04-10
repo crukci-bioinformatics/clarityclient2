@@ -43,6 +43,10 @@ import com.genologics.ri.reagentkit.ReagentKit;
 @XmlType(name = "reagent-kit-link")
 public class ReagentKitLink implements LimsLink<ReagentKit>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 7746715136563752804L;
 
     @XmlAttribute(name = "name")

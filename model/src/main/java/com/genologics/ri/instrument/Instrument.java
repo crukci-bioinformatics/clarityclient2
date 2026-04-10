@@ -60,60 +60,101 @@ import com.genologics.ri.Link;
 @XmlType(name = "instrument", propOrder = { "name", "type", "serialNumber", "expiryDate", "archived" })
 public class Instrument implements LimsEntity<Instrument>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 1517557403395348841L;
 
+    /**
+     * The instrument name.
+     */
     protected String name;
 
+    /**
+     * The instrument type.
+     */
     protected String type;
 
     /**
+     * The instrument serial number.
+     *
      * @since 2.25
      */
     @XmlElement(name = "serial-number")
     protected String serialNumber;
 
     /**
+     * The instrument expiry date.
+     *
      * @since 2.25
      */
     @XmlElement(name = "expiry-date")
     protected String expiryDate;
 
     /**
+     * Whether the instrument has been archived.
+     *
      * @since 2.25
      */
     protected Boolean archived;
 
+    /**
+     * The URI of this instrument.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
     /**
+     * The LIMS id of this instrument as provided by the server.
+     *
      * @since 2.25
      */
     @XmlAttribute(name = "limsid")
     protected String limsid;
 
+    /**
+     * Default constructor.
+     */
     public Instrument()
     {
     }
 
+    /**
+     * Constructor with instrument name.
+     *
+     * @param name The instrument name.
+     */
     public Instrument(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Constructor with instrument name and type.
+     *
+     * @param name The instrument name.
+     * @param type The instrument type.
+     */
     public Instrument(String name, String type)
     {
         this.name = name;
         this.type = type;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setUri(URI uri)
     {
@@ -133,57 +174,110 @@ public class Instrument implements LimsEntity<Instrument>, Serializable
         return Link.limsIdFromUri(uri);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setLimsid(String limsid)
     {
         this.limsid = limsid;
     }
 
+    /**
+     * Get the instrument name.
+     *
+     * @return The instrument name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Set the instrument name.
+     *
+     * @param name The instrument name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Get the instrument type.
+     *
+     * @return The instrument type.
+     */
     public String getType()
     {
         return type;
     }
 
+    /**
+     * Set the instrument type.
+     *
+     * @param type The instrument type.
+     */
     public void setType(String type)
     {
         this.type = type;
     }
 
+    /**
+     * Get the instrument serial number.
+     *
+     * @return The serial number.
+     */
     public String getSerialNumber()
     {
         return serialNumber;
     }
 
+    /**
+     * Set the instrument serial number.
+     *
+     * @param serialNumber The serial number.
+     */
     public void setSerialNumber(String serialNumber)
     {
         this.serialNumber = serialNumber;
     }
 
+    /**
+     * Get the instrument expiry date.
+     *
+     * @return The expiry date.
+     */
     public String getExpiryDate()
     {
         return expiryDate;
     }
 
+    /**
+     * Set the instrument expiry date.
+     *
+     * @param expiryDate The expiry date.
+     */
     public void setExpiryDate(String expiryDate)
     {
         this.expiryDate = expiryDate;
     }
 
+    /**
+     * Get whether the instrument has been archived.
+     *
+     * @return True if archived, false otherwise.
+     */
     public Boolean getArchived()
     {
         return archived;
     }
 
+    /**
+     * Set whether the instrument has been archived.
+     *
+     * @param archived True if archived, false otherwise.
+     */
     public void setArchived(Boolean archived)
     {
         this.archived = archived;

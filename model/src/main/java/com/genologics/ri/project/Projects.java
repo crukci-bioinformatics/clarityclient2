@@ -49,19 +49,42 @@ import com.genologics.ri.PaginatedBatch;
 @XmlType(name = "projects", propOrder = { "projects", "previousPage", "nextPage" })
 public class Projects implements PaginatedBatch<ProjectLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -507792514854460064L;
 
+    /**
+     * The list of project links.
+     */
     @XmlElement(name = "project")
     protected List<ProjectLink> projects;
 
+    /**
+     * The previous page of results.
+     */
     @XmlElement(name = "previous-page")
     protected Page previousPage;
 
+    /**
+     * The next page of results.
+     */
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
-    public Projects() {}
+    /**
+     * Constructor for Projects.
+     */
+    public Projects()
+    {
+    }
 
+    /**
+     * Get the list of project links.
+     *
+     * @return The list of project links.
+     */
     public List<ProjectLink> getProjects()
     {
         if (projects == null)
@@ -71,33 +94,63 @@ public class Projects implements PaginatedBatch<ProjectLink>, Serializable
         return projects;
     }
 
+    /**
+     * Get the list of project links.
+     *
+     * @return The list of project links.
+     */
     @Override
     public List<ProjectLink> getList()
     {
         return getProjects();
     }
 
+    /**
+     * Get the number of project links.
+     *
+     * @return The size of the list.
+     */
     @Override
     public int getSize()
     {
         return projects == null ? 0 : projects.size();
     }
 
+    /**
+     * Get the previous page of results.
+     *
+     * @return The previous page.
+     */
     public Page getPreviousPage()
     {
         return previousPage;
     }
 
+    /**
+     * Set the previous page of results.
+     *
+     * @param previousPage The previous page.
+     */
     public void setPreviousPage(Page previousPage)
     {
         this.previousPage = previousPage;
     }
 
+    /**
+     * Get the next page of results.
+     *
+     * @return The next page.
+     */
     public Page getNextPage()
     {
         return nextPage;
     }
 
+    /**
+     * Set the next page of results.
+     *
+     * @param nextPage The next page.
+     */
     public void setNextPage(Page nextPage)
     {
         this.nextPage = nextPage;

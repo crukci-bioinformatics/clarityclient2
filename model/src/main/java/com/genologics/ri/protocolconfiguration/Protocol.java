@@ -63,22 +63,41 @@ public class Protocol implements Linkable<Protocol>, Serializable
      */
     public static final Pattern ID_EXTRACTOR_PATTERN;
 
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -8872729950204682764L;
 
+    /**
+     * The list of steps in this protocol.
+     */
     @XmlElementWrapper(name = "steps")
     @XmlElement(name = "step")
     protected List<ProtocolStep> steps;
 
+    /**
+     * The list of protocol properties.
+     */
     @XmlElementWrapper(name = "protocol-properties")
     @XmlElement(name = "protocol-property")
     protected List<ProtocolProperty> protocolProperties;
 
+    /**
+     * The name of the protocol.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The index of the protocol.
+     */
     @XmlAttribute(name = "index")
     protected Integer index;
 
+    /**
+     * The URI of the protocol.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
@@ -94,21 +113,42 @@ public class Protocol implements Linkable<Protocol>, Serializable
         ID_EXTRACTOR_PATTERN = Pattern.compile(b.toString());
     }
 
+    /**
+     * Default constructor.
+     */
     public Protocol()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the protocol.
+     */
     public Protocol(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and name.
+     *
+     * @param uri The URI of the protocol.
+     * @param name The name of the protocol.
+     */
     public Protocol(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Constructor with URI, name, and index.
+     *
+     * @param uri The URI of the protocol.
+     * @param name The name of the protocol.
+     * @param index The index of the protocol.
+     */
     public Protocol(URI uri, String name, Integer index)
     {
         this.uri = uri;
@@ -138,6 +178,11 @@ public class Protocol implements Linkable<Protocol>, Serializable
         return id;
     }
 
+    /**
+     * Gets the list of steps in this protocol.
+     *
+     * @return The list of protocol steps.
+     */
     public List<ProtocolStep> getSteps()
     {
         if (steps == null)
@@ -147,6 +192,11 @@ public class Protocol implements Linkable<Protocol>, Serializable
         return steps;
     }
 
+    /**
+     * Gets the list of protocol properties.
+     *
+     * @return The list of protocol properties.
+     */
     public List<ProtocolProperty> getProtocolProperties()
     {
         if (protocolProperties == null)
@@ -156,31 +206,61 @@ public class Protocol implements Linkable<Protocol>, Serializable
         return protocolProperties;
     }
 
+    /**
+     * Gets the name of the protocol.
+     *
+     * @return The protocol name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the protocol.
+     *
+     * @param name The protocol name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the index of the protocol.
+     *
+     * @return The protocol index.
+     */
     public Integer getIndex()
     {
         return index;
     }
 
+    /**
+     * Sets the index of the protocol.
+     *
+     * @param index The protocol index.
+     */
     public void setIndex(Integer index)
     {
         this.index = index;
     }
 
+    /**
+     * Gets the URI of the protocol.
+     *
+     * @return The protocol URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the protocol.
+     *
+     * @param uri The protocol URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;

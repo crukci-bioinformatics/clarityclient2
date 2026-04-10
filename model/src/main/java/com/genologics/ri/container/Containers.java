@@ -49,6 +49,10 @@ import com.genologics.ri.PaginatedBatch;
 @XmlType(name = "containers", propOrder = { "containers", "previousPage", "nextPage" })
 public class Containers implements PaginatedBatch<ContainerLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -1488050342582879623L;
 
     @XmlElement(name = "container")

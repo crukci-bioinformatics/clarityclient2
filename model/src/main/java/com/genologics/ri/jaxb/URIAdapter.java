@@ -28,6 +28,9 @@ import jakarta.xml.bind.annotation.adapters.XmlAdapter;
  */
 public class URIAdapter extends XmlAdapter<String, URI>
 {
+    /**
+     * Default constructor.
+     */
     public URIAdapter()
     {
     }

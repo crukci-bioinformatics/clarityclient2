@@ -72,46 +72,91 @@ import com.genologics.ri.userdefined.UDFHolder;
                        "artifactGroups", "workflowStages", "demux" })
 public class Artifact implements LimsEntity<Artifact>, UDFHolder, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 4667019853212119178L;
 
+    /**
+     * The name of the artifact.
+     */
     protected String name;
 
+    /**
+     * The type of the artifact.
+     */
     protected String type;
 
+    /**
+     * The output type of the artifact.
+     */
     @XmlElement(name = "output-type")
     protected OutputType outputType;
 
+    /**
+     * The parent process that produced this artifact.
+     */
     @XmlElement(name = "parent-process")
     protected ParentProcessLink parentProcess;
 
+    /**
+     * The quality control flag for this artifact.
+     */
     @XmlElement(name = "qc-flag")
     protected QCFlag qcFlag;
 
+    /**
+     * The location of the artifact.
+     */
     @XmlElement(name = "location")
     protected Location location;
 
+    /**
+     * Flag indicating if this artifact is in a working state.
+     */
     @XmlElement(name = "working-flag")
     protected Boolean workingFlag;
 
+    /**
+     * The list of samples associated with this artifact.
+     */
     @XmlElement(name = "sample")
     protected List<SampleLink> samples;
 
+    /**
+     * The list of reagent labels applied to this artifact.
+     */
     @XmlElement(name = "reagent-label")
     protected List<ReagentLabel> reagentLabels;
 
+    /**
+     * The control type if this artifact is a control sample.
+     */
     @XmlElement(name = "control-type")
     protected ControlTypeLink controlType;
 
+    /**
+     * The list of user-defined fields for this artifact.
+     */
     @XmlElement(name = "field", namespace = UDF_NAMESPACE)
     protected List<UDF> fields;
 
+    /**
+     * The file associated with this artifact, if any.
+     */
     @XmlElement(name = "file", namespace = FILE_NAMESPACE)
     protected ClarityFile file;
 
+    /**
+     * The list of artifact groups this artifact belongs to.
+     */
     @XmlElement(name = "artifact-group")
     protected List<ArtifactGroupLink> artifactGroups;
 
     /**
+     * The workflow stages this artifact is associated with.
+     *
      * @since 2.20
      */
     @XmlElementWrapper(name = "workflow-stages")
@@ -119,89 +164,173 @@ public class Artifact implements LimsEntity<Artifact>, UDFHolder, Serializable
     protected List<WorkflowStage> workflowStages;
 
     /**
+     * The demultiplexing information for this artifact if it is a pool.
+     *
      * @since 2.26
      */
     @XmlElement(name = "demux")
     protected DemuxLink demux;
 
+    /**
+     * The LIMS id of the artifact.
+     */
     @XmlAttribute(name = "limsid")
     protected String limsid;
 
+    /**
+     * The URI of the artifact.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Gets the name of the artifact.
+     *
+     * @return The artifact name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the artifact.
+     *
+     * @param value The artifact name.
+     */
     public void setName(String value)
     {
         this.name = value;
     }
 
+    /**
+     * Gets the type of the artifact.
+     *
+     * @return The artifact type.
+     */
     public String getType()
     {
         return type;
     }
 
+    /**
+     * Sets the type of the artifact.
+     *
+     * @param value The artifact type.
+     */
     public void setType(String value)
     {
         this.type = value;
     }
 
+    /**
+     * Gets the output type of the artifact.
+     *
+     * @return The output type.
+     */
     public OutputType getOutputType()
     {
         return outputType;
     }
 
+    /**
+     * Sets the output type of the artifact.
+     *
+     * @param value The output type.
+     */
     public void setOutputType(OutputType value)
     {
         this.outputType = value;
     }
 
+    /**
+     * Gets the parent process that produced this artifact.
+     *
+     * @return The parent process link.
+     */
     public ParentProcessLink getParentProcess()
     {
         return parentProcess;
     }
 
+    /**
+     * Sets the parent process that produced this artifact.
+     *
+     * @param link The parent process link.
+     * @return The created parent process link.
+     */
     public ParentProcessLink setParentProcess(LimsEntityLinkable<ClarityProcess> link)
     {
         parentProcess = new ParentProcessLink(link);
         return parentProcess;
     }
 
+    /**
+     * Gets the quality control flag for this artifact.
+     *
+     * @return The QC flag.
+     */
     public QCFlag getQCFlag()
     {
         return qcFlag;
     }
 
+    /**
+     * Sets the quality control flag for this artifact.
+     *
+     * @param value The QC flag.
+     */
     public void setQCFlag(QCFlag value)
     {
         this.qcFlag = value;
     }
 
+    /**
+     * Gets the location of the artifact.
+     *
+     * @return The location.
+     */
     public Location getLocation()
     {
         return location;
     }
 
+    /**
+     * Sets the location of the artifact.
+     *
+     * @param value The location.
+     */
     public void setLocation(Location value)
     {
         this.location = value;
     }
 
+    /**
+     * Checks if this artifact is in a working state.
+     *
+     * @return The working flag.
+     */
     public Boolean isWorkingFlag()
     {
         return workingFlag;
     }
 
+    /**
+     * Sets the working flag for this artifact.
+     *
+     * @param value The working flag.
+     */
     public void setWorkingFlag(Boolean value)
     {
         this.workingFlag = value;
     }
 
+    /**
+     * Gets the list of samples associated with this artifact.
+     *
+     * @return The list of sample links.
+     */
     public List<SampleLink> getSamples()
     {
         if (samples == null)
@@ -211,6 +340,11 @@ public class Artifact implements LimsEntity<Artifact>, UDFHolder, Serializable
         return samples;
     }
 
+    /**
+     * Sets the list of samples associated with this artifact.
+     *
+     * @param links The collection of sample links.
+     */
     public void setSamples(Collection<? extends LimsEntityLinkable<Sample>> links)
     {
         getSamples().clear();
@@ -220,6 +354,12 @@ public class Artifact implements LimsEntity<Artifact>, UDFHolder, Serializable
         }
     }
 
+    /**
+     * Adds a sample to this artifact.
+     *
+     * @param linkable The linkable sample to add.
+     * @return The created sample link.
+     */
     public SampleLink addSample(Linkable<Sample> linkable)
     {
         SampleLink link = null;
@@ -231,6 +371,12 @@ public class Artifact implements LimsEntity<Artifact>, UDFHolder, Serializable
         return link;
     }
 
+    /**
+     * Adds a sample to this artifact.
+     *
+     * @param linkable The LIMS entity linkable sample to add.
+     * @return The created sample link.
+     */
     public SampleLink addSample(LimsEntityLinkable<Sample> linkable)
     {
         SampleLink link = null;
@@ -242,6 +388,11 @@ public class Artifact implements LimsEntity<Artifact>, UDFHolder, Serializable
         return link;
     }
 
+    /**
+     * Gets the list of reagent labels applied to this artifact.
+     *
+     * @return The list of reagent labels.
+     */
     public List<ReagentLabel> getReagentLabels()
     {
         if (reagentLabels == null)
@@ -251,22 +402,44 @@ public class Artifact implements LimsEntity<Artifact>, UDFHolder, Serializable
         return reagentLabels;
     }
 
+    /**
+     * Adds a reagent label to this artifact.
+     *
+     * @param label The reagent label to add.
+     * @return The added reagent label.
+     */
     public ReagentLabel addReagentLabel(ReagentLabel label)
     {
         getReagentLabels().add(label);
         return label;
     }
 
+    /**
+     * Adds a reagent label to this artifact.
+     *
+     * @param labelName The name of the reagent label to add.
+     * @return The created reagent label.
+     */
     public ReagentLabel addReagentLabel(String labelName)
     {
         return addReagentLabel(new ReagentLabel(labelName));
     }
 
+    /**
+     * Gets the control type if this artifact is a control sample.
+     *
+     * @return The control type link.
+     */
     public ControlTypeLink getControlType()
     {
         return controlType;
     }
 
+    /**
+     * Sets the control type for this artifact.
+     *
+     * @param link The control type link.
+     */
     public void setControlType(Linkable<ControlType> link)
     {
         this.controlType = link == null ? null : new ControlTypeLink(link);
@@ -293,11 +466,21 @@ public class Artifact implements LimsEntity<Artifact>, UDFHolder, Serializable
         return file;
     }
 
+    /**
+     * Sets the file associated with this artifact.
+     *
+     * @param value The file.
+     */
     public void setFile(ClarityFile value)
     {
         this.file = value == null ? null : new ClarityFile(value);
     }
 
+    /**
+     * Gets the list of artifact groups this artifact belongs to.
+     *
+     * @return The list of artifact group links.
+     */
     public List<ArtifactGroupLink> getArtifactGroups()
     {
         if (artifactGroups == null)
@@ -307,6 +490,11 @@ public class Artifact implements LimsEntity<Artifact>, UDFHolder, Serializable
         return artifactGroups;
     }
 
+    /**
+     * Sets the artifact groups this artifact belongs to.
+     *
+     * @param links The collection of artifact group links.
+     */
     public void setArtifactGroups(Collection<? extends Linkable<ArtifactGroup>> links)
     {
         getArtifactGroups().clear();
@@ -316,6 +504,12 @@ public class Artifact implements LimsEntity<Artifact>, UDFHolder, Serializable
         }
     }
 
+    /**
+     * Adds an artifact group to this artifact.
+     *
+     * @param link The artifact group link to add.
+     * @return The created artifact group link.
+     */
     public ArtifactGroupLink addArtifactGroup(Linkable<ArtifactGroup> link)
     {
         ArtifactGroupLink l = new ArtifactGroupLink(link);
@@ -323,6 +517,11 @@ public class Artifact implements LimsEntity<Artifact>, UDFHolder, Serializable
         return l;
     }
 
+    /**
+     * Gets the workflow stages this artifact is associated with.
+     *
+     * @return The list of workflow stages.
+     */
     public List<WorkflowStage> getWorkflowStages()
     {
         if (workflowStages == null)
@@ -332,12 +531,23 @@ public class Artifact implements LimsEntity<Artifact>, UDFHolder, Serializable
         return workflowStages;
     }
 
+    /**
+     * Sets the workflow stages this artifact is associated with.
+     *
+     * @param workflowStages The collection of workflow stages.
+     */
     public void setWorkflowStages(Collection<WorkflowStage> workflowStages)
     {
         getWorkflowStages().clear();
         getWorkflowStages().addAll(workflowStages);
     }
 
+    /**
+     * Adds a workflow stage to this artifact.
+     *
+     * @param stage The workflow stage to add.
+     * @return The added workflow stage.
+     */
     public WorkflowStage addWorkflowStage(WorkflowStage stage)
     {
         if (stage != null)
@@ -347,40 +557,75 @@ public class Artifact implements LimsEntity<Artifact>, UDFHolder, Serializable
         return stage;
     }
 
+    /**
+     * Gets the demultiplexing information for this artifact.
+     *
+     * @return The demux link.
+     */
     public DemuxLink getDemux()
     {
         return demux;
     }
 
+    /**
+     * Sets the demultiplexing information for this artifact.
+     *
+     * @param demux The demux link.
+     */
     public void setDemux(Linkable<Demux> demux)
     {
         this.demux = demux == null ? null : new DemuxLink(demux.getUri());
     }
 
+    /**
+     * Gets the LIMS id of this artifact.
+     *
+     * @return The LIMS id.
+     */
     @Override
     public String getLimsid()
     {
         return limsid;
     }
 
+    /**
+     * Sets the LIMS id of this artifact.
+     *
+     * @param value The LIMS id.
+     */
     @Override
     public void setLimsid(String value)
     {
         this.limsid = value;
     }
 
+    /**
+     * Gets the URI of this artifact.
+     *
+     * @return The artifact URI.
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of this artifact.
+     *
+     * @param value The artifact URI.
+     */
     @Override
     public void setUri(URI value)
     {
         this.uri = value;
     }
 
+    /**
+     * Returns a string representation of this artifact.
+     *
+     * @return A string containing the LIMS id and type.
+     */
     @Override
     public String toString()
     {

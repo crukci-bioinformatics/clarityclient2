@@ -38,6 +38,10 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "step-setup", propOrder = { "files" })
 public class StepSetup implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 2084961137587517113L;
 
     @XmlElementWrapper(name = "files")

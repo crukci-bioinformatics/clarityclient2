@@ -41,6 +41,10 @@ import com.genologics.ri.Linkable;
 @XmlType(name = "process-type-link")
 public class ProcessTypeLink implements LimsLink<ProcessType>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 5914216290949476076L;
 
     @XmlAttribute(name = "uri")

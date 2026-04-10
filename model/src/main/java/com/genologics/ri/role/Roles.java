@@ -21,7 +21,6 @@ package com.genologics.ri.role;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -44,6 +43,10 @@ import com.genologics.ri.ClarityQueryResult;
 @XmlRootElement(name = "roles")
 public class Roles implements Batch<RoleLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -8997233724026640778L;
 
     @XmlElement(name = "role")

@@ -44,6 +44,10 @@ import com.genologics.ri.researcher.Researcher;
 @XmlType(name = "user", propOrder = { "firstName", "lastName" })
 public class UserLink implements LimsLink<Researcher>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -682022057659965784L;
 
     @XmlElement(name = "first-name")

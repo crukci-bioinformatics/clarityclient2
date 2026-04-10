@@ -38,6 +38,10 @@ import jakarta.xml.bind.annotation.XmlValue;
 @Deprecated
 public class CalibrantWell implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 218110772739169852L;
 
     @XmlAttribute(name = "name")

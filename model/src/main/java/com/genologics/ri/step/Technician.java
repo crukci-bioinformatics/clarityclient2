@@ -4,6 +4,7 @@ package com.genologics.ri.step;
 import static java.util.Objects.requireNonNull;
 import static org.apache.commons.lang3.StringUtils.SPACE;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -28,6 +29,8 @@ import com.genologics.ri.researcher.Researcher;
 @XmlType(name = "technician", propOrder = { "firstName", "lastName" })
 public class Technician implements LimsLink<Researcher>, Serializable
 {
+    @Serial private static final long serialVersionUID = -3531986232419228456L;
+
     @XmlElement(name = "first-name")
     protected String firstName;
 

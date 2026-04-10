@@ -41,6 +41,10 @@ import com.genologics.ri.containertype.ContainerType;
 @XmlType(name = "container-type-link")
 public class ContainerTypeLink implements LimsLink<Container>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 3628143663166434766L;
 
     @XmlAttribute(name = "name")

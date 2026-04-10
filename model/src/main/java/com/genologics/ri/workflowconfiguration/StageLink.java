@@ -42,36 +42,70 @@ import com.genologics.ri.stage.Stage;
 @XmlType(name = "stage-link")
 public class StageLink implements LimsLink<Stage>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -2216914758853864373L;
 
+    /**
+     * The URI of the stage.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The name of the stage.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * Default constructor.
+     */
     public StageLink()
     {
     }
 
+    /**
+     * Constructor accepting a URI.
+     *
+     * @param uri The stage URI.
+     */
     public StageLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor accepting a URI and name.
+     *
+     * @param uri The stage URI.
+     * @param name The stage name.
+     */
     public StageLink(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Constructor accepting a Linkable object.
+     *
+     * @param link The linkable stage object.
+     */
     public StageLink(Linkable<Stage> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Constructor accepting a Stage object.
+     *
+     * @param stage The stage to link to.
+     */
     public StageLink(Stage stage)
     {
         requireNonNull(stage, "stage cannot be null");
@@ -79,34 +113,64 @@ public class StageLink implements LimsLink<Stage>, Serializable
         name = stage.getName();
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The Stage class.
+     */
     @Override
     public Class<Stage> getEntityClass()
     {
         return Stage.class;
     }
 
+    /**
+     * Gets the URI of the stage.
+     *
+     * @return The stage URI.
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the stage.
+     *
+     * @param uri The stage URI.
+     */
     @Override
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the name of the stage.
+     *
+     * @return The stage name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the stage.
+     *
+     * @param name The stage name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Returns a string representation of this stage link.
+     *
+     * @return The stage name.
+     */
     @Override
     public String toString()
     {

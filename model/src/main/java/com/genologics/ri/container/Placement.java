@@ -47,6 +47,10 @@ import com.genologics.ri.artifact.Artifact;
 @XmlType(name = "placement", propOrder = { "wellPosition" })
 public class Placement implements LimsEntityLink<Artifact>, Serializable, Comparable<Placement>
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -4089394834813900531L;
 
     @XmlAttribute(name = "uri")

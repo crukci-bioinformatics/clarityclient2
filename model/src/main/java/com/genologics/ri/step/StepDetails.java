@@ -52,6 +52,10 @@ import com.genologics.ri.userdefined.UDFHolder;
 @XmlRootElement(name = "details")
 public class StepDetails implements Linkable<StepDetails>, UDFHolder, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 5865493881321340964L;
 
     @XmlElement

@@ -40,6 +40,10 @@ import com.genologics.ri.Linkable;
 @XmlType(name = "program-status-link")
 public class ProgramStatusLink implements LimsLink<ProgramStatus>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 1364271013485882177L;
 
     @XmlAttribute(name = "uri")

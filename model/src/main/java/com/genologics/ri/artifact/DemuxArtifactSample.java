@@ -43,36 +43,70 @@ import com.genologics.ri.sample.Sample;
 @XmlType(name = "demux-artifact-sample")
 public class DemuxArtifactSample implements LimsEntityLink<Sample>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 7139520312009522858L;
 
+    /**
+     * The URI of this demux artifact sample.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The LIMS id of this demux artifact sample.
+     */
     @XmlAttribute(name = "limsid")
     protected String limsid;
 
+    /**
+     * Default constructor.
+     */
     public DemuxArtifactSample()
     {
     }
 
+    /**
+     * Constructor taking a URI.
+     *
+     * @param uri The sample URI.
+     */
     public DemuxArtifactSample(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor taking a URI and LIMS id.
+     *
+     * @param uri The sample URI.
+     * @param limsid The sample LIMS id.
+     */
     public DemuxArtifactSample(URI uri, String limsid)
     {
         this.uri = uri;
         this.limsid = limsid;
     }
 
+    /**
+     * Constructor from a Linkable.
+     *
+     * @param link The linkable object to copy.
+     */
     public DemuxArtifactSample(Linkable<Sample> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Constructor from a LimsEntityLinkable.
+     *
+     * @param link The LIMS entity linkable object to copy.
+     */
     public DemuxArtifactSample(LimsEntityLinkable<Sample> link)
     {
         requireNonNull(link, "link cannot be null");
@@ -80,32 +114,62 @@ public class DemuxArtifactSample implements LimsEntityLink<Sample>, Serializable
         limsid = link.getLimsid();
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return The sample URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param uri The sample URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the LIMS id.
+     *
+     * @return The sample LIMS id.
+     */
     public String getLimsid()
     {
         return limsid;
     }
 
+    /**
+     * Sets the LIMS id.
+     *
+     * @param limsid The sample LIMS id.
+     */
     public void setLimsid(String limsid)
     {
         this.limsid = limsid;
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return The Sample class.
+     */
     @Override
     public Class<Sample> getEntityClass()
     {
         return Sample.class;
     }
 
+    /**
+     * Returns a string representation of this sample.
+     *
+     * @return The LIMS id, or "null" if not set.
+     */
     @Override
     public String toString()
     {

@@ -27,7 +27,6 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
 /**
- *
  * The credentials element contains information about a researcher's access to
  * the client software interface. It is used only when a researcher is given
  * access to the system. It is not used when a researcher's information is being
@@ -37,48 +36,99 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "credentials", propOrder = { "username", "password", "accountLocked", "roles" })
 public class Credentials implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -2712902822454057343L;
 
+    /**
+     * The researcher's username.
+     */
     protected String username;
 
+    /**
+     * The researcher's password.
+     */
     protected String password;
 
+    /**
+     * Whether the researcher's account is locked.
+     */
     @XmlElement(name = "account-locked")
     protected Boolean accountLocked;
 
+    /**
+     * The roles assigned to the researcher.
+     */
     @XmlElement(name = "role")
     protected List<Role> roles;
 
+    /**
+     * Gets the username.
+     *
+     * @return The username.
+     */
     public String getUsername()
     {
         return username;
     }
 
+    /**
+     * Sets the username.
+     *
+     * @param value The username.
+     */
     public void setUsername(String value)
     {
         this.username = value;
     }
 
+    /**
+     * Gets the password.
+     *
+     * @return The password.
+     */
     public String getPassword()
     {
         return password;
     }
 
+    /**
+     * Sets the password.
+     *
+     * @param value The password.
+     */
     public void setPassword(String value)
     {
         this.password = value;
     }
 
+    /**
+     * Checks whether the account is locked.
+     *
+     * @return True if the account is locked, false otherwise.
+     */
     public Boolean isAccountLocked()
     {
         return accountLocked;
     }
 
+    /**
+     * Sets whether the account is locked.
+     *
+     * @param value True to lock the account, false otherwise.
+     */
     public void setAccountLocked(Boolean value)
     {
         this.accountLocked = value;
     }
 
+    /**
+     * Gets the list of roles assigned to the researcher.
+     *
+     * @return The list of roles.
+     */
     public List<Role> getRoles()
     {
         if (roles == null)
@@ -88,12 +138,26 @@ public class Credentials implements Serializable
         return this.roles;
     }
 
+    /**
+     * Adds a role to the researcher's credentials.
+     *
+     * @param role The role to add.
+     *
+     * @return The added role.
+     */
     public Role addRole(Role role)
     {
         getRoles().add(role);
         return role;
     }
 
+    /**
+     * Adds a role to the researcher's credentials.
+     *
+     * @param name The name of the role to add.
+     *
+     * @return The newly created role.
+     */
     public Role addRole(String name)
     {
         Role role = new Role(null, name);

@@ -20,8 +20,8 @@ package com.genologics.ri.file;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -48,6 +48,10 @@ import com.genologics.ri.PaginatedBatch;
 @XmlType(name = "files", propOrder = { "files", "previousPage", "nextPage" })
 public class ClarityFiles implements PaginatedBatch<FileLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -1824449685486824569L;
 
     @XmlElement(name = "file")

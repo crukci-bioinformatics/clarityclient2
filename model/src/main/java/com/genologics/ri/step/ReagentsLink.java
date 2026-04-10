@@ -40,6 +40,10 @@ import com.genologics.ri.Linkable;
 @XmlType(name = "reagents-link")
 public class ReagentsLink implements LimsLink<Reagents>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 606802593515729159L;
 
     @XmlAttribute(name = "uri")

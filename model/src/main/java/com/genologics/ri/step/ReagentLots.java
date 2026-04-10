@@ -50,6 +50,10 @@ import com.genologics.ri.reagentlot.ReagentLot;
 @XmlRootElement(name = "lots")
 public class ReagentLots implements Linkable<ReagentLots>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 27145430586603574L;
 
     @XmlElement

@@ -38,6 +38,10 @@ import jakarta.xml.bind.annotation.XmlValue;
 @XmlType(name = "process-type-attribute")
 public class ProcessTypeAttribute implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 2626426609413434344L;
 
     @XmlValue

@@ -47,46 +47,90 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "externalid")
 public class ExternalId implements Locatable, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -6268759708863731052L;
 
+    /**
+     * The id referencing the external system.
+     */
     @XmlAttribute(name = "id")
     @XmlSchemaType(name = "anyURI")
     protected URI id;
 
+    /**
+     * The URI within the external system.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public ExternalId()
     {
     }
 
+    /**
+     * Constructor with id.
+     *
+     * @param id The external id.
+     */
     public ExternalId(URI id)
     {
         this.id = id;
     }
 
+    /**
+     * Constructor with id and URI.
+     *
+     * @param id The external id.
+     * @param uri The URI within the external system.
+     */
     public ExternalId(URI id, URI uri)
     {
         this.id = id;
         this.uri = uri;
     }
 
+    /**
+     * Gets the external id.
+     *
+     * @return The external id.
+     */
     public URI getId()
     {
         return id;
     }
 
+    /**
+     * Sets the external id.
+     *
+     * @param id The external id.
+     */
     public void setId(URI id)
     {
         this.id = id;
     }
 
+    /**
+     * Gets the URI within the external system.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI within the external system.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;

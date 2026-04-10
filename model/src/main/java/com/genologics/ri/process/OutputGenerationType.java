@@ -22,32 +22,66 @@ import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlEnumValue;
 import jakarta.xml.bind.annotation.XmlType;
 
+/**
+ * The output generation type enumeration.
+ * Defines how outputs are generated from inputs in a process.
+ */
 @XmlType(name = "output-generation-type")
 @XmlEnum
 public enum OutputGenerationType
 {
-
+    /**
+     * One output per input.
+     */
     @XmlEnumValue("PerInput")
     PER_INPUT("PerInput"),
 
+    /**
+     * One output for all inputs.
+     */
     @XmlEnumValue("PerAllInputs")
     PER_ALL_INPUTS("PerAllInputs"),
 
+    /**
+     * One output per reagent label.
+     */
     @XmlEnumValue("PerReagentLabel")
     PER_REAGENT_LABEL("PerReagentLabel");
 
+    /**
+     * The XML value.
+     */
     private final String value;
 
+    /**
+     * Constructor.
+     *
+     * @param v The XML value.
+     */
     OutputGenerationType(String v)
     {
         value = v;
     }
 
+    /**
+     * Gets the XML value.
+     *
+     * @return The XML value.
+     */
     public String value()
     {
         return value;
     }
 
+    /**
+     * Converts from an XML value to an enum constant.
+     *
+     * @param v The XML value.
+     *
+     * @return The enum constant.
+     *
+     * @throws IllegalArgumentException if the value is not recognized.
+     */
     public static OutputGenerationType fromValue(String v)
     {
         for (OutputGenerationType c : OutputGenerationType.values())

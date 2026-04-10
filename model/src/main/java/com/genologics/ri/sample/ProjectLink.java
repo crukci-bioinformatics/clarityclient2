@@ -42,6 +42,10 @@ import com.genologics.ri.project.Project;
 @XmlType(name = "project")
 public class ProjectLink implements LimsEntityLink<Project>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -4874099265690719737L;
 
     @XmlAttribute(name = "uri")

@@ -29,47 +29,93 @@ import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.Locatable;
 
+/**
+ * Represents a Clarity LIMS API version.
+ */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "version")
 public class Version implements Locatable, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = -28598435711579586L;
 
+    /**
+     * The URI of the version.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The major version number.
+     */
     @XmlAttribute(name = "major")
     protected String major;
 
+    /**
+     * The minor version number.
+     */
     @XmlAttribute(name = "minor")
     protected String minor;
 
+    /**
+     * Gets the URI of the version.
+     *
+     * @return The URI of the version.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the version.
+     *
+     * @param uri The URI of the version.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the major version number.
+     *
+     * @return The major version number.
+     */
     public String getMajor()
     {
         return major;
     }
 
+    /**
+     * Sets the major version number.
+     *
+     * @param major The major version number.
+     */
     public void setMajor(String major)
     {
         this.major = major;
     }
 
+    /**
+     * Gets the minor version number.
+     *
+     * @return The minor version number.
+     */
     public String getMinor()
     {
         return minor;
     }
 
+    /**
+     * Sets the minor version number.
+     *
+     * @param minor The minor version number.
+     */
     public void setMinor(String minor)
     {
         this.minor = minor;

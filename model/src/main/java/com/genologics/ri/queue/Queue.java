@@ -57,98 +57,181 @@ import com.genologics.ri.PaginatedBatch;
 @XmlRootElement(name = "queue")
 public class Queue implements PaginatedBatch<ArtifactLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 4372664462524847744L;
 
+    /**
+     * The list of artifacts in the queue.
+     */
     @XmlElementWrapper(name = "artifacts")
     @XmlElement(name = "artifact")
     protected List<ArtifactLink> artifacts;
 
+    /**
+     * The link to the previous page of results.
+     */
     @XmlElement(name = "previous-page")
     protected Page previousPage;
 
+    /**
+     * The link to the next page of results.
+     */
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    /**
+     * The URI of the queue.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The URI of the protocol step for this queue.
+     */
     @XmlAttribute(name = "protocol-step-uri")
     @XmlSchemaType(name = "anyURI")
     protected URI protocolStepUri;
 
+    /**
+     * The name of the queue.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * Default constructor.
+     */
     public Queue()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the queue.
+     */
     public Queue(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and name.
+     *
+     * @param uri The URI of the queue.
+     * @param name The name of the queue.
+     */
     public Queue(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Page getPreviousPage()
     {
         return previousPage;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setPreviousPage(Page previousPage)
     {
         this.previousPage = previousPage;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Page getNextPage()
     {
         return nextPage;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setNextPage(Page nextPage)
     {
         this.nextPage = nextPage;
     }
 
+    /**
+     * Gets the URI of the queue.
+     *
+     * @return The queue URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the queue.
+     *
+     * @param uri The queue URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the protocol step URI.
+     *
+     * @return The protocol step URI.
+     */
     public URI getProtocolStepUri()
     {
         return protocolStepUri;
     }
 
+    /**
+     * Sets the protocol step URI.
+     *
+     * @param protocolStepUri The protocol step URI.
+     */
     public void setProtocolStepUri(URI protocolStepUri)
     {
         this.protocolStepUri = protocolStepUri;
     }
 
+    /**
+     * Gets the name of the queue.
+     *
+     * @return The queue name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the queue.
+     *
+     * @param name The queue name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the list of artifacts in the queue.
+     *
+     * @return The list of artifact links.
+     */
     public List<ArtifactLink> getArtifacts()
     {
         if (artifacts == null)
@@ -158,12 +241,18 @@ public class Queue implements PaginatedBatch<ArtifactLink>, Serializable
         return artifacts;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<ArtifactLink> getList()
     {
         return getArtifacts();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getSize()
     {

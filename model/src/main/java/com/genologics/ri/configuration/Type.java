@@ -21,7 +21,6 @@ package com.genologics.ri.configuration;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -45,6 +44,10 @@ import com.genologics.ri.Linkable;
 @XmlType(name = "type", propOrder = { "fieldDefinitions", "attachToName", "attachToCategory" })
 public class Type implements Linkable<Type>, Batch<FieldLink>, Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 6975337629090720371L;
 
     @XmlElement(name = "field-definition")

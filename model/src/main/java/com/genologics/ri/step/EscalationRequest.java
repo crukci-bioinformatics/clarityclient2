@@ -34,63 +34,121 @@ import com.genologics.ri.Linkable;
 import com.genologics.ri.researcher.Researcher;
 
 /**
+ * Represents an escalation request in a step.
+ *
  * @since 2.18
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "escalation-request", propOrder = { "author", "reviewer", "date", "comment" })
 public class EscalationRequest implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
+    @java.io.Serial
     private static final long serialVersionUID = 4381438520659390791L;
 
+    /**
+     * The author of the escalation request.
+     */
     @XmlElement
     protected UserLink author;
 
+    /**
+     * The reviewer of the escalation request.
+     */
     @XmlElement
     protected UserLink reviewer;
 
+    /**
+     * The date of the escalation request.
+     */
     @XmlElement
     @XmlSchemaType(name = "dateTime")
     @XmlJavaTypeAdapter(LongTimestampAdapter.class)
     protected Date date;
 
+    /**
+     * Comment for the escalation request.
+     */
     @XmlElement
     protected String comment;
 
+    /**
+     * Gets the author.
+     *
+     * @return The author.
+     */
     public UserLink getAuthor()
     {
         return author;
     }
 
+    /**
+     * Sets the author.
+     *
+     * @param link The linkable researcher.
+     */
     public void setAuthor(Linkable<Researcher> link)
     {
         this.author = new UserLink(link);
     }
 
+    /**
+     * Gets the reviewer.
+     *
+     * @return The reviewer.
+     */
     public UserLink getReviewer()
     {
         return reviewer;
     }
 
+    /**
+     * Sets the reviewer.
+     *
+     * @param link The linkable researcher.
+     */
     public void setReviewer(Linkable<Researcher> link)
     {
         this.reviewer = new UserLink(link);
     }
 
+    /**
+     * Gets the date.
+     *
+     * @return The date.
+     */
     public Date getDate()
     {
         return date;
     }
 
+    /**
+     * Sets the date.
+     *
+     * @param date The date.
+     */
     public void setDate(Date date)
     {
         this.date = date;
     }
 
+    /**
+     * Gets the comment.
+     *
+     * @return The comment.
+     */
     public String getComment()
     {
         return comment;
     }
 
+    /**
+     * Sets the comment.
+     *
+     * @param comment The comment.
+     */
     public void setComment(String comment)
     {
         this.comment = comment;
