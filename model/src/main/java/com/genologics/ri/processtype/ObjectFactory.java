@@ -42,7 +42,8 @@ import javax.xml.namespace.QName;
  * </p>
  */
 @XmlRegistry
-public class ObjectFactory {
+public class ObjectFactory
+{
 
     private final static QName _ProcessTypes_QNAME = new QName(PROCESS_TYPE_NAMESPACE, "process-types");
     private final static QName _ProcessType_QNAME = new QName(PROCESS_TYPE_NAMESPACE, "process-type");

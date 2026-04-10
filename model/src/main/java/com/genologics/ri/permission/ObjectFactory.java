@@ -42,7 +42,8 @@ import javax.xml.namespace.QName;
  * </p>
  */
 @XmlRegistry
-public class ObjectFactory {
+public class ObjectFactory
+{
 
     private final static QName _Permission_QNAME = new QName(PERMISSION_NAMESPACE, "permission");
     private final static QName _Permissions_QNAME = new QName(PERMISSION_NAMESPACE, "permissions");

@@ -42,7 +42,8 @@ import javax.xml.namespace.QName;
  * </p>
  */
 @XmlRegistry
-public class ObjectFactory {
+public class ObjectFactory
+{
 
     /**
      * The qualified name for artifacts element.

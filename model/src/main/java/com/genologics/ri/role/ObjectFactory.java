@@ -42,7 +42,8 @@ import javax.xml.namespace.QName;
  * </p>
  */
 @XmlRegistry
-public class ObjectFactory {
+public class ObjectFactory
+{
 
     private final static QName _Roles_QNAME = new QName(ROLE_NAMESPACE, "roles");
     private final static QName _Role_QNAME = new QName(ROLE_NAMESPACE, "role");

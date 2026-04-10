@@ -18,14 +18,8 @@
 
 package com.genologics.ri;
 
-import static java.util.Objects.requireNonNull;
-
 import java.io.Serial;
 import java.io.Serializable;
-import java.net.URI;
-import java.util.Objects;
-
-import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 /**
  * Helper base class for {@code LimsLink} implementations that implements
@@ -55,71 +49,6 @@ public abstract class LimsLinkBase<E extends LimsEntity<E>> implements LimsLink<
     }
 
     /**
-     * Get a port number for a URI. If the URI is not null and has an explicit port set, return that.
-     * If it is not null but indicates no explcit port is set, try to return the default port for
-     * its protocol.
-     *
-     * @param uri THe URI to check.
-     *
-     * @return The port number if the URI has one set or a one can be determined from its scheme,
-     * otherwise return -1 (including if {@code uri} is null).
-     */
-    private static int resolvePort(URI uri)
-    {
-        if (uri != null)
-        {
-            if (uri.getPort() >= 0)
-            {
-                return uri.getPort();
-            }
-            switch (uri.getScheme())
-            {
-                case "http":  return 80;
-                case "https": return 443;
-                case "sftp":  return 22;
-            }
-        }
-        return -1;
-    }
-
-    /**
-     * Calculate a hash code for the given link.
-     * <p>
-     * The hash is made up of the hash of the entity class this link points to, and if the URI
-     * is not null the hash of its user info, scheme, host, port and path.
-     * </p>
-     * <p>
-     * Where the URI has no explicit port set, we try get to get the default port for the protocol. This
-     * covers HTTP (80), HTTPS (443), SFTP (22).
-     * </p>
-     *
-     * @param link The link to calculate the hash code for. Cannot be null.
-     *
-     * @return A hash code for the link.
-     *
-     * @throws NullPointerException if {@code link} is null.
-     */
-    public static int hashCode(LimsLink<?> link)
-    {
-        requireNonNull(link, "Need a non-null link for hashCode.");
-
-        HashCodeBuilder b = new HashCodeBuilder();
-        b.append(link.getEntityClass());
-
-        URI u = link.getUri();
-        if (u != null)
-        {
-            b.append(u.getUserInfo());
-            b.append(u.getScheme());
-            b.append(u.getHost());
-            b.append(resolvePort(u));
-            b.append(u.getPath());
-        }
-
-        return b.toHashCode();
-}
-
-    /**
      * {@inheritDoc}
      * <p>
      * What goes into the hash code is described in {@link #hashCode(LimsLink)}.
@@ -127,71 +56,7 @@ public abstract class LimsLinkBase<E extends LimsEntity<E>> implements LimsLink<
      */
     public int hashCode()
     {
-        return hashCode(this);
-    }
-
-    /**
-     * Test a LimsLink against another object for equivalence.
-     * <p>
-     * To be considered equal, two LimsLink objects must:
-     * </p>
-     * <ol>
-     * <li>Point to entities of the same class ({@link LimsLink#getEntityClass() getEntityClass} must be the same).</li>
-     * <li>Both links need their URIs to both be null, or both be set.</li>
-     * <li>If the URIs are set, some elements are compared to be equivalent:
-     * <ol>
-     * <li>The user information (almost certainly null always with Clarity URIs).</li>
-     * <li>The scheme (protocol).</li>
-     * <li>The host.</li>
-     * <li>The port.</li>
-     * <li>The path.</li>
-     * </ol>
-     * </li>
-     * </ol>
-     * <p>
-     * Note that the query part of the URI <b>is not compared</b>. Thus URIs that point to the same stateful
-     * entity that request different states will be considered equivalent.
-     * </p>
-     * <p>
-     * Where the URI has no explicit port set, we try get to get the default port for the protocol. This
-     * covers HTTP (80), HTTPS (443), SFTP (22).
-     * </p>
-     *
-     * @param link The left link for comparison. Cannot be null.
-     * @param obj The right other object for testing. Can be null.
-     *
-     * @return true if the link and the object it is compared to are equivalent, false if not.
-     *
-     * @throws NullPointerException if {@code link} is null.
-     */
-    public static boolean equals(LimsLink<?> link, Object obj)
-    {
-        requireNonNull(link, "Need a non-null link for equals.");
-
-        boolean equal = obj == link;
-        if (!equal)
-        {
-            if (obj instanceof LimsLink<?> other)
-            {
-                equal = Objects.equals(link.getEntityClass(), other.getEntityClass());
-                if (equal)
-                {
-                    URI u1 = link.getUri();
-                    URI u2 = other.getUri();
-
-                    equal = (u1 == null) == (u2 == null);
-                    if (equal && u1 != null && u2 != null)
-                    {
-                        equal = Objects.equals(u1.getUserInfo(), u2.getUserInfo());
-                        equal = Objects.equals(u1.getScheme(), u2.getScheme());
-                        equal = Objects.equals(u1.getHost(), u2.getHost());
-                        equal = Objects.equals(resolvePort(u1), resolvePort(u2));
-                        equal = Objects.equals(u1.getPath(), u2.getPath());
-                    }
-                }
-            }
-        }
-        return equal;
+        return LimsLink.hashCode(this);
     }
 
     /**
@@ -203,6 +68,6 @@ public abstract class LimsLinkBase<E extends LimsEntity<E>> implements LimsLink<
      */
     public boolean equals(Object obj)
     {
-        return equals(this, obj);
+        return LimsLink.equals(this, obj);
     }
 }

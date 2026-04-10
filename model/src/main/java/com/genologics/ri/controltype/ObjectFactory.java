@@ -42,7 +42,8 @@ import javax.xml.namespace.QName;
  * </p>
  */
 @XmlRegistry
-public class ObjectFactory {
+public class ObjectFactory
+{
 
     private final static QName _ControlType_QNAME = new QName(CONTROL_TYPE_NAMESPACE, "control-type");
     private final static QName _ControlTypes_QNAME = new QName(CONTROL_TYPE_NAMESPACE, "control-types");

@@ -43,7 +43,8 @@ import javax.xml.namespace.QName;
  * </p>
  */
 @XmlRegistry
-public class ObjectFactory {
+public class ObjectFactory
+{
 
     private final static QName _ProcessTemplates_QNAME = new QName(PROCESS_TEMPLATE_NAMESPACE, "process-templates");
     private final static QName _ProcessTemplate_QNAME = new QName(PROCESS_TEMPLATE_NAMESPACE, "process-template");

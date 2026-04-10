@@ -42,7 +42,8 @@ import javax.xml.namespace.QName;
  * </p>
  */
 @XmlRegistry
-public class ObjectFactory {
+public class ObjectFactory
+{
 
     private final static QName _ContainerType_QNAME = new QName(CONTAINER_TYPE_NAMESPACE, "container-type");
     private final static QName _ContainerTypes_QNAME = new QName(CONTAINER_TYPE_NAMESPACE, "container-types");

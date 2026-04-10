@@ -42,7 +42,8 @@ import jakarta.xml.bind.annotation.XmlRegistry;
  * </p>
  */
 @XmlRegistry
-public class ObjectFactory {
+public class ObjectFactory
+{
 
     private final static QName _GlobalToken_QNAME = new QName(GLOBAL_TOKEN_NAMESPACE, "global-token");
     private final static QName _GlobalTokens_QNAME = new QName(GLOBAL_TOKEN_NAMESPACE, "global-tokens");

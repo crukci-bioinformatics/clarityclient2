@@ -42,7 +42,8 @@ import javax.xml.namespace.QName;
  * </p>
  */
 @XmlRegistry
-public class ObjectFactory {
+public class ObjectFactory
+{
 
     private final static QName _Field_QNAME = new QName(UDF_NAMESPACE, "field");
     private final static QName _Type_QNAME = new QName(UDF_NAMESPACE, "type");

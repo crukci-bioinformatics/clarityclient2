@@ -42,7 +42,8 @@ import javax.xml.namespace.QName;
  * </p>
  */
 @XmlRegistry
-public class ObjectFactory {
+public class ObjectFactory
+{
 
     private final static QName _Type_QNAME = new QName(CONFIGURATION_NAMESPACE, "type");
     private final static QName _UdtconfigLink_QNAME = new QName(CONFIGURATION_NAMESPACE, "udtconfig-link");

@@ -42,7 +42,8 @@ import javax.xml.namespace.QName;
  * </p>
  */
 @XmlRegistry
-public class ObjectFactory {
+public class ObjectFactory
+{
 
     private final static QName _Project_QNAME = new QName(PROJECT_NAMESPACE, "project");
     private final static QName _Projects_QNAME = new QName(PROJECT_NAMESPACE, "projects");

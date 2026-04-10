@@ -42,7 +42,8 @@ import javax.xml.namespace.QName;
  * </p>
  */
 @XmlRegistry
-public class ObjectFactory {
+public class ObjectFactory
+{
 
     private final static QName _Links_QNAME = new QName(ROOT_NAMESPACE, "links");
     private final static QName _Index_QNAME = new QName(ROOT_NAMESPACE, "index");

@@ -42,7 +42,8 @@ import jakarta.xml.bind.annotation.XmlRegistry;
  * </p>
  */
 @XmlRegistry
-public class ObjectFactory {
+public class ObjectFactory
+{
 
     private final static QName _SavedQuery_QNAME = new QName(SAVED_QUERY_NAMESPACE, "saved-query");
     private final static QName _SavedQueries_QNAME = new QName(SAVED_QUERY_NAMESPACE, "saved-queries");

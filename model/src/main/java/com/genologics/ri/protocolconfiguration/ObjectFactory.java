@@ -43,7 +43,8 @@ import javax.xml.namespace.QName;
  * </p>
  */
 @XmlRegistry
-public class ObjectFactory {
+public class ObjectFactory
+{
 
     private final static QName _Protocol_QNAME = new QName(PROTOCOL_CONFIGURATION_NAMESPACE, "protocol");
     private final static QName _Protocols_QNAME = new QName(PROTOCOL_CONFIGURATION_NAMESPACE, "protocols");

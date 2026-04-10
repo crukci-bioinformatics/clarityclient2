@@ -43,7 +43,8 @@ import javax.xml.namespace.QName;
  * </p>
  */
 @XmlRegistry
-public class ObjectFactory {
+public class ObjectFactory
+{
 
     private final static QName _ReagentKits_QNAME = new QName(REAGENT_KIT_NAMESPACE, "reagent-kits");
     private final static QName _ReagentKit_QNAME = new QName(REAGENT_KIT_NAMESPACE, "reagent-kit");

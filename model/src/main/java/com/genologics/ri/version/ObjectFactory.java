@@ -42,7 +42,8 @@ import javax.xml.namespace.QName;
  * </p>
  */
 @XmlRegistry
-public class ObjectFactory {
+public class ObjectFactory
+{
 
     private final static QName _Version_QNAME = new QName(VERSION_NAMESPACE, "version");
     private final static QName _Versions_QNAME = new QName(VERSION_NAMESPACE, "versions");

@@ -42,7 +42,8 @@ import javax.xml.namespace.QName;
  * </p>
  */
 @XmlRegistry
-public class ObjectFactory {
+public class ObjectFactory
+{
 
     private final static QName _ReagentLots_QNAME = new QName(REAGENT_LOT_NAMESPACE, "reagent-lots");
     private final static QName _ReagentLot_QNAME = new QName(REAGENT_LOT_NAMESPACE, "reagent-lot");

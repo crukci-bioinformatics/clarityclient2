@@ -42,7 +42,8 @@ import javax.xml.namespace.QName;
  * </p>
  */
 @XmlRegistry
-public class ObjectFactory {
+public class ObjectFactory
+{
 
     private final static QName _Workflows_QNAME = new QName(WORKFLOW_CONFIGURATION_NAMESPACE, "workflows");
     private final static QName _Workflow_QNAME = new QName(WORKFLOW_CONFIGURATION_NAMESPACE, "workflow");

@@ -42,7 +42,8 @@ import javax.xml.namespace.QName;
  * </p>
  */
 @XmlRegistry
-public class ObjectFactory {
+public class ObjectFactory
+{
 
     private final static QName _File_QNAME = new QName(FILE_NAMESPACE, "file");
     private final static QName _Details_QNAME = new QName(FILE_NAMESPACE, "details");

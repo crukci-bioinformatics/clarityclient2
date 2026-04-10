@@ -43,7 +43,8 @@ import javax.xml.namespace.QName;
  * </p>
  */
 @XmlRegistry
-public class ObjectFactory {
+public class ObjectFactory
+{
 
     private final static QName _Step_QNAME = new QName(STEP_CONFIGURATION_NAMESPACE, "step");
 
