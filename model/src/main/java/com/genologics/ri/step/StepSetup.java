@@ -39,6 +39,8 @@ import com.genologics.ri.Link;
 import com.genologics.ri.Linkable;
 
 /**
+ * Represents the setup configuration for a step, including files and configuration settings.
+ *
  * @since 2.18
  */
 @ClarityEntity(uriSection = "steps", uriSubsection = "setup")
@@ -52,50 +54,95 @@ public class StepSetup implements Linkable<StepSetup>, Serializable
      */
     @Serial private static final long serialVersionUID = 1161115098255552451L;
 
+    /**
+     * Link to the step this setup is for.
+     */
     @XmlElement
     protected Link step;
 
+    /**
+     * The configuration of the step.
+     */
     @XmlElement
     protected StepConfiguration configuration;
 
+    /**
+     * The list of shared result files for the step.
+     */
     @XmlElementWrapper(name = "files")
     @XmlElement(name = "file")
     protected List<SharedResultFile> files;
 
+    /**
+     * The URI of this step setup resource.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
 
+    /**
+     * Default constructor.
+     */
     public StepSetup()
     {
     }
 
+    /**
+     * Constructor taking the URI of the step setup.
+     *
+     * @param uri The URI of the step setup.
+     */
     public StepSetup(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the link to the step.
+     *
+     * @return The step link.
+     */
     public Link getStep()
     {
         return step;
     }
 
+    /**
+     * Sets the link to the step.
+     *
+     * @param step The step link.
+     */
     public void setStep(Link step)
     {
         this.step = step;
     }
 
+    /**
+     * Gets the step configuration.
+     *
+     * @return The step configuration.
+     */
     public StepConfiguration getConfiguration()
     {
         return configuration;
     }
 
+    /**
+     * Sets the step configuration.
+     *
+     * @param configuration The step configuration.
+     */
     public void setConfiguration(StepConfiguration configuration)
     {
         this.configuration = configuration;
     }
 
+    /**
+     * Gets the list of shared result files.
+     *
+     * @return The list of files.
+     */
     public List<SharedResultFile> getFiles()
     {
         if (files == null)
@@ -105,18 +152,35 @@ public class StepSetup implements Linkable<StepSetup>, Serializable
         return files;
     }
 
+    /**
+     * Adds a shared result file to the step.
+     *
+     * @param file The file to add.
+     *
+     * @return The added file.
+     */
     public SharedResultFile addFile(SharedResultFile file)
     {
         getFiles().add(file);
         return file;
     }
 
+    /**
+     * Gets the URI of this step setup resource.
+     *
+     * @return The URI.
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of this step setup resource.
+     *
+     * @param uri The URI.
+     */
     @Override
     public void setUri(URI uri)
     {

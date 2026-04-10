@@ -50,75 +50,150 @@ public class OutputPlacement implements LimsLink<Artifact>, Serializable
      */
     @Serial private static final long serialVersionUID = 5187719712136408829L;
 
+    /**
+     * The location of the output artifact in a container.
+     */
     protected Location location;
 
+    /**
+     * The URI of the output artifact.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public OutputPlacement()
     {
     }
 
+    /**
+     * Constructor with artifact.
+     *
+     * @param artifact The output artifact.
+     */
     public OutputPlacement(Linkable<Artifact> artifact)
     {
         setArtifact(artifact);
     }
 
+    /**
+     * Constructor with artifact, container and well position.
+     *
+     * @param artifact The output artifact.
+     * @param container The container for the output artifact.
+     * @param wellPosition The well position in the container.
+     */
     public OutputPlacement(Linkable<Artifact> artifact, LimsEntityLinkable<Container> container, String wellPosition)
     {
         setArtifact(artifact);
         setLocation(container, wellPosition);
     }
 
+    /**
+     * Constructor with artifact, container and well position.
+     *
+     * @param artifact The output artifact.
+     * @param container The container for the output artifact.
+     * @param wellPosition The well position in the container.
+     */
     public OutputPlacement(Linkable<Artifact> artifact, Linkable<Container> container, String wellPosition)
     {
         setArtifact(artifact);
         setLocation(container, wellPosition);
     }
 
+    /**
+     * Gets the location of the output artifact.
+     *
+     * @return The location.
+     */
     public Location getLocation()
     {
         return location;
     }
 
+    /**
+     * Sets the location of the output artifact.
+     *
+     * @param location The location to set.
+     */
     public void setLocation(Location location)
     {
         this.location = location;
     }
 
+    /**
+     * Sets the location from a container and well position.
+     *
+     * @param container The container for the output artifact.
+     * @param wellPosition The well position in the container.
+     */
     public void setLocation(LimsEntityLinkable<Container> container, String wellPosition)
     {
         this.location = new Location(container, wellPosition);
     }
 
+    /**
+     * Sets the location from a container and well position.
+     *
+     * @param container The container for the output artifact.
+     * @param wellPosition The well position in the container.
+     */
     public void setLocation(Linkable<Container> container, String wellPosition)
     {
         this.location = new Location(container, wellPosition);
     }
 
+    /**
+     * Gets the URI of the output artifact.
+     *
+     * @return The artifact URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the output artifact.
+     *
+     * @param artifactUri The artifact URI to set.
+     */
     public void setUri(URI artifactUri)
     {
         this.uri = artifactUri;
     }
 
+    /**
+     * Sets the artifact for this output placement.
+     *
+     * @param artifact The artifact to set.
+     */
     public void setArtifact(Linkable<Artifact> artifact)
     {
         requireNonNull(artifact, "artifact cannot be null");
         uri = artifact.getUri();
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The Artifact class.
+     */
     @Override
     public Class<Artifact> getEntityClass()
     {
         return Artifact.class;
     }
 
+    /**
+     * Returns a string representation of this output placement.
+     *
+     * @return The string representation of the location, or null if no location is set.
+     */
     @Override
     public String toString()
     {

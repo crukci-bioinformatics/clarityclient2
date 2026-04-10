@@ -48,10 +48,8 @@ public class Output implements LimsLink<Artifact>, Serializable
     /**
      * Class version for serialisation.
      */
-    /**
-     * Class version for serialisation.
-     */
-    @Serial private static final long serialVersionUID = -5292196293632912589L;
+    @Serial
+    private static final long serialVersionUID = -5292196293632912589L;
 
     /**
      * List of reagent labels for the output.

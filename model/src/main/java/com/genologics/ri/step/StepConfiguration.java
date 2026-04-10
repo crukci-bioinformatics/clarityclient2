@@ -50,34 +50,68 @@ public class StepConfiguration implements LimsLink<ProtocolStep>, Serializable
      */
     @Serial private static final long serialVersionUID = 7902167896883448736L;
 
+    /**
+     * The URI of the protocol step configuration.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI protocolStepUri;
 
+    /**
+     * The name of the protocol step.
+     */
     @XmlValue
     protected String stepName;
 
+    /**
+     * Creates an empty step configuration.
+     */
     public StepConfiguration()
     {
     }
 
+    /**
+     * Creates a step configuration with the given protocol step URI.
+     *
+     * @param protocolStepUri The URI of the protocol step.
+     */
     public StepConfiguration(URI protocolStepUri)
     {
         this.protocolStepUri = protocolStepUri;
     }
 
+    /**
+     * Creates a step configuration with the given protocol step URI and name.
+     *
+     * @param protocolStepUri The URI of the protocol step.
+     * @param stepName The name of the protocol step.
+     */
     public StepConfiguration(URI protocolStepUri, String stepName)
     {
         this.protocolStepUri = protocolStepUri;
         this.stepName = stepName;
     }
 
+    /**
+     * Creates a step configuration from a linkable protocol step.
+     *
+     * @param step The linkable protocol step to extract the URI from.
+     *
+     * @throws NullPointerException if {@code step} is null.
+     */
     public StepConfiguration(Linkable<ProtocolStep> step)
     {
         requireNonNull(step, "step cannot be null");
         protocolStepUri = step.getUri();
     }
 
+    /**
+     * Creates a step configuration from a protocol step.
+     *
+     * @param step The protocol step to extract the URI and name from.
+     *
+     * @throws NullPointerException if {@code step} is null.
+     */
     public StepConfiguration(ProtocolStep step)
     {
         requireNonNull(step, "step cannot be null");
@@ -85,43 +119,77 @@ public class StepConfiguration implements LimsLink<ProtocolStep>, Serializable
         stepName = step.getName();
     }
 
+    /**
+     * Gets the protocol step URI.
+     *
+     * @return The protocol step URI.
+     */
     public URI getProtocolStepUri()
     {
         return protocolStepUri;
     }
 
+    /**
+     * Sets the protocol step URI.
+     *
+     * @param protocolStepUri The protocol step URI.
+     */
     public void setProtocolStepUri(URI protocolStepUri)
     {
         this.protocolStepUri = protocolStepUri;
     }
 
+    /**
+     * Sets the protocol step from a linkable object.
+     *
+     * @param protocolStep The linkable protocol step to extract the URI from.
+     */
     public void setProtocolStep(Linkable<ProtocolStep> protocolStep)
     {
         this.protocolStepUri = protocolStep.getUri();
     }
 
+    /**
+     * Gets the name of the protocol step.
+     *
+     * @return The protocol step name.
+     */
     public String getStepName()
     {
         return stepName;
     }
 
+    /**
+     * Sets the name of the protocol step.
+     *
+     * @param stepName The protocol step name.
+     */
     public void setStepName(String stepName)
     {
         this.stepName = stepName;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public URI getUri()
     {
         return protocolStepUri;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setUri(URI uri)
     {
         this.protocolStepUri = uri;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Class<ProtocolStep> getEntityClass()
     {

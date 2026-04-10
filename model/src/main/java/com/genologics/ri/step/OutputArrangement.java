@@ -1,4 +1,6 @@
-
+/**
+ * Provides a data model for step output arrangements in Clarity.
+ */
 package com.genologics.ri.step;
 
 import java.io.Serial;

@@ -47,36 +47,67 @@ public class PoolsLink implements LimsLink<Pools>, Serializable
      */
     @Serial private static final long serialVersionUID = 130181334136851112L;
 
+    /**
+     * The URI of the pools resource.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public PoolsLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the pools resource.
+     */
     public PoolsLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with pools object.
+     *
+     * @param pools The pools object to link to.
+     */
     public PoolsLink(Linkable<Pools> pools)
     {
         requireNonNull(pools, "pools cannot be null");
         this.uri = pools.getUri();
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The Pools class.
+     */
     @Override
     public Class<Pools> getEntityClass()
     {
         return Pools.class;
     }
 
+    /**
+     * Gets the URI of the pools resource.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the pools resource.
+     *
+     * @param uri The URI to set.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;

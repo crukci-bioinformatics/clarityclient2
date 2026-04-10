@@ -39,30 +39,57 @@ public class ReagentLabel implements Serializable
     /**
      * Class version for serialisation.
      */
-    @Serial private static final long serialVersionUID = -5256319945578711720L;
+    @Serial
+    private static final long serialVersionUID = -5256319945578711720L;
 
+    /**
+     * The name of the reagent label.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * Constructs a new empty ReagentLabel.
+     */
     public ReagentLabel()
     {
     }
 
+    /**
+     * Constructs a new ReagentLabel with the given name.
+     *
+     * @param name the name of the reagent label.
+     */
     public ReagentLabel(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the name of the reagent label.
+     *
+     * @return the name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the reagent label.
+     *
+     * @param name the name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Returns a string representation of the reagent label.
+     *
+     * @return the name, or "null" if the name is null.
+     */
     @Override
     public String toString()
     {

@@ -46,37 +46,68 @@ public class PlacementsLink implements LimsLink<Placements>, Serializable
      */
     @Serial private static final long serialVersionUID = 2017533453426861528L;
 
+    /**
+     * The URI of the placements resource.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public PlacementsLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the placements resource.
+     */
     public PlacementsLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with placements object.
+     *
+     * @param placements The placements object to link to.
+     */
     public PlacementsLink(Linkable<Placements> placements)
     {
         requireNonNull(placements, "placements cannot be null");
         uri = placements.getUri();
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The Placements class.
+     */
     @Override
     public Class<Placements> getEntityClass()
     {
         return Placements.class;
     }
 
+    /**
+     * Gets the URI of the placements resource.
+     *
+     * @return The URI.
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the placements resource.
+     *
+     * @param uri The URI to set.
+     */
     @Override
     public void setUri(URI uri)
     {

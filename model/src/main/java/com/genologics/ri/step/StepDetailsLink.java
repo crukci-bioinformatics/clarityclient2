@@ -48,35 +48,68 @@ public class StepDetailsLink implements LimsLink<StepDetails>, Serializable
      */
     @Serial private static final long serialVersionUID = -3461183102550868643L;
 
+    /**
+     * The URI of the step details resource.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public StepDetailsLink()
     {
     }
 
+    /**
+     * Constructor taking a URI.
+     *
+     * @param uri The URI of the step details.
+     */
     public StepDetailsLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor taking a linkable object.
+     *
+     * @param link The linkable step details object.
+     *
+     * @throws NullPointerException if {@code link} is null.
+     */
     public StepDetailsLink(Linkable<StepDetails> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * Gets the URI of the step details resource.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the step details resource.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The StepDetails class.
+     */
     @Override
     public Class<StepDetails> getEntityClass()
     {

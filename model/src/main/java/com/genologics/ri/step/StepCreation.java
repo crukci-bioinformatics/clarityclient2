@@ -54,83 +54,163 @@ public class StepCreation implements Serializable
      */
     @Serial private static final long serialVersionUID = 3624008363559662022L;
 
+    /**
+     * The configuration for the step.
+     */
     @XmlElement
     protected StepConfiguration configuration;
 
+    /**
+     * The name of the container type to be used for outputs.
+     */
     @XmlElement(name = "container-type")
     protected String containerType;
 
+    /**
+     * The reagent category name.
+     */
     @XmlElement(name = "reagent-category")
     protected String reagentCategory;
 
+    /**
+     * The list of input artifacts for the step.
+     */
     @XmlElementWrapper(name = "inputs")
     @XmlElement(name = "input")
     protected List<CreationInput> inputs;
 
+    /**
+     * Default constructor.
+     */
     public StepCreation()
     {
     }
 
+    /**
+     * Constructor taking the step configuration.
+     *
+     * @param configuration The step configuration.
+     */
     public StepCreation(StepConfiguration configuration)
     {
         setConfiguration(configuration);
     }
 
+    /**
+     * Constructor taking a protocol step link.
+     *
+     * @param step The protocol step link.
+     */
     public StepCreation(Linkable<ProtocolStep> step)
     {
         setConfiguration(step);
     }
 
+    /**
+     * Constructor taking a protocol step.
+     *
+     * @param step The protocol step.
+     */
     public StepCreation(ProtocolStep step)
     {
         setConfiguration(step);
     }
 
+    /**
+     * Gets the step configuration.
+     *
+     * @return The step configuration.
+     */
     public StepConfiguration getConfiguration()
     {
         return configuration;
     }
 
+    /**
+     * Sets the step configuration.
+     *
+     * @param configuration The step configuration.
+     */
     public void setConfiguration(StepConfiguration configuration)
     {
         this.configuration = configuration;
     }
 
+    /**
+     * Sets the step configuration from a protocol step link.
+     *
+     * @param step The protocol step link.
+     */
     public void setConfiguration(Linkable<ProtocolStep> step)
     {
         this.configuration = step == null ? null : new StepConfiguration(step);
     }
 
+    /**
+     * Sets the step configuration from a protocol step.
+     *
+     * @param step The protocol step.
+     */
     public void setConfiguration(ProtocolStep step)
     {
         this.configuration = step == null ? null : new StepConfiguration(step);
     }
 
+    /**
+     * Gets the container type name.
+     *
+     * @return The container type name.
+     */
     public String getContainerType()
     {
         return containerType;
     }
 
+    /**
+     * Sets the container type name.
+     *
+     * @param containerType The container type name.
+     */
     public void setContainerType(String containerType)
     {
         this.containerType = containerType;
     }
 
+    /**
+     * Sets the container type from a container type object.
+     *
+     * @param containerType The container type object.
+     */
     public void setContainerType(ContainerType containerType)
     {
         this.containerType = containerType == null ? null : containerType.getName();
     }
 
+    /**
+     * Gets the reagent category name.
+     *
+     * @return The reagent category name.
+     */
     public String getReagentCategory()
     {
         return reagentCategory;
     }
 
+    /**
+     * Sets the reagent category name.
+     *
+     * @param reagentCategory The reagent category name.
+     */
     public void setReagentCategory(String reagentCategory)
     {
         this.reagentCategory = reagentCategory;
     }
 
+    /**
+     * Gets the list of input artifacts for the step.
+     *
+     * @return The list of inputs.
+     */
     public List<CreationInput> getInputs()
     {
         if (inputs == null)
@@ -140,12 +220,28 @@ public class StepCreation implements Serializable
         return inputs;
     }
 
+    /**
+     * Adds an input to the step.
+     *
+     * @param input The input to add.
+     *
+     * @return The added input.
+     */
     public CreationInput addInput(CreationInput input)
     {
         getInputs().add(input);
         return input;
     }
 
+    /**
+     * Creates and adds an input to the step.
+     *
+     * @param artifact The input artifact.
+     * @param controlType The control type for the input, or null if not a control.
+     * @param replicates The number of replicates for the input.
+     *
+     * @return The created and added input.
+     */
     public CreationInput addInput(Linkable<Artifact> artifact, Linkable<ControlType> controlType, Long replicates)
     {
         return addInput(new CreationInput(artifact, controlType, replicates));

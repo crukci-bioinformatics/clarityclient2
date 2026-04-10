@@ -50,31 +50,62 @@ public class UserLink implements LimsLink<Researcher>, Serializable
      */
     @Serial private static final long serialVersionUID = -682022057659965784L;
 
+    /**
+     * The first name of the user.
+     */
     @XmlElement(name = "first-name")
     protected String firstName;
 
+    /**
+     * The last name of the user.
+     */
     @XmlElement(name = "last-name")
     protected String lastName;
 
+    /**
+     * The URI of the researcher resource representing the user.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public UserLink()
     {
     }
 
+    /**
+     * Constructor taking a URI.
+     *
+     * @param uri The URI of the user.
+     */
     public UserLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor taking a linkable researcher.
+     *
+     * @param link The linkable researcher representing the user.
+     *
+     * @throws NullPointerException if {@code link} is null.
+     */
     public UserLink(Linkable<Researcher> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Constructor taking a researcher.
+     *
+     * @param researcher The researcher representing the user.
+     *
+     * @throws NullPointerException if {@code researcher} is null.
+     */
     public UserLink(Researcher researcher)
     {
         requireNonNull(researcher, "researcher cannot be null");
@@ -83,42 +114,82 @@ public class UserLink implements LimsLink<Researcher>, Serializable
         lastName = researcher.getLastName();
     }
 
+    /**
+     * Gets the first name of the user.
+     *
+     * @return The first name.
+     */
     public String getFirstName()
     {
         return firstName;
     }
 
+    /**
+     * Sets the first name of the user.
+     *
+     * @param firstName The first name.
+     */
     public void setFirstName(String firstName)
     {
         this.firstName = firstName;
     }
 
+    /**
+     * Gets the last name of the user.
+     *
+     * @return The last name.
+     */
     public String getLastName()
     {
         return lastName;
     }
 
+    /**
+     * Sets the last name of the user.
+     *
+     * @param lastName The last name.
+     */
     public void setLastName(String lastName)
     {
         this.lastName = lastName;
     }
 
+    /**
+     * Gets the URI of the researcher resource.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the researcher resource.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The Researcher class.
+     */
     @Override
     public Class<Researcher> getEntityClass()
     {
         return Researcher.class;
     }
 
+    /**
+     * Returns a string representation of the user's full name.
+     *
+     * @return The full name of the user.
+     */
     @Override
     public String toString()
     {

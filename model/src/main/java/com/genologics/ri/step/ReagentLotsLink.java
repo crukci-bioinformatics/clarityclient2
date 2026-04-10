@@ -48,35 +48,66 @@ public class ReagentLotsLink implements LimsLink<ReagentLots>, Serializable
      */
     @Serial private static final long serialVersionUID = -2260570956329971986L;
 
+    /**
+     * The URI of the reagent lots resource.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Creates an empty reagent lots link.
+     */
     public ReagentLotsLink()
     {
     }
 
+    /**
+     * Creates a reagent lots link with the given URI.
+     *
+     * @param uri The URI of the reagent lots resource.
+     */
     public ReagentLotsLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Creates a reagent lots link from a linkable object.
+     *
+     * @param link The linkable object to extract the URI from.
+     *
+     * @throws NullPointerException if {@code link} is null.
+     */
     public ReagentLotsLink(Linkable<ReagentLots> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * Gets the URI of the reagent lots resource.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the reagent lots resource.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Class<ReagentLots> getEntityClass()
     {

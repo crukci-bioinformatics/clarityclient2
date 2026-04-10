@@ -50,35 +50,68 @@ public class StepSetupLink implements LimsLink<StepSetup>, Serializable
      */
     @Serial private static final long serialVersionUID = 2029094616401964710L;
 
+    /**
+     * The URI of the step setup resource.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public StepSetupLink()
     {
     }
 
+    /**
+     * Constructor taking a URI.
+     *
+     * @param uri The URI of the step setup.
+     */
     public StepSetupLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor taking a linkable object.
+     *
+     * @param link The linkable step setup object.
+     *
+     * @throws NullPointerException if {@code link} is null.
+     */
     public StepSetupLink(Linkable<StepSetup> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * Gets the URI of the step setup resource.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the step setup resource.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The StepSetup class.
+     */
     @Override
     public Class<StepSetup> getEntityClass()
     {

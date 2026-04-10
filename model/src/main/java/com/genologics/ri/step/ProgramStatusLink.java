@@ -44,38 +44,70 @@ public class ProgramStatusLink implements LimsLink<ProgramStatus>, Serializable
     /**
      * Class version for serialisation.
      */
-    @Serial private static final long serialVersionUID = 1364271013485882177L;
+    @Serial
+    private static final long serialVersionUID = 1364271013485882177L;
 
+    /**
+     * The URI of the program status.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Constructs a new empty ProgramStatusLink.
+     */
     public ProgramStatusLink()
     {
     }
 
+    /**
+     * Constructs a new ProgramStatusLink with the given URI.
+     *
+     * @param uri the URI of the program status.
+     */
     public ProgramStatusLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructs a new ProgramStatusLink from a linkable program status.
+     *
+     * @param link the linkable program status.
+     *
+     * @throws NullPointerException if link is null.
+     */
     public ProgramStatusLink(Linkable<ProgramStatus> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Class<ProgramStatus> getEntityClass()
     {
         return ProgramStatus.class;
     }
 
+    /**
+     * Gets the URI of the program status.
+     *
+     * @return the URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the program status.
+     *
+     * @param uri the URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;

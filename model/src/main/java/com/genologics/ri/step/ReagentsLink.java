@@ -46,36 +46,67 @@ public class ReagentsLink implements LimsLink<Reagents>, Serializable
      */
     @Serial private static final long serialVersionUID = 606802593515729159L;
 
+    /**
+     * The URI of the reagents resource.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Creates an empty reagents link.
+     */
     public ReagentsLink()
     {
     }
 
+    /**
+     * Creates a reagents link with the given URI.
+     *
+     * @param uri The URI of the reagents resource.
+     */
     public ReagentsLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Creates a reagents link from a linkable object.
+     *
+     * @param link The linkable object to extract the URI from.
+     *
+     * @throws NullPointerException if {@code link} is null.
+     */
     public ReagentsLink(Linkable<Reagents> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Class<Reagents> getEntityClass()
     {
         return Reagents.class;
     }
 
+    /**
+     * Gets the URI of the reagents resource.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the reagents resource.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;

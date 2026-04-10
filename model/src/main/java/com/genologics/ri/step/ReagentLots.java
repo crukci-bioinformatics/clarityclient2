@@ -56,41 +56,79 @@ public class ReagentLots implements Linkable<ReagentLots>, Serializable
      */
     @Serial private static final long serialVersionUID = 27145430586603574L;
 
+    /**
+     * Provides a URI linking to the step resource.
+     */
     @XmlElement
     protected Link step;
 
+    /**
+     * Provides a URI linking to the configuration resource that identifies the
+     * protocol step.
+     */
     @XmlElement
     protected StepConfiguration configuration;
 
+    /**
+     * The list of reagent lots associated with the step.
+     */
     @XmlElementWrapper(name = "reagent-lots")
     @XmlElement(name = "reagent-lot")
     protected List<ReagentLotLink> reagentLots;
 
+    /**
+     * The URI of the reagent lots resource.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
 
+    /**
+     * Gets the step link.
+     *
+     * @return The step link.
+     */
     public Link getStep()
     {
         return step;
     }
 
+    /**
+     * Sets the step link.
+     *
+     * @param step The step link.
+     */
     public void setStep(Link step)
     {
         this.step = step;
     }
 
+    /**
+     * Gets the step configuration.
+     *
+     * @return The step configuration.
+     */
     public StepConfiguration getConfiguration()
     {
         return configuration;
     }
 
+    /**
+     * Sets the step configuration.
+     *
+     * @param configuration The step configuration.
+     */
     public void setConfiguration(StepConfiguration configuration)
     {
         this.configuration = configuration;
     }
 
+    /**
+     * Gets the list of reagent lot links.
+     *
+     * @return The list of reagent lot links, never null.
+     */
     public List<ReagentLotLink> getReagentLots()
     {
         if (reagentLots == null)
@@ -100,12 +138,26 @@ public class ReagentLots implements Linkable<ReagentLots>, Serializable
         return reagentLots;
     }
 
+    /**
+     * Adds a reagent lot link to the list.
+     *
+     * @param link The reagent lot link to add.
+     *
+     * @return The reagent lot link that was added.
+     */
     public ReagentLotLink addReagentLot(ReagentLotLink link)
     {
         getReagentLots().add(link);
         return link;
     }
 
+    /**
+     * Adds a reagent lot to the list by creating a link from the linkable object.
+     *
+     * @param lot The reagent lot linkable object.
+     *
+     * @return The reagent lot link that was created and added.
+     */
     public ReagentLotLink addReagentLot(LimsEntityLinkable<ReagentLot> lot)
     {
         ReagentLotLink link = new ReagentLotLink(lot);
@@ -113,11 +165,21 @@ public class ReagentLots implements Linkable<ReagentLots>, Serializable
         return link;
     }
 
+    /**
+     * Gets the URI of this reagent lots resource.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of this reagent lots resource.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;

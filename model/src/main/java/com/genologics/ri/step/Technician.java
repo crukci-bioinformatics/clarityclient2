@@ -1,3 +1,20 @@
+/*
+ * CRUK-CI Clarity REST API Java Client.
+ * Copyright (C) 2013 Cancer Research UK Cambridge Institute.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 package com.genologics.ri.step;
 
@@ -21,7 +38,8 @@ import com.genologics.ri.researcher.Researcher;
 
 
 /**
- * Technician is a child element of Step and provides a URI linking to the detailed representation of the technician that ran the Step.
+ * Technician is a child element of Step and provides a URI linking to the
+ * detailed representation of the technician that ran the Step.
  *
  * @since 2.34
  */
@@ -29,33 +47,68 @@ import com.genologics.ri.researcher.Researcher;
 @XmlType(name = "technician", propOrder = { "firstName", "lastName" })
 public class Technician implements LimsLink<Researcher>, Serializable
 {
-    @Serial private static final long serialVersionUID = -3531986232419228456L;
+    /**
+     * Class version for serialisation.
+     */
+    @Serial
+    private static final long serialVersionUID = -3531986232419228456L;
 
+    /**
+     * The first name of the technician.
+     */
     @XmlElement(name = "first-name")
     protected String firstName;
 
+    /**
+     * The last name of the technician.
+     */
     @XmlElement(name = "last-name")
     protected String lastName;
 
+    /**
+     * The URI of the researcher resource representing the technician.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public Technician()
     {
     }
 
+    /**
+     * Constructor taking a URI.
+     *
+     * @param uri The URI of the technician.
+     */
     public Technician(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor taking a linkable researcher.
+     *
+     * @param technician The linkable researcher representing the technician.
+     *
+     * @throws NullPointerException if {@code technician} is null.
+     */
     public Technician(Linkable<Researcher> technician)
     {
         requireNonNull(technician, "technician cannot be null");
         this.uri = technician.getUri();
     }
 
+    /**
+     * Constructor taking a researcher.
+     *
+     * @param technician The researcher representing the technician.
+     *
+     * @throws NullPointerException if {@code technician} is null.
+     */
     public Technician(Researcher technician)
     {
         requireNonNull(technician, "technician cannot be null");
@@ -64,42 +117,82 @@ public class Technician implements LimsLink<Researcher>, Serializable
         this.lastName = technician.getLastName();
     }
 
+    /**
+     * Gets the first name of the technician.
+     *
+     * @return The first name.
+     */
     public String getFirstName()
     {
         return firstName;
     }
 
+    /**
+     * Sets the first name of the technician.
+     *
+     * @param firstName The first name.
+     */
     public void setFirstName(String firstName)
     {
         this.firstName = firstName;
     }
 
+    /**
+     * Gets the last name of the technician.
+     *
+     * @return The last name.
+     */
     public String getLastName()
     {
         return lastName;
     }
 
+    /**
+     * Sets the last name of the technician.
+     *
+     * @param lastName The last name.
+     */
     public void setLastName(String lastName)
     {
         this.lastName = lastName;
     }
 
+    /**
+     * Gets the URI of the researcher resource.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the researcher resource.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The Researcher class.
+     */
     @Override
     public Class<Researcher> getEntityClass()
     {
         return Researcher.class;
     }
 
+    /**
+     * Returns a string representation of the technician's full name.
+     *
+     * @return The full name of the technician.
+     */
     @Override
     public String toString()
     {

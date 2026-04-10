@@ -55,58 +55,112 @@ public class Placements implements Linkable<Placements>, Serializable
      */
     @Serial private static final long serialVersionUID = -1949893881292269955L;
 
+    /**
+     * The link to the step.
+     */
     @XmlElement(name = "step")
     protected Link step;
 
+    /**
+     * The configuration for this step.
+     */
     @XmlElement(name = "configuration")
     protected StepConfiguration configuration;
 
+    /**
+     * The list of selected containers.
+     */
     @XmlElementWrapper(name = "selected-containers")
     @XmlElement(name = "container")
     protected List<ContainerLink> selectedContainers;
 
+    /**
+     * The list of output placements.
+     */
     @XmlElementWrapper(name = "output-placements")
     @XmlElement(name = "output-placement")
     protected List<OutputPlacement> outputPlacements;
 
+    /**
+     * The URI of this placements resource.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public Placements()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of this placements resource.
+     */
     public Placements(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the link to the step.
+     *
+     * @return The step link.
+     */
     public Link getStep()
     {
         return step;
     }
 
+    /**
+     * Sets the link to the step.
+     *
+     * @param step The step link to set.
+     */
     public void setStep(Link step)
     {
         this.step = step;
     }
 
+    /**
+     * Sets the step from a linkable process step.
+     *
+     * @param step The process step to link to.
+     */
     public void setStep(Linkable<ProcessStep> step)
     {
         this.step = step == null ? null : new Link(step);
     }
 
+    /**
+     * Gets the step configuration.
+     *
+     * @return The step configuration.
+     */
     public StepConfiguration getConfiguration()
     {
         return configuration;
     }
 
+    /**
+     * Sets the step configuration.
+     *
+     * @param configuration The configuration to set.
+     */
     public void setConfiguration(StepConfiguration configuration)
     {
         this.configuration = configuration;
     }
 
+    /**
+     * Gets the list of selected containers.
+     * Creates the list if it doesn't exist.
+     *
+     * @return The list of selected containers.
+     */
     public List<ContainerLink> getSelectedContainers()
     {
         if (selectedContainers == null)
@@ -116,6 +170,12 @@ public class Placements implements Linkable<Placements>, Serializable
         return selectedContainers;
     }
 
+    /**
+     * Adds a selected container.
+     *
+     * @param container The container to add.
+     * @return The created container link.
+     */
     public ContainerLink addSelectedContainer(Linkable<Container> container)
     {
         ContainerLink link = new ContainerLink(container);
@@ -123,6 +183,12 @@ public class Placements implements Linkable<Placements>, Serializable
         return link;
     }
 
+    /**
+     * Gets the list of output placements.
+     * Creates the list if it doesn't exist.
+     *
+     * @return The list of output placements.
+     */
     public List<OutputPlacement> getOutputPlacements()
     {
         if (outputPlacements == null)
@@ -132,12 +198,26 @@ public class Placements implements Linkable<Placements>, Serializable
         return outputPlacements;
     }
 
+    /**
+     * Adds an output placement.
+     *
+     * @param placement The placement to add.
+     * @return The added placement.
+     */
     public OutputPlacement addOutputPlacement(OutputPlacement placement)
     {
         getOutputPlacements().add(placement);
         return placement;
     }
 
+    /**
+     * Creates and adds an output placement.
+     *
+     * @param artifact The output artifact.
+     * @param container The container for the output.
+     * @param wellPosition The well position in the container.
+     * @return The created output placement.
+     */
     public OutputPlacement addOutputPlacement(Linkable<Artifact> artifact, Linkable<Container> container, String wellPosition)
     {
         OutputPlacement placement = new OutputPlacement(artifact, container, wellPosition);
@@ -145,11 +225,21 @@ public class Placements implements Linkable<Placements>, Serializable
         return placement;
     }
 
+    /**
+     * Gets the URI of this placements resource.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of this placements resource.
+     *
+     * @param uri The URI to set.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;

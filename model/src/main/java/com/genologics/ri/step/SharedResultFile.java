@@ -52,43 +52,86 @@ public class SharedResultFile implements LimsEntityLink<Artifact>, Serializable
      */
     @Serial private static final long serialVersionUID = -1481534271853089634L;
 
+    /**
+     * Error message associated with the shared result file.
+     */
     @XmlElement
     protected String message;
 
+    /**
+     * Index of the shared result file in the configuration.
+     */
     @XmlAttribute(name = "shared-result-file-index")
     protected String sharedResultFileIndex;
 
+    /**
+     * The URI of the artifact representing the shared result file.
+     */
     @XmlAttribute(name = "artifact-uri")
     @XmlSchemaType(name = "anyURI")
     protected URI artifactUri;
 
+    /**
+     * The LIMS id of the artifact.
+     */
     @XmlAttribute(name = "limsid")
     protected String limsid;
 
+    /**
+     * The name of the artifact.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * Creates an empty shared result file.
+     */
     public SharedResultFile()
     {
     }
 
+    /**
+     * Creates a shared result file with the given artifact URI.
+     *
+     * @param artifactUri The URI of the artifact.
+     */
     public SharedResultFile(URI artifactUri)
     {
         this.artifactUri = artifactUri;
     }
 
+    /**
+     * Creates a shared result file with the given artifact URI and LIMS id.
+     *
+     * @param artifactUri The URI of the artifact.
+     * @param limsid The LIMS id of the artifact.
+     */
     public SharedResultFile(URI artifactUri, String limsid)
     {
         this.artifactUri = artifactUri;
         this.limsid = limsid;
     }
 
+    /**
+     * Creates a shared result file from a linkable artifact.
+     *
+     * @param link The linkable artifact to extract the URI from.
+     *
+     * @throws NullPointerException if {@code link} is null.
+     */
     public SharedResultFile(Linkable<Artifact> link)
     {
         requireNonNull(link, "link cannot be null");
         artifactUri = link.getUri();
     }
 
+    /**
+     * Creates a shared result file from a LIMS entity linkable artifact.
+     *
+     * @param link The LIMS entity linkable artifact to extract the URI and LIMS id from.
+     *
+     * @throws NullPointerException if {@code link} is null.
+     */
     public SharedResultFile(LimsEntityLinkable<Artifact> link)
     {
         requireNonNull(link, "link cannot be null");
@@ -96,6 +139,13 @@ public class SharedResultFile implements LimsEntityLink<Artifact>, Serializable
         limsid = link.getLimsid();
     }
 
+    /**
+     * Creates a shared result file from an artifact.
+     *
+     * @param artifact The artifact to extract the URI, LIMS id, and name from.
+     *
+     * @throws NullPointerException if {@code artifact} is null.
+     */
     public SharedResultFile(Artifact artifact)
     {
         requireNonNull(artifact, "artifact cannot be null");
@@ -104,62 +154,120 @@ public class SharedResultFile implements LimsEntityLink<Artifact>, Serializable
         name = artifact.getName();
     }
 
+    /**
+     * Gets the error message.
+     *
+     * @return The error message, or null if none.
+     */
     public String getMessage()
     {
         return message;
     }
 
+    /**
+     * Sets the error message.
+     *
+     * @param message The error message.
+     */
     public void setMessage(String message)
     {
         this.message = message;
     }
 
+    /**
+     * Gets the shared result file index.
+     *
+     * @return The shared result file index.
+     */
     public String getSharedResultFileIndex()
     {
         return sharedResultFileIndex;
     }
 
+    /**
+     * Sets the shared result file index.
+     *
+     * @param sharedResultFileIndex The shared result file index.
+     */
     public void setSharedResultFileIndex(String sharedResultFileIndex)
     {
         this.sharedResultFileIndex = sharedResultFileIndex;
     }
 
+    /**
+     * Gets the URI of the artifact.
+     *
+     * @return The artifact URI.
+     */
     public URI getUri()
     {
         return artifactUri;
     }
 
+    /**
+     * Sets the URI of the artifact.
+     *
+     * @param artifactUri The artifact URI.
+     */
     public void setUri(URI artifactUri)
     {
         this.artifactUri = artifactUri;
     }
 
+    /**
+     * Gets the LIMS id of the artifact.
+     *
+     * @return The LIMS id.
+     */
     public String getLimsid()
     {
         return limsid;
     }
 
+    /**
+     * Sets the LIMS id of the artifact.
+     *
+     * @param limsid The LIMS id.
+     */
     public void setLimsid(String limsid)
     {
         this.limsid = limsid;
     }
 
+    /**
+     * Gets the name of the artifact.
+     *
+     * @return The artifact name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the artifact.
+     *
+     * @param name The artifact name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Class<Artifact> getEntityClass()
     {
         return Artifact.class;
     }
 
+    /**
+     * Returns a string representation of the shared result file.
+     *
+     * @return The LIMS id of the artifact.
+     */
     @Override
     public String toString()
     {

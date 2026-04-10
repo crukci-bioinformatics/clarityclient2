@@ -21,29 +21,60 @@ package com.genologics.ri.step;
 import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlType;
 
+/**
+ * Enumeration of status values for a step.
+ */
 @XmlType(name = "status")
 @XmlEnum
 public enum Status
 {
+    /**
+     * The step completed successfully.
+     */
     OK,
 
+    /**
+     * The step completed with errors.
+     */
     ERROR,
 
+    /**
+     * The step completed with warnings.
+     */
     WARNING,
 
+    /**
+     * The step is currently running.
+     */
     RUNNING,
 
     /**
+     * The step is queued for execution.
+     *
      * @since 2.18
      */
     QUEUED;
 
 
+    /**
+     * Gets the string value of the status.
+     *
+     * @return The name of the status.
+     */
     public String value()
     {
         return name();
     }
 
+    /**
+     * Creates a status from a string value.
+     *
+     * @param v The string value of the status.
+     *
+     * @return The status corresponding to the value.
+     *
+     * @throws IllegalArgumentException if the value does not match any status.
+     */
     public static Status fromValue(String v)
     {
         return valueOf(v);

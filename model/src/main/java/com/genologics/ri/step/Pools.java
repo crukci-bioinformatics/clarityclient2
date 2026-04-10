@@ -55,63 +55,122 @@ public class Pools implements Linkable<Pools>, Serializable
      */
     @Serial private static final long serialVersionUID = 5682428399776236959L;
 
+    /**
+     * The link to the step.
+     */
     @XmlElement(name = "step")
     protected Link step;
 
+    /**
+     * The configuration for this step.
+     */
     @XmlElement(name = "configuration")
     protected StepConfiguration configuration;
 
+    /**
+     * The list of pooled input groups.
+     */
     @XmlElementWrapper(name = "pooled-inputs")
     @XmlElement(name = "pool")
     protected List<PooledInputs> pooledInputs;
 
+    /**
+     * The list of available input artifacts that can be pooled.
+     */
     @XmlElementWrapper(name = "available-inputs")
     @XmlElement(name = "input")
     protected List<Input> availableInputs;
 
+    /**
+     * The URI of this pools resource.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public Pools()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of this pools resource.
+     */
     public Pools(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the link to the step.
+     *
+     * @return The step link.
+     */
     public Link getStep()
     {
         return step;
     }
 
+    /**
+     * Sets the link to the step.
+     *
+     * @param step The step link to set.
+     */
     public void setStep(Link step)
     {
         this.step = step;
     }
 
+    /**
+     * Gets the step configuration.
+     *
+     * @return The step configuration.
+     */
     public StepConfiguration getConfiguration()
     {
         return configuration;
     }
 
+    /**
+     * Sets the step configuration.
+     *
+     * @param configuration The configuration to set.
+     */
     public void setConfiguration(StepConfiguration configuration)
     {
         this.configuration = configuration;
     }
 
+    /**
+     * Gets the URI of this pools resource.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of this pools resource.
+     *
+     * @param uri The URI to set.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the list of pooled input groups.
+     * Creates the list if it doesn't exist.
+     *
+     * @return The list of pooled inputs.
+     */
     public List<PooledInputs> getPooledInputs()
     {
         if (pooledInputs == null)
@@ -121,17 +180,37 @@ public class Pools implements Linkable<Pools>, Serializable
         return pooledInputs;
     }
 
+    /**
+     * Adds a pooled input group.
+     *
+     * @param inputs The pooled inputs to add.
+     * @return The added pooled inputs.
+     */
     public PooledInputs addPooledInputs(PooledInputs inputs)
     {
         getPooledInputs().add(inputs);
         return inputs;
     }
 
+    /**
+     * Creates and adds a pooled input group.
+     *
+     * @param inputArtifacts The collection of input artifacts to pool.
+     * @param poolName The name of the pool.
+     * @param outputArtifact The output artifact created from this pool.
+     * @return The created pooled inputs.
+     */
     public PooledInputs addPooledInputs(Collection<? extends Linkable<Artifact>> inputArtifacts, String poolName, Linkable<Artifact> outputArtifact)
     {
         return addPooledInputs(new PooledInputs(inputArtifacts, poolName, outputArtifact));
     }
 
+    /**
+     * Gets the list of available input artifacts.
+     * Creates the list if it doesn't exist.
+     *
+     * @return The list of available inputs.
+     */
     public List<Input> getAvailableInputs()
     {
         if (availableInputs == null)
@@ -141,12 +220,24 @@ public class Pools implements Linkable<Pools>, Serializable
         return availableInputs;
     }
 
+    /**
+     * Adds an available input artifact.
+     *
+     * @param input The input to add.
+     * @return The added input.
+     */
     public Input addAvailableInput(Input input)
     {
         getAvailableInputs().add(input);
         return input;
     }
 
+    /**
+     * Creates and adds an available input from an artifact.
+     *
+     * @param artifact The artifact to add as an available input.
+     * @return The created input.
+     */
     public Input addAvailableInput(Linkable<Artifact> artifact)
     {
         return addAvailableInput(new Input(artifact));

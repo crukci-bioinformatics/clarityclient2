@@ -49,78 +49,152 @@ public class ProgramStatus implements Linkable<ProgramStatus>, Serializable
     /**
      * Class version for serialisation.
      */
-    @Serial private static final long serialVersionUID = -3133977224031042653L;
+    @Serial
+    private static final long serialVersionUID = -3133977224031042653L;
 
+    /**
+     * Link to the step associated with this program status.
+     */
     @XmlElement(name = "step")
     protected Link step;
 
+    /**
+     * The configuration of the step.
+     */
     @XmlElement(name = "configuration")
     protected StepConfiguration configuration;
 
+    /**
+     * The current status of the program.
+     */
     @XmlElement(name = "status")
     protected Status status;
 
+    /**
+     * The message associated with the program status.
+     */
     @XmlElement(name = "message")
     protected String message;
 
+    /**
+     * The URI of the program status.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Constructs a new empty ProgramStatus.
+     */
     public ProgramStatus()
     {
     }
 
+    /**
+     * Constructs a new ProgramStatus with the given URI.
+     *
+     * @param uri the URI of the program status.
+     */
     public ProgramStatus(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the link to the step associated with this program status.
+     *
+     * @return the step link.
+     */
     public Link getStep()
     {
         return step;
     }
 
+    /**
+     * Sets the link to the step associated with this program status.
+     *
+     * @param step the step link.
+     */
     public void setStep(Link step)
     {
         this.step = step;
     }
 
+    /**
+     * Gets the configuration of the step.
+     *
+     * @return the step configuration.
+     */
     public StepConfiguration getConfiguration()
     {
         return configuration;
     }
 
+    /**
+     * Sets the configuration of the step.
+     *
+     * @param configuration the step configuration.
+     */
     public void setConfiguration(StepConfiguration configuration)
     {
         this.configuration = configuration;
     }
 
+    /**
+     * Gets the current status of the program.
+     *
+     * @return the status.
+     */
     public Status getStatus()
     {
         return status;
     }
 
+    /**
+     * Sets the current status of the program.
+     *
+     * @param status the status.
+     */
     public void setStatus(Status status)
     {
         this.status = status;
     }
 
+    /**
+     * Gets the message associated with the program status.
+     *
+     * @return the message.
+     */
     public String getMessage()
     {
         return message;
     }
 
+    /**
+     * Sets the message associated with the program status.
+     *
+     * @param message the message.
+     */
     public void setMessage(String message)
     {
         this.message = message;
     }
 
+    /**
+     * Gets the URI of the program status.
+     *
+     * @return the URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the program status.
+     *
+     * @param uri the URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
