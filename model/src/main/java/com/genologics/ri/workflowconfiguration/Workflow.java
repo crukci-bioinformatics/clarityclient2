@@ -18,6 +18,7 @@
 
 package com.genologics.ri.workflowconfiguration;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -61,8 +62,7 @@ public class Workflow implements Linkable<Workflow>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -8884000036888230246L;
+    @Serial private static final long serialVersionUID = -8884000036888230246L;
 
     /**
      * The list of protocols associated with this workflow.

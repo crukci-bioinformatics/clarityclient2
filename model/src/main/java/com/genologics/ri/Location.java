@@ -20,6 +20,7 @@ package com.genologics.ri;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.regex.Pattern;
@@ -58,8 +59,7 @@ public class Location implements LimsEntityLink<Container>, Serializable, Compar
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -2461753783129402323L;
+    @Serial private static final long serialVersionUID = -2461753783129402323L;
 
     /**
      * The container link.

@@ -22,6 +22,7 @@ import static com.genologics.ri.Namespaces.FILE_NAMESPACE;
 import static com.genologics.ri.Namespaces.ROOT_NAMESPACE;
 import static com.genologics.ri.Namespaces.UDF_NAMESPACE;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -63,8 +64,7 @@ public class Project implements LimsEntity<Project>, UDFHolder, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -7543006762891280018L;
+    @Serial private static final long serialVersionUID = -7543006762891280018L;
 
     /**
      * The name of the project.

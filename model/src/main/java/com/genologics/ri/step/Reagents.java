@@ -18,6 +18,7 @@
 
 package com.genologics.ri.step;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -50,8 +51,7 @@ public class Reagents implements Linkable<Reagents>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 4896945008573422890L;
+    @Serial private static final long serialVersionUID = 4896945008573422890L;
 
     @XmlElement(name = "step")
     protected Link step;

@@ -18,6 +18,7 @@
 
 package com.genologics.ri.reagenttype;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -37,8 +38,7 @@ public class Attribute implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -1114923515136408861L;
+    @Serial private static final long serialVersionUID = -1114923515136408861L;
 
     /**
      * The name of the attribute.

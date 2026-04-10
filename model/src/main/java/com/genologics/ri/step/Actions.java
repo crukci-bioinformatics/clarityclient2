@@ -18,6 +18,7 @@
 
 package com.genologics.ri.step;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -52,8 +53,7 @@ public class Actions implements Linkable<Actions>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -8235969313191790414L;
+    @Serial private static final long serialVersionUID = -8235969313191790414L;
 
     /**
      * Link to the step.

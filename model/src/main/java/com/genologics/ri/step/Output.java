@@ -20,6 +20,7 @@ package com.genologics.ri.step;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -47,11 +48,10 @@ public class Output implements LimsLink<Artifact>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
     /**
      * Class version for serialisation.
      */
-    private static final long serialVersionUID = -5292196293632912589L;
+    @Serial private static final long serialVersionUID = -5292196293632912589L;
 
     /**
      * List of reagent labels for the output.

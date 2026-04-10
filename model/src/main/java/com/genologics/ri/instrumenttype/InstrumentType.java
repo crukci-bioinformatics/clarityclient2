@@ -18,6 +18,7 @@
 
 package com.genologics.ri.instrumenttype;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -50,8 +51,7 @@ public class InstrumentType implements Linkable<InstrumentType>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 7273963191417975L;
+    @Serial private static final long serialVersionUID = 7273963191417975L;
 
     /**
      * The instrument type name.

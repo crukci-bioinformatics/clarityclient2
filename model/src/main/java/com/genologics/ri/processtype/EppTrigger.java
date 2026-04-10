@@ -18,6 +18,7 @@
 
 package com.genologics.ri.processtype;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -38,8 +39,7 @@ public class EppTrigger implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 3481787346877063815L;
+    @Serial private static final long serialVersionUID = 3481787346877063815L;
 
     @XmlAttribute(name = "name")
     protected String name;

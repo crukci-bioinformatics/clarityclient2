@@ -18,6 +18,7 @@
 
 package com.genologics.ri;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.regex.Pattern;
@@ -43,8 +44,7 @@ public class Link implements Locatable, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 7144458168274015747L;
+    @Serial private static final long serialVersionUID = 7144458168274015747L;
 
     /**
      * Pattern for splitting URI paths.

@@ -18,6 +18,7 @@
 
 package com.genologics.ri.sample;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,8 +53,7 @@ public class Samples implements PaginatedBatch<SampleLink>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 7481910467952402185L;
+    @Serial private static final long serialVersionUID = 7481910467952402185L;
 
     @XmlElement(name = "sample")
     protected List<SampleLink> samples;

@@ -18,6 +18,7 @@
 
 package com.genologics.ri.step;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -48,8 +49,7 @@ public class ProgramStatus implements Linkable<ProgramStatus>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -3133977224031042653L;
+    @Serial private static final long serialVersionUID = -3133977224031042653L;
 
     @XmlElement(name = "step")
     protected Link step;

@@ -18,6 +18,7 @@
 
 package com.genologics.ri.permission;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -46,8 +47,7 @@ public class Permission implements Linkable<Permission>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 5000872708185118382L;
+    @Serial private static final long serialVersionUID = 5000872708185118382L;
 
     /**
      * The permission name.

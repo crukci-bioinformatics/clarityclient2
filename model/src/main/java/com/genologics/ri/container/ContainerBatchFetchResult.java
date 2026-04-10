@@ -18,6 +18,7 @@
 
 package com.genologics.ri.container;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -45,8 +46,7 @@ public class ContainerBatchFetchResult implements BatchUpdate<Container>, Serial
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 3942410984112211790L;
+    @Serial private static final long serialVersionUID = 3942410984112211790L;
 
     /**
      * The list of containers.

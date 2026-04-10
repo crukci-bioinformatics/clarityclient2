@@ -1,6 +1,7 @@
 
 package com.genologics.ri.step;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -27,8 +28,7 @@ public class OutputArrangement implements LimsLink<Container>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -1273770265893773445L;
+    @Serial private static final long serialVersionUID = -1273770265893773445L;
 
     /**
      * The rack location for the output arrangement.

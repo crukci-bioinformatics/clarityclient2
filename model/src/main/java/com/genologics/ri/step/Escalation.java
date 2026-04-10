@@ -18,6 +18,7 @@
 
 package com.genologics.ri.step;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,8 +44,7 @@ public class Escalation implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -7363821101050828859L;
+    @Serial private static final long serialVersionUID = -7363821101050828859L;
 
     /**
      * The escalation request.

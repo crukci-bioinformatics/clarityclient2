@@ -18,6 +18,7 @@
 
 package com.genologics.ri.step;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -55,8 +56,7 @@ public class StepDetails implements Linkable<StepDetails>, UDFHolder, Serializab
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 5865493881321340964L;
+    @Serial private static final long serialVersionUID = 5865493881321340964L;
 
     @XmlElement
     protected Link step;

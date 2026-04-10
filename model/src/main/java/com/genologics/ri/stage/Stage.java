@@ -18,6 +18,7 @@
 
 package com.genologics.ri.stage;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.regex.Matcher;
@@ -61,8 +62,7 @@ public class Stage implements Linkable<Stage>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -7190421220331989537L;
+    @Serial private static final long serialVersionUID = -7190421220331989537L;
 
     /**
      * Link to the workflow this stage belongs to.

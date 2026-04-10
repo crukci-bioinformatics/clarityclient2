@@ -20,6 +20,7 @@ package com.genologics.ri.containertype;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -44,8 +45,7 @@ public class ContainerTypeLink implements LimsLink<ContainerType>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 7125345264225985052L;
+    @Serial private static final long serialVersionUID = 7125345264225985052L;
 
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")

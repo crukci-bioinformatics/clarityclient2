@@ -20,6 +20,7 @@ package com.genologics.ri.configuration;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -45,8 +46,7 @@ public class UdfConfigLink implements LimsLink<Field>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -164190204904044681L;
+    @Serial private static final long serialVersionUID = -164190204904044681L;
 
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")

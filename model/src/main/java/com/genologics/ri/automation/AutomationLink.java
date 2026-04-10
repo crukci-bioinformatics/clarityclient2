@@ -20,6 +20,7 @@ package com.genologics.ri.automation;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -42,8 +43,7 @@ public class AutomationLink implements LimsLink<Automation>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 3268594731404978793L;
+    @Serial private static final long serialVersionUID = 3268594731404978793L;
 
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")

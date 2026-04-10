@@ -18,6 +18,7 @@
 
 package com.genologics.ri.artifact;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,8 +44,7 @@ public class DemuxDetails implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -6725351237693935651L;
+    @Serial private static final long serialVersionUID = -6725351237693935651L;
 
     /**
      * The pool step of this demux details.

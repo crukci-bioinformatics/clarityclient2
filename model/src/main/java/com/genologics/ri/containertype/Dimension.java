@@ -25,6 +25,7 @@
 
 package com.genologics.ri.containertype;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -45,8 +46,7 @@ public class Dimension implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -1931190014491768673L;
+    @Serial private static final long serialVersionUID = -1931190014491768673L;
 
     /**
      * Whether numbering in this dimension is using letters (true) or numbers (false).

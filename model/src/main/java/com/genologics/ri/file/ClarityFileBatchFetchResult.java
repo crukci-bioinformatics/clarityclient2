@@ -18,6 +18,7 @@
 
 package com.genologics.ri.file;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -46,8 +47,7 @@ public class ClarityFileBatchFetchResult implements BatchUpdate<ClarityFile>, Se
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -536166874357106044L;
+    @Serial private static final long serialVersionUID = -536166874357106044L;
 
     @XmlElement(name = "file", namespace = Namespaces.FILE_NAMESPACE)
     protected List<ClarityFile> files;

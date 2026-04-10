@@ -18,6 +18,7 @@
 
 package com.genologics.ri.protocolconfiguration;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,8 +49,7 @@ public class Protocols implements Batch<ProtocolLink>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -586199251176099998L;
+    @Serial private static final long serialVersionUID = -586199251176099998L;
 
     /**
      * The list of protocol links.

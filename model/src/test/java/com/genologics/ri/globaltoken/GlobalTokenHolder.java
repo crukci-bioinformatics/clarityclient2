@@ -1,5 +1,6 @@
 package com.genologics.ri.globaltoken;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -19,7 +20,7 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "global-token-holder")
 public class GlobalTokenHolder implements Serializable
 {
-    private static final long serialVersionUID = -4152106020350196442L;
+    @Serial private static final long serialVersionUID = -4152106020350196442L;
 
     @XmlElement(name = "global-token")
     GlobalToken token;

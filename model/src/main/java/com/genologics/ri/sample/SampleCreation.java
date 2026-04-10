@@ -18,6 +18,8 @@
 
 package com.genologics.ri.sample;
 
+import java.io.Serial;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlRootElement;
@@ -46,8 +48,7 @@ public class SampleCreation extends SampleBase
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 8233679374775813938L;
+    @Serial private static final long serialVersionUID = 8233679374775813938L;
 
     protected Location location;
 

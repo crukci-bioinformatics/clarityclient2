@@ -18,6 +18,7 @@
 
 package com.genologics.ri.artifact;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -49,8 +50,7 @@ public class ArtifactBatchFetchResult implements BatchUpdate<Artifact>, Serializ
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -1280235468943933621L;
+    @Serial private static final long serialVersionUID = -1280235468943933621L;
 
     /**
      * The list of artifacts in this batch.

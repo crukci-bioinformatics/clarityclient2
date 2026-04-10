@@ -18,6 +18,7 @@
 
 package com.genologics.ri.configuration;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -42,8 +43,7 @@ public class FieldDynamicPreset implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -7014673523064270714L;
+    @Serial private static final long serialVersionUID = -7014673523064270714L;
 
     @XmlElement(name = "value")
     protected String value;

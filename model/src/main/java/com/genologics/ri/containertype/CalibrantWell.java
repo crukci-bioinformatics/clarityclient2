@@ -18,6 +18,7 @@
 
 package com.genologics.ri.containertype;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -41,8 +42,7 @@ public class CalibrantWell implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 218110772739169852L;
+    @Serial private static final long serialVersionUID = 218110772739169852L;
 
     @XmlAttribute(name = "name")
     protected String name;

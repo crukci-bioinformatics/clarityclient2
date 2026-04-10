@@ -18,6 +18,7 @@
 
 package com.genologics.ri.routing;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,8 +41,7 @@ public class Routing implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 4810146731548918326L;
+    @Serial private static final long serialVersionUID = 4810146731548918326L;
 
     @XmlElement(name = "assign")
     protected List<ExtArtifactAssignments> assignedRoutes;

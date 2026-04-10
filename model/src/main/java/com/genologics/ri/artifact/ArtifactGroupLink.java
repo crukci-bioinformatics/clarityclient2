@@ -20,6 +20,7 @@ package com.genologics.ri.artifact;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -45,8 +46,7 @@ public class ArtifactGroupLink implements LimsLink<ArtifactGroup>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 3815644574567253825L;
+    @Serial private static final long serialVersionUID = 3815644574567253825L;
 
     /**
      * The URI of this artifact group.

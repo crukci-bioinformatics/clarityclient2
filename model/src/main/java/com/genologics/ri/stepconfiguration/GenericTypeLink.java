@@ -18,6 +18,7 @@
 
 package com.genologics.ri.stepconfiguration;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -41,8 +42,7 @@ public class GenericTypeLink implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -7599295833392440499L;
+    @Serial private static final long serialVersionUID = -7599295833392440499L;
 
     /**
      * The value of the generic type link.

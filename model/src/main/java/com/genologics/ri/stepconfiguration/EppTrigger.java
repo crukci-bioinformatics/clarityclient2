@@ -18,6 +18,8 @@
 
 package com.genologics.ri.stepconfiguration;
 
+import java.io.Serial;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -34,8 +36,7 @@ public class EppTrigger extends LockableSetting
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 8850458905996420686L;
+    @Serial private static final long serialVersionUID = 8850458905996420686L;
 
     /**
      * The name of the EPP trigger.

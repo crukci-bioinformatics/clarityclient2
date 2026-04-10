@@ -20,6 +20,7 @@ package com.genologics.ri.processexecution;
 
 import static com.genologics.ri.Namespaces.UDF_NAMESPACE;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -56,8 +57,7 @@ public class ExecutableProcess implements UDFHolder, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -4582482597481524823L;
+    @Serial private static final long serialVersionUID = -4582482597481524823L;
 
     /**
      * The process type name.

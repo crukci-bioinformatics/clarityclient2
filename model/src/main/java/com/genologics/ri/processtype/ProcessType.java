@@ -18,6 +18,7 @@
 
 package com.genologics.ri.processtype;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -56,8 +57,7 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 3103866326222677563L;
+    @Serial private static final long serialVersionUID = 3103866326222677563L;
 
     @XmlElement(name = "field-definition")
     protected List<FieldLink> fieldDefinitions;

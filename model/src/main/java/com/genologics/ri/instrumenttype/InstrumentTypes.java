@@ -18,6 +18,7 @@
 
 package com.genologics.ri.instrumenttype;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,8 +47,7 @@ public class InstrumentTypes implements PaginatedBatch<InstrumentTypeLink>, Seri
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 1268811869773163450L;
+    @Serial private static final long serialVersionUID = 1268811869773163450L;
 
     /**
      * The list of instrument type links.

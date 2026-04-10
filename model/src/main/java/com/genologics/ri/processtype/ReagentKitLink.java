@@ -20,6 +20,7 @@ package com.genologics.ri.processtype;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -46,8 +47,7 @@ public class ReagentKitLink implements LimsLink<ReagentKit>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 7746715136563752804L;
+    @Serial private static final long serialVersionUID = 7746715136563752804L;
 
     @XmlAttribute(name = "name")
     protected String name;

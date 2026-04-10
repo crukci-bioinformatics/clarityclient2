@@ -20,6 +20,7 @@ package com.genologics.ri.instrumenttype;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -46,8 +47,7 @@ public class InstrumentTypeProcessType implements LimsLink<ProcessType>, Seriali
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 89917917703984734L;
+    @Serial private static final long serialVersionUID = 89917917703984734L;
 
     /**
      * The process type name.

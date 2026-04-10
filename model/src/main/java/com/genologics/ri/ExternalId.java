@@ -18,6 +18,7 @@
 
 package com.genologics.ri;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -50,8 +51,7 @@ public class ExternalId implements Locatable, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -6268759708863731052L;
+    @Serial private static final long serialVersionUID = -6268759708863731052L;
 
     /**
      * The id referencing the external system.

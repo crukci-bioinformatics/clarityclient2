@@ -18,6 +18,7 @@
 
 package com.genologics.ri.configuration;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,8 +53,7 @@ public class Udts implements PaginatedBatch<UdtConfigLink>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -3512684674322879203L;
+    @Serial private static final long serialVersionUID = -3512684674322879203L;
 
     @XmlElement(name = "udtconfig")
     protected List<UdtConfigLink> udtConfigLinks;

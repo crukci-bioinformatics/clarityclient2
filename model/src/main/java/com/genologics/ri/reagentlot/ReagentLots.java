@@ -18,6 +18,7 @@
 
 package com.genologics.ri.reagentlot;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,8 +50,7 @@ public class ReagentLots implements PaginatedBatch<ReagentLotLink>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -7760282244017305741L;
+    @Serial private static final long serialVersionUID = -7760282244017305741L;
 
     @XmlElement(name = "reagent-lot")
     protected List<ReagentLotLink> reagentLots;

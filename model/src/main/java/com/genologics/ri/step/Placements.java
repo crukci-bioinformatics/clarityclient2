@@ -18,6 +18,7 @@
 
 package com.genologics.ri.step;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -52,8 +53,7 @@ public class Placements implements Linkable<Placements>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -1949893881292269955L;
+    @Serial private static final long serialVersionUID = -1949893881292269955L;
 
     @XmlElement(name = "step")
     protected Link step;

@@ -18,6 +18,8 @@
 
 package com.genologics.ri.stepconfiguration;
 
+import java.io.Serial;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -36,8 +38,7 @@ public class QueueField extends Field
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -3020055581011697956L;
+    @Serial private static final long serialVersionUID = -3020055581011697956L;
 
     /**
      * Indicates whether this queue field should be shown in detail view.

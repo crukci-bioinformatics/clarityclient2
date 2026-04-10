@@ -18,6 +18,7 @@
 
 package com.genologics.ri.globaltoken;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -43,8 +44,7 @@ public class GlobalTokenLink implements LimsLink<GlobalToken>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 2340905402174078413L;
+    @Serial private static final long serialVersionUID = 2340905402174078413L;
 
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")

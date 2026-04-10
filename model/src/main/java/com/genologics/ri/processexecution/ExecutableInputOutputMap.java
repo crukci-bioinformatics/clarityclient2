@@ -18,6 +18,7 @@
 
 package com.genologics.ri.processexecution;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -55,8 +56,7 @@ public class ExecutableInputOutputMap implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -5751963471358280360L;
+    @Serial private static final long serialVersionUID = -5751963471358280360L;
 
     /**
      * List of input artifacts.

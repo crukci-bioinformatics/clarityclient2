@@ -18,6 +18,8 @@
 
 package com.genologics.ri.userdefined;
 
+import java.io.Serial;
+
 /**
  * Exception thrown when a required user-defined field is not found.
  */
@@ -26,8 +28,7 @@ public class MissingUDFException extends RuntimeException
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -4554179841298001722L;
+    @Serial private static final long serialVersionUID = -4554179841298001722L;
 
     /**
      * The name of the missing UDF.

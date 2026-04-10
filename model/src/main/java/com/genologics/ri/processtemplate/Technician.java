@@ -21,6 +21,7 @@ package com.genologics.ri.processtemplate;
 import static java.util.Objects.requireNonNull;
 import static org.apache.commons.lang3.StringUtils.SPACE;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -48,8 +49,7 @@ public class Technician implements LimsLink<Researcher>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -8798198413338733052L;
+    @Serial private static final long serialVersionUID = -8798198413338733052L;
 
     @XmlElement(name = "first-name")
     protected String firstName;

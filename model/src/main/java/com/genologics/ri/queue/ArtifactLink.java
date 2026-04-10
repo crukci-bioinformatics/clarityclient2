@@ -20,6 +20,7 @@ package com.genologics.ri.queue;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.Date;
@@ -52,8 +53,7 @@ public class ArtifactLink implements LimsEntityLink<Artifact>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -531351200403814712L;
+    @Serial private static final long serialVersionUID = -531351200403814712L;
 
     /**
      * The time when the artifact was queued.

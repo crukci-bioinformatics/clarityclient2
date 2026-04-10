@@ -18,6 +18,7 @@
 
 package com.genologics.ri.reagentkit;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -49,8 +50,7 @@ public class ReagentKits implements PaginatedBatch<ReagentKitLink>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 719305311109268363L;
+    @Serial private static final long serialVersionUID = 719305311109268363L;
 
     /**
      * The list of reagent kit links.

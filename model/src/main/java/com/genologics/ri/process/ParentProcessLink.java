@@ -20,6 +20,7 @@ package com.genologics.ri.process;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -44,8 +45,7 @@ public class ParentProcessLink implements LimsEntityLink<ClarityProcess>, Serial
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -6557381570589306115L;
+    @Serial private static final long serialVersionUID = -6557381570589306115L;
 
     /**
      * The URI of the parent process.

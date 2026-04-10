@@ -18,6 +18,8 @@
 
 package com.genologics.ri.processexecution;
 
+import java.io.Serial;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -41,8 +43,7 @@ public class Output extends ArtifactBase
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -923589090274221714L;
+    @Serial private static final long serialVersionUID = -923589090274221714L;
 
     /**
      * The location of the output artifact.

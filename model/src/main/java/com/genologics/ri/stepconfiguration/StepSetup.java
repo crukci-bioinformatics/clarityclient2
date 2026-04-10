@@ -18,6 +18,7 @@
 
 package com.genologics.ri.stepconfiguration;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,8 +40,7 @@ public class StepSetup extends LockableSetting
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 3706069288148584102L;
+    @Serial private static final long serialVersionUID = 3706069288148584102L;
 
     /**
      * List of shared result files for the step setup view.

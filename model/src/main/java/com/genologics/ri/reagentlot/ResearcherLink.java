@@ -20,6 +20,7 @@ package com.genologics.ri.reagentlot;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -48,8 +49,7 @@ public class ResearcherLink implements LimsEntityLink<Researcher>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -7080549970267921256L;
+    @Serial private static final long serialVersionUID = -7080549970267921256L;
 
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")

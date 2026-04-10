@@ -21,6 +21,7 @@ package com.genologics.ri.container;
 import static com.genologics.ri.Location.WELL_POSITION_SPLITTER;
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -50,8 +51,7 @@ public class Placement implements LimsEntityLink<Artifact>, Serializable, Compar
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -4089394834813900531L;
+    @Serial private static final long serialVersionUID = -4089394834813900531L;
 
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")

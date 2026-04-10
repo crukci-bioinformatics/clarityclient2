@@ -18,6 +18,7 @@
 
 package com.genologics.ri.step;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -38,8 +39,7 @@ public class ReagentLabel implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -5256319945578711720L;
+    @Serial private static final long serialVersionUID = -5256319945578711720L;
 
     @XmlAttribute(name = "name")
     protected String name;

@@ -20,6 +20,7 @@ package com.genologics.ri.stepconfiguration;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -44,8 +45,7 @@ public class ControlTypeLink extends LockableSetting implements LimsLink<Control
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -6200561684960024319L;
+    @Serial private static final long serialVersionUID = -6200561684960024319L;
 
     /**
      * The URI of the control type.

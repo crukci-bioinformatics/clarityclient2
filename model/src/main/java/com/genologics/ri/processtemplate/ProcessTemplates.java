@@ -18,6 +18,7 @@
 
 package com.genologics.ri.processtemplate;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,8 +53,7 @@ public class ProcessTemplates implements PaginatedBatch<ProcessTemplateLink>, Se
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -1986524456179019901L;
+    @Serial private static final long serialVersionUID = -1986524456179019901L;
 
     @XmlElement(name = "process-template")
     protected List<ProcessTemplateLink> processTemplates;

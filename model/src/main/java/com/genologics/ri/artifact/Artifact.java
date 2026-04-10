@@ -21,6 +21,7 @@ package com.genologics.ri.artifact;
 import static com.genologics.ri.Namespaces.FILE_NAMESPACE;
 import static com.genologics.ri.Namespaces.UDF_NAMESPACE;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -75,8 +76,7 @@ public class Artifact implements LimsEntity<Artifact>, UDFHolder, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 4667019853212119178L;
+    @Serial private static final long serialVersionUID = 4667019853212119178L;
 
     /**
      * The name of the artifact.

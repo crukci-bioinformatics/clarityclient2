@@ -20,6 +20,7 @@ package com.genologics.ri.process;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -46,8 +47,7 @@ public class ProcessTypeLink implements LimsLink<ProcessType>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 1852325206868769788L;
+    @Serial private static final long serialVersionUID = 1852325206868769788L;
 
     /**
      * The URI of the process type.

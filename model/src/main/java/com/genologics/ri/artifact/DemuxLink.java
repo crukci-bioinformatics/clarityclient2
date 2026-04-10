@@ -20,6 +20,7 @@ package com.genologics.ri.artifact;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -45,8 +46,7 @@ public class DemuxLink implements LimsLink<DemuxArtifact>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -3140263256856604670L;
+    @Serial private static final long serialVersionUID = -3140263256856604670L;
 
     /**
      * The URI of this demux artifact.

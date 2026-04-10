@@ -22,6 +22,7 @@ import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.text.MessageFormat;
 import java.util.Collection;
@@ -49,8 +50,7 @@ public class UDF implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -3019516615900521203L;
+    @Serial private static final long serialVersionUID = -3019516615900521203L;
 
     /**
      * The name of the user-defined field.

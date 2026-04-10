@@ -18,6 +18,7 @@
 
 package com.genologics.ri.processtype;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -37,8 +38,7 @@ public class ProcessInput implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -2733188258573850043L;
+    @Serial private static final long serialVersionUID = -2733188258573850043L;
 
     @XmlElement(name = "artifact-type")
     protected String artifactType;

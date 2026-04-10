@@ -18,6 +18,7 @@
 
 package com.genologics.ri.globaltoken;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,8 +48,7 @@ public class GlobalTokens implements PaginatedBatch<GlobalTokenLink>, Serializab
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -6362088116923564852L;
+    @Serial private static final long serialVersionUID = -6362088116923564852L;
 
     @XmlElement(name = "global-token")
     protected List<GlobalTokenLink> globalTokens;

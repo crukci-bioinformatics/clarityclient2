@@ -18,6 +18,7 @@
 
 package com.genologics.ri.step;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,8 +52,7 @@ public class StepCreation implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 3624008363559662022L;
+    @Serial private static final long serialVersionUID = 3624008363559662022L;
 
     @XmlElement
     protected StepConfiguration configuration;

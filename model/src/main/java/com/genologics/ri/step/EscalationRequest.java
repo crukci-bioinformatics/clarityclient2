@@ -18,6 +18,7 @@
 
 package com.genologics.ri.step;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -45,8 +46,7 @@ public class EscalationRequest implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 4381438520659390791L;
+    @Serial private static final long serialVersionUID = 4381438520659390791L;
 
     /**
      * The author of the escalation request.

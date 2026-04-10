@@ -18,6 +18,7 @@
 
 package com.genologics.ri.processtype;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,8 +53,7 @@ public class ProcessTypes implements PaginatedBatch<ProcessTypeLink>, Serializab
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 747260766479912084L;
+    @Serial private static final long serialVersionUID = 747260766479912084L;
 
     @XmlElement(name = "process-type")
     protected List<ProcessTypeLink> processTypes;

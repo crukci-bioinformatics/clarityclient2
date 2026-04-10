@@ -18,6 +18,7 @@
 
 package com.genologics.ri.reagenttype;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,8 +53,7 @@ public class ReagentTypes implements PaginatedBatch<ReagentTypeLink>, Serializab
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -3173542275521810830L;
+    @Serial private static final long serialVersionUID = -3173542275521810830L;
 
     @XmlElement(name = "reagent-type")
     protected List<ReagentTypeLink> reagentTypes;

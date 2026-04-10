@@ -18,6 +18,7 @@
 
 package com.genologics.ri.processtype;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -38,8 +39,7 @@ public class SharedResultFile implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -4934343881979066853L;
+    @Serial private static final long serialVersionUID = -4934343881979066853L;
 
     protected String message;
 

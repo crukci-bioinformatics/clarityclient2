@@ -18,6 +18,7 @@
 
 package com.genologics.ri.step;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -46,8 +47,7 @@ public class NextAction implements LimsLink<Artifact>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -8061858911629830727L;
+    @Serial private static final long serialVersionUID = -8061858911629830727L;
 
     /**
      * URI of the artifact.

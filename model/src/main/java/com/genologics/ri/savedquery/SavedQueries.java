@@ -18,6 +18,7 @@
 
 package com.genologics.ri.savedquery;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,8 +48,7 @@ public class SavedQueries implements PaginatedBatch<SavedQueryLink>, Serializabl
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -1608597563242261675L;
+    @Serial private static final long serialVersionUID = -1608597563242261675L;
 
     /**
      * The list of saved query links.

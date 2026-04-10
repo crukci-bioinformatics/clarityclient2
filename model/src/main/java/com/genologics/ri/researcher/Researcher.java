@@ -23,6 +23,7 @@ import static com.genologics.ri.Namespaces.UDF_NAMESPACE;
 import static org.apache.commons.lang3.StringUtils.isNoneEmpty;
 import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -61,8 +62,7 @@ public class Researcher implements LimsEntity<Researcher>, UDFHolder, Serializab
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 2552745292977587999L;
+    @Serial private static final long serialVersionUID = 2552745292977587999L;
 
     /**
      * The researcher's first name.

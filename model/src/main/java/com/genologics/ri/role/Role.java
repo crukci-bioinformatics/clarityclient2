@@ -18,6 +18,7 @@
 
 package com.genologics.ri.role;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -51,8 +52,7 @@ public class Role implements Linkable<Role>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 5417064490465819346L;
+    @Serial private static final long serialVersionUID = 5417064490465819346L;
 
     @XmlElement
     protected String name;

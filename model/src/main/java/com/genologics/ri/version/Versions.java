@@ -18,6 +18,7 @@
 
 package com.genologics.ri.version;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,8 +46,7 @@ public class Versions implements Batch<Version>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -1555363240810423322L;
+    @Serial private static final long serialVersionUID = -1555363240810423322L;
 
     /**
      * The list of versions.

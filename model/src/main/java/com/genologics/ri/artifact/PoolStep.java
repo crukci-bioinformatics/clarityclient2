@@ -20,6 +20,7 @@ package com.genologics.ri.artifact;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -45,8 +46,7 @@ public class PoolStep implements LimsLink<ProcessStep>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 2462830072429085619L;
+    @Serial private static final long serialVersionUID = 2462830072429085619L;
 
     /**
      * The URI of this pool step.

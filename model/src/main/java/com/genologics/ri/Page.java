@@ -18,6 +18,7 @@
 
 package com.genologics.ri;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -48,8 +49,7 @@ public class Page implements Locatable, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -5699038454764689725L;
+    @Serial private static final long serialVersionUID = -5699038454764689725L;
 
     /**
      * The URI to the page.

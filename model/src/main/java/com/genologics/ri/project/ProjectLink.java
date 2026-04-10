@@ -20,6 +20,7 @@ package com.genologics.ri.project;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -46,8 +47,7 @@ public class ProjectLink implements LimsEntityLink<Project>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 5015998464762805841L;
+    @Serial private static final long serialVersionUID = 5015998464762805841L;
 
     /**
      * The name of the project.

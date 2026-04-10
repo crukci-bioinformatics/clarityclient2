@@ -20,6 +20,7 @@ package com.genologics.ri.step;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -50,8 +51,7 @@ public class ArtifactLink implements LimsEntityLink<Artifact>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -3085489413319927673L;
+    @Serial private static final long serialVersionUID = -3085489413319927673L;
 
     /**
      * The type of the artifact output.

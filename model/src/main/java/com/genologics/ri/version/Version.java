@@ -18,6 +18,7 @@
 
 package com.genologics.ri.version;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -39,8 +40,7 @@ public class Version implements Locatable, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -28598435711579586L;
+    @Serial private static final long serialVersionUID = -28598435711579586L;
 
     /**
      * The URI of the version.

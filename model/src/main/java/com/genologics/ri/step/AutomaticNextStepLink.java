@@ -21,6 +21,7 @@ package com.genologics.ri.step;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -47,8 +48,7 @@ public class AutomaticNextStepLink implements LimsLink<ProcessStep>, Serializabl
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -7710114187126292590L;
+    @Serial private static final long serialVersionUID = -7710114187126292590L;
 
     /**
      * URI of the automatic next step.

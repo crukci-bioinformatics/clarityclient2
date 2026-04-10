@@ -18,6 +18,7 @@
 
 package com.genologics.ri.lab;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,8 +52,7 @@ public class Labs implements PaginatedBatch<LabLink>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -2447458193812155143L;
+    @Serial private static final long serialVersionUID = -2447458193812155143L;
 
     /**
      * The list of lab links.

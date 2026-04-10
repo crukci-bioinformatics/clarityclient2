@@ -18,6 +18,7 @@
 
 package com.genologics.ri.processexecution;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -39,8 +40,7 @@ public class Parameter implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 8161442493380982959L;
+    @Serial private static final long serialVersionUID = 8161442493380982959L;
 
     /**
      * The name of the parameter.

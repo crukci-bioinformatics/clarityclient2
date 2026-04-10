@@ -18,6 +18,7 @@
 
 package com.genologics.ri.property;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -39,8 +40,7 @@ public class PropertyLink implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -6134863203392574429L;
+    @Serial private static final long serialVersionUID = -6134863203392574429L;
 
     /**
      * The URI of the property.

@@ -18,6 +18,7 @@
 
 package com.genologics.ri.exception;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -54,8 +55,7 @@ public class Exception implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 8552752622433159544L;
+    @Serial private static final long serialVersionUID = 8552752622433159544L;
 
     @XmlElement(name = "message")
     protected String message;

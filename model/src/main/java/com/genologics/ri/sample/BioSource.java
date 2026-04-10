@@ -20,6 +20,7 @@ package com.genologics.ri.sample;
 
 import static com.genologics.ri.Namespaces.UDF_NAMESPACE;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,8 +51,7 @@ public class BioSource implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -4781585129823907022L;
+    @Serial private static final long serialVersionUID = -4781585129823907022L;
 
     /**
      * The description of the biosource.

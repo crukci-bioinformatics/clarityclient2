@@ -20,6 +20,7 @@ package com.genologics.ri.researcher;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -45,8 +46,7 @@ public class ResearcherLink implements LimsEntityLink<Researcher>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 5396333049575412661L;
+    @Serial private static final long serialVersionUID = 5396333049575412661L;
 
     /**
      * The researcher's first name.

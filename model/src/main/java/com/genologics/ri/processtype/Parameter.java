@@ -20,6 +20,7 @@ package com.genologics.ri.processtype;
 
 import static com.genologics.ri.Namespaces.FILE_NAMESPACE;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,8 +48,7 @@ public class Parameter implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -803288179230938758L;
+    @Serial private static final long serialVersionUID = -803288179230938758L;
 
     @XmlElement(name = "file")
     @Deprecated

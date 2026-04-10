@@ -18,6 +18,7 @@
 
 package com.genologics.ri.process;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,8 +52,7 @@ public class ClarityProcesses implements PaginatedBatch<ProcessLink>, Serializab
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -4214726592787580002L;
+    @Serial private static final long serialVersionUID = -4214726592787580002L;
 
     /**
      * The list of process links.

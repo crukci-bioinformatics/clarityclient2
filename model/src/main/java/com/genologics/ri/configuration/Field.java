@@ -18,6 +18,7 @@
 
 package com.genologics.ri.configuration;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -53,8 +54,7 @@ public class Field implements Linkable<Field>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -1997333408044717019L;
+    @Serial private static final long serialVersionUID = -1997333408044717019L;
 
     @XmlElement(name = "name")
     protected String name;

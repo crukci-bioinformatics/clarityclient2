@@ -18,6 +18,8 @@
 
 package com.genologics.ri.processtype;
 
+import java.io.Serial;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -39,8 +41,7 @@ public class QueueField extends Field
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 2849413901300410668L;
+    @Serial private static final long serialVersionUID = 2849413901300410668L;
 
     @XmlAttribute(name = "detail")
     protected Boolean detail;

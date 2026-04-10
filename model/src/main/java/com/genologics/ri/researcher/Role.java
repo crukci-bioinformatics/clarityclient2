@@ -20,6 +20,7 @@ package com.genologics.ri.researcher;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -69,8 +70,7 @@ public class Role implements LimsLink<com.genologics.ri.role.Role>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -4641418115009008515L;
+    @Serial private static final long serialVersionUID = -4641418115009008515L;
 
     /**
      * The role name. Deprecated from version 2.19.

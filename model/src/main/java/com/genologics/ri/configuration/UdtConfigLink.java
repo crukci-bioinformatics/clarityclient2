@@ -20,6 +20,7 @@ package com.genologics.ri.configuration;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -45,8 +46,7 @@ public class UdtConfigLink implements LimsLink<Type>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -9221186839753173309L;
+    @Serial private static final long serialVersionUID = -9221186839753173309L;
 
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")

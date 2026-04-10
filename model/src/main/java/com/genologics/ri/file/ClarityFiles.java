@@ -18,6 +18,7 @@
 
 package com.genologics.ri.file;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,8 +52,7 @@ public class ClarityFiles implements PaginatedBatch<FileLink>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -1824449685486824569L;
+    @Serial private static final long serialVersionUID = -1824449685486824569L;
 
     @XmlElement(name = "file")
     protected List<FileLink> files;

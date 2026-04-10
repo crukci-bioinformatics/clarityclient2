@@ -18,6 +18,7 @@
 
 package com.genologics.ri.globaltoken;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -49,8 +50,7 @@ public class GlobalToken implements Linkable<GlobalToken>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 8999326250541104054L;
+    @Serial private static final long serialVersionUID = 8999326250541104054L;
 
     @XmlElement
     protected String name;

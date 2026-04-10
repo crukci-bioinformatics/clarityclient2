@@ -20,6 +20,7 @@ package com.genologics.ri.stepconfiguration;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -46,8 +47,7 @@ public class ReagentKitLink extends LockableSetting implements LimsLink<ReagentK
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -6108166879985602695L;
+    @Serial private static final long serialVersionUID = -6108166879985602695L;
 
     /**
      * The name of the reagent kit.

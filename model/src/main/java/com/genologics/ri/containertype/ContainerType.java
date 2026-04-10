@@ -18,6 +18,7 @@
 
 package com.genologics.ri.containertype;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -88,8 +89,7 @@ public class ContainerType implements Linkable<ContainerType>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -3778472967085446652L;
+    @Serial private static final long serialVersionUID = -3778472967085446652L;
 
     @XmlElement(name = "is-tube")
     protected Boolean tube;

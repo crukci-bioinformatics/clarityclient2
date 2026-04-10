@@ -20,6 +20,7 @@ package com.genologics.ri.step;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -49,8 +50,7 @@ public class SharedResultFile implements LimsEntityLink<Artifact>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -1481534271853089634L;
+    @Serial private static final long serialVersionUID = -1481534271853089634L;
 
     @XmlElement
     protected String message;

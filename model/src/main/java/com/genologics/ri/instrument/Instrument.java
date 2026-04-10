@@ -18,6 +18,7 @@
 
 package com.genologics.ri.instrument;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -63,8 +64,7 @@ public class Instrument implements LimsEntity<Instrument>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 1517557403395348841L;
+    @Serial private static final long serialVersionUID = 1517557403395348841L;
 
     /**
      * The instrument name.

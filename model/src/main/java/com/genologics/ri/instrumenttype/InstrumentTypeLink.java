@@ -20,6 +20,7 @@ package com.genologics.ri.instrumenttype;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -45,8 +46,7 @@ public class InstrumentTypeLink implements LimsLink<InstrumentType>, Serializabl
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 3927957034901059387L;
+    @Serial private static final long serialVersionUID = 3927957034901059387L;
 
     /**
      * The URI of the instrument type.

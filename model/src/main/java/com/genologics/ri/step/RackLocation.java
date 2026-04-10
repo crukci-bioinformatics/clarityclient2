@@ -1,6 +1,7 @@
 
 package com.genologics.ri.step;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -21,8 +22,7 @@ public class RackLocation implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 1531522948721112254L;
+    @Serial private static final long serialVersionUID = 1531522948721112254L;
 
     @XmlElement(name = "rack-index")
     protected Integer rackIndex;

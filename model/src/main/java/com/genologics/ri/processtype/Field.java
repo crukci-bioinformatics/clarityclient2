@@ -18,6 +18,7 @@
 
 package com.genologics.ri.processtype;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -46,8 +47,7 @@ public class Field implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 7870381376405702078L;
+    @Serial private static final long serialVersionUID = 7870381376405702078L;
 
     @XmlAttribute(name = "name")
     protected String name;

@@ -18,6 +18,7 @@
 
 package com.genologics.ri.artifact;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -46,8 +47,7 @@ public class Demux implements Locatable, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 8873892961025197978L;
+    @Serial private static final long serialVersionUID = 8873892961025197978L;
 
     /**
      * The source artifact being demultiplexed.

@@ -20,6 +20,7 @@ package com.genologics.ri.step;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -47,8 +48,7 @@ public class OutputPlacement implements LimsLink<Artifact>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 5187719712136408829L;
+    @Serial private static final long serialVersionUID = 5187719712136408829L;
 
     protected Location location;
 

@@ -18,6 +18,7 @@
 
 package com.genologics.ri.reagentlot;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.Date;
@@ -58,8 +59,7 @@ public class ReagentLot implements LimsEntity<ReagentLot>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 8414977581247533239L;
+    @Serial private static final long serialVersionUID = 8414977581247533239L;
 
     @XmlElement(name = "reagent-kit")
     protected ReagentKitLink reagentKit;

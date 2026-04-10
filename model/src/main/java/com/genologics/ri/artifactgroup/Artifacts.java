@@ -18,6 +18,7 @@
 
 package com.genologics.ri.artifactgroup;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -41,8 +42,7 @@ public class Artifacts implements Locatable, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -2118023404939650487L;
+    @Serial private static final long serialVersionUID = -2118023404939650487L;
 
     /**
      * The URI of the artifacts in this group.

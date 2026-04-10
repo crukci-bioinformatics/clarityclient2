@@ -18,6 +18,7 @@
 
 package com.genologics.ri.researcher;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,8 +52,7 @@ public class Researchers implements PaginatedBatch<ResearcherLink>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 1730166894555776245L;
+    @Serial private static final long serialVersionUID = 1730166894555776245L;
 
     /**
      * The list of researcher links.

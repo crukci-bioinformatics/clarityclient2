@@ -21,6 +21,7 @@ package com.genologics.ri.process;
 import static com.genologics.ri.Namespaces.FILE_NAMESPACE;
 import static com.genologics.ri.Namespaces.UDF_NAMESPACE;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -63,8 +64,7 @@ public class ClarityProcess implements LimsEntity<ClarityProcess>, UDFHolder, Se
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 6767285324829996005L;
+    @Serial private static final long serialVersionUID = 6767285324829996005L;
 
     /**
      * The type of the process.

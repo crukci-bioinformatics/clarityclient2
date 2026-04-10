@@ -21,6 +21,7 @@ package com.genologics.ri.container;
 import static com.genologics.ri.Namespaces.UDF_NAMESPACE;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -59,8 +60,7 @@ public class Container implements LimsEntity<Container>, UDFHolder, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -5274665844559069140L;
+    @Serial private static final long serialVersionUID = -5274665844559069140L;
 
     /**
      * The name of the container.

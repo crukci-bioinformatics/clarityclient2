@@ -18,6 +18,8 @@
 
 package com.genologics.ri.processtype;
 
+import java.io.Serial;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -38,8 +40,7 @@ public class IceBucketField extends Field
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 8915614372544937283L;
+    @Serial private static final long serialVersionUID = 8915614372544937283L;
 
     @XmlAttribute(name = "detail")
     protected Boolean detail;

@@ -18,6 +18,7 @@
 
 package com.genologics.ri.permission;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,8 +48,7 @@ public class Permissions implements Batch<PermissionLink>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -8403111885816697046L;
+    @Serial private static final long serialVersionUID = -8403111885816697046L;
 
     /**
      * The list of permission links.

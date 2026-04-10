@@ -20,6 +20,7 @@ package com.genologics.ri.processtemplate;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -47,8 +48,7 @@ public class InstrumentLink implements LimsEntityLink<Instrument>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -2255676271595073801L;
+    @Serial private static final long serialVersionUID = -2255676271595073801L;
 
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")

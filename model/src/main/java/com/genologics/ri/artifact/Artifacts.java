@@ -18,6 +18,7 @@
 
 package com.genologics.ri.artifact;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,8 +53,7 @@ public class Artifacts implements PaginatedBatch<ArtifactLink>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 2523274106664095426L;
+    @Serial private static final long serialVersionUID = 2523274106664095426L;
 
     /**
      * The list of artifact links.

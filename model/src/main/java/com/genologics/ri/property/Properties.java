@@ -18,6 +18,7 @@
 
 package com.genologics.ri.property;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,8 +52,7 @@ public class Properties implements PaginatedBatch<PropertyLink>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -4193984606951017687L;
+    @Serial private static final long serialVersionUID = -4193984606951017687L;
 
     /**
      * The list of property links.

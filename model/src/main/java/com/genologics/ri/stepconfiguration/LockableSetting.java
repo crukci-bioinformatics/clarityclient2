@@ -18,6 +18,7 @@
 
 package com.genologics.ri.stepconfiguration;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -41,8 +42,7 @@ public class LockableSetting implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 1977151383272159438L;
+    @Serial private static final long serialVersionUID = 1977151383272159438L;
 
     /**
      * Indicates whether this setting is locked by the master step.

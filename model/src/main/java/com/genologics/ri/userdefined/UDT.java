@@ -20,6 +20,7 @@ package com.genologics.ri.userdefined;
 
 import static com.genologics.ri.Namespaces.UDF_NAMESPACE;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,8 +44,7 @@ public class UDT implements UDFHolder, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -6550385282803073762L;
+    @Serial private static final long serialVersionUID = -6550385282803073762L;
 
     /**
      * The list of user-defined fields in this type.

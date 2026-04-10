@@ -18,6 +18,8 @@
 
 package com.genologics.ri.sample;
 
+import java.io.Serial;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlRootElement;
@@ -42,8 +44,7 @@ public class Sample extends SampleBase implements LimsEntity<Sample>
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 5852545940907097947L;
+    @Serial private static final long serialVersionUID = 5852545940907097947L;
 
     /**
      * Location for a new sample to be created in a container.

@@ -18,6 +18,7 @@
 
 package com.genologics.ri.protocolconfiguration;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -66,8 +67,7 @@ public class Protocol implements Linkable<Protocol>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -8872729950204682764L;
+    @Serial private static final long serialVersionUID = -8872729950204682764L;
 
     /**
      * The list of steps in this protocol.

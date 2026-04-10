@@ -18,6 +18,7 @@
 
 package com.genologics.ri.processexecution;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -44,8 +45,7 @@ public abstract class ArtifactBase implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -946571040944446567L;
+    @Serial private static final long serialVersionUID = -946571040944446567L;
 
     /**
      * The quality control flag for this artifact.

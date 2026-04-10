@@ -18,6 +18,7 @@
 
 package com.genologics.ri.configuration;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -47,8 +48,7 @@ public class Type implements Linkable<Type>, Batch<FieldLink>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 6975337629090720371L;
+    @Serial private static final long serialVersionUID = 6975337629090720371L;
 
     @XmlElement(name = "field-definition")
     protected List<FieldLink> fieldDefinitions;

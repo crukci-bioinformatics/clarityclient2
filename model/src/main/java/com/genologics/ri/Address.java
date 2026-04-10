@@ -18,6 +18,7 @@
 
 package com.genologics.ri;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -35,8 +36,7 @@ public class Address implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 5343736859063068514L;
+    @Serial private static final long serialVersionUID = 5343736859063068514L;
 
     /**
      * The street address.

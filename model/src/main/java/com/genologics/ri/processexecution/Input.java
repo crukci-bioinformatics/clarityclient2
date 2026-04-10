@@ -20,6 +20,7 @@ package com.genologics.ri.processexecution;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -44,8 +45,7 @@ public class Input extends ArtifactBase implements LimsLink<Artifact>
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -8366721361957628940L;
+    @Serial private static final long serialVersionUID = -8366721361957628940L;
 
     /**
      * The URI of the input artifact.

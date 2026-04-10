@@ -18,6 +18,8 @@
 
 package com.genologics.ri.stepconfiguration;
 
+import java.io.Serial;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -37,8 +39,7 @@ public class Field extends LockableSetting
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 2627702301901466857L;
+    @Serial private static final long serialVersionUID = 2627702301901466857L;
 
     /**
      * The name of the field.

@@ -18,6 +18,8 @@
 
 package com.genologics.ri.stepconfiguration;
 
+import java.io.Serial;
+
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
@@ -38,8 +40,7 @@ public class IceBucketField extends Field
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -2716908183459254115L;
+    @Serial private static final long serialVersionUID = -2716908183459254115L;
 
     /**
      * Indicates whether this ice bucket field should be shown in detail view.

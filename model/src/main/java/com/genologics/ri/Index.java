@@ -18,6 +18,7 @@
 
 package com.genologics.ri;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,8 +39,7 @@ public class Index implements Batch<Link>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -458228684534981324L;
+    @Serial private static final long serialVersionUID = -458228684534981324L;
 
     /**
      * The list of links in this index.

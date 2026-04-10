@@ -18,6 +18,7 @@
 
 package com.genologics.ri.workflowconfiguration;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,8 +45,7 @@ public class Workflows implements Batch<WorkflowLink>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -7678105241108473919L;
+    @Serial private static final long serialVersionUID = -7678105241108473919L;
 
     /**
      * The list of workflow links.

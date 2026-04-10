@@ -18,6 +18,7 @@
 
 package com.genologics.ri.step;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -59,8 +60,7 @@ import com.genologics.ri.researcher.Researcher;
 @XmlRootElement(name = "step")
 public class ProcessStep implements LimsEntity<ProcessStep>, Serializable
 {
-    @java.io.Serial
-    private static final long serialVersionUID = 8157777981636538216L;
+    @Serial private static final long serialVersionUID = 8157777981636538216L;
 
     /**
      * @since 2.22
@@ -383,7 +383,6 @@ public class ProcessStep implements LimsEntity<ProcessStep>, Serializable
         /**
          * Class version for serialisation.
          */
-    @java.io.Serial
         private static final long serialVersionUID = -7807865307254531322L;
 
         /**

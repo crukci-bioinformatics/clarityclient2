@@ -18,6 +18,7 @@
 
 package com.genologics.ri.reagenttype;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -43,8 +44,7 @@ public class ReagentTypeLink implements LimsEntityLink<ReagentType>, Serializabl
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -628102520150401023L;
+    @Serial private static final long serialVersionUID = -628102520150401023L;
 
     @XmlAttribute(name = "name")
     protected String name;

@@ -18,6 +18,7 @@
 
 package com.genologics.ri.configuration;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -63,8 +64,7 @@ public class FieldDynamicPresetDetails implements Locatable, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -8814597927446111161L;
+    @Serial private static final long serialVersionUID = -8814597927446111161L;
 
     // With Clarity 6.3.3, this element must have the namespace set on it as well.
     @XmlElement(name = "field-dynamic-preset", namespace = Namespaces.CONFIGURATION_NAMESPACE)

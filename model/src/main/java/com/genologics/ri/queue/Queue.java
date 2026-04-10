@@ -18,6 +18,7 @@
 
 package com.genologics.ri.queue;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -60,8 +61,7 @@ public class Queue implements PaginatedBatch<ArtifactLink>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 4372664462524847744L;
+    @Serial private static final long serialVersionUID = 4372664462524847744L;
 
     /**
      * The list of artifacts in the queue.

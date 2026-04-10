@@ -18,6 +18,7 @@
 
 package com.genologics.ri.project;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,8 +53,7 @@ public class Projects implements PaginatedBatch<ProjectLink>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -507792514854460064L;
+    @Serial private static final long serialVersionUID = -507792514854460064L;
 
     /**
      * The list of project links.

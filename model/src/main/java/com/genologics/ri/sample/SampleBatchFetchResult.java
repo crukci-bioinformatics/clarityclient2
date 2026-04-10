@@ -18,6 +18,7 @@
 
 package com.genologics.ri.sample;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -48,8 +49,7 @@ public class SampleBatchFetchResult implements BatchUpdate<Sample>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 8207729034543316762L;
+    @Serial private static final long serialVersionUID = 8207729034543316762L;
 
     @XmlElement(name = "sample", namespace = Namespaces.SAMPLE_NAMESPACE)
     protected List<Sample> samples;

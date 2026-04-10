@@ -18,6 +18,7 @@
 
 package com.genologics.ri.controltype;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -47,8 +48,7 @@ public class ControlTypes implements Batch<ControlTypeLink>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 5668622843069816173L;
+    @Serial private static final long serialVersionUID = 5668622843069816173L;
 
     /**
      * The list of control type links.

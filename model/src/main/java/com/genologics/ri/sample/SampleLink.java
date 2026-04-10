@@ -20,6 +20,7 @@ package com.genologics.ri.sample;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -44,8 +45,7 @@ public class SampleLink implements LimsEntityLink<Sample>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -5247716763134908401L;
+    @Serial private static final long serialVersionUID = -5247716763134908401L;
 
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")

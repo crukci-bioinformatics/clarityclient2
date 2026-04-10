@@ -20,6 +20,7 @@ package com.genologics.ri.file;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -46,8 +47,7 @@ public class FileLink implements LimsLink<ClarityFile>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -2151598768590902010L;
+    @Serial private static final long serialVersionUID = -2151598768590902010L;
 
     @XmlAttribute(name = "uri")
     protected URI uri;

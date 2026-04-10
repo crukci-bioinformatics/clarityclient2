@@ -18,6 +18,7 @@
 
 package com.genologics.ri.stepconfiguration;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -37,8 +38,7 @@ public class SharedResultFile implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 5837529395773779245L;
+    @Serial private static final long serialVersionUID = 5837529395773779245L;
 
     /**
      * The message associated with this shared result file.

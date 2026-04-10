@@ -20,6 +20,7 @@ package com.genologics.ri.reagentlot;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -48,8 +49,7 @@ public class ReagentLotLink implements LimsEntityLink<ReagentLot>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -5668438563329514777L;
+    @Serial private static final long serialVersionUID = -5668438563329514777L;
 
     /**
      * The name of the Reagent Lot.

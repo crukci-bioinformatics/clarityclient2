@@ -18,6 +18,7 @@
 
 package com.genologics.ri.stepconfiguration;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -80,8 +81,7 @@ public class ProtocolStep implements Linkable<ProtocolStep>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 496185986542798015L;
+    @Serial private static final long serialVersionUID = 496185986542798015L;
 
     /**
      * The index of this step within the protocol.

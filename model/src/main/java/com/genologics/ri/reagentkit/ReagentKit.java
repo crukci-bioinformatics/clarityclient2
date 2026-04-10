@@ -18,6 +18,7 @@
 
 package com.genologics.ri.reagentkit;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -47,8 +48,7 @@ public class ReagentKit implements Linkable<ReagentKit>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 7467244485974104986L;
+    @Serial private static final long serialVersionUID = 7467244485974104986L;
 
     /**
      * The name of the reagent kit.

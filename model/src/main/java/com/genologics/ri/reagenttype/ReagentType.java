@@ -18,6 +18,7 @@
 
 package com.genologics.ri.reagenttype;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -50,8 +51,7 @@ public class ReagentType implements LimsEntity<ReagentType>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -7390347729777321516L;
+    @Serial private static final long serialVersionUID = -7390347729777321516L;
 
     /**
      * The special type of this reagent type.

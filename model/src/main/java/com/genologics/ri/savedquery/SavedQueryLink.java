@@ -18,6 +18,7 @@
 
 package com.genologics.ri.savedquery;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -43,8 +44,7 @@ public class SavedQueryLink implements LimsLink<SavedQuery>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -262825664905616405L;
+    @Serial private static final long serialVersionUID = -262825664905616405L;
 
     /**
      * The name of the saved query.

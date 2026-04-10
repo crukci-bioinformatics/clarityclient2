@@ -18,6 +18,7 @@
 
 package com.genologics.ri.process;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -47,8 +48,7 @@ public class InputOutputMap implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 1174916419431443420L;
+    @Serial private static final long serialVersionUID = 1174916419431443420L;
 
     /**
      * The input artifact link.

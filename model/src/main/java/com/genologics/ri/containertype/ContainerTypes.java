@@ -18,6 +18,7 @@
 
 package com.genologics.ri.containertype;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,8 +53,7 @@ public class ContainerTypes implements PaginatedBatch<ContainerTypeLink>, Serial
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 8642031910932251369L;
+    @Serial private static final long serialVersionUID = 8642031910932251369L;
 
     @XmlElement(name = "container-type")
     protected List<ContainerTypeLink> containerTypes;

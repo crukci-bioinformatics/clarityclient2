@@ -18,6 +18,7 @@
 
 package com.genologics.ri.researcher;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +40,7 @@ public class Credentials implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -2712902822454057343L;
+    @Serial private static final long serialVersionUID = -2712902822454057343L;
 
     /**
      * The researcher's username.

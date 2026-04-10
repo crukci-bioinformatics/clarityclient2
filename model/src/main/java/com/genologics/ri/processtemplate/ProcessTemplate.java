@@ -20,6 +20,7 @@ package com.genologics.ri.processtemplate;
 
 import static com.genologics.ri.Namespaces.UDF_NAMESPACE;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -57,8 +58,7 @@ public class ProcessTemplate implements Linkable<ProcessTemplate>, UDFHolder, Se
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 3219761173873030207L;
+    @Serial private static final long serialVersionUID = 3219761173873030207L;
 
     @XmlElement(name = "name")
     protected String name;

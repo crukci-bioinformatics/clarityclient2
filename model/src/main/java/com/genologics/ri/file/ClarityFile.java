@@ -20,6 +20,7 @@ package com.genologics.ri.file;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -51,8 +52,7 @@ public class ClarityFile implements LimsEntity<ClarityFile>, LimsEntityLink<Clar
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -6683975101172687186L;
+    @Serial private static final long serialVersionUID = -6683975101172687186L;
 
     @XmlElement(name = "attached-to")
     @XmlSchemaType(name = "anyURI")

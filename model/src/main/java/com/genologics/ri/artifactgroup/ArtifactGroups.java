@@ -18,6 +18,7 @@
 
 package com.genologics.ri.artifactgroup;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,8 +53,7 @@ public class ArtifactGroups implements PaginatedBatch<ArtifactGroupLink>, Serial
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 2682947388238084051L;
+    @Serial private static final long serialVersionUID = 2682947388238084051L;
 
     /**
      * The list of artifact group links.

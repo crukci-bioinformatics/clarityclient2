@@ -18,6 +18,7 @@
 
 package com.genologics.ri.reagenttype;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +40,7 @@ public class SpecialType implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 2227997075421321531L;
+    @Serial private static final long serialVersionUID = 2227997075421321531L;
 
     @XmlElement(name = "attribute")
     protected List<Attribute> attributes;

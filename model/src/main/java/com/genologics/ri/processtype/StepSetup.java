@@ -18,6 +18,7 @@
 
 package com.genologics.ri.processtype;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,8 +42,7 @@ public class StepSetup implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 2084961137587517113L;
+    @Serial private static final long serialVersionUID = 2084961137587517113L;
 
     @XmlElementWrapper(name = "files")
     @XmlElement(name = "file")

@@ -20,6 +20,7 @@ package com.genologics.ri.stage;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -44,8 +45,7 @@ public class ProtocolStepLink implements LimsLink<ProtocolStep>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -8628711111931596088L;
+    @Serial private static final long serialVersionUID = -8628711111931596088L;
 
     /**
      * The URI of the protocol step.

@@ -20,6 +20,7 @@ package com.genologics.ri.protocolconfiguration;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -45,8 +46,7 @@ public class ProtocolLink implements LimsLink<Protocol>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 5561496957381579448L;
+    @Serial private static final long serialVersionUID = 5561496957381579448L;
 
     /**
      * The name of the protocol.

@@ -18,6 +18,7 @@
 
 package com.genologics.ri.role;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -46,8 +47,7 @@ public class Roles implements Batch<RoleLink>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -8997233724026640778L;
+    @Serial private static final long serialVersionUID = -8997233724026640778L;
 
     @XmlElement(name = "role")
     protected List<RoleLink> roles;

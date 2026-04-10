@@ -18,6 +18,7 @@
 
 package com.genologics.ri.processtype;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,8 +43,7 @@ public class ProcessOutput implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 3584171153300804850L;
+    @Serial private static final long serialVersionUID = 3584171153300804850L;
 
     @XmlElement(name = "artifact-type")
     protected String artifactType;

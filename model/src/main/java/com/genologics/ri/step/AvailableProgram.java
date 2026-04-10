@@ -18,6 +18,7 @@
 
 package com.genologics.ri.step;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -40,8 +41,7 @@ public class AvailableProgram implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -4101189878995002052L;
+    @Serial private static final long serialVersionUID = -4101189878995002052L;
 
     /**
      * URI of the available program.

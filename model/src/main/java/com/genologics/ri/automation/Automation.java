@@ -18,6 +18,7 @@
 
 package com.genologics.ri.automation;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
@@ -56,8 +57,7 @@ public class Automation implements Linkable<Automation>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 8888968017373728807L;
+    @Serial private static final long serialVersionUID = 8888968017373728807L;
 
     @XmlElement
     protected Context context;

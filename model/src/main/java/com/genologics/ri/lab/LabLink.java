@@ -20,6 +20,7 @@ package com.genologics.ri.lab;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -45,8 +46,7 @@ public class LabLink implements LimsEntityLink<Lab>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 5826900114630147822L;
+    @Serial private static final long serialVersionUID = 5826900114630147822L;
 
     /**
      * The URI of the lab resource.

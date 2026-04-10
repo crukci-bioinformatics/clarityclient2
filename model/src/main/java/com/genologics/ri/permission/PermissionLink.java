@@ -20,6 +20,7 @@ package com.genologics.ri.permission;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -44,8 +45,7 @@ public class PermissionLink implements LimsLink<Permission>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -1000854973822260389L;
+    @Serial private static final long serialVersionUID = -1000854973822260389L;
 
     /**
      * The permission action.

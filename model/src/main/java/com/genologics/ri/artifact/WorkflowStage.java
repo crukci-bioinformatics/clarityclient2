@@ -20,6 +20,7 @@ package com.genologics.ri.artifact;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 import java.util.regex.Matcher;
@@ -55,8 +56,7 @@ public class WorkflowStage implements LimsLink<Stage>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 8029803456211993608L;
+    @Serial private static final long serialVersionUID = 8029803456211993608L;
 
     /**
      * The URI of this workflow stage.

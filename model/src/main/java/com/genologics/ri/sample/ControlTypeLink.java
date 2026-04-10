@@ -20,6 +20,7 @@ package com.genologics.ri.sample;
 
 import static java.util.Objects.requireNonNull;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
 
@@ -46,8 +47,7 @@ public class ControlTypeLink implements LimsLink<ControlType>, Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = 4125221399101385098L;
+    @Serial private static final long serialVersionUID = 4125221399101385098L;
 
     /**
      * The URI of the control type.

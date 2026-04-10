@@ -18,6 +18,7 @@
 
 package com.genologics.ri.protocolconfiguration;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -38,8 +39,7 @@ public class ProtocolProperty implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -2121684009872156372L;
+    @Serial private static final long serialVersionUID = -2121684009872156372L;
 
     /**
      * The name of the protocol property.

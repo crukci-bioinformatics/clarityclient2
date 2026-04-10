@@ -18,6 +18,7 @@
 
 package com.genologics.ri.processtype;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -41,8 +42,7 @@ public class StepProperty implements Serializable
     /**
      * Class version for serialisation.
      */
-    @java.io.Serial
-    private static final long serialVersionUID = -4276491956024298591L;
+    @Serial private static final long serialVersionUID = -4276491956024298591L;
 
     @XmlAttribute(name = "name")
     protected String name;
