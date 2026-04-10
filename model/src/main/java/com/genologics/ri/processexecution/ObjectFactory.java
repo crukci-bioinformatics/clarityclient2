@@ -28,18 +28,19 @@ import javax.xml.namespace.QName;
 
 
 /**
- * This object contains factory methods for each
- * Java content interface and Java element interface
- * generated in the com.genologics.ri.processexecution package.
- * <p>An ObjectFactory allows you to programatically
- * construct new instances of the Java representation
- * for XML content. The Java representation of XML
- * content can consist of schema derived interfaces
- * and classes representing the binding of schema
- * type definitions, element declarations and model
- * groups.  Factory methods for each of these are
- * provided in this class.
- *
+ * Factory class for creating instances of JAXB content classes defined in the
+ * {@code com.genologics.ri.processexecution} package.
+ * <p>
+ * This class is required by JAXB (Java Architecture for XML Binding) and provides
+ * factory methods for instantiating JAXB-managed classes and elements within this
+ * package. Each factory method constructs new instances of schema-derived classes
+ * that represent XML content structures.
+ * </p>
+ * <p>
+ * The {@code @XmlRegistry} annotation marks this class as a JAXB object factory,
+ * allowing JAXB to discover and use these factory methods during marshalling and
+ * unmarshalling operations.
+ * </p>
  */
 @XmlRegistry
 public class ObjectFactory {
