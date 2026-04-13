@@ -26,8 +26,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import javax.print.attribute.URISyntax;
-
 import org.junit.jupiter.api.Test;
 
 import com.genologics.ri.artifact.Artifact;
