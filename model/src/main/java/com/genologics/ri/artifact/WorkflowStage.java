@@ -21,7 +21,6 @@ package com.genologics.ri.artifact;
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -32,7 +31,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
-import com.genologics.ri.LimsLink;
+import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.stage.Stage;
 
@@ -43,7 +42,7 @@ import com.genologics.ri.stage.Stage;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "workflow-stage")
-public class WorkflowStage implements LimsLink<Stage>, Serializable
+public class WorkflowStage extends LimsLinkBase<Stage>
 {
     /**
      * Regular expression to extract workflow id and workflow stage id from a

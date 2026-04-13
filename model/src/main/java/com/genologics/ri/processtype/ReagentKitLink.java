@@ -21,7 +21,6 @@ package com.genologics.ri.processtype;
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -30,7 +29,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
-import com.genologics.ri.LimsLink;
+import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.reagentkit.ReagentKit;
 
@@ -42,7 +41,7 @@ import com.genologics.ri.reagentkit.ReagentKit;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "reagent-kit-link")
-public class ReagentKitLink implements LimsLink<ReagentKit>, Serializable
+public class ReagentKitLink extends LimsLinkBase<ReagentKit>
 {
     /**
      * Class version for serialisation.

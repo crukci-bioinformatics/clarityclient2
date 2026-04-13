@@ -21,7 +21,6 @@ package com.genologics.ri.configuration;
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -31,7 +30,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
-import com.genologics.ri.LimsLink;
+import com.genologics.ri.LimsLinkBase;
 
 /**
  *
@@ -41,7 +40,7 @@ import com.genologics.ri.LimsLink;
 @XmlRootElement(name = "udfconfig")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "udfconfig-link")
-public class UdfConfigLink implements LimsLink<Field>, Serializable
+public class UdfConfigLink extends LimsLinkBase<Field>
 {
     /**
      * Class version for serialisation.

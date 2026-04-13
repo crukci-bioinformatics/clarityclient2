@@ -21,7 +21,6 @@ package com.genologics.ri.processtype;
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -30,7 +29,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
-import com.genologics.ri.LimsLink;
+import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.container.Container;
 import com.genologics.ri.containertype.ContainerType;
@@ -40,7 +39,7 @@ import com.genologics.ri.containertype.ContainerType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "container-type-link")
-public class ContainerTypeLink implements LimsLink<Container>, Serializable
+public class ContainerTypeLink extends LimsLinkBase<Container>
 {
     /**
      * Class version for serialisation.

@@ -21,7 +21,6 @@ package com.genologics.ri.file;
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -34,7 +33,7 @@ import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.ClarityEntity;
 import com.genologics.ri.LimsEntity;
-import com.genologics.ri.LimsEntityLink;
+import com.genologics.ri.LimsEntityLinkBase;
 import com.genologics.ri.Linkable;
 
 /**
@@ -47,7 +46,7 @@ import com.genologics.ri.Linkable;
 @XmlRootElement(name = "file")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "file", propOrder = { "attachedTo", "contentLocation", "originalLocation", "originalName", "published" })
-public class ClarityFile implements LimsEntity<ClarityFile>, LimsEntityLink<ClarityFile>, Serializable
+public class ClarityFile extends LimsEntityLinkBase<ClarityFile> implements LimsEntity<ClarityFile>
 {
     /**
      * Class version for serialisation.

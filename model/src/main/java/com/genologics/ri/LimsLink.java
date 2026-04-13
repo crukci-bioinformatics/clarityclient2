@@ -76,6 +76,8 @@ public interface LimsLink<E extends Locatable> extends Linkable<E>
      * @return A hash code for the link.
      *
      * @throws NullPointerException if {@code link} is null.
+     *
+     * @since 2.34.2
      */
     public static int hashCode(LimsLink<?> link)
     {
@@ -130,6 +132,8 @@ public interface LimsLink<E extends Locatable> extends Linkable<E>
      * @return true if the link and the object it is compared to are equivalent, false if not.
      *
      * @throws NullPointerException if {@code link} is null.
+     *
+     * @since 2.34.2
      */
     public static boolean equals(LimsLink<?> link, Object obj)
     {
@@ -172,6 +176,8 @@ public interface LimsLink<E extends Locatable> extends Linkable<E>
      * @return The string form of the link.
      *
      * @throws NullPointerException if {@code link} is null.
+     *
+     * @since 2.34.2
      */
     public static String toString(LimsLink<?> link)
     {
@@ -206,6 +212,8 @@ public interface LimsLink<E extends Locatable> extends Linkable<E>
      *
      * @return The port number if the URI has one set or a one can be determined from its scheme,
      * otherwise return -1 (including if {@code uri} is null).
+     *
+     * @since 2.34.2
      */
     private static int resolvePort(URI uri)
     {

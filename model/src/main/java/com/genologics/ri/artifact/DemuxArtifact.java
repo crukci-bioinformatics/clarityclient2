@@ -19,7 +19,6 @@
 package com.genologics.ri.artifact;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +31,7 @@ import jakarta.xml.bind.annotation.XmlElementWrapper;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
-import com.genologics.ri.LimsLink;
+import com.genologics.ri.LimsLinkBase;
 
 /**
  * Details of an individual artifact that is part of a pooled artifact.
@@ -41,7 +40,7 @@ import com.genologics.ri.LimsLink;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "demux-artifact", propOrder = { "samples", "reagentLabels", "demux" })
-public class DemuxArtifact implements LimsLink<Artifact>, Serializable
+public class DemuxArtifact extends LimsLinkBase<Artifact>
 {
     /**
      * Class version for serialisation.

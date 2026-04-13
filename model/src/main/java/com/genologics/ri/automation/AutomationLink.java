@@ -21,7 +21,6 @@ package com.genologics.ri.automation;
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -30,7 +29,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
-import com.genologics.ri.LimsLink;
+import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 
 /**
@@ -38,7 +37,7 @@ import com.genologics.ri.Linkable;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "automation-link")
-public class AutomationLink implements LimsLink<Automation>, Serializable
+public class AutomationLink extends LimsLinkBase<Automation>
 {
     /**
      * Class version for serialisation.

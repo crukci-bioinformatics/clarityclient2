@@ -21,7 +21,6 @@ package com.genologics.ri.configuration;
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -32,7 +31,7 @@ import jakarta.xml.bind.annotation.XmlType;
 
 import org.apache.commons.beanutils.PropertyUtils;
 
-import com.genologics.ri.LimsLink;
+import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 
 /**
@@ -43,7 +42,7 @@ import com.genologics.ri.Linkable;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "field-link")
-public class FieldLink implements LimsLink<Field>, Serializable
+public class FieldLink extends LimsLinkBase<Field>
 {
     /**
      * Class version for serialisation.

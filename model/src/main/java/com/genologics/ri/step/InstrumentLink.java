@@ -32,6 +32,7 @@ import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.XmlValue;
 
 import com.genologics.ri.LimsEntityLink;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Link;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.instrument.Instrument;
@@ -199,5 +200,25 @@ public class InstrumentLink implements LimsEntityLink<Instrument>, Serializable
     public void setLimsid(String id)
     {
         // Does nothing.
+    }
+
+    /**
+     * {@inheritDoc}
+     * @see LimsLink#hashCode(LimsLink)
+     */
+    @Override
+    public int hashCode()
+    {
+        return LimsLink.hashCode(this);
+    }
+
+    /**
+     * {@inheritDoc}
+     * @see LimsLink#equals(LimsLink, Object)
+     */
+    @Override
+    public boolean equals(Object obj)
+    {
+        return LimsLink.equals(this, obj);
     }
 }

@@ -38,6 +38,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import com.genologics.ri.ClarityEntity;
 import com.genologics.ri.LimsEntity;
 import com.genologics.ri.LimsEntityLink;
+import com.genologics.ri.LimsEntityLinkBase;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.jaxb.LongTimestampAdapter;
 import com.genologics.ri.researcher.Researcher;
@@ -632,7 +633,7 @@ public class ProcessStep implements LimsEntity<ProcessStep>, Serializable
      * As such, this inner class will do the job of delegating to
      * the fields in this ProcessStep.
      */
-    private class ProcessStepLink implements LimsEntityLink<ProcessStep>, Serializable
+    private class ProcessStepLink extends LimsEntityLinkBase<ProcessStep>
     {
         /**
          * Class version for serialisation.

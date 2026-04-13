@@ -21,7 +21,6 @@ package com.genologics.ri.file;
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -29,8 +28,8 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlType;
 
-import com.genologics.ri.LimsLink;
 import com.genologics.ri.LimsEntityLinkable;
+import com.genologics.ri.LimsLinkBase;
 
 /**
  * The file-link type provides a URI that links to information about a file in
@@ -42,7 +41,7 @@ import com.genologics.ri.LimsEntityLinkable;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "file-link")
-public class FileLink implements LimsLink<ClarityFile>, Serializable
+public class FileLink extends LimsLinkBase<ClarityFile>
 {
     /**
      * Class version for serialisation.
@@ -101,11 +100,5 @@ public class FileLink implements LimsLink<ClarityFile>, Serializable
     public void setLimsid(String limsid)
     {
         this.limsid = limsid;
-    }
-
-    @Override
-    public String toString()
-    {
-        return limsid;
     }
 }

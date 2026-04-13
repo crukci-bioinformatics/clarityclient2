@@ -22,7 +22,6 @@ import static com.genologics.ri.Location.WELL_POSITION_SPLITTER;
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -34,7 +33,7 @@ import jakarta.xml.bind.annotation.XmlType;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.genologics.ri.LimsEntityLink;
+import com.genologics.ri.LimsEntityLinkBase;
 import com.genologics.ri.LimsEntityLinkable;
 import com.genologics.ri.artifact.Artifact;
 
@@ -46,7 +45,7 @@ import com.genologics.ri.artifact.Artifact;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "placement", propOrder = { "wellPosition" })
-public class Placement implements LimsEntityLink<Artifact>, Serializable, Comparable<Placement>
+public class Placement extends LimsEntityLinkBase<Artifact> implements Comparable<Placement>
 {
     /**
      * Class version for serialisation.

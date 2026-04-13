@@ -19,7 +19,6 @@
 package com.genologics.ri.globaltoken;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -29,7 +28,7 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
-import com.genologics.ri.LimsLink;
+import com.genologics.ri.LimsLinkBase;
 
 
 /**
@@ -39,7 +38,7 @@ import com.genologics.ri.LimsLink;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "global-token-link")
-public class GlobalTokenLink implements LimsLink<GlobalToken>, Serializable
+public class GlobalTokenLink extends LimsLinkBase<GlobalToken>
 {
     /**
      * Class version for serialisation.

@@ -21,7 +21,6 @@ package com.genologics.ri.queue;
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 import java.util.Date;
 
@@ -33,13 +32,12 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import com.genologics.ri.jaxb.LongTimestampAdapter;
-
-import com.genologics.ri.LimsEntityLink;
+import com.genologics.ri.LimsEntityLinkBase;
 import com.genologics.ri.LimsEntityLinkable;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.Location;
 import com.genologics.ri.artifact.Artifact;
+import com.genologics.ri.jaxb.LongTimestampAdapter;
 
 
 /**
@@ -48,7 +46,7 @@ import com.genologics.ri.artifact.Artifact;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "artifact-link", propOrder = { "queueTime", "location" })
-public class ArtifactLink implements LimsEntityLink<Artifact>, Serializable
+public class ArtifactLink extends LimsEntityLinkBase<Artifact>
 {
     /**
      * Class version for serialisation.

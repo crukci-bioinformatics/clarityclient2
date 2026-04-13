@@ -31,6 +31,7 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import com.genologics.ri.LimsEntityLink;
+import com.genologics.ri.LimsEntityLinkBase;
 import com.genologics.ri.LimsEntityLinkable;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.sample.Sample;
@@ -42,7 +43,7 @@ import com.genologics.ri.sample.Sample;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "demux-artifact-sample")
-public class DemuxArtifactSample implements LimsEntityLink<Sample>, Serializable
+public class DemuxArtifactSample extends LimsEntityLinkBase<Sample>
 {
     /**
      * Class version for serialisation.

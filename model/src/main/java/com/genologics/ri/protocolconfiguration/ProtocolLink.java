@@ -21,7 +21,6 @@ package com.genologics.ri.protocolconfiguration;
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -30,18 +29,15 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
-import com.genologics.ri.LimsLink;
+import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 
 /**
  * Link to a protocol configuration.
  */
-/**
- * Protocol-Link provides a URI linking to the detailed representation of a protocol.
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "protocol-link")
-public class ProtocolLink implements LimsLink<Protocol>, Serializable
+public class ProtocolLink extends LimsLinkBase<Protocol>
 {
     /**
      * Class version for serialisation.

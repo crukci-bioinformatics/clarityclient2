@@ -21,7 +21,6 @@ package com.genologics.ri.researcher;
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -30,7 +29,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
-import com.genologics.ri.LimsLink;
+import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 
 /**
@@ -45,7 +44,7 @@ import com.genologics.ri.Linkable;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "role")
-public class Role implements LimsLink<com.genologics.ri.role.Role>, Serializable
+public class Role extends LimsLinkBase<com.genologics.ri.role.Role>
 {
     /**
      * The name for the system administrator role.

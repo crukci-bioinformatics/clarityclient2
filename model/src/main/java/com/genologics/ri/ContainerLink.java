@@ -21,7 +21,6 @@ package com.genologics.ri;
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -39,7 +38,7 @@ import com.genologics.ri.container.Container;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "container")
-public class ContainerLink implements LimsEntityLink<Container>, Serializable
+public class ContainerLink extends LimsEntityLinkBase<Container>
 {
     /**
      * Class version for serialisation.

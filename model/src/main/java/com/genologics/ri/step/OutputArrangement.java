@@ -4,7 +4,6 @@
 package com.genologics.ri.step;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -14,7 +13,7 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
-import com.genologics.ri.LimsLink;
+import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.container.Container;
 
 
@@ -25,7 +24,7 @@ import com.genologics.ri.container.Container;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "output-arrangement")
-public class OutputArrangement implements LimsLink<Container>, Serializable
+public class OutputArrangement extends LimsLinkBase<Container>
 {
     /**
      * Class version for serialisation.

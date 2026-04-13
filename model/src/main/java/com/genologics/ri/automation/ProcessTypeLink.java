@@ -21,7 +21,6 @@ package com.genologics.ri.automation;
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -32,7 +31,7 @@ import jakarta.xml.bind.annotation.XmlType;
 
 import org.apache.commons.beanutils.PropertyUtils;
 
-import com.genologics.ri.LimsLink;
+import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.processtype.ProcessType;
 
@@ -43,7 +42,7 @@ import com.genologics.ri.processtype.ProcessType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "process-type")
-public class ProcessTypeLink implements LimsLink<ProcessType>, Serializable
+public class ProcessTypeLink extends LimsLinkBase<ProcessType>
 {
     /**
      * Class version for serialisation.

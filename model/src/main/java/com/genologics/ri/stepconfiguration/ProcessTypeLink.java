@@ -178,4 +178,24 @@ public class ProcessTypeLink implements LimsLink<ProcessType>, Serializable
     {
         return name;
     }
+
+    /**
+     * {@inheritDoc}
+     * @see LimsLink#hashCode(LimsLink)
+     */
+    @Override
+    public int hashCode()
+    {
+        return LimsLink.hashCode(this);
+    }
+
+    /**
+     * {@inheritDoc}
+     * @see LimsLink#equals(LimsLink, Object)
+     */
+    @Override
+    public boolean equals(Object obj)
+    {
+        return LimsLink.equals(this, obj);
+    }
 }

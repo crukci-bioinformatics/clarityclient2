@@ -19,7 +19,6 @@
 package com.genologics.ri.savedquery;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -29,7 +28,7 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
-import com.genologics.ri.LimsLink;
+import com.genologics.ri.LimsLinkBase;
 
 
 /**
@@ -39,7 +38,7 @@ import com.genologics.ri.LimsLink;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "saved-query-link")
-public class SavedQueryLink implements LimsLink<SavedQuery>, Serializable
+public class SavedQueryLink extends LimsLinkBase<SavedQuery>
 {
     /**
      * Class version for serialisation.

@@ -21,7 +21,6 @@ package com.genologics.ri.stage;
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -30,7 +29,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
-import com.genologics.ri.LimsLink;
+import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.stepconfiguration.ProtocolStep;
 
@@ -40,7 +39,7 @@ import com.genologics.ri.stepconfiguration.ProtocolStep;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "step")
-public class ProtocolStepLink implements LimsLink<ProtocolStep>, Serializable
+public class ProtocolStepLink extends LimsLinkBase<ProtocolStep>
 {
     /**
      * Class version for serialisation.

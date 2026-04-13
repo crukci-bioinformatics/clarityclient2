@@ -19,7 +19,6 @@
 package com.genologics.ri.step;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -28,7 +27,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
-import com.genologics.ri.LimsLink;
+import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.artifact.Artifact;
 import com.genologics.ri.controltype.ControlType;
@@ -43,7 +42,7 @@ import com.genologics.ri.controltype.ControlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "creation-input")
-public class CreationInput implements LimsLink<Artifact>, Serializable
+public class CreationInput extends LimsLinkBase<Artifact>
 {
     /**
      * Class version for serialisation.

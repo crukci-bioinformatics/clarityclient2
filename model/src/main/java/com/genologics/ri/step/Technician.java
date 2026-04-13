@@ -22,7 +22,6 @@ import static java.util.Objects.requireNonNull;
 import static org.apache.commons.lang3.StringUtils.SPACE;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -32,7 +31,7 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
-import com.genologics.ri.LimsLink;
+import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.researcher.Researcher;
 
@@ -45,7 +44,7 @@ import com.genologics.ri.researcher.Researcher;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "technician", propOrder = { "firstName", "lastName" })
-public class Technician implements LimsLink<Researcher>, Serializable
+public class Technician extends LimsLinkBase<Researcher>
 {
     /**
      * Class version for serialisation.

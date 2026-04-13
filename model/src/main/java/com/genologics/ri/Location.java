@@ -21,7 +21,6 @@ package com.genologics.ri;
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 import java.util.regex.Pattern;
 
@@ -49,7 +48,7 @@ import com.genologics.ri.container.Container;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "location", propOrder = { "container", "wellPosition" })
-public class Location implements LimsEntityLink<Container>, Serializable, Comparable<Location>
+public class Location extends LimsEntityLinkBase<Container> implements Comparable<Location>
 {
     /**
      * Pattern for splitting well position strings.

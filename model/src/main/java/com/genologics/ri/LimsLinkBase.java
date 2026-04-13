@@ -20,21 +20,35 @@ package com.genologics.ri;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.stream.Stream;
 
 /**
  * Helper base class for {@code LimsLink} implementations that implements
  * {@link #hashCode()} and {@link #equals(Object)} to consider links that point
- * to the same entities as equivalent.
+ * to the same entities as equivalent. It also calls a standard implementation
+ * of {@link #toString()} for links.
  * <p>
- * THe static implementations are used in all cases but are made separate where
- * a link class already inherits from another class. In these cases, their
- * hashCode() and equals() methods can simply call these static methods passing
- * in {@code this}.
+ * Properly implementing {@code equals} and {@code hashCode} for links allows them to
+ * be collected in a set for uniqueness or otherwise tested for equivalence without having
+ * to create maps of them where the id is the key and the link is the value. It is simpler
+ * to just put the links into a set, or stream with {@link Stream#distinct() distinct()}.
+ * </p>
+ * <p>
+ * The static implementations in {@link LimsLink} are used in all cases. Having these
+ * methods separate and static means any link class that already inherits from another
+ * class (so cannot inherit from this one) can easily use them.
+ * In these cases, their hashCode(), equals() and toString() methods can simply
+ * call the {@code LimsLink} static methods passing in {@code this}.
+ * This can also be the case where a class in annotated with the JAXB {@code @XmlValue}
+ * annotation. JAXB throws errors with those classes saying they can't inherit from
+ * base classes.
  * </p>
  *
- * @param <E> The type of entity that is at the end of the link.
+ * @param <E> The type of Locatable that is at the end of the link.
+ *
+ * @since 2.34.2
  */
-public abstract class LimsLinkBase<E extends LimsEntity<E>> implements LimsLink<E>, Serializable
+public abstract class LimsLinkBase<E extends Locatable> implements LimsLink<E>, Serializable
 {
     /**
      * Class version for serialisation.
@@ -53,6 +67,8 @@ public abstract class LimsLinkBase<E extends LimsEntity<E>> implements LimsLink<
      * <p>
      * What goes into the hash code is described in {@link LimsLink#hashCode(LimsLink)}.
      * </p>
+     *
+     * @see LimsLink#hashCode(LimsLink)
      */
     public int hashCode()
     {
@@ -65,6 +81,8 @@ public abstract class LimsLinkBase<E extends LimsEntity<E>> implements LimsLink<
      * The description of what makes another link equivalent to this link is described in
      * {@link LimsLink#equals(LimsLink, Object)}.
      * </p>
+     *
+     * @see LimsLink#equals(LimsLink, Object)
      */
     public boolean equals(Object obj)
     {
@@ -76,6 +94,8 @@ public abstract class LimsLinkBase<E extends LimsEntity<E>> implements LimsLink<
      * <p>
      * The form of the string is described in {@link LimsLink#toString(LimsLink)}.
      * </p>
+     *
+     * @see LimsLink#toString(LimsLink)
      */
     public String toString()
     {

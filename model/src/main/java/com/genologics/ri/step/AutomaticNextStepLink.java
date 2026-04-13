@@ -22,7 +22,6 @@ package com.genologics.ri.step;
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -31,7 +30,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
-import com.genologics.ri.LimsLink;
+import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 
 
@@ -43,7 +42,7 @@ import com.genologics.ri.Linkable;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "automatic-next-step-link")
-public class AutomaticNextStepLink implements LimsLink<ProcessStep>, Serializable
+public class AutomaticNextStepLink extends LimsLinkBase<ProcessStep>
 {
     /**
      * Class version for serialisation.

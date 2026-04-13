@@ -21,7 +21,6 @@ package com.genologics.ri.role;
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -30,7 +29,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
-import com.genologics.ri.LimsLink;
+import com.genologics.ri.LimsLinkBase;
 
 /**
  *
@@ -41,7 +40,7 @@ import com.genologics.ri.LimsLink;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "role-link")
-public class RoleLink implements LimsLink<Role>, Serializable
+public class RoleLink extends LimsLinkBase<Role>
 {
     /**
      * Class version for serialisation.
