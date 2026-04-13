@@ -30,6 +30,8 @@ import org.junit.jupiter.api.Test;
 
 import com.genologics.ri.artifact.Artifact;
 import com.genologics.ri.artifact.ArtifactLink;
+import com.genologics.ri.artifactgroup.ArtifactGroup;
+import com.genologics.ri.artifactgroup.ArtifactGroupLink;
 import com.genologics.ri.sample.Sample;
 import com.genologics.ri.sample.SampleLink;
 
@@ -39,7 +41,7 @@ public class LimsLinkTest
 
     public LimsLinkTest() { }
 
-    static <E extends LimsEntity<E>> void set(LimsLink<E> link, String id)
+    static <E extends Locatable> void set(LimsLink<E> link, String id)
     {
         Class<E> clazz = link.getEntityClass();
         ClarityEntity anno = clazz.getAnnotation(ClarityEntity.class);
@@ -259,5 +261,27 @@ public class LimsLinkTest
         sl1.setUri(setPort(sl1.getUri(), 80));
 
         assertTrue(LimsLink.hashCode(sl1) == LimsLink.hashCode(sl2), "Hash code with HTTP and port 80 are different.");
+    }
+
+    @Test
+    public void testToString()
+    {
+        LimsEntityLink<Sample> sl = new SampleLink();
+        set(sl, "1");
+
+        assertEquals("LimsLink<Sample>[1]", LimsLink.toString(sl));
+
+        // Try clearing the explicit id. Should still get it from the URI.
+
+        sl.setLimsid(null);
+        assertEquals("LimsLink<Sample>[1]", LimsLink.toString(sl));
+
+        // Try with a link that doesn't implement LimsEntityLink. Should
+        // still get an id from the URI.
+
+        LimsLink<ArtifactGroup> agl = new ArtifactGroupLink();
+        set(agl, "40");
+
+        assertEquals("LimsLink<ArtifactGroup>[40]", LimsLink.toString(agl));
     }
 }

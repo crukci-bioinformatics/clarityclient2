@@ -51,7 +51,7 @@ public abstract class LimsLinkBase<E extends LimsEntity<E>> implements LimsLink<
     /**
      * {@inheritDoc}
      * <p>
-     * What goes into the hash code is described in {@link #hashCode(LimsLink)}.
+     * What goes into the hash code is described in {@link LimsLink#hashCode(LimsLink)}.
      * </p>
      */
     public int hashCode()
@@ -63,11 +63,22 @@ public abstract class LimsLinkBase<E extends LimsEntity<E>> implements LimsLink<
      * {@inheritDoc}
      * <p>
      * The description of what makes another link equivalent to this link is described in
-     * {@link #equals(LimsLink, Object)}.
+     * {@link LimsLink#equals(LimsLink, Object)}.
      * </p>
      */
     public boolean equals(Object obj)
     {
         return LimsLink.equals(this, obj);
+    }
+
+    /**
+     * {@inheritDoc}
+     * <p>
+     * The form of the string is described in {@link LimsLink#toString(LimsLink)}.
+     * </p>
+     */
+    public String toString()
+    {
+        return LimsLink.toString(this);
     }
 }

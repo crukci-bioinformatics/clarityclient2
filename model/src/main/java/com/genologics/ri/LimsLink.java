@@ -19,10 +19,12 @@
 package com.genologics.ri;
 
 import static java.util.Objects.requireNonNull;
+import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 import java.net.URI;
 import java.util.Objects;
 
+import org.apache.commons.lang3.ClassUtils;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 /**
@@ -158,6 +160,42 @@ public interface LimsLink<E extends Locatable> extends Linkable<E>
         }
         return equal;
     }
+
+    /**
+     * An implementation of {@code toString()} for links.
+     * The string form of a link is the name of the entity class and the LIMS id
+     * of the instance in the format "{@code LimsLink<entity>[lims id]}".
+     * If there is no LIMS id set, the value "unset" is given.
+     *
+     * @param link The link to convert to a string. Cannot be null.
+     *
+     * @return The string form of the link.
+     *
+     * @throws NullPointerException if {@code link} is null.
+     */
+    public static String toString(LimsLink<?> link)
+    {
+        requireNonNull(link, "Need a non-null link for toString.");
+
+        String entity = ClassUtils.getShortClassName(link.getEntityClass());
+        String id = null;
+        if (link instanceof LimsEntityLink lel)
+        {
+            id = lel.getLimsid();
+        }
+        if (isEmpty(id))
+        {
+            id = Link.limsIdFromUri(link.getUri());
+        }
+        if (isEmpty(id))
+        {
+            id = "unset";
+        }
+        StringBuilder b = new StringBuilder(64);
+        b.append("LimsLink<").append(entity).append(">[").append(id).append(']');
+        return b.toString();
+    }
+
 
     /**
      * Get a port number for a URI. If the URI is not null and has an explicit port set, return that.
