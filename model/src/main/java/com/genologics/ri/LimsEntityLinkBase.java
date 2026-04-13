@@ -29,7 +29,7 @@ import java.io.Serializable;
  *
  * @since 2.34.2
  */
-public abstract class LimsEntityLinkBase<E extends LimsEntity<E>> implements LimsEntityLink<E>, Serializable
+public abstract class LimsEntityLinkBase<E extends LimsEntity<E>> extends LimsLinkBase<E> implements LimsEntityLink<E>, Serializable
 {
     /**
      * Class version for serialisation.
