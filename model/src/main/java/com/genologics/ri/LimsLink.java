@@ -147,11 +147,11 @@ public interface LimsLink<E extends Locatable> extends Linkable<E>
                     equal = (u1 == null) == (u2 == null);
                     if (equal && u1 != null && u2 != null)
                     {
-                        equal = Objects.equals(u1.getUserInfo(), u2.getUserInfo());
-                        equal = Objects.equals(u1.getScheme(), u2.getScheme());
-                        equal = Objects.equals(u1.getHost(), u2.getHost());
-                        equal = Objects.equals(resolvePort(u1), resolvePort(u2));
-                        equal = Objects.equals(u1.getPath(), u2.getPath());
+                        equal = Objects.equals(u1.getUserInfo(), u2.getUserInfo()) &&
+                                Objects.equals(u1.getScheme(), u2.getScheme()) &&
+                                Objects.equals(u1.getHost(), u2.getHost()) &&
+                                Objects.equals(resolvePort(u1), resolvePort(u2)) &&
+                                Objects.equals(u1.getPath(), u2.getPath());
                     }
                 }
             }

@@ -24,6 +24,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.net.URI;
+import java.net.URISyntaxException;
+
+import javax.print.attribute.URISyntax;
 
 import org.junit.jupiter.api.Test;
 
@@ -49,6 +52,16 @@ public class LimsLinkTest
         {
             linkable.setLimsid(id);
         }
+    }
+
+    static URI setPort(URI u, int port) throws URISyntaxException
+    {
+        return new URI(u.getScheme(), u.getUserInfo(), u.getHost(), port, u.getPath(), u.getQuery(), u.getFragment());
+    }
+
+    static URI setScheme(URI u, String scheme) throws URISyntaxException
+    {
+        return new URI(scheme, u.getUserInfo(), u.getHost(), u.getPort(), u.getPath(), u.getQuery(), u.getFragment());
     }
 
     @Test
@@ -111,6 +124,62 @@ public class LimsLinkTest
     }
 
     @Test
+    public void equalsWithDefaultPort() throws URISyntaxException
+    {
+        LimsEntityLink<Sample> sl1 = new SampleLink();
+        set(sl1, "1");
+        URI u = sl1.getUri();
+
+        LimsEntityLink<Sample> sl2 = new SampleLink();
+        set(sl2, "1");
+
+        assertTrue(LimsLink.equals(sl1, sl2), "Same URI is not equivalent.");
+
+        sl1.setUri(setPort(u, 80));
+
+        assertFalse(LimsLink.equals(sl1, sl2), "URI with port 80 for HTTPS is equivalent.");
+
+        sl1.setUri(setPort(u, 443));
+
+        assertTrue(LimsLink.equals(sl1, sl2), "URI with port 443 for HTTPS is not equivalent.");
+    }
+
+    @Test
+    public void defaultPortsByScheme() throws URISyntaxException
+    {
+        LimsEntityLink<Sample> sl1 = new SampleLink();
+        set(sl1, "1");
+
+        LimsEntityLink<Sample> sl2 = new SampleLink(sl1.getUri(), sl1.getLimsid());
+
+        sl1.setUri(setPort(sl1.getUri(), 443));
+
+        assertTrue(LimsLink.equals(sl1, sl2), "HTTPS with port 443 is not equal.");
+
+        // Set scheme to HTTP but keep port 443.
+
+        sl1.setUri(setScheme(sl1.getUri(), "http"));
+        sl2.setUri(setScheme(sl2.getUri(), "http"));
+
+        assertFalse(LimsLink.equals(sl1, sl2), "HTTP with port 443 is equal.");
+
+        sl1.setUri(setPort(sl1.getUri(), 80));
+
+        assertTrue(LimsLink.equals(sl1, sl2), "HTTP with port 80 is not equal.");
+
+        // Likewise, try sftp with port 80.
+
+        sl1.setUri(setScheme(sl1.getUri(), "sftp"));
+        sl2.setUri(setScheme(sl2.getUri(), "sftp"));
+
+        assertFalse(LimsLink.equals(sl1, sl2), "SFTP with port 80 is equal.");
+
+        sl1.setUri(setPort(sl1.getUri(), 22));
+
+        assertTrue(LimsLink.equals(sl1, sl2), "SFTP with port 22 is not equal.");
+    }
+
+    @Test
     public void hashCodeDifferentEntityClass()
     {
         LimsEntityLink<Sample> sl = new SampleLink();
@@ -167,5 +236,30 @@ public class LimsLinkTest
         sl2.setUri(URI.create(sl2.getUri().toString() + "?state=2345"));
 
         assertTrue(LimsLink.hashCode(sl1) == LimsLink.hashCode(sl2), "Hash code of the same entity with two different queries are different.");
+    }
+
+    @Test
+    public void hashCodeDefaultPorts() throws URISyntaxException
+    {
+        LimsEntityLink<Sample> sl1 = new SampleLink();
+        set(sl1, "1");
+
+        LimsEntityLink<Sample> sl2 = new SampleLink();
+        set(sl2, "1");
+
+        assertTrue(LimsLink.hashCode(sl1) == LimsLink.hashCode(sl2), "Hash code of the same entity are different.");
+
+        sl1.setUri(setPort(sl1.getUri(), 443));
+
+        assertTrue(LimsLink.hashCode(sl1) == LimsLink.hashCode(sl2), "Hash code with explicit port are different.");
+
+        sl1.setUri(setScheme(sl1.getUri(), "http"));
+        sl2.setUri(setScheme(sl2.getUri(), "http"));
+
+        assertFalse(LimsLink.hashCode(sl1) == LimsLink.hashCode(sl2), "Hash code with HTTP and port 443 are the same.");
+
+        sl1.setUri(setPort(sl1.getUri(), 80));
+
+        assertTrue(LimsLink.hashCode(sl1) == LimsLink.hashCode(sl2), "Hash code with HTTP and port 80 are different.");
     }
 }
