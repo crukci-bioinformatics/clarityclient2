@@ -1,3 +1,6 @@
+/**
+ * Entities for control types in the Clarity system.
+ */
 @XmlSchema(
     namespace = CONTROL_TYPE_NAMESPACE,
     elementFormDefault = XmlNsForm.UNQUALIFIED,

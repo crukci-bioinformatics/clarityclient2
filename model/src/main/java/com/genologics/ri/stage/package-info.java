@@ -1,3 +1,6 @@
+/**
+ * Entities for workflow stages in the Clarity system.
+ */
 @XmlSchema(
         namespace = STAGE_NAMESPACE,
         elementFormDefault = XmlNsForm.UNQUALIFIED,

@@ -1,3 +1,6 @@
+/**
+ * Entities for user roles in the Clarity system.
+ */
 @XmlSchema(
         namespace = ROLE_NAMESPACE,
         elementFormDefault = XmlNsForm.UNQUALIFIED,

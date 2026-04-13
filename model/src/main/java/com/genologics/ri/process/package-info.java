@@ -1,3 +1,6 @@
+/**
+ * Entities for processes executed in the Clarity system.
+ */
 @XmlSchema(
         namespace = PROCESS_NAMESPACE,
         elementFormDefault = XmlNsForm.UNQUALIFIED,

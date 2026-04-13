@@ -1,3 +1,6 @@
+/**
+ * Entities for API version information in the Clarity system.
+ */
 @XmlSchema(
         namespace = VERSION_NAMESPACE,
         elementFormDefault = XmlNsForm.UNQUALIFIED,

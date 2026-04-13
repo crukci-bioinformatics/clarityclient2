@@ -1,3 +1,6 @@
+/**
+ * Entities for artifact groups in the Clarity system.
+ */
 @XmlSchema(
         namespace = ARTIFACT_GROUP_NAMESPACE,
         elementFormDefault = XmlNsForm.UNQUALIFIED,

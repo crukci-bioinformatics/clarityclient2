@@ -1,3 +1,6 @@
+/**
+ * Entities for step configuration in the Clarity system.
+ */
 @XmlSchema(
         namespace = STEP_CONFIGURATION_NAMESPACE,
         elementFormDefault = XmlNsForm.UNQUALIFIED,

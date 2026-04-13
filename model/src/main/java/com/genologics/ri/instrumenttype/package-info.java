@@ -1,3 +1,6 @@
+/**
+ * Entities for instrument type definitions in the Clarity system.
+ */
 @XmlSchema(
     namespace = INSTRUMENT_TYPE_NAMESPACE,
     elementFormDefault = XmlNsForm.UNQUALIFIED,

@@ -1,3 +1,6 @@
+/**
+ * Entities for routing configuration in the Clarity system.
+ */
 @XmlSchema(
         namespace = ROUTING_NAMESPACE,
         elementFormDefault = XmlNsForm.UNQUALIFIED,

@@ -1,3 +1,6 @@
+/**
+ * Entities for workflow configuration in the Clarity system.
+ */
 @XmlSchema(
         namespace = WORKFLOW_CONFIGURATION_NAMESPACE,
         elementFormDefault = XmlNsForm.UNQUALIFIED,

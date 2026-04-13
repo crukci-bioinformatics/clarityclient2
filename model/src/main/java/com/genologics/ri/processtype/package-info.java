@@ -1,3 +1,6 @@
+/**
+ * Entities for process type definitions in the Clarity system.
+ */
 @XmlSchema(
         namespace = PROCESS_TYPE_NAMESPACE,
         elementFormDefault = XmlNsForm.UNQUALIFIED,

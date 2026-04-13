@@ -1,3 +1,6 @@
+/**
+ * Entities for system configuration in the Clarity system.
+ */
 @XmlSchema(
     namespace = CONFIGURATION_NAMESPACE,
     elementFormDefault = XmlNsForm.UNQUALIFIED,

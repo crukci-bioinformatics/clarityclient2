@@ -1,3 +1,6 @@
+/**
+ * Entities for user-defined fields (UDFs) in the Clarity system.
+ */
 @XmlSchema(
         namespace = UDF_NAMESPACE,
         elementFormDefault = XmlNsForm.UNQUALIFIED,

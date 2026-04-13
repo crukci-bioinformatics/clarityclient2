@@ -1,3 +1,6 @@
+/**
+ * Entities for user permissions in the Clarity system.
+ */
 @XmlSchema(
         namespace = PERMISSION_NAMESPACE,
         elementFormDefault = XmlNsForm.UNQUALIFIED,

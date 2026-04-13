@@ -1,3 +1,6 @@
+/**
+ * Entities for system properties in the Clarity system.
+ */
 @XmlSchema(
         namespace = PROPERTY_NAMESPACE,
         elementFormDefault = XmlNsForm.UNQUALIFIED,

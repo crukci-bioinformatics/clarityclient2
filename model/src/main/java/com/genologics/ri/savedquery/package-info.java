@@ -1,3 +1,6 @@
+/**
+ * Entities for saved queries in the Clarity system.
+ */
 @XmlSchema(
     namespace = SAVED_QUERY_NAMESPACE,
     elementFormDefault = XmlNsForm.UNQUALIFIED,

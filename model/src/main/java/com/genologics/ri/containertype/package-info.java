@@ -1,3 +1,6 @@
+/**
+ * Entities for container type definitions in the Clarity system.
+ */
 @XmlSchema(
     namespace = CONTAINER_TYPE_NAMESPACE,
     elementFormDefault = XmlNsForm.UNQUALIFIED,

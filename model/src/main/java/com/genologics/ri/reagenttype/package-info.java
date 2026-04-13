@@ -1,3 +1,6 @@
+/**
+ * Entities for reagent type definitions in the Clarity system.
+ */
 @XmlSchema(
         namespace = REAGENT_TYPE_NAMESPACE,
         elementFormDefault = XmlNsForm.UNQUALIFIED,

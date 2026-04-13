@@ -1,3 +1,6 @@
+/**
+ * Entities for automation resources in the Clarity system.
+ */
 @XmlSchema(
     namespace = AUTOMATION_NAMESPACE,
     elementFormDefault = XmlNsForm.UNQUALIFIED,

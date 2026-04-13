@@ -1,3 +1,6 @@
+/**
+ * Entities for exception handling in the Clarity system.
+ */
 @XmlSchema(
         namespace = EXCEPTION_NAMESPACE,
         elementFormDefault = XmlNsForm.UNQUALIFIED,

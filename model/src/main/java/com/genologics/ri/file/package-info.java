@@ -1,3 +1,6 @@
+/**
+ * Entities for file resources in the Clarity system.
+ */
 @XmlSchema(
         namespace = FILE_NAMESPACE,
         elementFormDefault = XmlNsForm.UNQUALIFIED,

@@ -1,3 +1,6 @@
+/**
+ * Entities for work queues in the Clarity system.
+ */
 @XmlSchema(
         namespace = QUEUE_NAMESPACE,
         elementFormDefault = XmlNsForm.UNQUALIFIED,
