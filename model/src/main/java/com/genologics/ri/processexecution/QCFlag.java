@@ -33,17 +33,17 @@ public enum QCFlag
      * QC status is unknown.
      */
     UNKNOWN,
-    
+
     /**
      * QC check passed.
      */
     PASSED,
-    
+
     /**
      * QC check failed.
      */
     FAILED,
-    
+
     /**
      * Continue processing despite QC concerns.
      */

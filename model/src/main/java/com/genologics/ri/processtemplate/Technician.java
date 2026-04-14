@@ -99,7 +99,7 @@ public class Technician extends LimsLinkBase<Researcher>
     }
 
     /**
-     * Constructs a new Technician from a Researcher object, copying the URI, 
+     * Constructs a new Technician from a Researcher object, copying the URI,
      * first name, and last name.
      *
      * @param researcher the researcher to copy details from

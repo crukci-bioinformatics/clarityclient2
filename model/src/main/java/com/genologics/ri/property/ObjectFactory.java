@@ -53,7 +53,8 @@ public class ObjectFactory
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.property
      *
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
     /**
@@ -61,7 +62,8 @@ public class ObjectFactory
      *
      * @return A new PropertyLink object.
      */
-    public PropertyLink createPropertyLink() {
+    public PropertyLink createPropertyLink()
+    {
         return new PropertyLink();
     }
 
@@ -70,7 +72,8 @@ public class ObjectFactory
      *
      * @return A new Properties object.
      */
-    public Properties createProperties() {
+    public Properties createProperties()
+    {
         return new Properties();
     }
 
@@ -82,7 +85,8 @@ public class ObjectFactory
      * @return A JAXBElement containing the Properties.
      */
     @XmlElementDecl(namespace = PROPERTY_NAMESPACE, name = "properties")
-    public JAXBElement<Properties> createProperties(Properties value) {
+    public JAXBElement<Properties> createProperties(Properties value)
+    {
         return new JAXBElement<Properties>(_Properties_QNAME, Properties.class, null, value);
     }
 }

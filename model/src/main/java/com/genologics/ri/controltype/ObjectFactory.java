@@ -48,7 +48,7 @@ public class ObjectFactory
      * QName for the control-type XML element.
      */
     private final static QName _ControlType_QNAME = new QName(CONTROL_TYPE_NAMESPACE, "control-type");
-    
+
     /**
      * QName for the control-types XML element.
      */

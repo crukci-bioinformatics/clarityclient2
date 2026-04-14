@@ -52,7 +52,8 @@ public class ObjectFactory
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.workflowconfiguration
      *
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
     /**
@@ -60,7 +61,8 @@ public class ObjectFactory
      *
      * @return A new Workflow instance.
      */
-    public Workflow createWorkflow() {
+    public Workflow createWorkflow()
+    {
         return new Workflow();
     }
 
@@ -69,7 +71,8 @@ public class ObjectFactory
      *
      * @return A new ProtocolLink instance.
      */
-    public ProtocolLink createProtocolLink() {
+    public ProtocolLink createProtocolLink()
+    {
         return new ProtocolLink();
     }
 
@@ -78,7 +81,8 @@ public class ObjectFactory
      *
      * @return A new WorkflowLink instance.
      */
-    public WorkflowLink createWorkflowLink() {
+    public WorkflowLink createWorkflowLink()
+    {
         return new WorkflowLink();
     }
 
@@ -87,7 +91,8 @@ public class ObjectFactory
      *
      * @return A new StageLink instance.
      */
-    public StageLink createStageLink() {
+    public StageLink createStageLink()
+    {
         return new StageLink();
     }
 
@@ -96,7 +101,8 @@ public class ObjectFactory
      *
      * @return A new Workflows instance.
      */
-    public Workflows createWorkflows() {
+    public Workflows createWorkflows()
+    {
         return new Workflows();
     }
 
@@ -107,7 +113,8 @@ public class ObjectFactory
      * @return A JAXBElement wrapping the Workflows instance.
      */
     @XmlElementDecl(namespace = WORKFLOW_CONFIGURATION_NAMESPACE, name = "workflows")
-    public JAXBElement<Workflows> createWorkflows(Workflows value) {
+    public JAXBElement<Workflows> createWorkflows(Workflows value)
+    {
         return new JAXBElement<Workflows>(_Workflows_QNAME, Workflows.class, null, value);
     }
 
@@ -118,7 +125,8 @@ public class ObjectFactory
      * @return A JAXBElement wrapping the Workflow instance.
      */
     @XmlElementDecl(namespace = WORKFLOW_CONFIGURATION_NAMESPACE, name = "workflow")
-    public JAXBElement<Workflow> createWorkflow(Workflow value) {
+    public JAXBElement<Workflow> createWorkflow(Workflow value)
+    {
         return new JAXBElement<Workflow>(_Workflow_QNAME, Workflow.class, null, value);
     }
 }

@@ -52,7 +52,8 @@ public class ObjectFactory
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.reagentlot
      *
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
     /**
@@ -60,7 +61,8 @@ public class ObjectFactory
      *
      * @return A new ReagentLotLink instance.
      */
-    public ReagentLotLink createReagentLotLink() {
+    public ReagentLotLink createReagentLotLink()
+    {
         return new ReagentLotLink();
     }
 
@@ -69,7 +71,8 @@ public class ObjectFactory
      *
      * @return A new ReagentLot instance.
      */
-    public ReagentLot createReagentLot() {
+    public ReagentLot createReagentLot()
+    {
         return new ReagentLot();
     }
 
@@ -78,7 +81,8 @@ public class ObjectFactory
      *
      * @return A new ResearcherLink instance.
      */
-    public ResearcherLink createResearcher() {
+    public ResearcherLink createResearcher()
+    {
         return new ResearcherLink();
     }
 
@@ -87,7 +91,8 @@ public class ObjectFactory
      *
      * @return A new ReagentLots instance.
      */
-    public ReagentLots createReagentLots() {
+    public ReagentLots createReagentLots()
+    {
         return new ReagentLots();
     }
 
@@ -96,7 +101,8 @@ public class ObjectFactory
      *
      * @return A new ReagentKitLink instance.
      */
-    public ReagentKitLink createReagentKitLink() {
+    public ReagentKitLink createReagentKitLink()
+    {
         return new ReagentKitLink();
     }
 
@@ -107,7 +113,8 @@ public class ObjectFactory
      * @return A JAXBElement wrapping the ReagentLots.
      */
     @XmlElementDecl(namespace = REAGENT_LOT_NAMESPACE, name = "reagent-lots")
-    public JAXBElement<ReagentLots> createReagentLots(ReagentLots value) {
+    public JAXBElement<ReagentLots> createReagentLots(ReagentLots value)
+    {
         return new JAXBElement<ReagentLots>(_ReagentLots_QNAME, ReagentLots.class, null, value);
     }
 
@@ -118,7 +125,8 @@ public class ObjectFactory
      * @return A JAXBElement wrapping the ReagentLot.
      */
     @XmlElementDecl(namespace = REAGENT_LOT_NAMESPACE, name = "reagent-lot")
-    public JAXBElement<ReagentLot> createReagentLot(ReagentLot value) {
+    public JAXBElement<ReagentLot> createReagentLot(ReagentLot value)
+    {
         return new JAXBElement<ReagentLot>(_ReagentLot_QNAME, ReagentLot.class, null, value);
     }
 }

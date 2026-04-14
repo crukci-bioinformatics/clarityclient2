@@ -32,17 +32,17 @@ public enum QCFlag
      * Unknown quality control status.
      */
     UNKNOWN,
-    
+
     /**
      * Passed quality control.
      */
     PASSED,
-    
+
     /**
      * Failed quality control.
      */
     FAILED,
-    
+
     /**
      * Continue despite quality control status.
      */

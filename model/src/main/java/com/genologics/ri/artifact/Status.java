@@ -34,27 +34,27 @@ public enum Status
      * Queued status.
      */
     QUEUED,
-    
+
     /**
      * In progress status.
      */
     IN_PROGRESS,
-    
+
     /**
      * Skipped status.
      */
     SKIPPED,
-    
+
     /**
      * Removed status.
      */
     REMOVED,
-    
+
     /**
      * Complete status.
      */
     COMPLETE,
-    
+
     /**
      * Reworked status.
      */

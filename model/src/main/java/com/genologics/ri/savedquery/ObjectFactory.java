@@ -44,38 +44,51 @@ import jakarta.xml.bind.annotation.XmlRegistry;
 @XmlRegistry
 public class ObjectFactory
 {
-
+    /**
+     * QName for the saved-query XML element.
+     */
     private final static QName _SavedQuery_QNAME = new QName(SAVED_QUERY_NAMESPACE, "saved-query");
+
+    /**
+     * QName for the saved-queries XML element.
+     */
     private final static QName _SavedQueries_QNAME = new QName(SAVED_QUERY_NAMESPACE, "saved-queries");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.savedquery
      *
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
     /**
-     * Create an instance of {@link SavedQuery }
+     * Create an instance of {@link SavedQuery}.
      *
+     * @return The new instance of {@link SavedQuery}.
      */
-    public SavedQuery createSavedQuery() {
+    public SavedQuery createSavedQuery()
+    {
         return new SavedQuery();
     }
 
     /**
-     * Create an instance of {@link SavedQueries }
+     * Create an instance of {@link SavedQueries}.
      *
+     * @return The new instance of {@link SavedQueries}.
      */
-    public SavedQueries createSavedQueries() {
+    public SavedQueries createSavedQueries()
+    {
         return new SavedQueries();
     }
 
     /**
-     * Create an instance of {@link SavedQueryLink }
+     * Create an instance of {@link SavedQueryLink}.
      *
+     * @return The new instance of {@link SavedQueryLink}.
      */
-    public SavedQueryLink createSavedQueryLink() {
+    public SavedQueryLink createSavedQueryLink()
+    {
         return new SavedQueryLink();
     }
 
@@ -88,7 +101,8 @@ public class ObjectFactory
      *     the new instance of {@link JAXBElement }{@code <}{@link SavedQuery }{@code >}
      */
     @XmlElementDecl(namespace = SAVED_QUERY_NAMESPACE, name = "saved-query")
-    public JAXBElement<SavedQuery> createSavedQuery(SavedQuery value) {
+    public JAXBElement<SavedQuery> createSavedQuery(SavedQuery value)
+    {
         return new JAXBElement<SavedQuery>(_SavedQuery_QNAME, SavedQuery.class, null, value);
     }
 
@@ -101,7 +115,8 @@ public class ObjectFactory
      *     the new instance of {@link JAXBElement }{@code <}{@link SavedQueries }{@code >}
      */
     @XmlElementDecl(namespace = SAVED_QUERY_NAMESPACE, name = "saved-queries")
-    public JAXBElement<SavedQueries> createSavedQueries(SavedQueries value) {
+    public JAXBElement<SavedQueries> createSavedQueries(SavedQueries value)
+    {
         return new JAXBElement<SavedQueries>(_SavedQueries_QNAME, SavedQueries.class, null, value);
     }
 
