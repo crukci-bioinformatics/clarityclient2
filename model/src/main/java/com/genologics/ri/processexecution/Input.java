@@ -147,8 +147,9 @@ public class Input extends ArtifactBase implements LimsLink<Artifact>
     }
 
     /**
-     * {@inheritDoc}
-     * @see LimsLink#toString(LimsLink)
+     * Returns a string representation of the input.
+     *
+     * @return A string representation.
      */
     public String toString()
     {

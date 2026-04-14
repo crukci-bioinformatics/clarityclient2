@@ -50,32 +50,59 @@ public class ResearcherLink extends LimsEntityLinkBase<Researcher>
      */
     @Serial private static final long serialVersionUID = -8690537907678526381L;
 
+    /**
+     * The last name of the researcher.
+     */
     @XmlAttribute(name = "last-name")
     protected String lastName;
 
+    /**
+     * The first name of the researcher.
+     */
     @XmlAttribute(name = "first-name")
     protected String firstName;
 
+    /**
+     * The URI of the researcher.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
 
+    /**
+     * Default constructor.
+     */
     public ResearcherLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the researcher.
+     */
     public ResearcherLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor from a Linkable.
+     *
+     * @param link The linkable researcher.
+     */
     public ResearcherLink(Linkable<Researcher> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * Constructor from a Researcher entity.
+     *
+     * @param researcher The researcher entity.
+     */
     public ResearcherLink(Researcher researcher)
     {
         requireNonNull(researcher, "researcher cannot be null");
@@ -84,21 +111,41 @@ public class ResearcherLink extends LimsEntityLinkBase<Researcher>
         lastName = researcher.getLastName();
     }
 
+    /**
+     * Gets the last name of the researcher.
+     *
+     * @return The researcher's last name.
+     */
     public String getLastName()
     {
         return lastName;
     }
 
+    /**
+     * Sets the last name of the researcher.
+     *
+     * @param lastName The researcher's last name.
+     */
     public void setLastName(String lastName)
     {
         this.lastName = lastName;
     }
 
+    /**
+     * Gets the first name of the researcher.
+     *
+     * @return The researcher's first name.
+     */
     public String getFirstName()
     {
         return firstName;
     }
 
+    /**
+     * Sets the first name of the researcher.
+     *
+     * @param firstName The researcher's first name.
+     */
     public void setFirstName(String firstName)
     {
         this.firstName = firstName;
@@ -118,36 +165,66 @@ public class ResearcherLink extends LimsEntityLinkBase<Researcher>
         return Researcher.makeFullName(firstName, lastName);
     }
 
+    /**
+     * Gets the URI of the researcher.
+     *
+     * @return The researcher URI.
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the researcher.
+     *
+     * @param uri The researcher URI.
+     */
     @Override
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the LIMS id from the URI.
+     *
+     * @return The LIMS id extracted from the URI.
+     */
     @Override
     public String getLimsid()
     {
         return Link.limsIdFromUri(uri);
     }
 
+    /**
+     * Sets the LIMS id. This method does nothing as the id is extracted from the URI.
+     *
+     * @param id The LIMS id (ignored).
+     */
     @Override
     public void setLimsid(String id)
     {
         // Does nothing.
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The Researcher class.
+     */
     @Override
     public Class<Researcher> getEntityClass()
     {
         return Researcher.class;
     }
 
+    /**
+     * Returns a string representation of this link.
+     *
+     * @return The full name of the researcher.
+     */
     @Override
     public String toString()
     {

@@ -35,6 +35,10 @@ import com.genologics.ri.container.Container;
 import com.genologics.ri.containertype.ContainerType;
 
 /**
+ * Link to a container type within a process type configuration.
+ * Provides a URI linking to the detailed representation of a container type,
+ * along with its name.
+ *
  * @since 2.25
  */
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -46,34 +50,64 @@ public class ContainerTypeLink extends LimsLinkBase<Container>
      */
     @Serial private static final long serialVersionUID = 3628143663166434766L;
 
+    /**
+     * The name of the container type.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The URI of the container type.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Constructs a new container type link.
+     */
     public ContainerTypeLink()
     {
     }
 
+    /**
+     * Constructs a new container type link with the specified URI.
+     *
+     * @param uri the URI of the container type.
+     */
     public ContainerTypeLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructs a new container type link with the specified URI and name.
+     *
+     * @param uri the URI of the container type.
+     * @param name the name of the container type.
+     */
     public ContainerTypeLink(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Constructs a new container type link from a linkable object.
+     *
+     * @param link the linkable object providing the URI.
+     */
     public ContainerTypeLink(Linkable<ContainerType> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * Constructs a new container type link from a container type entity.
+     *
+     * @param containerType the container type entity.
+     */
     public ContainerTypeLink(ContainerType containerType)
     {
         requireNonNull(containerType, "containerType cannot be null");
@@ -81,26 +115,51 @@ public class ContainerTypeLink extends LimsLinkBase<Container>
         this.name = containerType.getName();
     }
 
+    /**
+     * Gets the URI of the container type.
+     *
+     * @return the container type URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the container type.
+     *
+     * @param uri the container type URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the name of the container type.
+     *
+     * @return the container type name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the container type.
+     *
+     * @param name the container type name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return the Container class.
+     */
     @Override
     public Class<Container> getEntityClass()
     {

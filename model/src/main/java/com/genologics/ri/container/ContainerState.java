@@ -99,6 +99,7 @@ public enum ContainerState
      * Private constructor.
      *
      * @param display The display name.
+     * @param state The numeric state id.
      */
     private ContainerState(String display, int state)
     {
@@ -106,12 +107,22 @@ public enum ContainerState
         stateId = state;
     }
 
+    /**
+     * Returns a string representation of the container state.
+     *
+     * @return The display name.
+     */
     @Override
     public String toString()
     {
         return displayName;
     }
 
+    /**
+     * Gets the string value of this container state.
+     *
+     * @return The display name.
+     */
     public String value()
     {
         return displayName;

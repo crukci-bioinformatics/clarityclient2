@@ -37,6 +37,11 @@ import com.genologics.ri.Page;
 import com.genologics.ri.PaginatedBatch;
 
 /**
+ * A list of automation links returned from a query.
+ * <p>
+ * This class supports pagination through previous-page and next-page links.
+ * </p>
+ *
  * @since 2.26
  */
 @ClarityQueryResult(entityClass = Automation.class)
@@ -50,34 +55,65 @@ public class Automations implements PaginatedBatch<AutomationLink>, Serializable
      */
     @Serial private static final long serialVersionUID = -3048084395718929498L;
 
+    /**
+     * The list of automation links.
+     */
     @XmlElement(name = "automation")
     protected List<AutomationLink> automations;
 
+    /**
+     * The link to the previous page of results.
+     */
     @XmlElement(name = "previous-page")
     protected Page previousPage;
 
+    /**
+     * The link to the next page of results.
+     */
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    /**
+     * The URI of this automations resource.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
+    public Automations()
+    {
+    }
 
-    public Automations() { }
-
+    /**
+     * Gets the list of automation links.
+     *
+     * @return The list of automation links.
+     */
     @Override
     public List<AutomationLink> getList()
     {
         return getAutomations();
     }
 
+    /**
+     * Gets the size of the automation list.
+     *
+     * @return The number of automations.
+     */
     @Override
     public int getSize()
     {
         return automations == null ? 0 : automations.size();
     }
 
+    /**
+     * Gets the list of automations.
+     *
+     * @return The list of automation links.
+     */
     public List<AutomationLink> getAutomations()
     {
         if (automations == null)
@@ -87,31 +123,61 @@ public class Automations implements PaginatedBatch<AutomationLink>, Serializable
         return automations;
     }
 
+    /**
+     * Gets the previous page of results.
+     *
+     * @return The previous page, or null if there is no previous page.
+     */
     public Page getPreviousPage()
     {
         return previousPage;
     }
 
+    /**
+     * Sets the previous page of results.
+     *
+     * @param value The previous page.
+     */
     public void setPreviousPage(Page value)
     {
         this.previousPage = value;
     }
 
+    /**
+     * Gets the next page of results.
+     *
+     * @return The next page, or null if there is no next page.
+     */
     public Page getNextPage()
     {
         return nextPage;
     }
 
+    /**
+     * Sets the next page of results.
+     *
+     * @param value The next page.
+     */
     public void setNextPage(Page value)
     {
         this.nextPage = value;
     }
 
+    /**
+     * Gets the URI of this automations resource.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of this automations resource.
+     *
+     * @param value The URI.
+     */
     public void setUri(URI value)
     {
         this.uri = value;

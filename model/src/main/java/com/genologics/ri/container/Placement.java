@@ -52,31 +52,61 @@ public class Placement extends LimsEntityLinkBase<Artifact> implements Comparabl
      */
     @Serial private static final long serialVersionUID = -4089394834813900531L;
 
+    /**
+     * The URI of the artifact.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The LIMS id of the artifact.
+     */
     @XmlAttribute(name = "limsid")
     protected String limsid;
 
+    /**
+     * The well position in the container.
+     */
     @XmlElement(name = "value")
     protected String wellPosition;
 
+    /**
+     * Default constructor.
+     */
     public Placement()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI.
+     */
     public Placement(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and well position.
+     *
+     * @param uri The URI.
+     * @param wellPosition The well position.
+     */
     public Placement(URI uri, String wellPosition)
     {
         this.uri = uri;
         this.wellPosition = wellPosition;
     }
 
+    /**
+     * Constructor with URI, LIMS id, and well position.
+     *
+     * @param uri The URI.
+     * @param limsid The LIMS id.
+     * @param wellPosition The well position.
+     */
     public Placement(URI uri, String limsid, String wellPosition)
     {
         this.uri = uri;
@@ -84,12 +114,23 @@ public class Placement extends LimsEntityLinkBase<Artifact> implements Comparabl
         this.wellPosition = wellPosition;
     }
 
+    /**
+     * Constructor from a LIMS entity linkable artifact.
+     *
+     * @param artifact The artifact.
+     */
     public Placement(LimsEntityLinkable<Artifact> artifact)
     {
         requireNonNull(artifact, "artifact cannot be null");
         this.uri = artifact.getUri();
     }
 
+    /**
+     * Constructor from a LIMS entity linkable artifact with well position.
+     *
+     * @param artifact The artifact.
+     * @param wellPosition The well position.
+     */
     public Placement(LimsEntityLinkable<Artifact> artifact, String wellPosition)
     {
         requireNonNull(artifact, "artifact cannot be null");
@@ -97,6 +138,12 @@ public class Placement extends LimsEntityLinkBase<Artifact> implements Comparabl
         this.wellPosition = wellPosition;
     }
 
+    /**
+     * Constructor from an artifact.
+     * Extracts the well position from the artifact's location if available.
+     *
+     * @param artifact The artifact.
+     */
     public Placement(Artifact artifact)
     {
         requireNonNull(artifact, "artifact cannot be null");
@@ -105,42 +152,85 @@ public class Placement extends LimsEntityLinkBase<Artifact> implements Comparabl
         wellPosition = artifact.getLocation() == null ? null : artifact.getLocation().getWellPosition();
     }
 
+    /**
+     * Gets the entity class for this placement.
+     *
+     * @return The Artifact class.
+     */
     @Override
     public Class<Artifact> getEntityClass()
     {
         return Artifact.class;
     }
 
+    /**
+     * Gets the URI of the artifact.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the artifact.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the LIMS id of the artifact.
+     *
+     * @return The LIMS id.
+     */
     public String getLimsid()
     {
         return limsid;
     }
 
+    /**
+     * Sets the LIMS id of the artifact.
+     *
+     * @param limsid The LIMS id.
+     */
     public void setLimsid(String limsid)
     {
         this.limsid = limsid;
     }
 
+    /**
+     * Gets the well position in the container.
+     *
+     * @return The well position.
+     */
     public String getWellPosition()
     {
         return wellPosition;
     }
 
+    /**
+     * Sets the well position in the container.
+     *
+     * @param wellPosition The well position.
+     */
     public void setWellPosition(String wellPosition)
     {
         this.wellPosition = wellPosition;
     }
 
+    /**
+     * Compares this placement to another based on well position.
+     * Well positions are compared intelligently, taking into account numeric and alphabetic parts.
+     *
+     * @param o The other placement to compare to.
+     * @return A negative integer, zero, or a positive integer as this placement is less than,
+     *         equal to, or greater than the specified placement.
+     */
     @Override
     public int compareTo(Placement o)
     {
@@ -174,6 +264,11 @@ public class Placement extends LimsEntityLinkBase<Artifact> implements Comparabl
         return result;
     }
 
+    /**
+     * Returns a string representation of the placement.
+     *
+     * @return A string representation containing the LIMS id and well position.
+     */
     @Override
     public String toString()
     {

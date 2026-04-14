@@ -51,14 +51,33 @@ public class SampleBatchFetchResult implements BatchUpdate<Sample>, Serializable
      */
     @Serial private static final long serialVersionUID = 8207729034543316762L;
 
+    /**
+     * The list of samples.
+     */
     @XmlElement(name = "sample", namespace = Namespaces.SAMPLE_NAMESPACE)
     protected List<Sample> samples;
 
+    /**
+     * The list of sample creations.
+     */
     @XmlElement(name = "samplecreation", namespace = Namespaces.SAMPLE_NAMESPACE)
     protected List<SampleCreation> sampleCreations;
 
+    /**
+     * Constructor for an empty sample batch fetch result.
+     */
     public SampleBatchFetchResult() {}
 
+    /**
+     * Gets the list of samples.
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Any modification to the returned list will be
+     * reflected in the object.
+     * </p>
+     *
+     * @return The list of samples.
+     */
     public List<Sample> getSamples()
     {
         if (samples == null)
@@ -68,6 +87,16 @@ public class SampleBatchFetchResult implements BatchUpdate<Sample>, Serializable
         return samples;
     }
 
+    /**
+     * Gets the list of sample creations.
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Any modification to the returned list will be
+     * reflected in the object.
+     * </p>
+     *
+     * @return The list of sample creations.
+     */
     public List<SampleCreation> getSampleCreations()
     {
         if (sampleCreations == null)
@@ -77,18 +106,33 @@ public class SampleBatchFetchResult implements BatchUpdate<Sample>, Serializable
         return sampleCreations;
     }
 
+    /**
+     * Gets the list of samples for batch operations.
+     *
+     * @return The list of samples.
+     */
     @Override
     public List<Sample> getList()
     {
         return getSamples();
     }
 
+    /**
+     * Gets the size of the sample list.
+     *
+     * @return The number of samples in the list.
+     */
     @Override
     public int getSize()
     {
         return samples == null ? 0 : samples.size();
     }
 
+    /**
+     * Adds samples to this object for update.
+     *
+     * @param entities The collection of Sample objects to add.
+     */
     @Override
     public void addForUpdate(Collection<Sample> entities)
     {

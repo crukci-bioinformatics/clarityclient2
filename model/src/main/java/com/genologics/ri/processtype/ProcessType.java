@@ -59,25 +59,45 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
      */
     @Serial private static final long serialVersionUID = 3103866326222677563L;
 
+    /**
+     * Field definitions for user-defined fields.
+     */
     @XmlElement(name = "field-definition")
     protected List<FieldLink> fieldDefinitions;
 
+    /**
+     * EPP parameters for this process type.
+     */
     @XmlElement(name = "parameter")
     protected List<Parameter> parameters;
 
+    /**
+     * Type definitions for user-defined types.
+     */
     @XmlElement(name = "type-definition")
     protected List<TypeDefinition> typeDefinitions;
 
+    /**
+     * Process input configurations.
+     */
     @XmlElement(name = "process-input")
     protected List<ProcessInput> processInputs;
 
+    /**
+     * Process output configurations.
+     */
     @XmlElement(name = "process-output")
     protected List<ProcessOutput> processOutputs;
 
+    /**
+     * Internal process type attributes.
+     */
     @XmlElement(name = "process-type-attribute")
     protected List<ProcessTypeAttribute> processTypeAttributes;
 
     /**
+     * Permitted container types for this process.
+     *
      * @since 2.25
      */
     @XmlElementWrapper(name = "permitted-containers")
@@ -85,6 +105,8 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
     protected List<ContainerTypeLink> permittedContainers;
 
     /**
+     * Permitted reagent categories for this process.
+     *
      * @since 2.25
      */
     @XmlElementWrapper(name = "permitted-reagent-categories")
@@ -92,6 +114,8 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
     protected List<String> permittedReagentCategories;
 
     /**
+     * Required reagent kits for this process.
+     *
      * @since 2.25
      */
     @XmlElementWrapper(name = "required-reagent-kits")
@@ -99,6 +123,8 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
     protected List<ReagentKitLink> requiredReagentKits;
 
     /**
+     * Permitted control types for this process.
+     *
      * @since 2.25
      */
     @XmlElementWrapper(name = "permitted-control-types")
@@ -106,13 +132,17 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
     protected List<ControlTypeLink> permittedControlTypes;
 
     /**
+     * Permitted instrument types for this process.
+     *
      * @since 2.25
      */
     @XmlElementWrapper(name = "permitted-instrument-types")
     @XmlElement(name = "instrument-type")
     protected List<String> permittedInstrumentTypes;
 
-    /**queueFields
+    /**
+     * Fields displayed in the queue view.
+     *
      * @since 2.25
      */
     @XmlElementWrapper(name = "queue-fields")
@@ -120,6 +150,8 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
     protected List<QueueField> queueFields;
 
     /**
+     * Fields displayed in the ice bucket view.
+     *
      * @since 2.25
      */
     @XmlElementWrapper(name = "ice-bucket-fields")
@@ -127,6 +159,8 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
     protected List<IceBucketField> iceBucketFields;
 
     /**
+     * Fields displayed in the step view.
+     *
      * @since 2.25
      */
     @XmlElementWrapper(name = "step-fields")
@@ -134,6 +168,8 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
     protected List<Field> stepFields;
 
     /**
+     * Fields displayed for samples in the step view.
+     *
      * @since 2.25
      */
     @XmlElementWrapper(name = "sample-fields")
@@ -141,6 +177,8 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
     protected List<Field> sampleFields;
 
     /**
+     * Properties for the step configuration.
+     *
      * @since 2.25
      */
     @XmlElementWrapper(name = "step-properties")
@@ -148,56 +186,99 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
     protected List<StepProperty> stepProperties;
 
     /**
+     * Step setup configuration.
+     *
      * @since 2.25
      */
     @XmlElement(name = "step-setup")
     protected StepSetup stepSetup;
 
     /**
+     * EPP triggers for this process type.
+     *
      * @since 2.25
      */
     @XmlElementWrapper(name = "epp-triggers")
     @XmlElement(name = "epp-trigger")
     protected List<EppTrigger> eppTriggers;
 
+    /**
+     * The name of the process type.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The URI of the process type.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
-
+    /**
+     * Constructs a new process type.
+     */
     public ProcessType()
     {
     }
 
+    /**
+     * Constructs a new process type with the specified URI.
+     *
+     * @param uri the URI of the process type.
+     */
     public ProcessType(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructs a new process type with the specified URI and name.
+     *
+     * @param uri the URI of the process type.
+     * @param name the name of the process type.
+     */
     public ProcessType(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Gets the name of the process type.
+     *
+     * @return the process type name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the process type.
+     *
+     * @param name the process type name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the URI of the process type.
+     *
+     * @return the process type URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the process type.
+     *
+     * @param uri the process type URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
@@ -217,6 +298,11 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
         return fieldDefinitions;
     }
 
+    /**
+     * Gets the EPP parameters for this process type.
+     *
+     * @return a list of parameters.
+     */
     public List<Parameter> getParameters()
     {
         if (parameters == null)
@@ -226,6 +312,11 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
         return parameters;
     }
 
+    /**
+     * Gets the type definitions for this process type.
+     *
+     * @return a list of type definitions.
+     */
     public List<TypeDefinition> getTypeDefinitions()
     {
         if (typeDefinitions == null)
@@ -235,6 +326,12 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
         return typeDefinitions;
     }
 
+    /**
+     * Adds a type definition for the specified field.
+     *
+     * @param link the field link.
+     * @return the created type definition.
+     */
     public TypeDefinition addTypeDefinition(Linkable<com.genologics.ri.configuration.Field> link)
     {
         TypeDefinition td = new TypeDefinition(link);
@@ -242,6 +339,11 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
         return td;
     }
 
+    /**
+     * Gets the process input configurations.
+     *
+     * @return a list of process inputs.
+     */
     public List<ProcessInput> getProcessInputs()
     {
         if (processInputs == null)
@@ -251,6 +353,11 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
         return processInputs;
     }
 
+    /**
+     * Gets the process output configurations.
+     *
+     * @return a list of process outputs.
+     */
     public List<ProcessOutput> getProcessOutputs()
     {
         if (processOutputs == null)
@@ -260,6 +367,11 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
         return processOutputs;
     }
 
+    /**
+     * Gets the process type attributes.
+     *
+     * @return a list of process type attributes.
+     */
     public List<ProcessTypeAttribute> getProcessTypeAttributes()
     {
         if (processTypeAttributes == null)
@@ -269,6 +381,11 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
         return processTypeAttributes;
     }
 
+    /**
+     * Gets the permitted container types for this process.
+     *
+     * @return a list of container type links.
+     */
     public List<ContainerTypeLink> getPermittedContainers()
     {
         if (permittedContainers == null)
@@ -278,6 +395,11 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
         return permittedContainers;
     }
 
+    /**
+     * Gets the permitted reagent categories for this process.
+     *
+     * @return a list of reagent category names.
+     */
     public List<String> getPermittedReagentCategories()
     {
         if (permittedReagentCategories == null)
@@ -287,6 +409,11 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
         return permittedReagentCategories;
     }
 
+    /**
+     * Gets the required reagent kits for this process.
+     *
+     * @return a list of reagent kit links.
+     */
     public List<ReagentKitLink> getRequiredReagentKits()
     {
         if (requiredReagentKits == null)
@@ -296,6 +423,11 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
         return requiredReagentKits;
     }
 
+    /**
+     * Gets the permitted control types for this process.
+     *
+     * @return a list of control type links.
+     */
     public List<ControlTypeLink> getPermittedControlTypes()
     {
         if (permittedControlTypes == null)
@@ -305,6 +437,11 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
         return permittedControlTypes;
     }
 
+    /**
+     * Gets the permitted instrument types for this process.
+     *
+     * @return a list of instrument type names.
+     */
     public List<String> getPermittedInstrumentTypes()
     {
         if (permittedInstrumentTypes == null)
@@ -314,6 +451,11 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
         return permittedInstrumentTypes;
     }
 
+    /**
+     * Gets the fields displayed in the queue view.
+     *
+     * @return a list of queue fields.
+     */
     public List<QueueField> getQueueFields()
     {
         if (queueFields == null)
@@ -323,6 +465,11 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
         return queueFields;
     }
 
+    /**
+     * Gets the fields displayed in the ice bucket view.
+     *
+     * @return a list of ice bucket fields.
+     */
     public List<IceBucketField> getIceBucketFields()
     {
         if (iceBucketFields == null)
@@ -332,6 +479,11 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
         return iceBucketFields;
     }
 
+    /**
+     * Gets the fields displayed in the step view.
+     *
+     * @return a list of step fields.
+     */
     public List<Field> getStepFields()
     {
         if (stepFields == null)
@@ -341,6 +493,11 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
         return stepFields;
     }
 
+    /**
+     * Gets the fields displayed for samples in the step view.
+     *
+     * @return a list of sample fields.
+     */
     public List<Field> getSampleFields()
     {
         if (sampleFields == null)
@@ -350,6 +507,11 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
         return sampleFields;
     }
 
+    /**
+     * Gets the step properties for this process type.
+     *
+     * @return a list of step properties.
+     */
     public List<StepProperty> getStepProperties()
     {
         if (stepProperties == null)
@@ -359,16 +521,31 @@ public class ProcessType implements Linkable<ProcessType>, Serializable
         return stepProperties;
     }
 
+    /**
+     * Gets the step setup configuration.
+     *
+     * @return the step setup.
+     */
     public StepSetup getStepSetup()
     {
         return stepSetup;
     }
 
+    /**
+     * Sets the step setup configuration.
+     *
+     * @param stepSetup the step setup.
+     */
     public void setStepSetup(StepSetup stepSetup)
     {
         this.stepSetup = stepSetup;
     }
 
+    /**
+     * Gets the EPP triggers for this process type.
+     *
+     * @return a list of EPP triggers.
+     */
     public List<EppTrigger> getEppTriggers()
     {
         if (eppTriggers == null)

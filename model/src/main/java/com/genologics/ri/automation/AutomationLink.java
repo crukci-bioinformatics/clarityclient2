@@ -33,6 +33,8 @@ import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 
 /**
+ * A link to an Automation entity.
+ *
  * @since 2.26
  */
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -44,34 +46,64 @@ public class AutomationLink extends LimsLinkBase<Automation>
      */
     @Serial private static final long serialVersionUID = 3268594731404978793L;
 
+    /**
+     * The URI of the automation.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The name of the automation.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * Default constructor.
+     */
     public AutomationLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The automation URI.
+     */
     public AutomationLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and name.
+     *
+     * @param uri The automation URI.
+     * @param name The automation name.
+     */
     public AutomationLink(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Constructor from a Linkable.
+     *
+     * @param link The linkable automation.
+     */
     public AutomationLink(Linkable<Automation> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Constructor from an Automation entity.
+     *
+     * @param automation The automation entity.
+     */
     public AutomationLink(Automation automation)
     {
         requireNonNull(automation, "automation cannot be null");
@@ -79,32 +111,62 @@ public class AutomationLink extends LimsLinkBase<Automation>
         name = automation.getName();
     }
 
+    /**
+     * Gets the URI of the automation.
+     *
+     * @return The automation URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the automation.
+     *
+     * @param uri The automation URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the name of the automation.
+     *
+     * @return The automation name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the automation.
+     *
+     * @param name The automation name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The Automation class.
+     */
     @Override
     public Class<Automation> getEntityClass()
     {
         return Automation.class;
     }
 
+    /**
+     * Returns a string representation of this link.
+     *
+     * @return The automation name, or "null" if the name is null.
+     */
     @Override
     public String toString()
     {

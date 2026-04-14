@@ -47,28 +47,53 @@ public class RoleLink extends LimsLinkBase<Role>
      */
     @Serial private static final long serialVersionUID = -6515590246139208584L;
 
+    /**
+     * The name of the role.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The URI of the role.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public RoleLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the role.
+     */
     public RoleLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and name.
+     *
+     * @param uri The URI of the role.
+     * @param name The name of the role.
+     */
     public RoleLink(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Constructor from a Role entity.
+     *
+     * @param role The role entity.
+     */
     public RoleLink(Role role)
     {
         requireNonNull(role, "role cannot be null");
@@ -76,32 +101,62 @@ public class RoleLink extends LimsLinkBase<Role>
         name = role.getName();
     }
 
+    /**
+     * Gets the name of the role.
+     *
+     * @return The role name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the role.
+     *
+     * @param name The role name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the URI of the role.
+     *
+     * @return The role URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the role.
+     *
+     * @param uri The role URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The Role class.
+     */
     @Override
     public Class<Role> getEntityClass()
     {
         return Role.class;
     }
 
+    /**
+     * Returns a string representation of this link.
+     *
+     * @return The name of the role.
+     */
     @Override
     public String toString()
     {

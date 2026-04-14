@@ -49,47 +49,88 @@ public class InstrumentLink extends LimsEntityLinkBase<Instrument>
      */
     @Serial private static final long serialVersionUID = -2255676271595073801L;
 
+    /**
+     * The URI of the instrument.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public InstrumentLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri the URI of the instrument.
+     */
     public InstrumentLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor from a linkable instrument.
+     *
+     * @param link the linkable instrument.
+     */
     public InstrumentLink(Linkable<Instrument> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return the Instrument class.
+     */
     @Override
     public Class<Instrument> getEntityClass()
     {
         return Instrument.class;
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return the URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param uri the URI to set.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the LIMS id extracted from the URI.
+     *
+     * @return the LIMS id.
+     */
     @Override
     public String getLimsid()
     {
         return Link.limsIdFromUri(uri);
     }
 
+    /**
+     * Sets the LIMS id. This method does nothing as the LIMS id is extracted from the URI.
+     *
+     * @param id the LIMS id (ignored).
+     */
     @Override
     public void setLimsid(String id)
     {

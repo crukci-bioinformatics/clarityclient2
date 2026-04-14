@@ -44,15 +44,22 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory
 {
-
+    /**
+     * The qualified name for the permission element.
+     */
     private final static QName _Permission_QNAME = new QName(PERMISSION_NAMESPACE, "permission");
+
+    /**
+     * The qualified name for the permissions element.
+     */
     private final static QName _Permissions_QNAME = new QName(PERMISSION_NAMESPACE, "permissions");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.permission
      *
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
     /**
@@ -60,7 +67,8 @@ public class ObjectFactory
      *
      * @return A new Permissions instance.
      */
-    public Permissions createPermissions() {
+    public Permissions createPermissions()
+    {
         return new Permissions();
     }
 
@@ -69,7 +77,8 @@ public class ObjectFactory
      *
      * @return A new PermissionLink instance.
      */
-    public PermissionLink createPermissionLink() {
+    public PermissionLink createPermissionLink()
+    {
         return new PermissionLink();
     }
 
@@ -78,7 +87,8 @@ public class ObjectFactory
      *
      * @return A new Permission instance.
      */
-    public Permission createPermission() {
+    public Permission createPermission()
+    {
         return new Permission();
     }
 
@@ -89,7 +99,8 @@ public class ObjectFactory
      * @return A new JAXBElement wrapping the Permission instance.
      */
     @XmlElementDecl(namespace = PERMISSION_NAMESPACE, name = "permission")
-    public JAXBElement<Permission> createPermission(Permission value) {
+    public JAXBElement<Permission> createPermission(Permission value)
+    {
         return new JAXBElement<Permission>(_Permission_QNAME, Permission.class, null, value);
     }
 
@@ -100,7 +111,8 @@ public class ObjectFactory
      * @return A new JAXBElement wrapping the Permissions instance.
      */
     @XmlElementDecl(namespace = PERMISSION_NAMESPACE, name = "permissions")
-    public JAXBElement<Permissions> createPermissions(Permissions value) {
+    public JAXBElement<Permissions> createPermissions(Permissions value)
+    {
         return new JAXBElement<Permissions>(_Permissions_QNAME, Permissions.class, null, value);
     }
 

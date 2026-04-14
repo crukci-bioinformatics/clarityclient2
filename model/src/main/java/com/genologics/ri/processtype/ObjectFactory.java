@@ -45,95 +45,224 @@ import javax.xml.namespace.QName;
 public class ObjectFactory
 {
 
+    /**
+     * QName for the process-types root element.
+     */
     private final static QName _ProcessTypes_QNAME = new QName(PROCESS_TYPE_NAMESPACE, "process-types");
+
+    /**
+     * QName for the process-type root element.
+     */
     private final static QName _ProcessType_QNAME = new QName(PROCESS_TYPE_NAMESPACE, "process-type");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.processtype
-     *
+     * Creates a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.processtype.
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
-    public SharedResultFile createSharedResultFile() {
+    /**
+     * Creates a new SharedResultFile instance.
+     *
+     * @return a new SharedResultFile.
+     */
+    public SharedResultFile createSharedResultFile()
+    {
         return new SharedResultFile();
     }
 
-    public StepProperty createStepProperty() {
+    /**
+     * Creates a new StepProperty instance.
+     *
+     * @return a new StepProperty.
+     */
+    public StepProperty createStepProperty()
+    {
         return new StepProperty();
     }
 
-    public Parameter createParameter() {
+    /**
+     * Creates a new Parameter instance.
+     *
+     * @return a new Parameter.
+     */
+    public Parameter createParameter()
+    {
         return new Parameter();
     }
 
-    public ProcessType createProcessType() {
+    /**
+     * Creates a new ProcessType instance.
+     *
+     * @return a new ProcessType.
+     */
+    public ProcessType createProcessType()
+    {
         return new ProcessType();
     }
 
-    public ControlTypeLink createControlTypeLink() {
+    /**
+     * Creates a new ControlTypeLink instance.
+     *
+     * @return a new ControlTypeLink.
+     */
+    public ControlTypeLink createControlTypeLink()
+    {
         return new ControlTypeLink();
     }
 
-    public ContainerTypeLink createContainerTypeLink() {
+    /**
+     * Creates a new ContainerTypeLink instance.
+     *
+     * @return a new ContainerTypeLink.
+     */
+    public ContainerTypeLink createContainerTypeLink()
+    {
         return new ContainerTypeLink();
     }
 
-    public IceBucketField createIceBucketField() {
+    /**
+     * Creates a new IceBucketField instance.
+     *
+     * @return a new IceBucketField.
+     */
+    public IceBucketField createIceBucketField()
+    {
         return new IceBucketField();
     }
 
-    public ProcessTypes createProcessTypes() {
+    /**
+     * Creates a new ProcessTypes instance.
+     *
+     * @return a new ProcessTypes.
+     */
+    public ProcessTypes createProcessTypes()
+    {
         return new ProcessTypes();
     }
 
-    public EppTrigger createEppTrigger() {
+    /**
+     * Creates a new EppTrigger instance.
+     *
+     * @return a new EppTrigger.
+     */
+    public EppTrigger createEppTrigger()
+    {
         return new EppTrigger();
     }
 
-    public StepSetup createStepSetup() {
+    /**
+     * Creates a new StepSetup instance.
+     *
+     * @return a new StepSetup.
+     */
+    public StepSetup createStepSetup()
+    {
         return new StepSetup();
     }
 
-    public Field createField() {
+    /**
+     * Creates a new Field instance.
+     *
+     * @return a new Field.
+     */
+    public Field createField()
+    {
         return new Field();
     }
 
-    public TypeDefinition createTypeDefinition() {
+    /**
+     * Creates a new TypeDefinition instance.
+     *
+     * @return a new TypeDefinition.
+     */
+    public TypeDefinition createTypeDefinition()
+    {
         return new TypeDefinition();
     }
 
-    public ProcessTypeLink createProcessTypeLink() {
+    /**
+     * Creates a new ProcessTypeLink instance.
+     *
+     * @return a new ProcessTypeLink.
+     */
+    public ProcessTypeLink createProcessTypeLink()
+    {
         return new ProcessTypeLink();
     }
 
-    public QueueField createQueueField() {
+    /**
+     * Creates a new QueueField instance.
+     *
+     * @return a new QueueField.
+     */
+    public QueueField createQueueField()
+    {
         return new QueueField();
     }
 
-    public ProcessOutput createProcessOutput() {
+    /**
+     * Creates a new ProcessOutput instance.
+     *
+     * @return a new ProcessOutput.
+     */
+    public ProcessOutput createProcessOutput()
+    {
         return new ProcessOutput();
     }
 
-    public ReagentKitLink createReagentKitLink() {
+    /**
+     * Creates a new ReagentKitLink instance.
+     *
+     * @return a new ReagentKitLink.
+     */
+    public ReagentKitLink createReagentKitLink()
+    {
         return new ReagentKitLink();
     }
 
-    public ProcessInput createProcessInput() {
+    /**
+     * Creates a new ProcessInput instance.
+     *
+     * @return a new ProcessInput.
+     */
+    public ProcessInput createProcessInput()
+    {
         return new ProcessInput();
     }
 
-    public ProcessTypeAttribute createProcessTypeAttribute() {
+    /**
+     * Creates a new ProcessTypeAttribute instance.
+     *
+     * @return a new ProcessTypeAttribute.
+     */
+    public ProcessTypeAttribute createProcessTypeAttribute()
+    {
         return new ProcessTypeAttribute();
     }
 
+    /**
+     * Creates a JAXB element wrapping ProcessTypes.
+     *
+     * @param value the ProcessTypes instance to wrap.
+     * @return a JAXBElement wrapping the ProcessTypes.
+     */
     @XmlElementDecl(namespace = PROCESS_TYPE_NAMESPACE, name = "process-types")
-    public JAXBElement<ProcessTypes> createProcessTypes(ProcessTypes value) {
+    public JAXBElement<ProcessTypes> createProcessTypes(ProcessTypes value)
+    {
         return new JAXBElement<ProcessTypes>(_ProcessTypes_QNAME, ProcessTypes.class, null, value);
     }
 
+    /**
+     * Creates a JAXB element wrapping ProcessType.
+     *
+     * @param value the ProcessType instance to wrap.
+     * @return a JAXBElement wrapping the ProcessType.
+     */
     @XmlElementDecl(namespace = PROCESS_TYPE_NAMESPACE, name = "process-type")
-    public JAXBElement<ProcessType> createProcessType(ProcessType value) {
+    public JAXBElement<ProcessType> createProcessType(ProcessType value)
+    {
         return new JAXBElement<ProcessType>(_ProcessType_QNAME, ProcessType.class, null, value);
     }
 }

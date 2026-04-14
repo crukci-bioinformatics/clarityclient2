@@ -19,7 +19,6 @@
 package com.genologics.ri;
 
 import java.io.Serial;
-import java.io.Serializable;
 
 /**
  * Helper base class for {@code LimsEntityLink} implementations extending from
@@ -29,7 +28,7 @@ import java.io.Serializable;
  *
  * @since 2.34.2
  */
-public abstract class LimsEntityLinkBase<E extends LimsEntity<E>> extends LimsLinkBase<E> implements LimsEntityLink<E>, Serializable
+public abstract class LimsEntityLinkBase<E extends LimsEntity<E>> extends LimsLinkBase<E> implements LimsEntityLink<E>
 {
     /**
      * Class version for serialisation.

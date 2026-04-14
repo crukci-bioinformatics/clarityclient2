@@ -45,99 +45,246 @@ import javax.xml.namespace.QName;
 public class ObjectFactory
 {
 
+    /**
+     * The QName for the type element.
+     */
     private final static QName _Type_QNAME = new QName(CONFIGURATION_NAMESPACE, "type");
+
+    /**
+     * The QName for the udtconfig-link element.
+     */
     private final static QName _UdtconfigLink_QNAME = new QName(CONFIGURATION_NAMESPACE, "udtconfig-link");
+
+    /**
+     * The QName for the udfs element.
+     */
     private final static QName _Udfs_QNAME = new QName(CONFIGURATION_NAMESPACE, "udfs");
+
+    /**
+     * The QName for the udfconfig-link element.
+     */
     private final static QName _UdfconfigLink_QNAME = new QName(CONFIGURATION_NAMESPACE, "udfconfig-link");
+
+    /**
+     * The QName for the udts element.
+     */
     private final static QName _Udts_QNAME = new QName(CONFIGURATION_NAMESPACE, "udts");
+
+    /**
+     * The QName for the field element.
+     */
     private final static QName _Field_QNAME = new QName(CONFIGURATION_NAMESPACE, "field");
+
+    /**
+     * The QName for the field-dynamic-preset element.
+     */
     private final static QName _FieldDynamicPreset_QNAME = new QName(CONFIGURATION_NAMESPACE, "field-dynamic-preset");
+
+    /**
+     * The QName for the field-dynamic-preset-details element.
+     */
     private final static QName _FieldDynamicPresetDetails_QNAME = new QName(CONFIGURATION_NAMESPACE, "field-dynamic-preset-details");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.configuration
-     *
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.configuration.
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
-    public Udts createUdts() {
+    /**
+     * Creates a new Udts instance.
+     *
+     * @return A new Udts instance.
+     */
+    public Udts createUdts()
+    {
         return new Udts();
     }
 
-    public FieldLink createFieldLink() {
+    /**
+     * Creates a new FieldLink instance.
+     *
+     * @return A new FieldLink instance.
+     */
+    public FieldLink createFieldLink()
+    {
         return new FieldLink();
     }
 
-    public Udfs createUdfs() {
+    /**
+     * Creates a new Udfs instance.
+     *
+     * @return A new Udfs instance.
+     */
+    public Udfs createUdfs()
+    {
         return new Udfs();
     }
 
-    public UdfConfigLink createUdfconfigLink() {
+    /**
+     * Creates a new UdfConfigLink instance.
+     *
+     * @return A new UdfConfigLink instance.
+     */
+    public UdfConfigLink createUdfconfigLink()
+    {
         return new UdfConfigLink();
     }
 
-    public TypeDefinition createTypeDefinition() {
+    /**
+     * Creates a new TypeDefinition instance.
+     *
+     * @return A new TypeDefinition instance.
+     */
+    public TypeDefinition createTypeDefinition()
+    {
         return new TypeDefinition();
     }
 
-    public Field createField() {
+    /**
+     * Creates a new Field instance.
+     *
+     * @return A new Field instance.
+     */
+    public Field createField()
+    {
         return new Field();
     }
 
-    public UdtConfigLink createUdtconfigLink() {
+    /**
+     * Creates a new UdtConfigLink instance.
+     *
+     * @return A new UdtConfigLink instance.
+     */
+    public UdtConfigLink createUdtconfigLink()
+    {
         return new UdtConfigLink();
     }
 
-    public Type createType() {
+    /**
+     * Creates a new Type instance.
+     *
+     * @return A new Type instance.
+     */
+    public Type createType()
+    {
         return new Type();
     }
 
-    public FieldDynamicPreset createFieldDynamicPreset() {
+    /**
+     * Creates a new FieldDynamicPreset instance.
+     *
+     * @return A new FieldDynamicPreset instance.
+     */
+    public FieldDynamicPreset createFieldDynamicPreset()
+    {
         return new FieldDynamicPreset();
     }
 
-    public FieldDynamicPresetDetails createFieldDynamicPresetDetails() {
+    /**
+     * Creates a new FieldDynamicPresetDetails instance.
+     *
+     * @return A new FieldDynamicPresetDetails instance.
+     */
+    public FieldDynamicPresetDetails createFieldDynamicPresetDetails()
+    {
         return new FieldDynamicPresetDetails();
     }
 
+    /**
+     * Creates a JAXBElement for a Type.
+     *
+     * @param value The Type value.
+     * @return A JAXBElement wrapping the Type.
+     */
     @XmlElementDecl(namespace = CONFIGURATION_NAMESPACE, name = "type")
-    public JAXBElement<Type> createType(Type value) {
+    public JAXBElement<Type> createType(Type value)
+    {
         return new JAXBElement<Type>(_Type_QNAME, Type.class, null, value);
     }
 
+    /**
+     * Creates a JAXBElement for a UdtConfigLink.
+     *
+     * @param value The UdtConfigLink value.
+     * @return A JAXBElement wrapping the UdtConfigLink.
+     */
     @XmlElementDecl(namespace = CONFIGURATION_NAMESPACE, name = "udtconfig-link")
-    public JAXBElement<UdtConfigLink> createUdtconfigLink(UdtConfigLink value) {
+    public JAXBElement<UdtConfigLink> createUdtconfigLink(UdtConfigLink value)
+    {
         return new JAXBElement<UdtConfigLink>(_UdtconfigLink_QNAME, UdtConfigLink.class, null, value);
     }
 
+    /**
+     * Creates a JAXBElement for Udfs.
+     *
+     * @param value The Udfs value.
+     * @return A JAXBElement wrapping the Udfs.
+     */
     @XmlElementDecl(namespace = CONFIGURATION_NAMESPACE, name = "udfs")
-    public JAXBElement<Udfs> createUdfs(Udfs value) {
+    public JAXBElement<Udfs> createUdfs(Udfs value)
+    {
         return new JAXBElement<Udfs>(_Udfs_QNAME, Udfs.class, null, value);
     }
 
+    /**
+     * Creates a JAXBElement for a UdfConfigLink.
+     *
+     * @param value The UdfConfigLink value.
+     * @return A JAXBElement wrapping the UdfConfigLink.
+     */
     @XmlElementDecl(namespace = CONFIGURATION_NAMESPACE, name = "udfconfig-link")
-    public JAXBElement<UdfConfigLink> createUdfconfigLink(UdfConfigLink value) {
+    public JAXBElement<UdfConfigLink> createUdfconfigLink(UdfConfigLink value)
+    {
         return new JAXBElement<UdfConfigLink>(_UdfconfigLink_QNAME, UdfConfigLink.class, null, value);
     }
 
+    /**
+     * Creates a JAXBElement for Udts.
+     *
+     * @param value The Udts value.
+     * @return A JAXBElement wrapping the Udts.
+     */
     @XmlElementDecl(namespace = CONFIGURATION_NAMESPACE, name = "udts")
-    public JAXBElement<Udts> createUdts(Udts value) {
+    public JAXBElement<Udts> createUdts(Udts value)
+    {
         return new JAXBElement<Udts>(_Udts_QNAME, Udts.class, null, value);
     }
 
+    /**
+     * Creates a JAXBElement for a Field.
+     *
+     * @param value The Field value.
+     * @return A JAXBElement wrapping the Field.
+     */
     @XmlElementDecl(namespace = CONFIGURATION_NAMESPACE, name = "field")
-    public JAXBElement<Field> createField(Field value) {
+    public JAXBElement<Field> createField(Field value)
+    {
         return new JAXBElement<Field>(_Field_QNAME, Field.class, null, value);
     }
 
+    /**
+     * Creates a JAXBElement for a FieldDynamicPreset.
+     *
+     * @param value The FieldDynamicPreset value.
+     * @return A JAXBElement wrapping the FieldDynamicPreset.
+     */
     @XmlElementDecl(namespace = CONFIGURATION_NAMESPACE, name = "field-dynamic-preset")
-    public JAXBElement<FieldDynamicPreset> createFieldDynamicPreset(FieldDynamicPreset value) {
+    public JAXBElement<FieldDynamicPreset> createFieldDynamicPreset(FieldDynamicPreset value)
+    {
         return new JAXBElement<FieldDynamicPreset>(_FieldDynamicPreset_QNAME, FieldDynamicPreset.class, null, value);
     }
 
+    /**
+     * Creates a JAXBElement for FieldDynamicPresetDetails.
+     *
+     * @param value The FieldDynamicPresetDetails value.
+     * @return A JAXBElement wrapping the FieldDynamicPresetDetails.
+     */
     @XmlElementDecl(namespace = CONFIGURATION_NAMESPACE, name = "field-dynamic-preset-details")
-    public JAXBElement<FieldDynamicPresetDetails> createFieldDynamicPresetDetails(FieldDynamicPresetDetails value) {
+    public JAXBElement<FieldDynamicPresetDetails> createFieldDynamicPresetDetails(FieldDynamicPresetDetails value)
+    {
         return new JAXBElement<FieldDynamicPresetDetails>(_FieldDynamicPresetDetails_QNAME, FieldDynamicPresetDetails.class, null, value);
     }
 }

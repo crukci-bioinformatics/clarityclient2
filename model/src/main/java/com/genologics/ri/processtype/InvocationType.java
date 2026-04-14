@@ -22,29 +22,58 @@ import jakarta.xml.bind.annotation.XmlEnum;
 import jakarta.xml.bind.annotation.XmlEnumValue;
 import jakarta.xml.bind.annotation.XmlType;
 
+/**
+ * Enumeration of EPP invocation types.
+ * Specifies whether an EPP runs before or after process execution.
+ */
 @XmlType(name = "invocation-type")
 @XmlEnum
 public enum InvocationType
 {
-
+    /**
+     * EPP runs after the process.
+     */
     @XmlEnumValue("PostProcess")
     POST_PROCESS("PostProcess"),
 
+    /**
+     * EPP runs before the process.
+     */
     @XmlEnumValue("PreProcess")
     PRE_PROCESS("PreProcess");
 
+    /**
+     * The XML value of the enumeration constant.
+     */
     private final String value;
 
+    /**
+     * Constructs an invocation type with the specified value.
+     *
+     * @param v the XML value.
+     */
     InvocationType(String v)
     {
         value = v;
     }
 
+    /**
+     * Gets the XML value of this invocation type.
+     *
+     * @return the XML value.
+     */
     public String value()
     {
         return value;
     }
 
+    /**
+     * Gets the invocation type corresponding to the specified XML value.
+     *
+     * @param v the XML value.
+     * @return the corresponding invocation type.
+     * @throws IllegalArgumentException if no matching type is found.
+     */
     public static InvocationType fromValue(String v)
     {
         for (InvocationType c : InvocationType.values())

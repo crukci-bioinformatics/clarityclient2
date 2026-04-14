@@ -45,20 +45,46 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory
 {
-
+    /**
+     * The QName for the process element.
+     */
     private final static QName _Process_QNAME = new QName(PROCESS_EXECUTION_NAMESPACE, "process");
+
+    /**
+     * The QName for the technician element.
+     */
     private final static QName _ProcessTechnician_QNAME = new QName(EMPTY_NAMESPACE, "technician");
+
+    /**
+     * The QName for the instrument element.
+     */
     private final static QName _ProcessInstrument_QNAME = new QName(EMPTY_NAMESPACE, "instrument");
+
+    /**
+     * The QName for the type element.
+     */
     private final static QName _ProcessType_QNAME = new QName(EMPTY_NAMESPACE, "type");
+
+    /**
+     * The QName for the input-output-map element.
+     */
     private final static QName _ProcessInputOutputMap_QNAME = new QName(EMPTY_NAMESPACE, "input-output-map");
+
+    /**
+     * The QName for the process-parameter element.
+     */
     private final static QName _ProcessProcessParameter_QNAME = new QName(EMPTY_NAMESPACE, "process-parameter");
+
+    /**
+     * The QName for the date-run element.
+     */
     private final static QName _ProcessDateRun_QNAME = new QName(EMPTY_NAMESPACE, "date-run");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.processexecution
-     *
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
     /**
@@ -66,7 +92,8 @@ public class ObjectFactory
      *
      * @return A new ExecutableProcess instance.
      */
-    public ExecutableProcess createProcess() {
+    public ExecutableProcess createProcess()
+    {
         return new ExecutableProcess();
     }
 
@@ -75,7 +102,8 @@ public class ObjectFactory
      *
      * @return A new Output instance.
      */
-    public Output createOutput() {
+    public Output createOutput()
+    {
         return new Output();
     }
 
@@ -84,7 +112,8 @@ public class ObjectFactory
      *
      * @return A new Input instance.
      */
-    public Input createInput() {
+    public Input createInput()
+    {
         return new Input();
     }
 
@@ -93,7 +122,8 @@ public class ObjectFactory
      *
      * @return A new Technician instance.
      */
-    public Technician createTechnician() {
+    public Technician createTechnician()
+    {
         return new Technician();
     }
 
@@ -102,7 +132,8 @@ public class ObjectFactory
      *
      * @return A new Parameter instance.
      */
-    public Parameter createParameter() {
+    public Parameter createParameter()
+    {
         return new Parameter();
     }
 
@@ -111,7 +142,8 @@ public class ObjectFactory
      *
      * @return A new ExecutableInputOutputMap instance.
      */
-    public ExecutableInputOutputMap createInputOutputMap() {
+    public ExecutableInputOutputMap createInputOutputMap()
+    {
         return new ExecutableInputOutputMap();
     }
 
@@ -120,7 +152,8 @@ public class ObjectFactory
      *
      * @return A new InstrumentLink instance.
      */
-    public InstrumentLink createInstrument() {
+    public InstrumentLink createInstrument()
+    {
         return new InstrumentLink();
     }
 
@@ -131,7 +164,8 @@ public class ObjectFactory
      * @return A new JAXBElement&lt;ExecutableProcess&gt; instance.
      */
     @XmlElementDecl(namespace = PROCESS_EXECUTION_NAMESPACE, name = "process")
-    public JAXBElement<ExecutableProcess> createProcess(ExecutableProcess value) {
+    public JAXBElement<ExecutableProcess> createProcess(ExecutableProcess value)
+    {
         return new JAXBElement<ExecutableProcess>(_Process_QNAME, ExecutableProcess.class, null, value);
     }
 
@@ -142,7 +176,8 @@ public class ObjectFactory
      * @return A new JAXBElement&lt;Technician&gt; instance.
      */
     @XmlElementDecl(namespace = EMPTY_NAMESPACE, name = "technician", scope = ExecutableProcess.class)
-    public JAXBElement<Technician> createProcessTechnician(Technician value) {
+    public JAXBElement<Technician> createProcessTechnician(Technician value)
+    {
         return new JAXBElement<Technician>(_ProcessTechnician_QNAME, Technician.class, ExecutableProcess.class, value);
     }
 
@@ -153,7 +188,8 @@ public class ObjectFactory
      * @return A new JAXBElement&lt;InstrumentLink&gt; instance.
      */
     @XmlElementDecl(namespace = EMPTY_NAMESPACE, name = "instrument", scope = ExecutableProcess.class)
-    public JAXBElement<InstrumentLink> createProcessInstrument(InstrumentLink value) {
+    public JAXBElement<InstrumentLink> createProcessInstrument(InstrumentLink value)
+    {
         return new JAXBElement<InstrumentLink>(_ProcessInstrument_QNAME, InstrumentLink.class, ExecutableProcess.class, value);
     }
 
@@ -164,7 +200,8 @@ public class ObjectFactory
      * @return A new JAXBElement&lt;String&gt; instance.
      */
     @XmlElementDecl(namespace = EMPTY_NAMESPACE, name = "type", scope = ExecutableProcess.class)
-    public JAXBElement<String> createProcessType(String value) {
+    public JAXBElement<String> createProcessType(String value)
+    {
         return new JAXBElement<String>(_ProcessType_QNAME, String.class, ExecutableProcess.class, value);
     }
 
@@ -175,7 +212,8 @@ public class ObjectFactory
      * @return A new JAXBElement&lt;ExecutableInputOutputMap&gt; instance.
      */
     @XmlElementDecl(namespace = EMPTY_NAMESPACE, name = "input-output-map", scope = ExecutableProcess.class)
-    public JAXBElement<ExecutableInputOutputMap> createProcessInputOutputMap(ExecutableInputOutputMap value) {
+    public JAXBElement<ExecutableInputOutputMap> createProcessInputOutputMap(ExecutableInputOutputMap value)
+    {
         return new JAXBElement<ExecutableInputOutputMap>(_ProcessInputOutputMap_QNAME, ExecutableInputOutputMap.class, ExecutableProcess.class, value);
     }
 
@@ -186,7 +224,8 @@ public class ObjectFactory
      * @return A new JAXBElement&lt;Parameter&gt; instance.
      */
     @XmlElementDecl(namespace = EMPTY_NAMESPACE, name = "process-parameter", scope = ExecutableProcess.class)
-    public JAXBElement<Parameter> createProcessProcessParameter(Parameter value) {
+    public JAXBElement<Parameter> createProcessProcessParameter(Parameter value)
+    {
         return new JAXBElement<Parameter>(_ProcessProcessParameter_QNAME, Parameter.class, ExecutableProcess.class, value);
     }
 
@@ -197,7 +236,8 @@ public class ObjectFactory
      * @return A new JAXBElement&lt;String&gt; instance.
      */
     @XmlElementDecl(namespace = EMPTY_NAMESPACE, name = "date-run", scope = ExecutableProcess.class)
-    public JAXBElement<String> createProcessDateRun(String value) {
+    public JAXBElement<String> createProcessDateRun(String value)
+    {
         return new JAXBElement<String>(_ProcessDateRun_QNAME, String.class, ExecutableProcess.class, value);
     }
 }

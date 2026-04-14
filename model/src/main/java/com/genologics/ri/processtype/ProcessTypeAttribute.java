@@ -44,42 +44,82 @@ public class ProcessTypeAttribute implements Serializable
      */
     @Serial private static final long serialVersionUID = 2626426609413434344L;
 
+    /**
+     * The value of the attribute.
+     */
     @XmlValue
     protected String value;
 
+    /**
+     * The name of the attribute.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * Constructs a new process type attribute.
+     */
     public ProcessTypeAttribute()
     {
     }
 
+    /**
+     * Constructs a new process type attribute with the specified name.
+     *
+     * @param name the name of the attribute.
+     */
     public ProcessTypeAttribute(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Constructs a new process type attribute with the specified name and value.
+     *
+     * @param name the name of the attribute.
+     * @param value the value of the attribute.
+     */
     public ProcessTypeAttribute(String name, String value)
     {
         this.name = name;
         this.value = value;
     }
 
+    /**
+     * Gets the value of the attribute.
+     *
+     * @return the attribute value.
+     */
     public String getValue()
     {
         return value;
     }
 
+    /**
+     * Sets the value of the attribute.
+     *
+     * @param value the attribute value.
+     */
     public void setValue(String value)
     {
         this.value = value;
     }
 
+    /**
+     * Gets the name of the attribute.
+     *
+     * @return the attribute name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the attribute.
+     *
+     * @param name the attribute name.
+     */
     public void setName(String name)
     {
         this.name = name;

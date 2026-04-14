@@ -46,83 +46,206 @@ import javax.xml.namespace.QName;
 public class ObjectFactory
 {
 
+    /**
+     * The QName for the containers element.
+     */
     private final static QName _Containers_QNAME = new QName(CONTAINER_NAMESPACE, "containers");
+
+    /**
+     * The QName for the container element.
+     */
     private final static QName _Container_QNAME = new QName(CONTAINER_NAMESPACE, "container");
+
+    /**
+     * The QName for the details element.
+     */
     private final static QName _Details_QNAME = new QName(CONTAINER_NAMESPACE, "details");
+
+    /**
+     * The QName for the placement element in Container scope.
+     */
     private final static QName _ContainerPlacement_QNAME = new QName(EMPTY_NAMESPACE, "placement");
+
+    /**
+     * The QName for the occupied-wells element in Container scope.
+     */
     private final static QName _ContainerOccupiedWells_QNAME = new QName(EMPTY_NAMESPACE, "occupied-wells");
+
+    /**
+     * The QName for the name element in Container scope.
+     */
     private final static QName _ContainerName_QNAME = new QName(EMPTY_NAMESPACE, "name");
+
+    /**
+     * The QName for the state element in Container scope.
+     */
     private final static QName _ContainerState_QNAME = new QName(EMPTY_NAMESPACE, "state");
+
+    /**
+     * The QName for the type element in Container scope.
+     */
     private final static QName _ContainerType_QNAME = new QName(EMPTY_NAMESPACE, "type");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.container
-     *
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.container.
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
-    public Container createContainer() {
+    /**
+     * Creates a new Container instance.
+     *
+     * @return A new Container instance.
+     */
+    public Container createContainer()
+    {
         return new Container();
     }
 
-    public Placement createPlacement() {
+    /**
+     * Creates a new Placement instance.
+     *
+     * @return A new Placement instance.
+     */
+    public Placement createPlacement()
+    {
         return new Placement();
     }
 
-    public ContainerTypeLink createContainerType() {
+    /**
+     * Creates a new ContainerTypeLink instance.
+     *
+     * @return A new ContainerTypeLink instance.
+     */
+    public ContainerTypeLink createContainerType()
+    {
         return new ContainerTypeLink();
     }
 
-    public ContainerLink createContainerLink() {
+    /**
+     * Creates a new ContainerLink instance.
+     *
+     * @return A new ContainerLink instance.
+     */
+    public ContainerLink createContainerLink()
+    {
         return new ContainerLink();
     }
 
-    public ContainerBatchFetchResult createDetails() {
+    /**
+     * Creates a new ContainerBatchFetchResult instance.
+     *
+     * @return A new ContainerBatchFetchResult instance.
+     */
+    public ContainerBatchFetchResult createDetails()
+    {
         return new ContainerBatchFetchResult();
     }
 
-    public Containers createContainers() {
+    /**
+     * Creates a new Containers instance.
+     *
+     * @return A new Containers instance.
+     */
+    public Containers createContainers()
+    {
         return new Containers();
     }
 
+    /**
+     * Creates a JAXBElement for Containers.
+     *
+     * @param value The Containers value.
+     * @return A JAXBElement wrapping the Containers.
+     */
     @XmlElementDecl(namespace = CONTAINER_NAMESPACE, name = "containers")
-    public JAXBElement<Containers> createContainers(Containers value) {
+    public JAXBElement<Containers> createContainers(Containers value)
+    {
         return new JAXBElement<Containers>(_Containers_QNAME, Containers.class, null, value);
     }
 
+    /**
+     * Creates a JAXBElement for Container.
+     *
+     * @param value The Container value.
+     * @return A JAXBElement wrapping the Container.
+     */
     @XmlElementDecl(namespace = CONTAINER_NAMESPACE, name = "container")
-    public JAXBElement<Container> createContainer(Container value) {
+    public JAXBElement<Container> createContainer(Container value)
+    {
         return new JAXBElement<Container>(_Container_QNAME, Container.class, null, value);
     }
 
+    /**
+     * Creates a JAXBElement for ContainerBatchFetchResult.
+     *
+     * @param value The ContainerBatchFetchResult value.
+     * @return A JAXBElement wrapping the ContainerBatchFetchResult.
+     */
     @XmlElementDecl(namespace = CONTAINER_NAMESPACE, name = "details")
-    public JAXBElement<ContainerBatchFetchResult> createDetails(ContainerBatchFetchResult value) {
+    public JAXBElement<ContainerBatchFetchResult> createDetails(ContainerBatchFetchResult value)
+    {
         return new JAXBElement<ContainerBatchFetchResult>(_Details_QNAME, ContainerBatchFetchResult.class, null, value);
     }
 
+    /**
+     * Creates a JAXBElement for Placement in Container scope.
+     *
+     * @param value The Placement value.
+     * @return A JAXBElement wrapping the Placement.
+     */
     @XmlElementDecl(namespace = EMPTY_NAMESPACE, name = "placement", scope = Container.class)
-    public JAXBElement<Placement> createContainerPlacement(Placement value) {
+    public JAXBElement<Placement> createContainerPlacement(Placement value)
+    {
         return new JAXBElement<Placement>(_ContainerPlacement_QNAME, Placement.class, Container.class, value);
     }
 
+    /**
+     * Creates a JAXBElement for occupied-wells in Container scope.
+     *
+     * @param value The occupied-wells value.
+     * @return A JAXBElement wrapping the Long value.
+     */
     @XmlElementDecl(namespace = EMPTY_NAMESPACE, name = "occupied-wells", scope = Container.class)
-    public JAXBElement<Long> createContainerOccupiedWells(Long value) {
+    public JAXBElement<Long> createContainerOccupiedWells(Long value)
+    {
         return new JAXBElement<Long>(_ContainerOccupiedWells_QNAME, Long.class, Container.class, value);
     }
 
+    /**
+     * Creates a JAXBElement for name in Container scope.
+     *
+     * @param value The name value.
+     * @return A JAXBElement wrapping the String value.
+     */
     @XmlElementDecl(namespace = EMPTY_NAMESPACE, name = "name", scope = Container.class)
-    public JAXBElement<String> createContainerName(String value) {
+    public JAXBElement<String> createContainerName(String value)
+    {
         return new JAXBElement<String>(_ContainerName_QNAME, String.class, Container.class, value);
     }
 
+    /**
+     * Creates a JAXBElement for state in Container scope.
+     *
+     * @param value The state value.
+     * @return A JAXBElement wrapping the String value.
+     */
     @XmlElementDecl(namespace = EMPTY_NAMESPACE, name = "state", scope = Container.class)
-    public JAXBElement<String> createContainerState(String value) {
+    public JAXBElement<String> createContainerState(String value)
+    {
         return new JAXBElement<String>(_ContainerState_QNAME, String.class, Container.class, value);
     }
 
+    /**
+     * Creates a JAXBElement for type in Container scope.
+     *
+     * @param value The ContainerTypeLink value.
+     * @return A JAXBElement wrapping the ContainerTypeLink.
+     */
     @XmlElementDecl(namespace = EMPTY_NAMESPACE, name = "type", scope = Container.class)
-    public JAXBElement<ContainerTypeLink> createContainerType(ContainerTypeLink value) {
+    public JAXBElement<ContainerTypeLink> createContainerType(ContainerTypeLink value)
+    {
         return new JAXBElement<ContainerTypeLink>(_ContainerType_QNAME, ContainerTypeLink.class, Container.class, value);
     }
 }

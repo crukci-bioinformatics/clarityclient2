@@ -38,7 +38,7 @@ public abstract class AbstractDateAdapter extends XmlAdapter<String, Date>
     private ThreadLocal<DateFormat> formatter = new ThreadLocal<DateFormat>();
 
     /**
-     * Empty constructor.
+     * Default constructor.
      */
     protected AbstractDateAdapter()
     {
@@ -52,8 +52,7 @@ public abstract class AbstractDateAdapter extends XmlAdapter<String, Date>
     protected abstract DateFormat createFormatter();
 
     /**
-     * To keep things thread safe with the formatter, get or create the date
-     * formatter in the local thread.
+     * Get or create the date formatter in the local thread to keep things thread safe.
      *
      * @return The DateFormat.
      */

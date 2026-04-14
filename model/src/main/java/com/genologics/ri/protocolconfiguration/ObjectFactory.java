@@ -46,7 +46,14 @@ import javax.xml.namespace.QName;
 public class ObjectFactory
 {
 
+    /**
+     * The qualified name for the protocol element.
+     */
     private final static QName _Protocol_QNAME = new QName(PROTOCOL_CONFIGURATION_NAMESPACE, "protocol");
+
+    /**
+     * The qualified name for the protocols element.
+     */
     private final static QName _Protocols_QNAME = new QName(PROTOCOL_CONFIGURATION_NAMESPACE, "protocols");
 
     /**

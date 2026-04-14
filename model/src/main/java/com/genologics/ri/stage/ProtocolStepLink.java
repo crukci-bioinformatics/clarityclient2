@@ -34,8 +34,12 @@ import com.genologics.ri.Linkable;
 import com.genologics.ri.stepconfiguration.ProtocolStep;
 
 /**
- *
- * Protocol Step link for the stage.
+ * Protocol step link for a stage in a workflow.
+ * <p>
+ * This class represents a reference to a protocol step within the Clarity LIMS system.
+ * It extends {@link LimsLinkBase} to provide a typed link to a {@link ProtocolStep} entity,
+ * enabling navigation to the detailed configuration of the protocol step associated with a stage.
+ * </p>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "step")
@@ -97,6 +101,7 @@ public class ProtocolStepLink extends LimsLinkBase<ProtocolStep>
      *
      * @return The URI of the protocol step.
      */
+    @Override
     public URI getUri()
     {
         return uri;
@@ -107,6 +112,7 @@ public class ProtocolStepLink extends LimsLinkBase<ProtocolStep>
      *
      * @param uri The URI of the protocol step.
      */
+    @Override
     public void setUri(URI uri)
     {
         this.uri = uri;

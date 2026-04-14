@@ -91,34 +91,68 @@ public class ContainerType implements Linkable<ContainerType>, Serializable
      */
     @Serial private static final long serialVersionUID = -3778472967085446652L;
 
+    /**
+     * Indicates whether this container type represents a tube (single well) or a multi-well container.
+     */
     @XmlElement(name = "is-tube")
     protected Boolean tube;
 
+    /**
+     * List of calibrant wells that are reserved for calibrants in containers of this type.
+     *
+     * @deprecated This property is no longer supported and will be ignored if provided.
+     */
     @XmlElement(name = "calibrant-well")
     @Deprecated
     protected List<CalibrantWell> calibrantWells;
 
+    /**
+     * List of well locations that are not available for storing samples or reagents.
+     * Well locations are specified using the coordinate system defined by the x-dimension and y-dimension.
+     */
     @XmlElement(name = "unavailable-well")
     protected List<String> unavailableWells;
 
+    /**
+     * The x-dimension (horizontal/columns) of the container's coordinate system.
+     */
     @XmlElement(name = "x-dimension")
     protected Dimension columns;
 
+    /**
+     * The y-dimension (vertical/rows) of the container's coordinate system.
+     */
     @XmlElement(name = "y-dimension")
     protected Dimension rows;
 
+    /**
+     * The name of the container type.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The URI for accessing this container type resource.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Checks if this container type represents a tube (single well container).
+     *
+     * @return {@code true} if this is a tube, {@code false} if it is a multi-well container.
+     */
     public Boolean isTube()
     {
         return tube;
     }
 
+    /**
+     * Sets whether this container type represents a tube.
+     *
+     * @param tube {@code true} if this is a tube, {@code false} if it is a multi-well container.
+     */
     public void setTube(Boolean tube)
     {
         this.tube = tube;
@@ -141,6 +175,17 @@ public class ContainerType implements Linkable<ContainerType>, Serializable
         return calibrantWells;
     }
 
+    /**
+     * Gets the list of unavailable wells for this container type.
+     * <p>
+     * Unavailable wells are locations that are not available for storing samples or reagents,
+     * either because they must remain empty for instrument configuration or contain specific
+     * calibrants required by the instrument. Well locations are specified using the coordinate
+     * system defined by the x-dimension and y-dimension.
+     * </p>
+     *
+     * @return The list of unavailable well locations. Never {@code null}.
+     */
     public List<String> getUnavailableWells()
     {
         if (unavailableWells == null)
@@ -150,41 +195,81 @@ public class ContainerType implements Linkable<ContainerType>, Serializable
         return unavailableWells;
     }
 
+    /**
+     * Gets the name of the container type.
+     *
+     * @return The container type name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the container type.
+     *
+     * @param name The container type name to set.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the URI for accessing this container type resource.
+     *
+     * @return The container type URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI for this container type.
+     *
+     * @param uri The container type URI to set.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the x-dimension (horizontal/columns) of the container's coordinate system.
+     *
+     * @return The column dimension specification.
+     */
     public Dimension getColumns()
     {
         return columns;
     }
 
+    /**
+     * Sets the x-dimension (horizontal/columns) of the container's coordinate system.
+     *
+     * @param columns The column dimension specification to set.
+     */
     public void setColumns(Dimension columns)
     {
         this.columns = columns;
     }
 
+    /**
+     * Gets the y-dimension (vertical/rows) of the container's coordinate system.
+     *
+     * @return The row dimension specification.
+     */
     public Dimension getRows()
     {
         return rows;
     }
 
+    /**
+     * Sets the y-dimension (vertical/rows) of the container's coordinate system.
+     *
+     * @param rows The row dimension specification to set.
+     */
     public void setRows(Dimension rows)
     {
         this.rows = rows;
@@ -210,6 +295,11 @@ public class ContainerType implements Linkable<ContainerType>, Serializable
         }
     }
 
+    /**
+     * Returns a string representation of this container type, which is its name.
+     *
+     * @return The container type name.
+     */
     @Override
     public String toString()
     {

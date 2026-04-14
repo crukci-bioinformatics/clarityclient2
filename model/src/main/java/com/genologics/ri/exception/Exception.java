@@ -57,57 +57,112 @@ public class Exception implements Serializable
      */
     @Serial private static final long serialVersionUID = 8552752622433159544L;
 
+    /**
+     * A textual summary of the error that occurred.
+     */
     @XmlElement(name = "message")
     protected String message;
 
+    /**
+     * Details on how to correct the problem that caused the exception.
+     */
     @XmlElement(name = "suggested-actions")
     protected String suggestedActions;
 
+    /**
+     * The category of the exception.
+     */
     @XmlAttribute(name = "category")
     protected String category;
 
+    /**
+     * The HTTP response code corresponding to the error (e.g., 400 for bad request, 500 for internal server error).
+     */
     @XmlAttribute(name = "code")
     protected String code;
 
+    /**
+     * Creates a new Exception instance.
+     */
     public Exception()
     {
     }
 
+    /**
+     * Gets the error message.
+     *
+     * @return The textual summary of the error.
+     */
     public String getMessage()
     {
         return message;
     }
 
+    /**
+     * Sets the error message.
+     *
+     * @param message The textual summary of the error to set.
+     */
     public void setMessage(String message)
     {
         this.message = message;
     }
 
+    /**
+     * Gets the suggested actions to correct the error.
+     *
+     * @return Details on how to correct the problem, or null if not provided.
+     */
     public String getSuggestedActions()
     {
         return suggestedActions;
     }
 
+    /**
+     * Sets the suggested actions to correct the error.
+     *
+     * @param suggestedActions Details on how to correct the problem.
+     */
     public void setSuggestedActions(String suggestedActions)
     {
         this.suggestedActions = suggestedActions;
     }
 
+    /**
+     * Gets the category of the exception.
+     *
+     * @return The exception category.
+     */
     public String getCategory()
     {
         return category;
     }
 
+    /**
+     * Sets the category of the exception.
+     *
+     * @param category The exception category to set.
+     */
     public void setCategory(String category)
     {
         this.category = category;
     }
 
+    /**
+     * Gets the HTTP response code of the error.
+     *
+     * @return The HTTP response code (e.g., "400", "500").
+     */
     public String getCode()
     {
         return code;
     }
 
+    /**
+     * Sets the HTTP response code of the error.
+     *
+     * @param code The HTTP response code to set.
+     */
     public void setCode(String code)
     {
         this.code = code;

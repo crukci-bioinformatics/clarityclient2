@@ -1,5 +1,5 @@
 /**
- * Entities for user roles in the Clarity system.
+ * Provides JAXB binding classes for the Clarity REST API role entity and its related components.
  */
 @XmlSchema(
         namespace = ROLE_NAMESPACE,

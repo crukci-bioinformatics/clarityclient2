@@ -45,28 +45,56 @@ public class ProcessOutput implements Serializable
      */
     @Serial private static final long serialVersionUID = 3584171153300804850L;
 
+    /**
+     * The artifact type for the output.
+     */
     @XmlElement(name = "artifact-type")
     protected String artifactType;
 
+    /**
+     * The display name for the output.
+     */
     @XmlElement(name = "display-name")
     protected String displayName;
 
+    /**
+     * Specifies how the outputs are generated in relation to the inputs.
+     */
     @XmlElement(name = "output-generation-type")
     protected OutputGenerationType outputGenerationType;
 
+    /**
+     * Specifies how the process determines the number of outputs to generate.
+     */
     @XmlElement(name = "variability-type")
     protected VariabilityType variabilityType;
 
+    /**
+     * The number of outputs to generate (only applies if variabilityType is FIXED).
+     */
     @XmlElement(name = "number-of-outputs")
     protected Integer numberOfOutputs;
 
+    /**
+     * Pattern for specifying how the output name is generated.
+     */
     @XmlElement(name = "output-name")
     protected String outputName;
 
+    /**
+     * Field definitions for the output.
+     *
+     * @deprecated These field definitions are ignored as of Clarity LIMS 5.0.
+     */
     @Deprecated
     @XmlElement(name = "field-definition")
     protected List<FieldLink> fieldDefinitions;
 
+    /**
+     * Whether the working flag should be assigned to the output when the process runs.
+     *
+     * @deprecated This property is no longer supported.
+     */
     @Deprecated
     @XmlElement(name = "assign-working-flag")
     protected Boolean assignWorkingFlag;
@@ -76,9 +104,9 @@ public class ProcessOutput implements Serializable
      * Each field definition provides a URI linking to the configuration of a user defined field for the output type.
      *
      * @return A list of links to fields.
-     *
      * @deprecated These field definitions are ignored as of Clarity LIMS 5.0.
      */
+    @Deprecated
     public List<FieldLink> getFieldDefinitions()
     {
         if (fieldDefinitions == null)
@@ -98,6 +126,11 @@ public class ProcessOutput implements Serializable
         return artifactType;
     }
 
+    /**
+     * Sets the artifact type for this output.
+     *
+     * @param artifactType the artifact type.
+     */
     public void setArtifactType(String artifactType)
     {
         this.artifactType = artifactType;
@@ -113,6 +146,11 @@ public class ProcessOutput implements Serializable
         return displayName;
     }
 
+    /**
+     * Sets the display name for the output.
+     *
+     * @param displayName the display name.
+     */
     public void setDisplayName(String displayName)
     {
         this.displayName = displayName;
@@ -129,6 +167,11 @@ public class ProcessOutput implements Serializable
         return outputGenerationType;
     }
 
+    /**
+     * Sets the output generation type.
+     *
+     * @param outputGenerationType the output generation type.
+     */
     public void setOutputGenerationType(OutputGenerationType outputGenerationType)
     {
         this.outputGenerationType = outputGenerationType;
@@ -145,6 +188,11 @@ public class ProcessOutput implements Serializable
         return variabilityType;
     }
 
+    /**
+     * Sets the variability type.
+     *
+     * @param variabilityType the variability type.
+     */
     public void setVariabilityType(VariabilityType variabilityType)
     {
         this.variabilityType = variabilityType;
@@ -152,6 +200,7 @@ public class ProcessOutput implements Serializable
 
     /**
      * Number of outputs to generate (only applies if variabilityType is FIXED).
+     *
      * @return The number of outputs.
      */
     public Integer getNumberOfOutputs()
@@ -159,6 +208,11 @@ public class ProcessOutput implements Serializable
         return numberOfOutputs;
     }
 
+    /**
+     * Sets the number of outputs to generate.
+     *
+     * @param numberOfOutputs the number of outputs.
+     */
     public void setNumberOfOutputs(Integer numberOfOutputs)
     {
         this.numberOfOutputs = numberOfOutputs;
@@ -166,6 +220,7 @@ public class ProcessOutput implements Serializable
 
     /**
      * Pattern for specifying how the output name is generated.
+     *
      * @return The output name pattern.
      */
     public String getOutputName()
@@ -173,6 +228,11 @@ public class ProcessOutput implements Serializable
         return outputName;
     }
 
+    /**
+     * Sets the output name pattern.
+     *
+     * @param outputName the output name pattern.
+     */
     public void setOutputName(String outputName)
     {
         this.outputName = outputName;
@@ -190,6 +250,12 @@ public class ProcessOutput implements Serializable
         return assignWorkingFlag;
     }
 
+    /**
+     * Sets whether the working flag should be assigned to the output when the process runs.
+     *
+     * @param assignWorkingFlag true if it should be assigned.
+     * @deprecated This property is no longer supported.
+     */
     @Deprecated
     public void setAssignWorkingFlag(Boolean assignWorkingFlag)
     {

@@ -54,49 +54,93 @@ public class Role implements Linkable<Role>, Serializable
      */
     @Serial private static final long serialVersionUID = 5417064490465819346L;
 
+    /**
+     * The name of the role.
+     */
     @XmlElement
     protected String name;
 
+    /**
+     * The list of researchers assigned to this role.
+     */
     @XmlElementWrapper(name = "researchers")
     @XmlElement(name = "researcher")
     protected List<ResearcherLink> researchers;
 
+    /**
+     * The list of permissions assigned to this role.
+     */
     @XmlElementWrapper(name = "permissions")
     @XmlElement(name = "permission")
     protected List<PermissionLink> permissions;
 
+    /**
+     * Whether this is a built-in system role.
+     */
     @XmlAttribute(name = "built-in")
     protected Boolean builtIn;
 
+    /**
+     * The URI of the role.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public Role()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the role.
+     */
     public Role(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and name.
+     *
+     * @param uri The URI of the role.
+     * @param name The name of the role.
+     */
     public Role(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Gets the name of the role.
+     *
+     * @return The role name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the role.
+     *
+     * @param name The role name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the list of researchers assigned to this role.
+     *
+     * @return A list of researcher links.
+     */
     public List<ResearcherLink> getResearchers()
     {
         if (researchers == null)
@@ -106,6 +150,11 @@ public class Role implements Linkable<Role>, Serializable
         return researchers;
     }
 
+    /**
+     * Gets the list of permissions assigned to this role.
+     *
+     * @return A list of permission links.
+     */
     public List<PermissionLink> getPermissions()
     {
         if (permissions == null)
@@ -115,22 +164,42 @@ public class Role implements Linkable<Role>, Serializable
         return permissions;
     }
 
+    /**
+     * Gets whether this is a built-in system role.
+     *
+     * @return True if this is a built-in role, false otherwise.
+     */
     public Boolean getBuiltIn()
     {
         return builtIn;
     }
 
+    /**
+     * Sets whether this is a built-in system role.
+     *
+     * @param builtIn True if this is a built-in role, false otherwise.
+     */
     public void setBuiltIn(Boolean builtIn)
     {
         this.builtIn = builtIn;
     }
 
+    /**
+     * Gets the URI of the role.
+     *
+     * @return The role URI.
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the role.
+     *
+     * @param uri The role URI.
+     */
     @Override
     public void setUri(URI uri)
     {

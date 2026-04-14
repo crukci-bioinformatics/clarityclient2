@@ -50,8 +50,14 @@ public class SampleCreation extends SampleBase
      */
     @Serial private static final long serialVersionUID = 8233679374775813938L;
 
+    /**
+     * The location where the sample will be created.
+     */
     protected Location location;
 
+    /**
+     * Constructor for an empty sample creation.
+     */
     public SampleCreation()
     {
     }
@@ -81,11 +87,21 @@ public class SampleCreation extends SampleBase
         this.location = s.getCreationLocation();
     }
 
+    /**
+     * Gets the location where the sample will be created.
+     *
+     * @return The creation location.
+     */
     public Location getLocation()
     {
         return location;
     }
 
+    /**
+     * Sets the location where the sample will be created.
+     *
+     * @param value The creation location.
+     */
     public void setLocation(Location value)
     {
         this.location = value;

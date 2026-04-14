@@ -41,31 +41,59 @@ public class SharedResultFile implements Serializable
      */
     @Serial private static final long serialVersionUID = -4934343881979066853L;
 
+    /**
+     * The message associated with this shared result file.
+     */
     protected String message;
 
+    /**
+     * The index of this shared result file.
+     */
     @XmlAttribute(name = "shared-result-file-index")
     protected String sharedResultFileIndex;
 
-
+    /**
+     * Constructs a new shared result file.
+     */
     public SharedResultFile()
     {
     }
 
+    /**
+     * Gets the message associated with this shared result file.
+     *
+     * @return the message.
+     */
     public String getMessage()
     {
         return message;
     }
 
+    /**
+     * Sets the message associated with this shared result file.
+     *
+     * @param message the message.
+     */
     public void setMessage(String message)
     {
         this.message = message;
     }
 
+    /**
+     * Gets the index of this shared result file.
+     *
+     * @return the shared result file index.
+     */
     public String getSharedResultFileIndex()
     {
         return sharedResultFileIndex;
     }
 
+    /**
+     * Sets the index of this shared result file.
+     *
+     * @param sharedResultFileIndex the shared result file index.
+     */
     public void setSharedResultFileIndex(String sharedResultFileIndex)
     {
         this.sharedResultFileIndex = sharedResultFileIndex;

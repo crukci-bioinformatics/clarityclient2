@@ -55,17 +55,39 @@ public class Samples implements PaginatedBatch<SampleLink>, Serializable
      */
     @Serial private static final long serialVersionUID = 7481910467952402185L;
 
+    /**
+     * The list of sample links.
+     */
     @XmlElement(name = "sample")
     protected List<SampleLink> samples;
 
+    /**
+     * The previous page link for pagination.
+     */
     @XmlElement(name = "previous-page")
     protected Page previousPage;
 
+    /**
+     * The next page link for pagination.
+     */
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    /**
+     * Constructor for an empty samples list.
+     */
     public Samples() { }
 
+    /**
+     * Gets the list of sample links.
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Any modification to the returned list will be
+     * reflected in the object.
+     * </p>
+     *
+     * @return The list of sample links.
+     */
     public List<SampleLink> getSamples()
     {
         if (samples == null)
@@ -75,33 +97,63 @@ public class Samples implements PaginatedBatch<SampleLink>, Serializable
         return samples;
     }
 
+    /**
+     * Gets the list of sample links for batch operations.
+     *
+     * @return The list of sample links.
+     */
     @Override
     public List<SampleLink> getList()
     {
         return getSamples();
     }
 
+    /**
+     * Gets the size of the sample links list.
+     *
+     * @return The number of sample links in the list.
+     */
     @Override
     public int getSize()
     {
         return samples == null ? 0 : samples.size();
     }
 
+    /**
+     * Gets the previous page link.
+     *
+     * @return The previous page link.
+     */
     public Page getPreviousPage()
     {
         return previousPage;
     }
 
+    /**
+     * Sets the previous page link.
+     *
+     * @param previousPage The previous page link.
+     */
     public void setPreviousPage(Page previousPage)
     {
         this.previousPage = previousPage;
     }
 
+    /**
+     * Gets the next page link.
+     *
+     * @return The next page link.
+     */
     public Page getNextPage()
     {
         return nextPage;
     }
 
+    /**
+     * Sets the next page link.
+     *
+     * @param nextPage The next page link.
+     */
     public void setNextPage(Page nextPage)
     {
         this.nextPage = nextPage;

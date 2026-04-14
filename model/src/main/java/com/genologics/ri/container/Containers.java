@@ -55,17 +55,37 @@ public class Containers implements PaginatedBatch<ContainerLink>, Serializable
      */
     @Serial private static final long serialVersionUID = -1488050342582879623L;
 
+    /**
+     * The list of container links.
+     */
     @XmlElement(name = "container")
     protected List<ContainerLink> containers;
 
+    /**
+     * The link to the previous page of results.
+     */
     @XmlElement(name = "previous-page")
     protected Page previousPage;
 
+    /**
+     * The link to the next page of results.
+     */
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
-    public Containers() { }
+    /**
+     * Default constructor.
+     */
+    public Containers()
+    {
+    }
 
+    /**
+     * Gets the list of container links.
+     * Creates a new list if one doesn't exist.
+     *
+     * @return The list of container links.
+     */
     public List<ContainerLink> getContainers()
     {
         if (containers == null)
@@ -75,36 +95,66 @@ public class Containers implements PaginatedBatch<ContainerLink>, Serializable
         return this.containers;
     }
 
+    /**
+     * Gets the list of container links as required by the PaginatedBatch interface.
+     *
+     * @return The list of container links.
+     */
     @Override
     public List<ContainerLink> getList()
     {
         return getContainers();
     }
 
+    /**
+     * Gets the number of container links.
+     *
+     * @return The number of links, or 0 if the list is null.
+     */
     @Override
     public int getSize()
     {
         return containers == null ? 0 : containers.size();
     }
 
+    /**
+     * Gets the link to the previous page of results.
+     *
+     * @return The previous page link.
+     */
     @Override
     public Page getPreviousPage()
     {
         return previousPage;
     }
 
+    /**
+     * Sets the link to the previous page of results.
+     *
+     * @param previousPage The previous page link.
+     */
     @Override
     public void setPreviousPage(Page previousPage)
     {
         this.previousPage = previousPage;
     }
 
+    /**
+     * Gets the link to the next page of results.
+     *
+     * @return The next page link.
+     */
     @Override
     public Page getNextPage()
     {
         return nextPage;
     }
 
+    /**
+     * Sets the link to the next page of results.
+     *
+     * @param nextPage The next page link.
+     */
     @Override
     public void setNextPage(Page nextPage)
     {

@@ -42,8 +42,16 @@ import com.genologics.ri.workflowconfiguration.StageLink;
 import com.genologics.ri.workflowconfiguration.Workflow;
 
 /**
- *
- * The detailed representation of a stage.
+ * The detailed representation of a workflow stage.
+ * <p>
+ * A stage represents a step within a workflow in the Clarity LIMS system. Each stage is
+ * associated with a specific workflow, protocol, and protocol step. Stages define the
+ * sequence of operations that samples or artifacts undergo during laboratory processing.
+ * </p>
+ * <p>
+ * This class provides access to the stage's name, index within its workflow, and links
+ * to the associated workflow, protocol, and protocol step entities.
+ * </p>
  */
 @ClarityEntity(uriSection = "stages", primaryEntity = Workflow.class)
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -52,8 +60,9 @@ import com.genologics.ri.workflowconfiguration.Workflow;
 public class Stage implements Linkable<Stage>, Serializable
 {
     /**
-     * Regular expression to extract workflow id and workflow stage id from a
-     * workflow stage URI.
+     * Regular expression pattern to extract workflow id and workflow stage id from a
+     * workflow stage URI. This pattern is constructed from the URI sections defined
+     * in the {@link ClarityEntity} annotations.
      *
      * @since 2.22
      */
@@ -144,7 +153,7 @@ public class Stage implements Linkable<Stage>, Serializable
     }
 
     /**
-     * Get the numeric identifier for this workflow stage from its URI.
+     * Gets the numeric identifier for this workflow stage from its URI.
      *
      * @return The workflow stage id, or null if either the URI is not set
      * or it doesn't match the form expected for a workflow stage URI.
@@ -166,7 +175,7 @@ public class Stage implements Linkable<Stage>, Serializable
     }
 
     /**
-     * Get the numeric identifier for this stage's workflow from its URI.
+     * Gets the numeric identifier for this stage's workflow from its URI.
      *
      * @return The workflow id, or null if either the URI is not set
      * or it doesn't match the form expected for a workflow stage URI.
@@ -200,7 +209,7 @@ public class Stage implements Linkable<Stage>, Serializable
     /**
      * Sets the workflow for this stage.
      *
-     * @param workflow The workflow to set.
+     * @param workflow The linkable workflow object to set.
      */
     public void setWorkflow(Linkable<Workflow> workflow)
     {
@@ -220,7 +229,7 @@ public class Stage implements Linkable<Stage>, Serializable
     /**
      * Sets the protocol for this stage.
      *
-     * @param protocol The protocol to set.
+     * @param protocol The linkable protocol object to set.
      */
     public void setProtocol(Linkable<Protocol> protocol)
     {
@@ -240,7 +249,7 @@ public class Stage implements Linkable<Stage>, Serializable
     /**
      * Sets the protocol step for this stage.
      *
-     * @param step The protocol step to set.
+     * @param step The linkable protocol step object to set.
      */
     public void setStep(Linkable<ProtocolStep> step)
     {
@@ -308,12 +317,13 @@ public class Stage implements Linkable<Stage>, Serializable
     }
 
     /**
-     * {@inheritDoc}
+     * Gets a link to this stage entity.
+     *
+     * @return A new {@link StageLink} referencing this stage.
      */
     @Override
     public LimsLink<Stage> getLink()
     {
-        // StageLink is in a different package but that shouldn't cause problems.
         return new StageLink(this);
     }
 }

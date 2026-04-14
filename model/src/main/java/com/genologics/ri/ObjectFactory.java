@@ -44,62 +44,142 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory
 {
-
+    /**
+     * QName for the links element.
+     */
     private final static QName _Links_QNAME = new QName(ROOT_NAMESPACE, "links");
+
+    /**
+     * QName for the index element.
+     */
     private final static QName _Index_QNAME = new QName(ROOT_NAMESPACE, "index");
+
+    /**
+     * QName for the externalid element.
+     */
     private final static QName _Externalid_QNAME = new QName(ROOT_NAMESPACE, "externalid");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri
-     *
+     * Constructor. Creates a new ObjectFactory that can be used to create new
+     * instances of schema derived classes for package: com.genologics.ri
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
-    public ExternalId createExternalid() {
+    /**
+     * Creates a new ExternalId instance.
+     *
+     * @return A new ExternalId object.
+     */
+    public ExternalId createExternalid()
+    {
         return new ExternalId();
     }
 
-    public ContainerLink createContainer() {
+    /**
+     * Creates a new ContainerLink instance.
+     *
+     * @return A new ContainerLink object.
+     */
+    public ContainerLink createContainer()
+    {
         return new ContainerLink();
     }
 
-    public Link createLink() {
+    /**
+     * Creates a new Link instance.
+     *
+     * @return A new Link object.
+     */
+    public Link createLink()
+    {
         return new Link();
     }
 
-    public Index createIndex() {
+    /**
+     * Creates a new Index instance.
+     *
+     * @return A new Index object.
+     */
+    public Index createIndex()
+    {
         return new Index();
     }
 
-    public Location createLocation() {
+    /**
+     * Creates a new Location instance.
+     *
+     * @return A new Location object.
+     */
+    public Location createLocation()
+    {
         return new Location();
     }
 
-    public Address createAddress() {
+    /**
+     * Creates a new Address instance.
+     *
+     * @return A new Address object.
+     */
+    public Address createAddress()
+    {
         return new Address();
     }
 
-    public Links createLinks() {
+    /**
+     * Creates a new Links instance.
+     *
+     * @return A new Links object.
+     */
+    public Links createLinks()
+    {
         return new Links();
     }
 
-    public Page createPage() {
+    /**
+     * Creates a new Page instance.
+     *
+     * @return A new Page object.
+     */
+    public Page createPage()
+    {
         return new Page();
     }
 
+    /**
+     * Creates a JAXBElement for Links.
+     *
+     * @param value The Links value to wrap.
+     * @return A JAXBElement containing the Links value.
+     */
     @XmlElementDecl(namespace = ROOT_NAMESPACE, name = "links")
-    public JAXBElement<Links> createLinks(Links value) {
+    public JAXBElement<Links> createLinks(Links value)
+    {
         return new JAXBElement<Links>(_Links_QNAME, Links.class, null, value);
     }
 
+    /**
+     * Creates a JAXBElement for Index.
+     *
+     * @param value The Index value to wrap.
+     * @return A JAXBElement containing the Index value.
+     */
     @XmlElementDecl(namespace = ROOT_NAMESPACE, name = "index")
-    public JAXBElement<Index> createIndex(Index value) {
+    public JAXBElement<Index> createIndex(Index value)
+    {
         return new JAXBElement<Index>(_Index_QNAME, Index.class, null, value);
     }
 
+    /**
+     * Creates a JAXBElement for ExternalId.
+     *
+     * @param value The ExternalId value to wrap.
+     * @return A JAXBElement containing the ExternalId value.
+     */
     @XmlElementDecl(namespace = ROOT_NAMESPACE, name = "externalid")
-    public JAXBElement<ExternalId> createExternalid(ExternalId value) {
+    public JAXBElement<ExternalId> createExternalid(ExternalId value)
+    {
         return new JAXBElement<ExternalId>(_Externalid_QNAME, ExternalId.class, null, value);
     }
 }

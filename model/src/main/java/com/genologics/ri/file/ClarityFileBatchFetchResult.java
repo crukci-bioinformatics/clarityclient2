@@ -36,6 +36,13 @@ import com.genologics.ri.Namespaces;
 
 /**
  * The representation of a batch of file resources.
+ * <p>
+ * This class is used to encapsulate multiple {@link ClarityFile} objects for batch
+ * operations such as fetching, creating, or updating files in the Clarity LIMS system.
+ * It implements the {@link BatchUpdate} interface to support batch create and update
+ * operations on file resources.
+ * </p>
+ *
  * @since 2.18
  */
 @ClarityBatchRetrieveResult(entityClass = ClarityFile.class, batchUpdate = true)
@@ -49,11 +56,25 @@ public class ClarityFileBatchFetchResult implements BatchUpdate<ClarityFile>, Se
      */
     @Serial private static final long serialVersionUID = -536166874357106044L;
 
+    /**
+     * The list of file resources in this batch.
+     */
     @XmlElement(name = "file", namespace = Namespaces.FILE_NAMESPACE)
     protected List<ClarityFile> files;
 
-    public ClarityFileBatchFetchResult() {}
+    /**
+     * Creates a new, empty ClarityFileBatchFetchResult.
+     */
+    public ClarityFileBatchFetchResult()
+    {
+    }
 
+    /**
+     * Gets the list of files in this batch. If the list is null, it will be
+     * initialized to an empty list.
+     *
+     * @return The list of files in this batch.
+     */
     public List<ClarityFile> getFiles()
     {
         if (files == null)
@@ -63,24 +84,48 @@ public class ClarityFileBatchFetchResult implements BatchUpdate<ClarityFile>, Se
         return files;
     }
 
+    /**
+     * Gets the list of files in this batch. This method is required by the
+     * {@link BatchUpdate} interface.
+     *
+     * @return The list of files in this batch.
+     */
     @Override
     public List<ClarityFile> getList()
     {
         return getFiles();
     }
 
+    /**
+     * Gets the number of files in this batch.
+     *
+     * @return The number of files, or 0 if the files list is null.
+     */
     @Override
     public int getSize()
     {
         return files == null ? 0 : files.size();
     }
 
+    /**
+     * Adds a collection of file entities to this batch for creation.
+     * The entities are added to the internal files list.
+     *
+     * @param entities The collection of file entities to add for creation.
+     */
     @Override
     public void addForCreate(Collection<ClarityFile> entities)
     {
         getFiles().addAll(entities);
     }
 
+    /**
+     * Adds a collection of file entities to this batch for update.
+     * The entities are added to the internal files list. Note that there are
+     * no state parameters to worry about for file resources.
+     *
+     * @param entities The collection of file entities to add for update.
+     */
     @Override
     public void addForUpdate(Collection<ClarityFile> entities)
     {

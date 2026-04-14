@@ -36,8 +36,12 @@ import com.genologics.ri.Page;
 import com.genologics.ri.PaginatedBatch;
 
 /**
- *
- * The representation of a list of Reagent Lots
+ * Represents a paginated collection of reagent lot links returned by the API.
+ * <p>
+ * This class provides access to a batch of reagent lot links with support for
+ * pagination through previous and next page references. It implements the
+ * {@link PaginatedBatch} interface to provide consistent batch operations.
+ * </p>
  *
  * @since 2.18
  */
@@ -52,21 +56,44 @@ public class ReagentLots implements PaginatedBatch<ReagentLotLink>, Serializable
      */
     @Serial private static final long serialVersionUID = -7760282244017305741L;
 
+    /**
+     * The list of reagent lot links.
+     */
     @XmlElement(name = "reagent-lot")
     protected List<ReagentLotLink> reagentLots;
 
+    /**
+     * Link to the next page of results, if available.
+     */
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    /**
+     * Link to the previous page of results, if available.
+     */
     @XmlElement(name = "previous-page")
     protected Page previousPage;
 
+    /**
+     * The URI of this reagent lots collection.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected String uri;
 
-    public ReagentLots() {}
+    /**
+     * Default constructor.
+     */
+    public ReagentLots()
+    {
+    }
 
+    /**
+     * Gets the list of reagent lot links in this batch.
+     * Creates an empty list if none exists.
+     *
+     * @return The list of reagent lot links.
+     */
     public List<ReagentLotLink> getReagentLots()
     {
         if (reagentLots == null)
@@ -112,11 +139,21 @@ public class ReagentLots implements PaginatedBatch<ReagentLotLink>, Serializable
         this.previousPage = previousPage;
     }
 
+    /**
+     * Gets the URI of this reagent lots collection.
+     *
+     * @return The URI.
+     */
     public String getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of this reagent lots collection.
+     *
+     * @param uri The URI to set.
+     */
     public void setUri(String uri)
     {
         this.uri = uri;

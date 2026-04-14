@@ -55,17 +55,37 @@ public class Udts implements PaginatedBatch<UdtConfigLink>, Serializable
      */
     @Serial private static final long serialVersionUID = -3512684674322879203L;
 
+    /**
+     * The list of user defined type configuration links.
+     */
     @XmlElement(name = "udtconfig")
     protected List<UdtConfigLink> udtConfigLinks;
 
+    /**
+     * The link to the previous page of results.
+     */
     @XmlElement(name = "previous-page")
     protected Page previousPage;
 
+    /**
+     * The link to the next page of results.
+     */
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
-    public Udts() {}
+    /**
+     * Constructor for creating an empty Udts object.
+     */
+    public Udts()
+    {
+    }
 
+    /**
+     * Gets the list of UDT configuration links.
+     * Creates a new list if one doesn't exist.
+     *
+     * @return The list of UDT configuration links.
+     */
     public List<UdtConfigLink> getLinks()
     {
         if (udtConfigLinks == null)
@@ -75,36 +95,66 @@ public class Udts implements PaginatedBatch<UdtConfigLink>, Serializable
         return udtConfigLinks;
     }
 
+    /**
+     * Gets the list of links as required by the PaginatedBatch interface.
+     *
+     * @return The list of UDT configuration links.
+     */
     @Override
     public List<UdtConfigLink> getList()
     {
         return getLinks();
     }
 
+    /**
+     * Gets the number of UDT configuration links.
+     *
+     * @return The number of links, or 0 if the list is null.
+     */
     @Override
     public int getSize()
     {
         return udtConfigLinks == null ? 0 : udtConfigLinks.size();
     }
 
+    /**
+     * Gets the link to the previous page of results.
+     *
+     * @return The previous page link.
+     */
     @Override
     public Page getPreviousPage()
     {
         return previousPage;
     }
 
+    /**
+     * Sets the link to the previous page of results.
+     *
+     * @param previousPage The previous page link.
+     */
     @Override
     public void setPreviousPage(Page previousPage)
     {
         this.previousPage = previousPage;
     }
 
+    /**
+     * Gets the link to the next page of results.
+     *
+     * @return The next page link.
+     */
     @Override
     public Page getNextPage()
     {
         return nextPage;
     }
 
+    /**
+     * Sets the link to the next page of results.
+     *
+     * @param nextPage The next page link.
+     */
     @Override
     public void setNextPage(Page nextPage)
     {

@@ -54,44 +54,89 @@ public class Dimension implements Serializable
     @XmlElement(name = "is-alpha")
     protected Boolean alpha;
 
+    /**
+     * The offset applied to the first element in this dimension.
+     * For example, an offset of 1 means the first element is numbered/lettered as 1 or B instead of 0 or A.
+     */
     protected Integer offset;
 
+    /**
+     * The size (number of elements) in this dimension.
+     */
     protected Integer size;
 
+    /**
+     * Default constructor for creating a new dimension.
+     */
     public Dimension()
     {
     }
 
+    /**
+     * Constructor for creating a dimension with a specified size.
+     *
+     * @param size The size (number of elements) in this dimension.
+     */
     public Dimension(Integer size)
     {
         this.size = size;
     }
 
+    /**
+     * Checks if numbering in this dimension is alphabetic.
+     *
+     * @return {@code true} if using letters (A, B, C...), {@code false} if using numbers (0, 1, 2...).
+     */
     public Boolean isAlpha()
     {
         return alpha;
     }
 
+    /**
+     * Sets whether numbering in this dimension is alphabetic.
+     *
+     * @param alpha {@code true} if using letters (A, B, C...), {@code false} if using numbers (0, 1, 2...).
+     */
     public void setAlpha(Boolean alpha)
     {
         this.alpha = alpha;
     }
 
+    /**
+     * Gets the offset applied to the first element in this dimension.
+     *
+     * @return The offset value.
+     */
     public Integer getOffset()
     {
         return offset;
     }
 
+    /**
+     * Sets the offset applied to the first element in this dimension.
+     *
+     * @param offset The offset value to set.
+     */
     public void setOffset(Integer offset)
     {
         this.offset = offset;
     }
 
+    /**
+     * Gets the size (number of elements) in this dimension.
+     *
+     * @return The size of this dimension.
+     */
     public Integer getSize()
     {
         return size;
     }
 
+    /**
+     * Sets the size (number of elements) in this dimension.
+     *
+     * @param size The size to set.
+     */
     public void setSize(Integer size)
     {
         this.size = size;

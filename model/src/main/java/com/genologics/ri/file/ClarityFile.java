@@ -38,9 +38,10 @@ import com.genologics.ri.Linkable;
 
 /**
  * The file element contains information about a file in the system.
- *
+ * <p>
  * These are rather strange as the link to a file is just a file object with
  * only the URI set. So they are both entities and links.
+ * </p>
  */
 @ClarityEntity(uriSection = "files", creatable = true, updateable = true, removable = true)
 @XmlRootElement(name = "file")
@@ -53,49 +54,90 @@ public class ClarityFile extends LimsEntityLinkBase<ClarityFile> implements Lims
      */
     @Serial private static final long serialVersionUID = -6683975101172687186L;
 
+    /**
+     * The URI of the resource that this file is attached to (e.g., a project, sample, process, or artifact).
+     */
     @XmlElement(name = "attached-to")
     @XmlSchemaType(name = "anyURI")
     protected URI attachedTo;
 
+    /**
+     * The network location URI where the file content can be retrieved.
+     */
     @XmlElement(name = "content-location")
     @XmlSchemaType(name = "anyURI")
     protected URI contentLocation;
 
+    /**
+     * The original name and location of the file before it was imported into the system.
+     */
     @XmlElement(name = "original-location")
     protected String originalLocation;
 
     /**
+     * The original name of the file before it was imported into the system.
+     *
      * @since 2.26
      */
     @XmlElement(name = "original-name")
     protected String originalName;
 
+    /**
+     * Indicates whether the file is displayed in LabLink.
+     */
     @XmlElement(name = "is-published")
     protected Boolean published;
 
+    /**
+     * The LIMS id of the file.
+     */
     @XmlAttribute(name = "limsid")
     protected String limsid;
 
+    /**
+     * The URI of the file resource.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
-
+    /**
+     * Creates a new, empty ClarityFile.
+     */
     public ClarityFile()
     {
     }
 
+    /**
+     * Creates a new ClarityFile with the specified URI.
+     *
+     * @param uri The URI of the file resource.
+     */
     public ClarityFile(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Creates a new ClarityFile with the specified URI and LIMS id.
+     *
+     * @param uri The URI of the file resource.
+     * @param limsid The LIMS id of the file.
+     */
     public ClarityFile(URI uri, String limsid)
     {
         this.uri = uri;
         this.limsid = limsid;
     }
 
+    /**
+     * Creates a new ClarityFile as a copy of another ClarityFile,
+     * copying its URI and LIMS id.
+     *
+     * @param file The file to copy from.
+     *
+     * @throws NullPointerException if file is null.
+     */
     public ClarityFile(ClarityFile file)
     {
         requireNonNull(file, "file cannot be null");
@@ -114,6 +156,11 @@ public class ClarityFile extends LimsEntityLinkBase<ClarityFile> implements Lims
         return attachedTo;
     }
 
+    /**
+     * Sets the resource that this file is attached to.
+     *
+     * @param link The linkable entity to attach this file to, or null to clear the attachment.
+     */
     public void setAttachedTo(Linkable<?> link)
     {
         this.attachedTo = link == null ? null : link.getUri();
@@ -130,6 +177,11 @@ public class ClarityFile extends LimsEntityLinkBase<ClarityFile> implements Lims
         return contentLocation;
     }
 
+    /**
+     * Sets the network location URI where the file content can be retrieved.
+     *
+     * @param contentLocation The URI of the file content location.
+     */
     public void setContentLocation(URI contentLocation)
     {
         this.contentLocation = contentLocation;
@@ -147,6 +199,11 @@ public class ClarityFile extends LimsEntityLinkBase<ClarityFile> implements Lims
         return originalLocation;
     }
 
+    /**
+     * Sets the original name and location of the file before it was imported into the system.
+     *
+     * @param originalLocation The original file location string.
+     */
     public void setOriginalLocation(String originalLocation)
     {
         this.originalLocation = originalLocation;
@@ -165,6 +222,13 @@ public class ClarityFile extends LimsEntityLinkBase<ClarityFile> implements Lims
         return originalName;
     }
 
+    /**
+     * Sets the original name of the file before it was imported into the system.
+     *
+     * @param originalName The original file name.
+     *
+     * @since 2.26
+     */
     public void setOriginalName(String originalName)
     {
         this.originalName = originalName;
@@ -180,26 +244,51 @@ public class ClarityFile extends LimsEntityLinkBase<ClarityFile> implements Lims
         return published == null ? false : published.booleanValue();
     }
 
+    /**
+     * Sets whether the file should be displayed in LabLink.
+     *
+     * @param published true to make the file visible in Lablink, false to make it invisible.
+     */
     public void setPublished(Boolean published)
     {
         this.published = published;
     }
 
+    /**
+     * Gets the LIMS id of this file.
+     *
+     * @return The LIMS id.
+     */
     public String getLimsid()
     {
         return limsid;
     }
 
+    /**
+     * Sets the LIMS id of this file.
+     *
+     * @param limsid The LIMS id to set.
+     */
     public void setLimsid(String limsid)
     {
         this.limsid = limsid;
     }
 
+    /**
+     * Gets the URI of this file resource.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of this file resource.
+     *
+     * @param uri The URI to set.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
@@ -219,12 +308,22 @@ public class ClarityFile extends LimsEntityLinkBase<ClarityFile> implements Lims
         published = null;
     }
 
+    /**
+     * Gets the entity class for this file.
+     *
+     * @return The ClarityFile class.
+     */
     @Override
     public Class<ClarityFile> getEntityClass()
     {
         return ClarityFile.class;
     }
 
+    /**
+     * Returns a string representation of this file, which is its LIMS id.
+     *
+     * @return The LIMS id as a string.
+     */
     @Override
     public String toString()
     {

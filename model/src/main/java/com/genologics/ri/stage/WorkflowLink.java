@@ -34,8 +34,12 @@ import com.genologics.ri.Linkable;
 import com.genologics.ri.workflowconfiguration.Workflow;
 
 /**
- *
- * Workflow link for the stage.
+ * Workflow link for a stage.
+ * <p>
+ * This class represents a reference to a workflow within the Clarity LIMS system.
+ * It extends {@link LimsLinkBase} to provide a typed link to a {@link Workflow} entity,
+ * enabling navigation to the detailed configuration of the workflow that contains a stage.
+ * </p>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "workflow")

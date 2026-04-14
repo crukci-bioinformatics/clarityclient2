@@ -54,17 +54,37 @@ public class ClarityFiles implements PaginatedBatch<FileLink>, Serializable
      */
     @Serial private static final long serialVersionUID = -1824449685486824569L;
 
+    /**
+     * The list of file links.
+     */
     @XmlElement(name = "file")
     protected List<FileLink> files;
 
+    /**
+     * A link to the previous page of results, if available.
+     */
     @XmlElement(name = "previous-page")
     protected Page previousPage;
 
+    /**
+     * A link to the next page of results, if available.
+     */
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
-    public ClarityFiles() {}
+    /**
+     * Creates a new, empty ClarityFiles instance.
+     */
+    public ClarityFiles()
+    {
+    }
 
+    /**
+     * Gets the list of file links. If the list is null, it will be
+     * initialized to an empty list.
+     *
+     * @return The list of file links.
+     */
     public List<FileLink> getFiles()
     {
         if (files == null)
@@ -74,33 +94,64 @@ public class ClarityFiles implements PaginatedBatch<FileLink>, Serializable
         return files;
     }
 
+    /**
+     * Gets the list of file links. This method is required by the
+     * {@link PaginatedBatch} interface.
+     *
+     * @return The list of file links.
+     */
     @Override
     public List<FileLink> getList()
     {
         return getFiles();
     }
 
+    /**
+     * Gets the number of file links in this collection.
+     *
+     * @return The number of file links, or 0 if the files list is null.
+     */
     @Override
     public int getSize()
     {
         return files == null ? 0 : files.size();
     }
 
+    /**
+     * Gets the link to the previous page of results.
+     *
+     * @return The previous page link, or null if there is no previous page.
+     */
     public Page getPreviousPage()
     {
         return previousPage;
     }
 
+    /**
+     * Sets the link to the previous page of results.
+     *
+     * @param previousPage The previous page link.
+     */
     public void setPreviousPage(Page previousPage)
     {
         this.previousPage = previousPage;
     }
 
+    /**
+     * Gets the link to the next page of results.
+     *
+     * @return The next page link, or null if there is no next page.
+     */
     public Page getNextPage()
     {
         return nextPage;
     }
 
+    /**
+     * Sets the link to the next page of results.
+     *
+     * @param nextPage The next page link.
+     */
     public void setNextPage(Page nextPage)
     {
         this.nextPage = nextPage;

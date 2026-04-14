@@ -49,55 +49,106 @@ public class Field implements Serializable
      */
     @Serial private static final long serialVersionUID = 7870381376405702078L;
 
+    /**
+     * The name of the field.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The entity to which this field is attached.
+     */
     @XmlAttribute(name = "attach-to")
     protected String attachTo;
 
+    /**
+     * The style of the field (user-defined or built-in).
+     */
     @XmlAttribute(name = "style")
     protected Style style;
 
-
+    /**
+     * Constructs a new field.
+     */
     public Field()
     {
     }
 
+    /**
+     * Constructs a new field with the specified name.
+     *
+     * @param name the name of the field.
+     */
     public Field(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the name of the field.
+     *
+     * @return the field name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the field.
+     *
+     * @param name the field name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the entity to which this field is attached.
+     *
+     * @return the attach-to value.
+     */
     public String getAttachTo()
     {
         return attachTo;
     }
 
+    /**
+     * Sets the entity to which this field is attached.
+     *
+     * @param attachTo the attach-to value.
+     */
     public void setAttachTo(String attachTo)
     {
         this.attachTo = attachTo;
     }
 
+    /**
+     * Gets the style of the field.
+     *
+     * @return the field style.
+     */
     public Style getStyle()
     {
         return style;
     }
 
+    /**
+     * Sets the style of the field.
+     *
+     * @param style the field style.
+     */
     public void setStyle(Style style)
     {
         this.style = style;
     }
 
+    /**
+     * Returns a string representation of this field.
+     *
+     * @return a string containing the class name and field name.
+     */
     @Override
     public String toString()
     {

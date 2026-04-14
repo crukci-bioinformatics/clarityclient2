@@ -45,21 +45,40 @@ import javax.xml.namespace.QName;
 public class ObjectFactory
 {
 
+    /**
+     * The qualified name for the exception XML element.
+     */
     private final static QName _Exception_QNAME = new QName(EXCEPTION_NAMESPACE, "exception");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.exception
-     *
+     * Creates a new ObjectFactory that can be used to create new instances of
+     * schema-derived classes for package: com.genologics.ri.exception.
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
-    public Exception createException() {
+    /**
+     * Creates an instance of {@link Exception}.
+     *
+     * @return A new Exception instance.
+     */
+    public Exception createException()
+    {
         return new Exception();
     }
 
+    /**
+     * Creates an instance of {@link JAXBElement}{@code <}{@link Exception}{@code >}
+     * for use in marshalling the exception element.
+     *
+     * @param value The Exception value to wrap.
+     *
+     * @return A JAXBElement containing the Exception.
+     */
     @XmlElementDecl(namespace = EXCEPTION_NAMESPACE, name = "exception")
-    public JAXBElement<Exception> createException(Exception value) {
+    public JAXBElement<Exception> createException(Exception value)
+    {
         return new JAXBElement<Exception>(_Exception_QNAME, Exception.class, null, value);
     }
 }

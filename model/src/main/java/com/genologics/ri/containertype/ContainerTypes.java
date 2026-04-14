@@ -55,17 +55,40 @@ public class ContainerTypes implements PaginatedBatch<ContainerTypeLink>, Serial
      */
     @Serial private static final long serialVersionUID = 8642031910932251369L;
 
+    /**
+     * The list of container type links.
+     */
     @XmlElement(name = "container-type")
     protected List<ContainerTypeLink> containerTypes;
 
+    /**
+     * The link to the previous page of results.
+     */
     @XmlElement(name = "previous-page")
     protected Page previousPage;
 
+    /**
+     * The link to the next page of results.
+     */
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
-    public ContainerTypes() { }
+    /**
+     * Default constructor for creating a new container types list.
+     */
+    public ContainerTypes()
+    {
+    }
 
+    /**
+     * Gets the list of container type links.
+     * <p>
+     * This is a live list and changes to it will be reflected in the object.
+     * If the list doesn't exist, it is created automatically.
+     * </p>
+     *
+     * @return The list of container type links. Never {@code null}.
+     */
     public List<ContainerTypeLink> getContainerTypes()
     {
         if (containerTypes == null)
@@ -75,36 +98,54 @@ public class ContainerTypes implements PaginatedBatch<ContainerTypeLink>, Serial
         return containerTypes;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<ContainerTypeLink> getList()
     {
         return getContainerTypes();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getSize()
     {
         return containerTypes == null ? 0 : containerTypes.size();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Page getPreviousPage()
     {
         return previousPage;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setPreviousPage(Page previousPage)
     {
         this.previousPage = previousPage;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Page getNextPage()
     {
         return nextPage;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setNextPage(Page nextPage)
     {

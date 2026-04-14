@@ -49,10 +49,10 @@ public class ObjectFactory
     private final static QName _Step_QNAME = new QName(STEP_CONFIGURATION_NAMESPACE, "step");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.stepconfiguration
-     *
+     * Creates a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.stepconfiguration.
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
     /**
@@ -60,7 +60,8 @@ public class ObjectFactory
      *
      * @return A new ControlTypeLink.
      */
-    public ControlTypeLink createControlTypeLink() {
+    public ControlTypeLink createControlTypeLink()
+    {
         return new ControlTypeLink();
     }
 
@@ -69,7 +70,8 @@ public class ObjectFactory
      *
      * @return A new StepProperty.
      */
-    public StepProperty createStepProperty() {
+    public StepProperty createStepProperty()
+    {
         return new StepProperty();
     }
 
@@ -78,7 +80,8 @@ public class ObjectFactory
      *
      * @return A new EppTrigger.
      */
-    public EppTrigger createEppTrigger() {
+    public EppTrigger createEppTrigger()
+    {
         return new EppTrigger();
     }
 
@@ -87,7 +90,8 @@ public class ObjectFactory
      *
      * @return A new LockableSetting.
      */
-    public LockableSetting createLockableSetting() {
+    public LockableSetting createLockableSetting()
+    {
         return new LockableSetting();
     }
 
@@ -96,7 +100,8 @@ public class ObjectFactory
      *
      * @return A new ProtocolStep.
      */
-    public ProtocolStep createProtocolStep() {
+    public ProtocolStep createProtocolStep()
+    {
         return new ProtocolStep();
     }
 
@@ -105,7 +110,8 @@ public class ObjectFactory
      *
      * @return A new ProcessTypeLink.
      */
-    public ProcessTypeLink createProcessTypeLink() {
+    public ProcessTypeLink createProcessTypeLink()
+    {
         return new ProcessTypeLink();
     }
 
@@ -114,7 +120,8 @@ public class ObjectFactory
      *
      * @return A new ReagentKitLink.
      */
-    public ReagentKitLink createReagentKitLink() {
+    public ReagentKitLink createReagentKitLink()
+    {
         return new ReagentKitLink();
     }
 
@@ -123,7 +130,8 @@ public class ObjectFactory
      *
      * @return A new IceBucketField.
      */
-    public IceBucketField createIceBucketField() {
+    public IceBucketField createIceBucketField()
+    {
         return new IceBucketField();
     }
 
@@ -132,7 +140,8 @@ public class ObjectFactory
      *
      * @return A new SharedResultFile.
      */
-    public SharedResultFile createSharedResultFile() {
+    public SharedResultFile createSharedResultFile()
+    {
         return new SharedResultFile();
     }
 
@@ -141,7 +150,8 @@ public class ObjectFactory
      *
      * @return A new StepSetup.
      */
-    public StepSetup createStepSetup() {
+    public StepSetup createStepSetup()
+    {
         return new StepSetup();
     }
 
@@ -150,7 +160,8 @@ public class ObjectFactory
      *
      * @return A new NextStep.
      */
-    public NextStep createNextStep() {
+    public NextStep createNextStep()
+    {
         return new NextStep();
     }
 
@@ -159,7 +170,8 @@ public class ObjectFactory
      *
      * @return A new GenericTypeLink.
      */
-    public GenericTypeLink createGenericTypeLink() {
+    public GenericTypeLink createGenericTypeLink()
+    {
         return new GenericTypeLink();
     }
 
@@ -168,7 +180,8 @@ public class ObjectFactory
      *
      * @return A new Field.
      */
-    public Field createField() {
+    public Field createField()
+    {
         return new Field();
     }
 
@@ -177,7 +190,8 @@ public class ObjectFactory
      *
      * @return A new QueueField.
      */
-    public QueueField createQueueField() {
+    public QueueField createQueueField()
+    {
         return new QueueField();
     }
 
@@ -188,7 +202,8 @@ public class ObjectFactory
      * @return A JAXBElement containing the ProtocolStep.
      */
     @XmlElementDecl(namespace = STEP_CONFIGURATION_NAMESPACE, name = "step")
-    public JAXBElement<ProtocolStep> createStep(ProtocolStep value) {
+    public JAXBElement<ProtocolStep> createStep(ProtocolStep value)
+    {
         return new JAXBElement<ProtocolStep>(_Step_QNAME, ProtocolStep.class, null, value);
     }
 }

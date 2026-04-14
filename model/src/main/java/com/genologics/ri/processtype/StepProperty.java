@@ -44,32 +44,60 @@ public class StepProperty implements Serializable
      */
     @Serial private static final long serialVersionUID = -4276491956024298591L;
 
+    /**
+     * The name of the step property.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The value of the step property.
+     */
     @XmlAttribute(name = "value")
     protected String value;
 
-
+    /**
+     * Constructs a new step property.
+     */
     public StepProperty()
     {
     }
 
+    /**
+     * Gets the name of the step property.
+     *
+     * @return the property name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the step property.
+     *
+     * @param name the property name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the value of the step property.
+     *
+     * @return the property value.
+     */
     public String getValue()
     {
         return value;
     }
 
+    /**
+     * Sets the value of the step property.
+     *
+     * @param value the property value.
+     */
     public void setValue(String value)
     {
         this.value = value;

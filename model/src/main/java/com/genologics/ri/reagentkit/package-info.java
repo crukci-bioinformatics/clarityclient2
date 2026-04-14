@@ -1,4 +1,6 @@
 /**
+ * Provides JAXB binding classes for the Clarity REST API reagent kit entity and its related components.
+ *
  * @since 2.18
  */
 @XmlSchema(

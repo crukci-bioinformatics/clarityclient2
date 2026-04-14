@@ -44,36 +44,83 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory
 {
-
+    /**
+     * QName for the control-type XML element.
+     */
     private final static QName _ControlType_QNAME = new QName(CONTROL_TYPE_NAMESPACE, "control-type");
+    
+    /**
+     * QName for the control-types XML element.
+     */
     private final static QName _ControlTypes_QNAME = new QName(CONTROL_TYPE_NAMESPACE, "control-types");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.controltype
-     *
+     * Creates a new ObjectFactory that can be used to create new instances of schema derived classes
+     * for package: com.genologics.ri.controltype
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
-    public ControlType createControlType() {
+    /**
+     * Creates a new instance of {@link ControlType}.
+     *
+     * @return A new ControlType instance.
+     */
+    public ControlType createControlType()
+    {
         return new ControlType();
     }
 
-    public ControlTypeLink createControlTypeLink() {
+    /**
+     * Creates a new instance of {@link ControlTypeLink}.
+     *
+     * @return A new ControlTypeLink instance.
+     */
+    public ControlTypeLink createControlTypeLink()
+    {
         return new ControlTypeLink();
     }
 
-    public ControlTypes createControlTypes() {
+    /**
+     * Creates a new instance of {@link ControlTypes}.
+     *
+     * @return A new ControlTypes instance.
+     */
+    public ControlTypes createControlTypes()
+    {
         return new ControlTypes();
     }
 
+    /**
+     * Creates a JAXBElement wrapping a ControlType instance.
+     * <p>
+     * This method is used by JAXB during marshalling to create an XML element
+     * with the appropriate namespace and qualified name.
+     * </p>
+     *
+     * @param value The ControlType value to wrap.
+     * @return A JAXBElement containing the ControlType.
+     */
     @XmlElementDecl(namespace = CONTROL_TYPE_NAMESPACE, name = "control-type")
-    public JAXBElement<ControlType> createControlType(ControlType value) {
+    public JAXBElement<ControlType> createControlType(ControlType value)
+    {
         return new JAXBElement<ControlType>(_ControlType_QNAME, ControlType.class, null, value);
     }
 
+    /**
+     * Creates a JAXBElement wrapping a ControlTypes instance.
+     * <p>
+     * This method is used by JAXB during marshalling to create an XML element
+     * with the appropriate namespace and qualified name.
+     * </p>
+     *
+     * @param value The ControlTypes value to wrap.
+     * @return A JAXBElement containing the ControlTypes.
+     */
     @XmlElementDecl(namespace = CONTROL_TYPE_NAMESPACE, name = "control-types")
-    public JAXBElement<ControlTypes> createControlTypes(ControlTypes value) {
+    public JAXBElement<ControlTypes> createControlTypes(ControlTypes value)
+    {
         return new JAXBElement<ControlTypes>(_ControlTypes_QNAME, ControlTypes.class, null, value);
     }
 }

@@ -46,34 +46,64 @@ public class ProcessTypeLink extends LimsLinkBase<ProcessType>
      */
     @Serial private static final long serialVersionUID = 5914216290949476076L;
 
+    /**
+     * The URI of the process type.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The name of the process type.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * Constructs a new process type link.
+     */
     public ProcessTypeLink()
     {
     }
 
+    /**
+     * Constructs a new process type link with the specified URI.
+     *
+     * @param uri the URI of the process type.
+     */
     public ProcessTypeLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructs a new process type link with the specified URI and name.
+     *
+     * @param uri the URI of the process type.
+     * @param name the name of the process type.
+     */
     public ProcessTypeLink(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Constructs a new process type link from a linkable object.
+     *
+     * @param link the linkable object providing the URI.
+     */
     public ProcessTypeLink(Linkable<ProcessType> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * Constructs a new process type link from a process type entity.
+     *
+     * @param processType the process type entity.
+     */
     public ProcessTypeLink(ProcessType processType)
     {
         requireNonNull(processType, "processType cannot be null");
@@ -81,32 +111,62 @@ public class ProcessTypeLink extends LimsLinkBase<ProcessType>
         name = processType.getName();
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return the ProcessType class.
+     */
     @Override
     public Class<ProcessType> getEntityClass()
     {
         return ProcessType.class;
     }
 
+    /**
+     * Gets the name of the process type.
+     *
+     * @return the process type name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the process type.
+     *
+     * @param name the process type name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the URI of the process type.
+     *
+     * @return the process type URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the process type.
+     *
+     * @param uri the process type URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Returns a string representation of this process type link.
+     *
+     * @return the process type name.
+     */
     @Override
     public String toString()
     {

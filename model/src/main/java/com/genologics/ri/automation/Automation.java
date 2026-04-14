@@ -59,77 +59,148 @@ public class Automation implements Linkable<Automation>, Serializable
      */
     @Serial private static final long serialVersionUID = 8888968017373728807L;
 
+    /**
+     * The context in which this automation runs.
+     */
     @XmlElement
     protected Context context;
 
+    /**
+     * The script content for this automation.
+     */
     @XmlElement(name = "string")
     protected String script;
 
+    /**
+     * Flag indicating whether the program should run per event.
+     */
     @XmlElement(name = "run-program-per-event")
     protected Boolean runProgramPerEvent;
 
+    /**
+     * The channel for this automation.
+     */
     @XmlElement
     protected String channel;
 
+    /**
+     * The files associated with this automation.
+     */
     @XmlElement(namespace = Namespaces.FILE_NAMESPACE, name = "file")
     protected List<ClarityFile> files;
 
+    /**
+     * The process types associated with this automation.
+     */
     @XmlElementWrapper(name = "process-types")
     @XmlElement(name = "process-type")
     protected List<ProcessTypeLink> processTypes;
 
+    /**
+     * The URI of this automation.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The name of this automation.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
-
+    /**
+     * Default constructor.
+     */
     public Automation()
     {
     }
 
+    /**
+     * Gets the context in which this automation runs.
+     *
+     * @return The automation context.
+     */
     public Context getContext()
     {
         return context;
     }
 
+    /**
+     * Sets the context in which this automation runs.
+     *
+     * @param value The automation context.
+     */
     public void setContext(Context value)
     {
         this.context = value;
     }
 
+    /**
+     * Gets the script content for this automation.
+     *
+     * @return The script content.
+     */
     public String getScript()
     {
         return script;
     }
 
+    /**
+     * Sets the script content for this automation.
+     *
+     * @param script The script content.
+     */
     public void setScript(String script)
     {
         this.script = script;
     }
 
+    /**
+     * Checks if the program should run per event.
+     *
+     * @return {@code true} if the program runs per event, {@code false} otherwise.
+     */
     public Boolean isRunProgramPerEvent()
     {
         return runProgramPerEvent;
     }
 
+    /**
+     * Sets whether the program should run per event.
+     *
+     * @param value {@code true} if the program should run per event, {@code false} otherwise.
+     */
     public void setRunProgramPerEvent(Boolean value)
     {
         this.runProgramPerEvent = value;
     }
 
+    /**
+     * Gets the channel for this automation.
+     *
+     * @return The channel.
+     */
     public String getChannel()
     {
         return channel;
     }
 
+    /**
+     * Sets the channel for this automation.
+     *
+     * @param value The channel.
+     */
     public void setChannel(String value)
     {
         this.channel = value;
     }
 
+    /**
+     * Gets the list of files associated with this automation.
+     *
+     * @return The list of files.
+     */
     public List<ClarityFile> getFiles()
     {
         if (files == null)
@@ -139,6 +210,11 @@ public class Automation implements Linkable<Automation>, Serializable
         return files;
     }
 
+    /**
+     * Gets the list of process types associated with this automation.
+     *
+     * @return The list of process type links.
+     */
     public List<ProcessTypeLink> getProcessTypes()
     {
         if (processTypes == null)
@@ -148,26 +224,51 @@ public class Automation implements Linkable<Automation>, Serializable
         return processTypes;
     }
 
+    /**
+     * Gets the URI of this automation.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of this automation.
+     *
+     * @param value The URI.
+     */
     public void setUri(URI value)
     {
         this.uri = value;
     }
 
+    /**
+     * Gets the name of this automation.
+     *
+     * @return The automation name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of this automation.
+     *
+     * @param value The automation name.
+     */
     public void setName(String value)
     {
         this.name = value;
     }
 
+    /**
+     * Gets a link to this automation.
+     *
+     * @return A link to this automation.
+     */
     @Override
     public LimsLink<Automation> getLink()
     {

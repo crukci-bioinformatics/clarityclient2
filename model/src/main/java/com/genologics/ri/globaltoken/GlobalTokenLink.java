@@ -45,54 +45,102 @@ public class GlobalTokenLink extends LimsLinkBase<GlobalToken>
      */
     @Serial private static final long serialVersionUID = 2340905402174078413L;
 
+    /**
+     * The URI of the global token.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The token name.
+     */
     @XmlElement
     protected String name;
 
+    /**
+     * Default constructor.
+     */
     public GlobalTokenLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the global token.
+     */
     public GlobalTokenLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and name.
+     *
+     * @param uri The URI of the global token.
+     * @param name The token name.
+     */
     public GlobalTokenLink(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Get the token name.
+     *
+     * @return The token name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Set the token name.
+     *
+     * @param name The token name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Get the URI of this global token.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Set the URI of this global token.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Class<GlobalToken> getEntityClass()
     {
         return GlobalToken.class;
     }
 
+    /**
+     * Returns a string representation of this global token link.
+     *
+     * @return The token name.
+     */
     @Override
     public String toString()
     {

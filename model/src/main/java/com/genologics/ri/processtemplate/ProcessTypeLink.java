@@ -50,35 +50,65 @@ public class ProcessTypeLink implements LimsLink<ProcessType>, Serializable
      */
     @Serial private static final long serialVersionUID = -4446494931025385173L;
 
+    /**
+     * The URI of the process type.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The name of the process type.
+     */
     @XmlValue
     protected String name;
 
 
+    /**
+     * Default constructor.
+     */
     public ProcessTypeLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri the URI of the process type.
+     */
     public ProcessTypeLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and name.
+     *
+     * @param uri the URI of the process type.
+     * @param name the name of the process type.
+     */
     public ProcessTypeLink(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Constructor from a linkable process type.
+     *
+     * @param link the linkable process type.
+     */
     public ProcessTypeLink(Linkable<ProcessType> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * Constructor from a ProcessType object.
+     *
+     * @param processType the process type.
+     */
     public ProcessTypeLink(ProcessType processType)
     {
         requireNonNull(processType, "processType cannot be null");
@@ -86,32 +116,62 @@ public class ProcessTypeLink implements LimsLink<ProcessType>, Serializable
         name = processType.getName();
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return the ProcessType class.
+     */
     @Override
     public Class<ProcessType> getEntityClass()
     {
         return ProcessType.class;
     }
 
+    /**
+     * Gets the name.
+     *
+     * @return the name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name.
+     *
+     * @param name the name to set.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return the URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param uri the URI to set.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Returns a string representation of this object.
+     *
+     * @return the name of the process type.
+     */
     @Override
     public String toString()
     {

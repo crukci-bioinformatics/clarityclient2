@@ -50,7 +50,9 @@ public class Index implements Batch<Link>, Serializable
     /**
      * Default constructor.
      */
-    public Index() {}
+    public Index()
+    {
+    }
 
     /**
      * Gets the list of links in this index.

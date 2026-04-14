@@ -50,49 +50,90 @@ public class ResearcherLink extends LimsEntityLinkBase<Researcher>
      */
     @Serial private static final long serialVersionUID = -7080549970267921256L;
 
+    /**
+     * The URI of the researcher.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public ResearcherLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The researcher URI.
+     */
     public ResearcherLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor from a linkable researcher.
+     *
+     * @param link The linkable researcher.
+     */
     public ResearcherLink(Linkable<Researcher> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * Gets the URI of the researcher.
+     *
+     * @return The researcher URI.
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the researcher.
+     *
+     * @param uri The researcher URI.
+     */
     @Override
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the LIMS id from the URI.
+     *
+     * @return The LIMS id.
+     */
     @Override
     public String getLimsid()
     {
         return Link.limsIdFromUri(uri);
     }
 
+    /**
+     * Sets the LIMS id. This operation does nothing for this link type.
+     *
+     * @param id The LIMS id.
+     */
     @Override
     public void setLimsid(String id)
     {
         // Does nothing.
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The Researcher class.
+     */
     @Override
     public Class<Researcher> getEntityClass()
     {

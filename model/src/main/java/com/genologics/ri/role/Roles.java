@@ -36,6 +36,8 @@ import com.genologics.ri.Batch;
 import com.genologics.ri.ClarityQueryResult;
 
 /**
+ * The representation for a list of role links.
+ *
  * @since 2.19
  */
 @ClarityQueryResult(entityClass = Role.class)
@@ -49,22 +51,41 @@ public class Roles implements Batch<RoleLink>, Serializable
      */
     @Serial private static final long serialVersionUID = -8997233724026640778L;
 
+    /**
+     * The list of role links.
+     */
     @XmlElement(name = "role")
     protected List<RoleLink> roles;
 
+    /**
+     * The URI of the roles list.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public Roles()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the roles list.
+     */
     public Roles(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the list of role links.
+     *
+     * @return A list of role links.
+     */
     public List<RoleLink> getRoles()
     {
         if (roles == null)
@@ -74,22 +95,42 @@ public class Roles implements Batch<RoleLink>, Serializable
         return roles;
     }
 
+    /**
+     * Gets the URI of the roles list.
+     *
+     * @return The roles list URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the roles list.
+     *
+     * @param uri The roles list URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the list of role links for batch processing.
+     *
+     * @return A list of role links.
+     */
     @Override
     public List<RoleLink> getList()
     {
         return getRoles();
     }
 
+    /**
+     * Gets the size of the roles list.
+     *
+     * @return The number of role links, or 0 if the list is null.
+     */
     @Override
     public int getSize()
     {

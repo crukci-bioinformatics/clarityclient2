@@ -74,7 +74,9 @@ public class InstrumentTypes implements PaginatedBatch<InstrumentTypeLink>, Seri
     /**
      * Default constructor.
      */
-    public InstrumentTypes() { }
+    public InstrumentTypes()
+    {
+    }
 
     /**
      * {@inheritDoc}

@@ -45,33 +45,63 @@ public class ProcessTemplateLink extends LimsLinkBase<ProcessTemplate>
      */
     @Serial private static final long serialVersionUID = -4745812706787102584L;
 
+    /**
+     * The URI of the process template.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The name of the process template.
+     */
     protected String name;
 
+    /**
+     * Default constructor.
+     */
     public ProcessTemplateLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri the URI of the process template.
+     */
     public ProcessTemplateLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and name.
+     *
+     * @param uri the URI of the process template.
+     * @param name the name of the process template.
+     */
     public ProcessTemplateLink(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Constructor from a linkable process template.
+     *
+     * @param link the linkable process template.
+     */
     public ProcessTemplateLink(Linkable<ProcessTemplate> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * Constructor from a ProcessTemplate object.
+     *
+     * @param template the process template.
+     */
     public ProcessTemplateLink(ProcessTemplate template)
     {
         requireNonNull(template, "template cannot be null");
@@ -79,32 +109,62 @@ public class ProcessTemplateLink extends LimsLinkBase<ProcessTemplate>
         name = template.getName();
     }
 
+    /**
+     * Gets the entity class.
+     *
+     * @return the ProcessTemplate class.
+     */
     @Override
     public Class<ProcessTemplate> getEntityClass()
     {
         return ProcessTemplate.class;
     }
 
+    /**
+     * Gets the name.
+     *
+     * @return the name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name.
+     *
+     * @param name the name to set.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return the URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param uri the URI to set.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Returns a string representation of this object.
+     *
+     * @return the name of the process template.
+     */
     @Override
     public String toString()
     {

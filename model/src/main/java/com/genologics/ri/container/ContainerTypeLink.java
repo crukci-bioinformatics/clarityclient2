@@ -50,34 +50,64 @@ public class ContainerTypeLink extends LimsLinkBase<ContainerType>
      */
     @Serial private static final long serialVersionUID = 8897150572324942993L;
 
+    /**
+     * The URI of the container type.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The name of the container type.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * Default constructor.
+     */
     public ContainerTypeLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI.
+     */
     public ContainerTypeLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and name.
+     *
+     * @param uri The URI.
+     * @param name The name.
+     */
     public ContainerTypeLink(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Constructor from a linkable container type.
+     *
+     * @param link The linkable container type.
+     */
     public ContainerTypeLink(Linkable<ContainerType> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Constructor from a container type.
+     *
+     * @param containerType The container type.
+     */
     public ContainerTypeLink(ContainerType containerType)
     {
         requireNonNull(containerType, "containerType cannot be null");
@@ -85,32 +115,62 @@ public class ContainerTypeLink extends LimsLinkBase<ContainerType>
         name = containerType.getName();
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The ContainerType class.
+     */
     @Override
     public Class<ContainerType> getEntityClass()
     {
         return ContainerType.class;
     }
 
+    /**
+     * Gets the URI of the container type.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the container type.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the name of the container type.
+     *
+     * @return The name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the container type.
+     *
+     * @param name The name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Returns the string representation of the container type link, which is the name.
+     *
+     * @return The name.
+     */
     @Override
     public String toString()
     {

@@ -47,28 +47,54 @@ public class TypeDefinition extends LimsLinkBase<Type>
      */
     @Serial private static final long serialVersionUID = 7368802583367288257L;
 
+    /**
+     * The name of the type.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The URI of the type definition.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Constructor for creating an empty TypeDefinition object.
+     */
     public TypeDefinition()
     {
     }
 
+    /**
+     * Constructor for creating a TypeDefinition with a URI.
+     *
+     * @param uri The URI of the type.
+     */
     public TypeDefinition(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor for creating a TypeDefinition with a URI and name.
+     *
+     * @param uri The URI of the type.
+     * @param name The name of the type.
+     */
     public TypeDefinition(URI uri, String name)
     {
         this.name = name;
         this.uri = uri;
     }
 
+    /**
+     * Constructor for creating a TypeDefinition from a Linkable object.
+     * Attempts to extract the name property using reflection.
+     *
+     * @param type The linkable type object.
+     */
     public TypeDefinition(Linkable<Type> type)
     {
         requireNonNull(type, "type cannot be null");
@@ -83,6 +109,11 @@ public class TypeDefinition extends LimsLinkBase<Type>
         }
     }
 
+    /**
+     * Constructor for creating a TypeDefinition from a Type object.
+     *
+     * @param type The type object.
+     */
     public TypeDefinition(Type type)
     {
         requireNonNull(type, "type cannot be null");
@@ -90,33 +121,63 @@ public class TypeDefinition extends LimsLinkBase<Type>
         name = type.getName();
     }
 
+    /**
+     * Gets the entity class for this type definition.
+     *
+     * @return The Type class.
+     */
     @Override
     public Class<Type> getEntityClass()
     {
         return Type.class;
     }
 
+    /**
+     * Gets the name of the type.
+     *
+     * @return The type name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the type.
+     *
+     * @param name The type name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the URI of the type definition.
+     *
+     * @return The URI.
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the type definition.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Returns the string representation of this type definition, which is the type name.
+     *
+     * @return The type name.
+     */
     @Override
     public String toString()
     {

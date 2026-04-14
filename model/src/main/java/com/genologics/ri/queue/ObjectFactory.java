@@ -44,14 +44,17 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory
 {
-
+    /**
+     * The QName for the queue element in the QUEUE_NAMESPACE.
+     */
     private final static QName _Queue_QNAME = new QName(QUEUE_NAMESPACE, "queue");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.queue
      *
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
     /**
@@ -59,7 +62,8 @@ public class ObjectFactory
      *
      * @return A new Queue object.
      */
-    public Queue createQueue() {
+    public Queue createQueue()
+    {
         return new Queue();
     }
 
@@ -68,7 +72,8 @@ public class ObjectFactory
      *
      * @return A new ArtifactLink object.
      */
-    public ArtifactLink createArtifactLink() {
+    public ArtifactLink createArtifactLink()
+    {
         return new ArtifactLink();
     }
 
@@ -80,7 +85,8 @@ public class ObjectFactory
      * @return A JAXBElement containing the Queue.
      */
     @XmlElementDecl(namespace = QUEUE_NAMESPACE, name = "queue")
-    public JAXBElement<Queue> createQueue(Queue value) {
+    public JAXBElement<Queue> createQueue(Queue value)
+    {
         return new JAXBElement<Queue>(_Queue_QNAME, Queue.class, null, value);
     }
 }

@@ -1,5 +1,5 @@
 /**
- * Entities for routing configuration in the Clarity system.
+ * Provides JAXB binding classes for the Clarity REST API routing entity and its related components.
  */
 @XmlSchema(
         namespace = ROUTING_NAMESPACE,

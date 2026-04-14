@@ -66,45 +66,86 @@ public class FieldDynamicPresetDetails implements Locatable, Serializable
      */
     @Serial private static final long serialVersionUID = -8814597927446111161L;
 
-    // With Clarity 6.3.3, this element must have the namespace set on it as well.
+    /**
+     * The list of field dynamic presets.
+     */
     @XmlElement(name = "field-dynamic-preset", namespace = Namespaces.CONFIGURATION_NAMESPACE)
     protected List<FieldDynamicPreset> presets;
 
+    /**
+     * The URI of this preset details resource.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Constructor for creating an empty FieldDynamicPresetDetails object.
+     */
     public FieldDynamicPresetDetails()
     {
     }
 
+    /**
+     * Constructor for creating a FieldDynamicPresetDetails with a URI.
+     *
+     * @param uri The URI of the resource.
+     */
     public FieldDynamicPresetDetails(URI uri)
     {
         setUri(uri);
     }
 
+    /**
+     * Constructor for creating a FieldDynamicPresetDetails with preset values.
+     *
+     * @param presets The collection of preset values.
+     */
     public FieldDynamicPresetDetails(Collection<String> presets)
     {
         setPresets(presets);
     }
 
+    /**
+     * Constructor for creating a FieldDynamicPresetDetails with a URI and preset values.
+     *
+     * @param uri The URI of the resource.
+     * @param presets The collection of preset values.
+     */
     public FieldDynamicPresetDetails(URI uri, Collection<String> presets)
     {
         setUri(uri);
         setPresets(presets);
     }
 
+    /**
+     * Constructor for creating a FieldDynamicPresetDetails with preset value strings.
+     *
+     * @param presets The preset values.
+     */
     public FieldDynamicPresetDetails(String... presets)
     {
         setPresets(presets);
     }
 
+    /**
+     * Constructor for creating a FieldDynamicPresetDetails with a URI and preset value strings.
+     *
+     * @param uri The URI of the resource.
+     * @param presets The preset values.
+     */
     public FieldDynamicPresetDetails(URI uri, String... presets)
     {
         setUri(uri);
         setPresets(presets);
     }
 
+    /**
+     * Gets the list of field dynamic presets.
+     * Creates a new list if one doesn't exist.
+     *
+     * @return The list of presets.
+     */
     public List<FieldDynamicPreset> getPresets()
     {
         if (presets == null)
@@ -114,6 +155,12 @@ public class FieldDynamicPresetDetails implements Locatable, Serializable
         return presets;
     }
 
+    /**
+     * Adds a preset to the list.
+     *
+     * @param preset The preset to add.
+     * @return The added preset, or null if the input was null.
+     */
     public FieldDynamicPreset addPreset(FieldDynamicPreset preset)
     {
         if (preset != null)
@@ -123,6 +170,12 @@ public class FieldDynamicPresetDetails implements Locatable, Serializable
         return preset;
     }
 
+    /**
+     * Adds a preset value to the list, creating a new FieldDynamicPreset.
+     *
+     * @param preset The preset value to add.
+     * @return The created FieldDynamicPreset, or null if the input was null.
+     */
     public FieldDynamicPreset addPreset(String preset)
     {
         FieldDynamicPreset fdp = null;
@@ -134,32 +187,62 @@ public class FieldDynamicPresetDetails implements Locatable, Serializable
         return fdp;
     }
 
+    /**
+     * Sets the presets from an array of strings.
+     *
+     * @param newPresets The array of preset values.
+     */
     public void setPresets(String... newPresets)
     {
         setPresets(Arrays.asList(newPresets));
     }
 
+    /**
+     * Sets the presets from a collection of strings.
+     *
+     * @param newPresets The collection of preset values.
+     */
     public void setPresets(Collection<String> newPresets)
     {
         presets = newPresets == null ? null :
             newPresets.stream().filter(preset -> preset != null).map(preset -> new FieldDynamicPreset(preset)).toList();
     }
 
+    /**
+     * Checks if the preset list is empty.
+     *
+     * @return {@code true} if the list is null or empty, {@code false} otherwise.
+     */
     public boolean isEmpty()
     {
         return presets == null ? true : presets.isEmpty();
     }
 
+    /**
+     * Gets the URI of this preset details resource.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of this preset details resource.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Returns the string representation of this object, which is the URI as a string.
+     *
+     * @return The URI as a string, or null if the URI is null.
+     */
     @Override
     public String toString()
     {

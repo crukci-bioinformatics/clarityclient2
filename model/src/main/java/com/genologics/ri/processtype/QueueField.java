@@ -43,18 +43,34 @@ public class QueueField extends Field
      */
     @Serial private static final long serialVersionUID = 2849413901300410668L;
 
+    /**
+     * Indicates whether this field shows in the detail view.
+     */
     @XmlAttribute(name = "detail")
     protected Boolean detail;
 
+    /**
+     * Constructs a new queue field.
+     */
     public QueueField()
     {
     }
 
+    /**
+     * Gets whether this field shows in the detail view.
+     *
+     * @return true if this field shows in detail view, false otherwise.
+     */
     public Boolean getDetail()
     {
         return detail;
     }
 
+    /**
+     * Sets whether this field shows in the detail view.
+     *
+     * @param detail true if this field should show in detail view.
+     */
     public void setDetail(Boolean detail)
     {
         this.detail = detail;

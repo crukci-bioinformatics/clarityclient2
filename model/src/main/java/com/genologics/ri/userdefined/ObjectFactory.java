@@ -44,15 +44,22 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory
 {
-
+    /**
+     * The qualified name for the "field" XML element in the UDF namespace.
+     */
     private final static QName _Field_QNAME = new QName(UDF_NAMESPACE, "field");
+
+    /**
+     * The qualified name for the "type" XML element in the UDF namespace.
+     */
     private final static QName _Type_QNAME = new QName(UDF_NAMESPACE, "type");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.userdefined
      *
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
     /**
@@ -60,7 +67,8 @@ public class ObjectFactory
      *
      * @return A new UDT instance.
      */
-    public UDT createType() {
+    public UDT createType()
+    {
         return new UDT();
     }
 
@@ -69,7 +77,8 @@ public class ObjectFactory
      *
      * @return A new UDF instance.
      */
-    public UDF createField() {
+    public UDF createField()
+    {
         return new UDF();
     }
 
@@ -80,7 +89,8 @@ public class ObjectFactory
      * @return The new instance of {@link JAXBElement}{@code <}{@link UDF}{@code >}
      */
     @XmlElementDecl(namespace = UDF_NAMESPACE, name = "field")
-    public JAXBElement<UDF> createField(UDF value) {
+    public JAXBElement<UDF> createField(UDF value)
+    {
         return new JAXBElement<UDF>(_Field_QNAME, UDF.class, null, value);
     }
 
@@ -91,7 +101,8 @@ public class ObjectFactory
      * @return The new instance of {@link JAXBElement}{@code <}{@link UDT}{@code >}
      */
     @XmlElementDecl(namespace = UDF_NAMESPACE, name = "type")
-    public JAXBElement<UDT> createType(UDT value) {
+    public JAXBElement<UDT> createType(UDT value)
+    {
         return new JAXBElement<UDT>(_Type_QNAME, UDT.class, null, value);
     }
 }

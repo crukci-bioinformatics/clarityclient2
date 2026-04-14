@@ -52,88 +52,172 @@ public class GlobalToken implements Linkable<GlobalToken>, Serializable
      */
     @Serial private static final long serialVersionUID = 8999326250541104054L;
 
+    /**
+     * The token name.
+     */
     @XmlElement
     protected String name;
 
+    /**
+     * The token value.
+     */
     @XmlElement
     protected String value;
 
+    /**
+     * The token description.
+     */
     @XmlElement
     protected String description;
 
+    /**
+     * Flag indicating whether this is a custom token.
+     */
     @XmlElement(name = "is-custom")
     protected Boolean isCustom;
 
+    /**
+     * The URI of this global token.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
 
+    /**
+     * Default constructor.
+     */
     public GlobalToken()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the global token.
+     */
     public GlobalToken(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and name.
+     *
+     * @param uri The URI of the global token.
+     * @param name The token name.
+     */
     public GlobalToken(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Get the token name.
+     *
+     * @return The token name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Set the token name.
+     *
+     * @param name The token name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Get the token value.
+     *
+     * @return The token value.
+     */
     public String getValue()
     {
         return value;
     }
 
+    /**
+     * Set the token value.
+     *
+     * @param value The token value.
+     */
     public void setValue(String value)
     {
         this.value = value;
     }
 
+    /**
+     * Get the token description.
+     *
+     * @return The token description.
+     */
     public String getDescription()
     {
         return description;
     }
 
+    /**
+     * Set the token description.
+     *
+     * @param description The token description.
+     */
     public void setDescription(String description)
     {
         this.description = description;
     }
 
+    /**
+     * Check whether this is a custom token.
+     *
+     * @return True if this is a custom token, false otherwise.
+     */
     public boolean isCustom()
     {
         return isCustom == null ? false : isCustom.booleanValue();
     }
 
+    /**
+     * Set whether this is a custom token.
+     *
+     * @param isCustom True if this is a custom token, false otherwise.
+     */
     public void setCustom(Boolean isCustom)
     {
         this.isCustom = isCustom;
     }
 
+    /**
+     * Get the URI of this global token.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Set the URI of this global token.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Returns a string representation of this global token.
+     *
+     * @return A string containing the name and value.
+     */
     @Override
     public String toString()
     {
@@ -143,6 +227,9 @@ public class GlobalToken implements Linkable<GlobalToken>, Serializable
         return sb.toString();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public LimsLink<GlobalToken> getLink()
     {

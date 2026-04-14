@@ -30,13 +30,32 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum Style
 {
-    USER_DEFINED, BUILT_IN;
+    /**
+     * User-defined field.
+     */
+    USER_DEFINED,
 
+    /**
+     * Built-in field.
+     */
+    BUILT_IN;
+
+    /**
+     * Gets the XML value of this style.
+     *
+     * @return the XML value (the enum name).
+     */
     public String value()
     {
         return name();
     }
 
+    /**
+     * Gets the style corresponding to the specified XML value.
+     *
+     * @param v the XML value.
+     * @return the corresponding style.
+     */
     public static Style fromValue(String v)
     {
         return valueOf(v);

@@ -44,64 +44,75 @@ import jakarta.xml.bind.annotation.XmlRegistry;
 @XmlRegistry
 public class ObjectFactory
 {
-
+    /**
+     * The qualified name for the global-token element.
+     */
     private final static QName _GlobalToken_QNAME = new QName(GLOBAL_TOKEN_NAMESPACE, "global-token");
+
+    /**
+     * The qualified name for the global-tokens element.
+     */
     private final static QName _GlobalTokens_QNAME = new QName(GLOBAL_TOKEN_NAMESPACE, "global-tokens");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.globaltoken
      *
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
     /**
-     * Create an instance of {@link GlobalToken }
+     * Create an instance of {@link GlobalToken}.
      *
+     * @return A new GlobalToken instance.
      */
-    public GlobalToken createGlobalToken() {
+    public GlobalToken createGlobalToken()
+    {
         return new GlobalToken();
     }
 
     /**
-     * Create an instance of {@link GlobalTokens }
+     * Create an instance of {@link GlobalTokens}.
      *
+     * @return A new GlobalTokens instance.
      */
-    public GlobalTokens createGlobalTokens() {
+    public GlobalTokens createGlobalTokens()
+    {
         return new GlobalTokens();
     }
 
     /**
-     * Create an instance of {@link GlobalTokenLink }
+     * Create an instance of {@link GlobalTokenLink}.
      *
+     * @return A new GlobalTokenLink instance.
      */
-    public GlobalTokenLink createGlobalTokenLink() {
+    public GlobalTokenLink createGlobalTokenLink()
+    {
         return new GlobalTokenLink();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GlobalToken }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GlobalToken }{@code >}.
      *
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GlobalToken }{@code >}
+     * @param value Java instance representing xml element's value.
+     * @return The new instance of {@link JAXBElement }{@code <}{@link GlobalToken }{@code >}.
      */
     @XmlElementDecl(namespace = GLOBAL_TOKEN_NAMESPACE, name = "global-token")
-    public JAXBElement<GlobalToken> createGlobalToken(GlobalToken value) {
+    public JAXBElement<GlobalToken> createGlobalToken(GlobalToken value)
+    {
         return new JAXBElement<GlobalToken>(_GlobalToken_QNAME, GlobalToken.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GlobalTokens }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GlobalTokens }{@code >}.
      *
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link GlobalTokens }{@code >}
+     * @param value Java instance representing xml element's value.
+     * @return The new instance of {@link JAXBElement }{@code <}{@link GlobalTokens }{@code >}.
      */
     @XmlElementDecl(namespace = GLOBAL_TOKEN_NAMESPACE, name = "global-tokens")
-    public JAXBElement<GlobalTokens> createGlobalTokens(GlobalTokens value) {
+    public JAXBElement<GlobalTokens> createGlobalTokens(GlobalTokens value)
+    {
         return new JAXBElement<GlobalTokens>(_GlobalTokens_QNAME, GlobalTokens.class, null, value);
     }
 }

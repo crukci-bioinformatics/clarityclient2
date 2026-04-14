@@ -49,28 +49,53 @@ public class TypeDefinition extends LimsLinkBase<Field>
      */
     @Serial private static final long serialVersionUID = 2990437613974395091L;
 
+    /**
+     * The URI of the field.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The name of the field.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * Constructs a new type definition.
+     */
     public TypeDefinition()
     {
     }
 
+    /**
+     * Constructs a new type definition with the specified URI.
+     *
+     * @param uri the URI of the field.
+     */
     public TypeDefinition(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructs a new type definition with the specified URI and name.
+     *
+     * @param uri the URI of the field.
+     * @param name the name of the field.
+     */
     public TypeDefinition(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Constructs a new type definition from a linkable field.
+     *
+     * @param field the linkable field.
+     */
     public TypeDefinition(Linkable<Field> field)
     {
         requireNonNull(field, "field cannot be null");
@@ -81,10 +106,14 @@ public class TypeDefinition extends LimsLinkBase<Field>
         }
         catch (Exception e)
         {
-            // Ignore.
         }
     }
 
+    /**
+     * Constructs a new type definition from a field entity.
+     *
+     * @param field the field entity.
+     */
     public TypeDefinition(Field field)
     {
         requireNonNull(field, "field cannot be null");
@@ -92,32 +121,62 @@ public class TypeDefinition extends LimsLinkBase<Field>
         name = field.getName();
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return the Field class.
+     */
     @Override
     public Class<Field> getEntityClass()
     {
         return Field.class;
     }
 
+    /**
+     * Gets the name of the field.
+     *
+     * @return the field name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the field.
+     *
+     * @param name the field name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the URI of the field.
+     *
+     * @return the field URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the field.
+     *
+     * @param uri the field URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Returns a string representation of this type definition.
+     *
+     * @return the field name.
+     */
     @Override
     public String toString()
     {

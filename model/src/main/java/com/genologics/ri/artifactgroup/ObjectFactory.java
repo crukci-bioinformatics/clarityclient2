@@ -59,7 +59,8 @@ public class ObjectFactory
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.artifactgroup
      *
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
     /**
@@ -67,7 +68,8 @@ public class ObjectFactory
      *
      * @return A new ArtifactGroup instance.
      */
-    public ArtifactGroup createArtifactgroup() {
+    public ArtifactGroup createArtifactgroup()
+    {
         return new ArtifactGroup();
     }
 
@@ -76,7 +78,8 @@ public class ObjectFactory
      *
      * @return A new ArtifactGroupLink instance.
      */
-    public ArtifactGroupLink createArtifactgroupLink() {
+    public ArtifactGroupLink createArtifactgroupLink()
+    {
         return new ArtifactGroupLink();
     }
 
@@ -85,7 +88,8 @@ public class ObjectFactory
      *
      * @return A new Artifacts instance.
      */
-    public Artifacts createArtifacts() {
+    public Artifacts createArtifacts()
+    {
         return new Artifacts();
     }
 
@@ -94,7 +98,8 @@ public class ObjectFactory
      *
      * @return A new ArtifactGroups instance.
      */
-    public ArtifactGroups createArtifactgroups() {
+    public ArtifactGroups createArtifactgroups()
+    {
         return new ArtifactGroups();
     }
 
@@ -105,7 +110,8 @@ public class ObjectFactory
      * @return A JAXBElement wrapping the ArtifactGroup.
      */
     @XmlElementDecl(namespace = ARTIFACT_GROUP_NAMESPACE, name = "artifactgroup")
-    public JAXBElement<ArtifactGroup> createArtifactgroup(ArtifactGroup value) {
+    public JAXBElement<ArtifactGroup> createArtifactgroup(ArtifactGroup value)
+    {
         return new JAXBElement<ArtifactGroup>(_Artifactgroup_QNAME, ArtifactGroup.class, null, value);
     }
 
@@ -116,7 +122,8 @@ public class ObjectFactory
      * @return A JAXBElement wrapping the ArtifactGroups.
      */
     @XmlElementDecl(namespace = ARTIFACT_GROUP_NAMESPACE, name = "artifactgroups")
-    public JAXBElement<ArtifactGroups> createArtifactgroups(ArtifactGroups value) {
+    public JAXBElement<ArtifactGroups> createArtifactgroups(ArtifactGroups value)
+    {
         return new JAXBElement<ArtifactGroups>(_Artifactgroups_QNAME, ArtifactGroups.class, null, value);
     }
 }

@@ -57,7 +57,9 @@ public class Versions implements Batch<Version>, Serializable
     /**
      * Default constructor.
      */
-    public Versions() {}
+    public Versions()
+    {
+    }
 
     /**
      * Gets the list of versions.

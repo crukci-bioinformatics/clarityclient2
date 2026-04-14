@@ -50,37 +50,71 @@ public class Type implements Linkable<Type>, Batch<FieldLink>, Serializable
      */
     @Serial private static final long serialVersionUID = 6975337629090720371L;
 
+    /**
+     * The list of field definitions for this type.
+     */
     @XmlElement(name = "field-definition")
     protected List<FieldLink> fieldDefinitions;
 
+    /**
+     * The name of the entity type this user defined type is attached to.
+     */
     @XmlElement(name = "attach-to-name")
     protected String attachToName;
 
+    /**
+     * The category this user defined type is attached to.
+     */
     @XmlElement(name = "attach-to-category")
     protected String attachToCategory;
 
+    /**
+     * The name of this type.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The URI of this type configuration.
+     */
     @XmlAttribute(name = "uri")
     protected URI uri;
 
-
+    /**
+     * Constructor for creating an empty Type object.
+     */
     public Type()
     {
     }
 
+    /**
+     * Constructor for creating a Type with a name.
+     *
+     * @param name The name of the type.
+     */
     public Type(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Constructor for creating a Type with a name and URI.
+     *
+     * @param name The name of the type.
+     * @param uri The URI of the type.
+     */
     public Type(String name, URI uri)
     {
         this.name = name;
         this.uri = uri;
     }
 
+    /**
+     * Gets the list of field definitions for this type.
+     * Creates a new list if one doesn't exist.
+     *
+     * @return The list of field definitions.
+     */
     public List<FieldLink> getFieldDefinitions()
     {
         if (fieldDefinitions == null)
@@ -90,53 +124,103 @@ public class Type implements Linkable<Type>, Batch<FieldLink>, Serializable
         return fieldDefinitions;
     }
 
+    /**
+     * Gets the list of field definitions as required by the Batch interface.
+     *
+     * @return The list of field definitions.
+     */
     @Override
     public List<FieldLink> getList()
     {
         return getFieldDefinitions();
     }
 
+    /**
+     * Gets the number of field definitions.
+     *
+     * @return The number of field definitions, or 0 if the list is null.
+     */
     @Override
     public int getSize()
     {
         return fieldDefinitions == null ? 0 : fieldDefinitions.size();
     }
 
+    /**
+     * Gets the name of the entity type this user defined type is attached to.
+     *
+     * @return The entity type name.
+     */
     public String getAttachToName()
     {
         return attachToName;
     }
 
+    /**
+     * Sets the name of the entity type this user defined type is attached to.
+     *
+     * @param value The entity type name.
+     */
     public void setAttachToName(String value)
     {
         this.attachToName = value;
     }
 
+    /**
+     * Gets the category this user defined type is attached to.
+     *
+     * @return The category name.
+     */
     public String getAttachToCategory()
     {
         return attachToCategory;
     }
 
+    /**
+     * Sets the category this user defined type is attached to.
+     *
+     * @param value The category name.
+     */
     public void setAttachToCategory(String value)
     {
         this.attachToCategory = value;
     }
 
+    /**
+     * Gets the name of this type.
+     *
+     * @return The type name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of this type.
+     *
+     * @param value The type name.
+     */
     public void setName(String value)
     {
         this.name = value;
     }
 
+    /**
+     * Gets the URI of this type configuration.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of this type configuration.
+     *
+     * @param value The URI.
+     */
     public void setUri(URI value)
     {
         this.uri = value;

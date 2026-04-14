@@ -93,12 +93,22 @@ public enum ProcessState
         displayName = display;
     }
 
+    /**
+     * Returns a string representation of the process state.
+     *
+     * @return The display name of the state.
+     */
     @Override
     public String toString()
     {
         return displayName;
     }
 
+    /**
+     * Gets the string value of the process state.
+     *
+     * @return The display name of the state.
+     */
     public String value()
     {
         return displayName;

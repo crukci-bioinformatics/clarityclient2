@@ -43,39 +43,81 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory
 {
+    /**
+     * QName for automation element.
+     */
     private final static QName _Automation_QNAME = new QName(AUTOMATION_NAMESPACE, "automation");
+
+    /**
+     * QName for automations element.
+     */
     private final static QName _Automations_QNAME = new QName(AUTOMATION_NAMESPACE, "automations");
 
+    /**
+     * Default constructor.
+     */
     public ObjectFactory()
     {
     }
 
+    /**
+     * Creates a new ProcessTypeLink instance.
+     *
+     * @return A new ProcessTypeLink object.
+     */
     public ProcessTypeLink createProcessTypeLink()
     {
         return new ProcessTypeLink();
     }
 
+    /**
+     * Creates a new AutomationLink instance.
+     *
+     * @return A new AutomationLink object.
+     */
     public AutomationLink createAutomationLink()
     {
         return new AutomationLink();
     }
 
+    /**
+     * Creates a new Automations instance.
+     *
+     * @return A new Automations object.
+     */
     public Automations createAutomations()
     {
         return new Automations();
     }
 
+    /**
+     * Creates a new Automation instance.
+     *
+     * @return A new Automation object.
+     */
     public Automation createAutomation()
     {
         return new Automation();
     }
 
+    /**
+     * Creates a JAXBElement for Automation.
+     *
+     * @param value The Automation value to wrap.
+     * @return A JAXBElement containing the Automation value.
+     */
     @XmlElementDecl(namespace = AUTOMATION_NAMESPACE, name = "automation")
     public JAXBElement<Automation> createAutomation(Automation value)
     {
         return new JAXBElement<Automation>(_Automation_QNAME, Automation.class, null, value);
     }
 
+    /**
+     * Creates a JAXBElement for Automations.
+     *
+     * @param value The Automations value to wrap.
+     * @return A JAXBElement containing the Automations value.
+     */
     @XmlElementDecl(namespace = AUTOMATION_NAMESPACE, name = "automations")
     public JAXBElement<Automations> createAutomations(Automations value)
     {

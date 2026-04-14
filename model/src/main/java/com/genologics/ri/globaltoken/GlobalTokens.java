@@ -50,17 +50,34 @@ public class GlobalTokens implements PaginatedBatch<GlobalTokenLink>, Serializab
      */
     @Serial private static final long serialVersionUID = -6362088116923564852L;
 
+    /**
+     * The list of global token links.
+     */
     @XmlElement(name = "global-token")
     protected List<GlobalTokenLink> globalTokens;
 
+    /**
+     * The previous page of results.
+     */
     @XmlElement(name = "previous-page")
     protected Page previousPage;
 
+    /**
+     * The next page of results.
+     */
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
+    /**
+     * Default constructor.
+     */
     public GlobalTokens() { }
 
+    /**
+     * Get the list of global token links.
+     *
+     * @return The list of global token links.
+     */
     public List<GlobalTokenLink> getGlobalTokens()
     {
         if (globalTokens == null)
@@ -70,33 +87,59 @@ public class GlobalTokens implements PaginatedBatch<GlobalTokenLink>, Serializab
         return globalTokens;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<GlobalTokenLink> getList()
     {
         return getGlobalTokens();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getSize()
     {
         return globalTokens == null ? 0 : globalTokens.size();
     }
 
+    /**
+     * Get the previous page of results.
+     *
+     * @return The previous page.
+     */
     public Page getPreviousPage()
     {
         return previousPage;
     }
 
+    /**
+     * Set the previous page of results.
+     *
+     * @param previousPage The previous page.
+     */
     public void setPreviousPage(Page previousPage)
     {
         this.previousPage = previousPage;
     }
 
+    /**
+     * Get the next page of results.
+     *
+     * @return The next page.
+     */
     public Page getNextPage()
     {
         return nextPage;
     }
 
+    /**
+     * Set the next page of results.
+     *
+     * @param nextPage The next page.
+     */
     public void setNextPage(Page nextPage)
     {
         this.nextPage = nextPage;

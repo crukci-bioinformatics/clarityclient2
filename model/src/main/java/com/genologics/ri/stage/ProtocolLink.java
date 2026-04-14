@@ -34,7 +34,12 @@ import com.genologics.ri.Linkable;
 import com.genologics.ri.protocolconfiguration.Protocol;
 
 /**
- * Protocol link for the stage.
+ * Protocol link for a stage in a workflow.
+ * <p>
+ * This class represents a reference to a protocol within the Clarity LIMS system.
+ * It extends {@link LimsLinkBase} to provide a typed link to a {@link Protocol} entity,
+ * enabling navigation to the detailed configuration of the protocol associated with a stage.
+ * </p>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "protocol")

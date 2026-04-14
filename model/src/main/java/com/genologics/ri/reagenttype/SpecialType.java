@@ -42,21 +42,40 @@ public class SpecialType implements Serializable
      */
     @Serial private static final long serialVersionUID = 2227997075421321531L;
 
+    /**
+     * The list of attributes for this special type.
+     */
     @XmlElement(name = "attribute")
     protected List<Attribute> attributes;
 
+    /**
+     * The name of the special type.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * Default constructor.
+     */
     public SpecialType()
     {
     }
 
+    /**
+     * Constructor with name.
+     *
+     * @param name The name of the special type.
+     */
     public SpecialType(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the list of attributes for this special type.
+     *
+     * @return A list of attributes.
+     */
     public List<Attribute> getAttributes()
     {
         if (attributes == null)
@@ -66,6 +85,11 @@ public class SpecialType implements Serializable
         return this.attributes;
     }
 
+    /**
+     * Adds an attribute to this special type.
+     *
+     * @param a The attribute to add.
+     */
     public void addAttribute(Attribute a)
     {
         if (a != null)
@@ -74,16 +98,32 @@ public class SpecialType implements Serializable
         }
     }
 
+    /**
+     * Adds an attribute to this special type using name and value.
+     *
+     * @param name The name of the attribute.
+     * @param value The value of the attribute.
+     */
     public void addAttribute(String name, String value)
     {
         getAttributes().add(new Attribute(name, value));
     }
 
+    /**
+     * Gets the name of the special type.
+     *
+     * @return The special type name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the special type.
+     *
+     * @param value The special type name.
+     */
     public void setName(String value)
     {
         this.name = value;

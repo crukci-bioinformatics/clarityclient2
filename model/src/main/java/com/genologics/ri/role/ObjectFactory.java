@@ -52,36 +52,83 @@ public class ObjectFactory
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.role
      *
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
-    public Role createRole() {
+    /**
+     * Creates a new Role instance.
+     *
+     * @return A new Role object.
+     */
+    public Role createRole()
+    {
         return new Role();
     }
 
-    public ResearcherLink createResearcherLink() {
+    /**
+     * Creates a new ResearcherLink instance.
+     *
+     * @return A new ResearcherLink object.
+     */
+    public ResearcherLink createResearcherLink()
+    {
         return new ResearcherLink();
     }
 
-    public RoleLink createRoleLink() {
+    /**
+     * Creates a new RoleLink instance.
+     *
+     * @return A new RoleLink object.
+     */
+    public RoleLink createRoleLink()
+    {
         return new RoleLink();
     }
 
-    public PermissionLink createPermissionLink() {
+    /**
+     * Creates a new PermissionLink instance.
+     *
+     * @return A new PermissionLink object.
+     */
+    public PermissionLink createPermissionLink()
+    {
         return new PermissionLink();
     }
 
-    public Roles createRoles() {
+    /**
+     * Creates a new Roles instance.
+     *
+     * @return A new Roles object.
+     */
+    public Roles createRoles()
+    {
         return new Roles();
     }
 
+    /**
+     * Creates a JAXBElement for Roles.
+     *
+     * @param value The Roles value to wrap.
+     *
+     * @return A JAXBElement containing the Roles.
+     */
     @XmlElementDecl(namespace = ROLE_NAMESPACE, name = "roles")
-    public JAXBElement<Roles> createRoles(Roles value) {
+    public JAXBElement<Roles> createRoles(Roles value)
+    {
         return new JAXBElement<Roles>(_Roles_QNAME, Roles.class, null, value);
     }
 
+    /**
+     * Creates a JAXBElement for a Role.
+     *
+     * @param value The Role value to wrap.
+     *
+     * @return A JAXBElement containing the Role.
+     */
     @XmlElementDecl(namespace = ROLE_NAMESPACE, name = "role")
-    public JAXBElement<Role> createRole(Role value) {
+    public JAXBElement<Role> createRole(Role value)
+    {
         return new JAXBElement<Role>(_Role_QNAME, Role.class, null, value);
     }
 }

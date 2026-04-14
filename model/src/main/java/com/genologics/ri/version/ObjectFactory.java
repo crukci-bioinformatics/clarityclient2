@@ -44,15 +44,21 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory
 {
-
+    /**
+     * Qualified name for the version element in the VERSION namespace.
+     */
     private final static QName _Version_QNAME = new QName(VERSION_NAMESPACE, "version");
+
+    /**
+     * Qualified name for the versions element in the VERSION namespace.
+     */
     private final static QName _Versions_QNAME = new QName(VERSION_NAMESPACE, "versions");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.version
-     *
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
     /**
@@ -60,7 +66,8 @@ public class ObjectFactory
      *
      * @return A new Version instance.
      */
-    public Version createVersion() {
+    public Version createVersion()
+    {
         return new Version();
     }
 
@@ -69,7 +76,8 @@ public class ObjectFactory
      *
      * @return A new Versions instance.
      */
-    public Versions createVersions() {
+    public Versions createVersions()
+    {
         return new Versions();
     }
 
@@ -80,7 +88,8 @@ public class ObjectFactory
      * @return The new instance of {@link JAXBElement}{@code <}{@link Version}{@code >}
      */
     @XmlElementDecl(namespace = VERSION_NAMESPACE, name = "version")
-    public JAXBElement<Version> createVersion(Version value) {
+    public JAXBElement<Version> createVersion(Version value)
+    {
         return new JAXBElement<Version>(_Version_QNAME, Version.class, null, value);
     }
 
@@ -91,7 +100,8 @@ public class ObjectFactory
      * @return The new instance of {@link JAXBElement}{@code <}{@link Versions}{@code >}
      */
     @XmlElementDecl(namespace = VERSION_NAMESPACE, name = "versions")
-    public JAXBElement<Versions> createVersions(Versions value) {
+    public JAXBElement<Versions> createVersions(Versions value)
+    {
         return new JAXBElement<Versions>(_Versions_QNAME, Versions.class, null, value);
     }
 }

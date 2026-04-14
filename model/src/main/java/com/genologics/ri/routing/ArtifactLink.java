@@ -33,6 +33,9 @@ import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.artifact.Artifact;
 
+/**
+ * Link to an artifact for routing purposes.
+ */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "artifact")
 public class ArtifactLink extends LimsLinkBase<Artifact>
@@ -42,35 +45,66 @@ public class ArtifactLink extends LimsLinkBase<Artifact>
      */
     @Serial private static final long serialVersionUID = -5098969484639468234L;
 
+    /**
+     * The URI of the artifact.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public ArtifactLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the artifact.
+     */
     public ArtifactLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor from a Linkable.
+     *
+     * @param link The linkable artifact.
+     */
     public ArtifactLink(Linkable<Artifact> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * Gets the URI of the artifact.
+     *
+     * @return The artifact URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the artifact.
+     *
+     * @param value The artifact URI.
+     */
     public void setUri(URI value)
     {
         this.uri = value;
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The Artifact class.
+     */
     @Override
     public Class<Artifact> getEntityClass()
     {

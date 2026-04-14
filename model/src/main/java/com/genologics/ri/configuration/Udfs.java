@@ -55,17 +55,37 @@ public class Udfs implements PaginatedBatch<UdfConfigLink>, Serializable
      */
     @Serial private static final long serialVersionUID = -5458422132487888319L;
 
+    /**
+     * The list of user defined field configuration links.
+     */
     @XmlElement(name = "udfconfig")
     protected List<UdfConfigLink> udfConfigLinks;
 
+    /**
+     * The link to the previous page of results.
+     */
     @XmlElement(name = "previous-page")
     protected Page previousPage;
 
+    /**
+     * The link to the next page of results.
+     */
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
-    public Udfs() {}
+    /**
+     * Constructor for creating an empty Udfs object.
+     */
+    public Udfs()
+    {
+    }
 
+    /**
+     * Gets the list of UDF configuration links.
+     * Creates a new list if one doesn't exist.
+     *
+     * @return The list of UDF configuration links.
+     */
     public List<UdfConfigLink> getLinks()
     {
         if (udfConfigLinks == null)
@@ -75,33 +95,63 @@ public class Udfs implements PaginatedBatch<UdfConfigLink>, Serializable
         return udfConfigLinks;
     }
 
+    /**
+     * Gets the list of links as required by the PaginatedBatch interface.
+     *
+     * @return The list of UDF configuration links.
+     */
     @Override
     public List<UdfConfigLink> getList()
     {
         return getLinks();
     }
 
+    /**
+     * Gets the number of UDF configuration links.
+     *
+     * @return The number of links, or 0 if the list is null.
+     */
     @Override
     public int getSize()
     {
         return udfConfigLinks == null ? 0 : udfConfigLinks.size();
     }
 
+    /**
+     * Gets the link to the previous page of results.
+     *
+     * @return The previous page link.
+     */
     public Page getPreviousPage()
     {
         return previousPage;
     }
 
+    /**
+     * Sets the link to the previous page of results.
+     *
+     * @param previousPage The previous page link.
+     */
     public void setPreviousPage(Page previousPage)
     {
         this.previousPage = previousPage;
     }
 
+    /**
+     * Gets the link to the next page of results.
+     *
+     * @return The next page link.
+     */
     public Page getNextPage()
     {
         return nextPage;
     }
 
+    /**
+     * Sets the link to the next page of results.
+     *
+     * @param nextPage The next page link.
+     */
     public void setNextPage(Page nextPage)
     {
         this.nextPage = nextPage;

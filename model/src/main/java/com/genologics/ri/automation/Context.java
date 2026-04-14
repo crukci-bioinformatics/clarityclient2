@@ -30,23 +30,41 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum Context
 {
+    /**
+     * Step context.
+     */
     STEP,
 
     /**
+     * Derived sample context.
+     *
      * @since 2.31
      */
     DERIVED_SAMPLE,
 
     /**
+     * Project context.
+     *
      * @since 2.31
      */
     PROJECT;
 
+    /**
+     * Gets the string value of this context.
+     *
+     * @return The context name.
+     */
     public String value()
     {
         return name();
     }
 
+    /**
+     * Creates a Context from a string value.
+     *
+     * @param v The string value.
+     * @return The corresponding Context.
+     */
     public static Context fromValue(String v)
     {
         return valueOf(v);

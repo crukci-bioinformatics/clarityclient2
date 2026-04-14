@@ -44,18 +44,31 @@ public class StepSetup implements Serializable
      */
     @Serial private static final long serialVersionUID = 2084961137587517113L;
 
+    /**
+     * The list of shared result file configurations.
+     */
     @XmlElementWrapper(name = "files")
     @XmlElement(name = "file")
     protected List<SharedResultFile> files;
 
+    /**
+     * Whether the step setup view is enabled for this process type.
+     */
     @XmlAttribute(name = "enabled")
     protected Boolean enabled;
 
-
+    /**
+     * Constructs a new step setup.
+     */
     public StepSetup()
     {
     }
 
+    /**
+     * Gets the list of shared result file configurations.
+     *
+     * @return a list of shared result files.
+     */
     public List<SharedResultFile> getFiles()
     {
         if (files == null)
@@ -65,11 +78,21 @@ public class StepSetup implements Serializable
         return files;
     }
 
+    /**
+     * Gets whether the step setup view is enabled for this process type.
+     *
+     * @return true if step setup is enabled, false otherwise.
+     */
     public Boolean getEnabled()
     {
         return enabled;
     }
 
+    /**
+     * Sets whether the step setup view is enabled for this process type.
+     *
+     * @param enabled true if step setup should be enabled.
+     */
     public void setEnabled(Boolean enabled)
     {
         this.enabled = enabled;

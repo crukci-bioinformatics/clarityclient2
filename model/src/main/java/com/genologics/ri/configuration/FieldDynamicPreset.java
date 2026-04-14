@@ -45,28 +45,54 @@ public class FieldDynamicPreset implements Serializable
      */
     @Serial private static final long serialVersionUID = -7014673523064270714L;
 
+    /**
+     * The preset value.
+     */
     @XmlElement(name = "value")
     protected String value;
 
+    /**
+     * Constructor for creating an empty FieldDynamicPreset object.
+     */
     public FieldDynamicPreset()
     {
     }
 
+    /**
+     * Constructor for creating a FieldDynamicPreset with a specific value.
+     *
+     * @param value The preset value.
+     */
     public FieldDynamicPreset(String value)
     {
         this.value = value;
     }
 
+    /**
+     * Gets the preset value.
+     *
+     * @return The preset value.
+     */
     public String getValue()
     {
         return value;
     }
 
+    /**
+     * Sets the preset value.
+     *
+     * @param value The preset value.
+     */
     public void setValue(String value)
     {
         this.value = value;
     }
 
+    /**
+     * Returns the string representation of this preset, which is its value.
+     *
+     * @return The preset value.
+     */
     @Override
     public String toString()
     {

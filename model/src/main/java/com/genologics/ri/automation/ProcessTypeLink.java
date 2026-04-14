@@ -49,35 +49,64 @@ public class ProcessTypeLink extends LimsLinkBase<ProcessType>
      */
     @Serial private static final long serialVersionUID = 1189833674343873526L;
 
+    /**
+     * The URI of the process type.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The name of the process type.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
-
+    /**
+     * Default constructor.
+     */
     public ProcessTypeLink()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The process type URI.
+     */
     public ProcessTypeLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor with URI and name.
+     *
+     * @param uri The process type URI.
+     * @param name The process type name.
+     */
     public ProcessTypeLink(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Constructor from a Linkable.
+     *
+     * @param link The linkable process type.
+     */
     public ProcessTypeLink(Linkable<ProcessType> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * Constructor from a ProcessType entity.
+     *
+     * @param processType The process type entity.
+     */
     public ProcessTypeLink(ProcessType processType)
     {
         requireNonNull(processType, "processType cannot be null");
@@ -85,16 +114,31 @@ public class ProcessTypeLink extends LimsLinkBase<ProcessType>
         name = processType.getName();
     }
 
+    /**
+     * Gets the URI of the process type.
+     *
+     * @return The process type URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the process type.
+     *
+     * @param value The process type URI.
+     */
     public void setUri(URI value)
     {
         this.uri = value;
     }
 
+    /**
+     * Sets the process type from a linkable.
+     *
+     * @param processType The linkable process type.
+     */
     public void setProcessType(Linkable<ProcessType> processType)
     {
         uri = processType == null ? null : processType.getUri();
@@ -109,22 +153,42 @@ public class ProcessTypeLink extends LimsLinkBase<ProcessType>
         }
     }
 
+    /**
+     * Gets the name of the process type.
+     *
+     * @return The process type name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the process type.
+     *
+     * @param value The process type name.
+     */
     public void setName(String value)
     {
         this.name = value;
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The ProcessType class.
+     */
     @Override
     public Class<ProcessType> getEntityClass()
     {
         return ProcessType.class;
     }
 
+    /**
+     * Returns a string representation of this link.
+     *
+     * @return The process type name, or "null" if the name is null.
+     */
     @Override
     public String toString()
     {

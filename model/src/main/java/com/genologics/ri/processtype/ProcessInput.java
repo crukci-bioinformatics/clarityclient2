@@ -40,31 +40,62 @@ public class ProcessInput implements Serializable
      */
     @Serial private static final long serialVersionUID = -2733188258573850043L;
 
+    /**
+     * The artifact type for the input.
+     */
     @XmlElement(name = "artifact-type")
     protected String artifactType;
 
+    /**
+     * The display name for the input.
+     */
     @XmlElement(name = "display-name")
     protected String displayName;
 
+    /**
+     * Whether the working flag should be removed from the input when the process runs.
+     *
+     * @deprecated This property is no longer supported.
+     */
     @XmlElement(name = "remove-working-flag")
     @Deprecated
     protected Boolean removeWorkingFlag;
 
+    /**
+     * Gets the artifact type for the input.
+     *
+     * @return the artifact type.
+     */
     public String getArtifactType()
     {
         return artifactType;
     }
 
+    /**
+     * Sets the artifact type for the input.
+     *
+     * @param artifactType the artifact type.
+     */
     public void setArtifactType(String artifactType)
     {
         this.artifactType = artifactType;
     }
 
+    /**
+     * Gets the display name for the input.
+     *
+     * @return the display name.
+     */
     public String getDisplayName()
     {
         return displayName;
     }
 
+    /**
+     * Sets the display name for the input.
+     *
+     * @param displayName the display name.
+     */
     public void setDisplayName(String displayName)
     {
         this.displayName = displayName;
@@ -82,6 +113,12 @@ public class ProcessInput implements Serializable
         return removeWorkingFlag;
     }
 
+    /**
+     * Sets whether the working flag should be removed from the input when the process runs.
+     *
+     * @param removeWorkingFlag true if it should be removed.
+     * @deprecated This property is no longer supported.
+     */
     @Deprecated
     public void setRemoveWorkingFlag(Boolean removeWorkingFlag)
     {

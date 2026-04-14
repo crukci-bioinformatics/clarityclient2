@@ -43,23 +43,44 @@ public class Parameter implements Serializable
      */
     @Serial private static final long serialVersionUID = -8795139448974204288L;
 
+    /**
+     * The name of the parameter.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * Default constructor.
+     */
     public Parameter()
     {
     }
 
+    /**
+     * Constructor with name.
+     *
+     * @param name the name of the parameter.
+     */
     public Parameter(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the name.
+     *
+     * @return the name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name.
+     *
+     * @param value the name to set.
+     */
     public void setName(String value)
     {
         this.name = value;

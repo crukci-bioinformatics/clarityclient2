@@ -536,6 +536,14 @@ public class ProtocolStep implements Linkable<ProtocolStep>, Serializable
         return defaultGrouping;
     }
 
+    /**
+     * Sets the field by which the queue view samples will be grouped by default.
+     *
+     * @param defaultGrouping The grouping field.
+     *
+     * @deprecated Please use "&lt;milestone&gt;DefaultGrouping"
+     * (for example, "queueDefaultGrouping") in a {@link StepProperty} field instead.
+     */
     @Deprecated
     public void setDefaultGrouping(GenericTypeLink defaultGrouping)
     {

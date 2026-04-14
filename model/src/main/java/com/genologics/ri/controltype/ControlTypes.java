@@ -36,8 +36,12 @@ import com.genologics.ri.Batch;
 import com.genologics.ri.ClarityQueryResult;
 
 /**
- *
- * The representation of a list of ControlTypes
+ * The representation of a list of control types in the Clarity LIMS system.
+ * <p>
+ * This class provides a container for multiple {@link ControlTypeLink} objects,
+ * typically returned from queries that retrieve multiple control types. It implements
+ * the {@link Batch} interface to provide standard list operations and sizing information.
+ * </p>
  */
 @ClarityQueryResult(entityClass = ControlType.class)
 @XmlRootElement(name = "control-types")
@@ -72,8 +76,12 @@ public class ControlTypes implements Batch<ControlTypeLink>, Serializable
 
     /**
      * Gets the list of control types.
+     * <p>
+     * This method returns the internal list of control type links. If the list
+     * has not been initialized, it creates a new empty ArrayList.
+     * </p>
      *
-     * @return The list of control type links.
+     * @return The list of control type links. Never returns null.
      */
     public List<ControlTypeLink> getControlTypes()
     {
@@ -84,12 +92,25 @@ public class ControlTypes implements Batch<ControlTypeLink>, Serializable
         return controlTypes;
     }
 
+    /**
+     * Gets the list of control type links.
+     * <p>
+     * This method satisfies the {@link Batch} interface contract.
+     * </p>
+     *
+     * @return The list of control type links.
+     */
     @Override
     public List<ControlTypeLink> getList()
     {
         return getControlTypes();
     }
 
+    /**
+     * Gets the size of the control types list.
+     *
+     * @return The number of control type links in the collection, or 0 if the list is null.
+     */
     @Override
     public int getSize()
     {

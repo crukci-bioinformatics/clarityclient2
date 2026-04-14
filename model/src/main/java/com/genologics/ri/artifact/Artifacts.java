@@ -76,7 +76,9 @@ public class Artifacts implements PaginatedBatch<ArtifactLink>, Serializable
     /**
      * Constructor.
      */
-    public Artifacts() { }
+    public Artifacts()
+    {
+    }
 
     /**
      * Gets the list of artifact links.

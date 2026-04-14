@@ -52,23 +52,50 @@ public class ObjectFactory
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.routing
      *
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
-    public ArtifactLink createArtifact() {
+    /**
+     * Creates a new ArtifactLink instance.
+     *
+     * @return A new ArtifactLink object.
+     */
+    public ArtifactLink createArtifact()
+    {
         return new ArtifactLink();
     }
 
-    public ExtArtifactAssignments createExternalArtifactAssignments() {
+    /**
+     * Creates a new ExtArtifactAssignments instance.
+     *
+     * @return A new ExtArtifactAssignments object.
+     */
+    public ExtArtifactAssignments createExternalArtifactAssignments()
+    {
         return new ExtArtifactAssignments();
     }
 
-    public Routing createRouting() {
+    /**
+     * Creates a new Routing instance.
+     *
+     * @return A new Routing object.
+     */
+    public Routing createRouting()
+    {
         return new Routing();
     }
 
+    /**
+     * Creates a JAXBElement for Routing.
+     *
+     * @param value The Routing value to wrap.
+     *
+     * @return A JAXBElement containing the Routing.
+     */
     @XmlElementDecl(namespace = ROUTING_NAMESPACE, name = "routing")
-    public JAXBElement<Routing> createRouting(Routing value) {
+    public JAXBElement<Routing> createRouting(Routing value)
+    {
         return new JAXBElement<Routing>(_Routing_QNAME, Routing.class, null, value);
     }
 }

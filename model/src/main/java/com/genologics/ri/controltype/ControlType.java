@@ -36,6 +36,12 @@ import com.genologics.ri.Linkable;
 
 /**
  * Represents a control type in the Clarity LIMS system.
+ * <p>
+ * Control types define reference materials or standards that can be used
+ * in laboratory workflows for quality control and validation purposes.
+ * Each control type has a supplier, catalogue information, concentration,
+ * and various configuration flags.
+ * </p>
  */
 @ClarityEntity(uriSection = "controltypes", creatable = true, updateable = true)
 @XmlRootElement(name = "control-type")
@@ -262,7 +268,13 @@ public class ControlType implements Linkable<ControlType>, Serializable
     }
 
     /**
-     * {@inheritDoc}
+     * Gets a link representation of this control type.
+     * <p>
+     * This method creates a {@link ControlTypeLink} that can be used
+     * to reference this control type in other API responses.
+     * </p>
+     *
+     * @return A ControlTypeLink wrapping this control type.
      */
     @Override
     public LimsLink<ControlType> getLink()

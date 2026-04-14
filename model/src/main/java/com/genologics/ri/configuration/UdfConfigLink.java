@@ -47,28 +47,53 @@ public class UdfConfigLink extends LimsLinkBase<Field>
      */
     @Serial private static final long serialVersionUID = -164190204904044681L;
 
+    /**
+     * The URI of the field configuration.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The name of the field.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The name of the entity type this field is attached to.
+     */
     @XmlAttribute(name = "attach-to-name")
     protected String attachToName;
 
+    /**
+     * The category this field is attached to.
+     */
     @XmlAttribute(name = "attach-to-category")
     protected String attachToCategory;
 
+    /**
+     * Constructor for creating an empty UdfConfigLink object.
+     */
     public UdfConfigLink()
     {
     }
 
+    /**
+     * Constructor for creating a UdfConfigLink with a URI.
+     *
+     * @param uri The URI of the field configuration.
+     */
     public UdfConfigLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor for creating a UdfConfigLink from a Field object.
+     *
+     * @param field The field to create the link from.
+     */
     public UdfConfigLink(Field field)
     {
         requireNonNull(field, "field cannot be null");
@@ -78,52 +103,102 @@ public class UdfConfigLink extends LimsLinkBase<Field>
         attachToCategory = field.getAttachToCategory();
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The Field class.
+     */
     @Override
     public Class<Field> getEntityClass()
     {
         return Field.class;
     }
 
+    /**
+     * Gets the URI of the field configuration.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the field configuration.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the name of the entity type this field is attached to.
+     *
+     * @return The entity type name.
+     */
     public String getAttachToName()
     {
         return attachToName;
     }
 
+    /**
+     * Sets the name of the entity type this field is attached to.
+     *
+     * @param attachToName The entity type name.
+     */
     public void setAttachToName(String attachToName)
     {
         this.attachToName = attachToName;
     }
 
+    /**
+     * Gets the name of the field.
+     *
+     * @return The field name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the field.
+     *
+     * @param name The field name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the category this field is attached to.
+     *
+     * @return The category name.
+     */
     public String getAttachToCategory()
     {
         return attachToCategory;
     }
 
+    /**
+     * Sets the category this field is attached to.
+     *
+     * @param attachToCategory The category name.
+     */
     public void setAttachToCategory(String attachToCategory)
     {
         this.attachToCategory = attachToCategory;
     }
 
+    /**
+     * Returns the string representation of this link, which is the field name.
+     *
+     * @return The field name.
+     */
     @Override
     public String toString()
     {

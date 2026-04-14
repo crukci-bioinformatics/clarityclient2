@@ -30,14 +30,37 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum TriggerType
 {
+    /**
+     * The trigger must be invoked manually.
+     */
+    MANUAL,
 
-    MANUAL, AUTOMATIC, UNUSED;
+    /**
+     * The trigger is invoked automatically.
+     */
+    AUTOMATIC,
 
+    /**
+     * The trigger is not currently used.
+     */
+    UNUSED;
+
+    /**
+     * Gets the XML value of this trigger type.
+     *
+     * @return the XML value (the enum name).
+     */
     public String value()
     {
         return name();
     }
 
+    /**
+     * Gets the trigger type corresponding to the specified XML value.
+     *
+     * @param v the XML value.
+     * @return the corresponding trigger type.
+     */
     public static TriggerType fromValue(String v)
     {
         return valueOf(v);

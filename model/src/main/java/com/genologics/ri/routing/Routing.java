@@ -43,12 +43,23 @@ public class Routing implements Serializable
      */
     @Serial private static final long serialVersionUID = 4810146731548918326L;
 
+    /**
+     * The list of artifact assignments to assign to workflows/stages.
+     */
     @XmlElement(name = "assign")
     protected List<ExtArtifactAssignments> assignedRoutes;
 
+    /**
+     * The list of artifact assignments to unassign from workflows/stages.
+     */
     @XmlElement(name = "unassign")
     protected List<ExtArtifactAssignments> unassignedRoutes;
 
+    /**
+     * Gets the list of assigned routes.
+     *
+     * @return A list of artifact assignments to assign.
+     */
     public List<ExtArtifactAssignments> getAssign()
     {
         if (assignedRoutes == null)
@@ -58,6 +69,11 @@ public class Routing implements Serializable
         return assignedRoutes;
     }
 
+    /**
+     * Gets the list of unassigned routes.
+     *
+     * @return A list of artifact assignments to unassign.
+     */
     public List<ExtArtifactAssignments> getUnassign()
     {
         if (unassignedRoutes == null)

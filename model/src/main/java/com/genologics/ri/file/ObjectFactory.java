@@ -44,46 +44,108 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory
 {
-
+    /**
+     * The qualified name for the file element.
+     */
     private final static QName _File_QNAME = new QName(FILE_NAMESPACE, "file");
+
+    /**
+     * The qualified name for the details element.
+     */
     private final static QName _Details_QNAME = new QName(FILE_NAMESPACE, "details");
+
+    /**
+     * The qualified name for the files element.
+     */
     private final static QName _Files_QNAME = new QName(FILE_NAMESPACE, "files");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.file
-     *
+     * Creates a new ObjectFactory that can be used to create new instances of
+     * schema-derived classes for package: com.genologics.ri.file.
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
-    public ClarityFileBatchFetchResult createDetails() {
+    /**
+     * Creates a new instance of {@link ClarityFileBatchFetchResult}.
+     *
+     * @return A new ClarityFileBatchFetchResult instance.
+     */
+    public ClarityFileBatchFetchResult createDetails()
+    {
         return new ClarityFileBatchFetchResult();
     }
 
-    public ClarityFile createFile() {
+    /**
+     * Creates a new instance of {@link ClarityFile}.
+     *
+     * @return A new ClarityFile instance.
+     */
+    public ClarityFile createFile()
+    {
         return new ClarityFile();
     }
 
-    public ClarityFiles createFiles() {
+    /**
+     * Creates a new instance of {@link ClarityFiles}.
+     *
+     * @return A new ClarityFiles instance.
+     */
+    public ClarityFiles createFiles()
+    {
         return new ClarityFiles();
     }
 
-    public FileLink createFileLink() {
+    /**
+     * Creates a new instance of {@link FileLink}.
+     *
+     * @return A new FileLink instance.
+     */
+    public FileLink createFileLink()
+    {
         return new FileLink();
     }
 
+    /**
+     * Creates a JAXBElement wrapping a {@link ClarityFileBatchFetchResult} instance.
+     * This method is used by JAXB for marshalling/unmarshalling the details element.
+     *
+     * @param value The ClarityFileBatchFetchResult instance to wrap.
+     *
+     * @return A JAXBElement containing the provided value.
+     */
     @XmlElementDecl(namespace = FILE_NAMESPACE, name = "details")
-    public JAXBElement<ClarityFileBatchFetchResult> createDetails(ClarityFileBatchFetchResult value) {
+    public JAXBElement<ClarityFileBatchFetchResult> createDetails(ClarityFileBatchFetchResult value)
+    {
         return new JAXBElement<ClarityFileBatchFetchResult>(_Details_QNAME, ClarityFileBatchFetchResult.class, null, value);
     }
 
+    /**
+     * Creates a JAXBElement wrapping a {@link ClarityFile} instance.
+     * This method is used by JAXB for marshalling/unmarshalling the file element.
+     *
+     * @param value The ClarityFile instance to wrap.
+     *
+     * @return A JAXBElement containing the provided value.
+     */
     @XmlElementDecl(namespace = FILE_NAMESPACE, name = "file")
-    public JAXBElement<ClarityFile> createFile(ClarityFile value) {
+    public JAXBElement<ClarityFile> createFile(ClarityFile value)
+    {
         return new JAXBElement<ClarityFile>(_File_QNAME, ClarityFile.class, null, value);
     }
 
+    /**
+     * Creates a JAXBElement wrapping a {@link ClarityFiles} instance.
+     * This method is used by JAXB for marshalling/unmarshalling the files element.
+     *
+     * @param value The ClarityFiles instance to wrap.
+     *
+     * @return A JAXBElement containing the provided value.
+     */
     @XmlElementDecl(namespace = FILE_NAMESPACE, name = "files")
-    public JAXBElement<ClarityFiles> createFiles(ClarityFiles value) {
+    public JAXBElement<ClarityFiles> createFiles(ClarityFiles value)
+    {
         return new JAXBElement<ClarityFiles>(_Files_QNAME, ClarityFiles.class, null, value);
     }
 }

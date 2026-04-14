@@ -47,28 +47,53 @@ public class UdtConfigLink extends LimsLinkBase<Type>
      */
     @Serial private static final long serialVersionUID = -9221186839753173309L;
 
+    /**
+     * The URI of the type configuration.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The name of the type.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The name of the entity type this user defined type is attached to.
+     */
     @XmlAttribute(name = "attach-to-name")
     protected String attachToName;
 
+    /**
+     * The category this user defined type is attached to.
+     */
     @XmlAttribute(name = "attach-to-category")
     protected String attachToCategory;
 
+    /**
+     * Constructor for creating an empty UdtConfigLink object.
+     */
     public UdtConfigLink()
     {
     }
 
+    /**
+     * Constructor for creating a UdtConfigLink with a URI.
+     *
+     * @param uri The URI of the type configuration.
+     */
     public UdtConfigLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor for creating a UdtConfigLink from a Type object.
+     *
+     * @param type The type to create the link from.
+     */
     public UdtConfigLink(Type type)
     {
         requireNonNull(type, "type cannot be null");
@@ -78,53 +103,103 @@ public class UdtConfigLink extends LimsLinkBase<Type>
         attachToCategory = type.getAttachToCategory();
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The Type class.
+     */
     @Override
     public Class<Type> getEntityClass()
     {
         return Type.class;
     }
 
+    /**
+     * Gets the URI of the type configuration.
+     *
+     * @return The URI.
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the type configuration.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the name of the type.
+     *
+     * @return The type name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the type.
+     *
+     * @param name The type name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the name of the entity type this user defined type is attached to.
+     *
+     * @return The entity type name.
+     */
     public String getAttachToName()
     {
         return attachToName;
     }
 
+    /**
+     * Sets the name of the entity type this user defined type is attached to.
+     *
+     * @param attachToName The entity type name.
+     */
     public void setAttachToName(String attachToName)
     {
         this.attachToName = attachToName;
     }
 
+    /**
+     * Gets the category this user defined type is attached to.
+     *
+     * @return The category name.
+     */
     public String getAttachToCategory()
     {
         return attachToCategory;
     }
 
+    /**
+     * Sets the category this user defined type is attached to.
+     *
+     * @param attachToCategory The category name.
+     */
     public void setAttachToCategory(String attachToCategory)
     {
         this.attachToCategory = attachToCategory;
     }
 
+    /**
+     * Returns the string representation of this link, which is the type name.
+     *
+     * @return The type name.
+     */
     @Override
     public String toString()
     {

@@ -41,63 +41,122 @@ public class EppTrigger implements Serializable
      */
     @Serial private static final long serialVersionUID = 3481787346877063815L;
 
+    /**
+     * The name of the EPP trigger.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The type of the trigger (manual, automatic, or unused).
+     */
     @XmlAttribute(name = "type")
     protected TriggerType type;
 
+    /**
+     * The point at which the trigger executes (before or after).
+     */
     @XmlAttribute(name = "point")
     protected TriggerPoint point;
 
+    /**
+     * The status at which the trigger executes.
+     */
     @XmlAttribute(name = "status")
     protected TriggerStatus status;
 
-
+    /**
+     * Constructs a new EPP trigger.
+     */
     public EppTrigger()
     {
     }
 
+    /**
+     * Constructs a new EPP trigger with the specified name.
+     *
+     * @param name the name of the EPP trigger.
+     */
     public EppTrigger(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the name of the EPP trigger.
+     *
+     * @return the EPP trigger name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the EPP trigger.
+     *
+     * @param name the EPP trigger name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the type of the trigger.
+     *
+     * @return the trigger type.
+     */
     public TriggerType getType()
     {
         return type;
     }
 
+    /**
+     * Sets the type of the trigger.
+     *
+     * @param type the trigger type.
+     */
     public void setType(TriggerType type)
     {
         this.type = type;
     }
 
+    /**
+     * Gets the point at which the trigger executes.
+     *
+     * @return the trigger point.
+     */
     public TriggerPoint getPoint()
     {
         return point;
     }
 
+    /**
+     * Sets the point at which the trigger executes.
+     *
+     * @param point the trigger point.
+     */
     public void setPoint(TriggerPoint point)
     {
         this.point = point;
     }
 
+    /**
+     * Gets the status at which the trigger executes.
+     *
+     * @return the trigger status.
+     */
     public TriggerStatus getStatus()
     {
         return status;
     }
 
+    /**
+     * Sets the status at which the trigger executes.
+     *
+     * @param status the trigger status.
+     */
     public void setStatus(TriggerStatus status)
     {
         this.status = status;

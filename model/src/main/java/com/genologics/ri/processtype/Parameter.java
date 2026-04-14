@@ -50,6 +50,11 @@ public class Parameter implements Serializable
      */
     @Serial private static final long serialVersionUID = -803288179230938758L;
 
+    /**
+     * The file of the parameter.
+     *
+     * @deprecated This property is no longer supported.
+     */
     @XmlElement(name = "file")
     @Deprecated
     protected String file;
@@ -60,29 +65,48 @@ public class Parameter implements Serializable
     @XmlElement(name = "string")
     protected String script;
 
+    /**
+     * Whether the EPP should run once for each process-related event.
+     *
+     * @deprecated This property is no longer supported.
+     */
     @XmlElement(name = "run-program-per-event")
     @Deprecated
     protected Boolean runProgramPerEvent;
 
+    /**
+     * The channel on which the EPP runs.
+     */
     @XmlElement(name = "channel")
     protected String channel;
 
+    /**
+     * The invocation type of the EPP.
+     *
+     * @deprecated This property is no longer supported.
+     */
     @XmlElement(name = "invocation-type")
     @Deprecated
     protected InvocationType invocationType;
 
     /**
+     * Files associated with this parameter.
+     *
      * @since 2.26
      */
     @XmlElement(name = "file", namespace = FILE_NAMESPACE)
     protected List<ClarityFile> files;
 
+    /**
+     * The name of the parameter.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
 
     /**
      * The file of the parameter.
+     *
      * @return The file name (presumably).
      * @deprecated This property is no longer supported.
      */
@@ -92,17 +116,33 @@ public class Parameter implements Serializable
         return file;
     }
 
+    /**
+     * Sets the file of the parameter.
+     *
+     * @param file the file name.
+     * @deprecated This property is no longer supported.
+     */
     @Deprecated
     public void setFile(String file)
     {
         this.file = file;
     }
 
+    /**
+     * Gets the EPP script text that will actually run.
+     *
+     * @return the script text.
+     */
     public String getScript()
     {
         return script;
     }
 
+    /**
+     * Sets the EPP script text that will actually run.
+     *
+     * @param script the script text.
+     */
     public void setScript(String script)
     {
         this.script = script;
@@ -110,6 +150,7 @@ public class Parameter implements Serializable
 
     /**
      * Should the EPP run once for each process related event?
+     *
      * @return true if it should run once per event, false if not.
      * @deprecated This property is no longer supported.
      */
@@ -119,17 +160,33 @@ public class Parameter implements Serializable
         return runProgramPerEvent;
     }
 
+    /**
+     * Sets whether the EPP should run once for each process related event.
+     *
+     * @param runProgramPerEvent true if it should run once per event.
+     * @deprecated This property is no longer supported.
+     */
     @Deprecated
     public void setRunProgramPerEvent(Boolean runProgramPerEvent)
     {
         this.runProgramPerEvent = runProgramPerEvent;
     }
 
+    /**
+     * Gets the channel on which the EPP runs.
+     *
+     * @return the channel.
+     */
     public String getChannel()
     {
         return channel;
     }
 
+    /**
+     * Sets the channel on which the EPP runs.
+     *
+     * @param channel the channel.
+     */
     public void setChannel(String channel)
     {
         this.channel = channel;
@@ -137,6 +194,7 @@ public class Parameter implements Serializable
 
     /**
      * The epp invocation type of this script.
+     *
      * @return The invocation type.
      * @deprecated This property is no longer supported.
      */
@@ -146,17 +204,33 @@ public class Parameter implements Serializable
         return invocationType;
     }
 
+    /**
+     * Sets the epp invocation type of this script.
+     *
+     * @param invocationType the invocation type.
+     * @deprecated This property is no longer supported.
+     */
     @Deprecated
     public void setInvocationType(InvocationType invocationType)
     {
         this.invocationType = invocationType;
     }
 
+    /**
+     * Gets the name of the parameter.
+     *
+     * @return the parameter name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the parameter.
+     *
+     * @param name the parameter name.
+     */
     public void setName(String name)
     {
         this.name = name;

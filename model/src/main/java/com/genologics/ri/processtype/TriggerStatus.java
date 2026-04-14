@@ -30,14 +30,57 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum TriggerStatus
 {
+    /**
+     * The step has been started.
+     */
+    STARTED,
 
-    STARTED, STEP_SETUP, POOLING, PLACEMENT, ADD_REAGENT, RECORD_DETAILS, COMPLETE;
+    /**
+     * The step is in the setup phase.
+     */
+    STEP_SETUP,
 
+    /**
+     * The step is in the pooling phase.
+     */
+    POOLING,
+
+    /**
+     * The step is in the placement phase.
+     */
+    PLACEMENT,
+
+    /**
+     * The step is in the add reagent phase.
+     */
+    ADD_REAGENT,
+
+    /**
+     * The step is in the record details phase.
+     */
+    RECORD_DETAILS,
+
+    /**
+     * The step has been completed.
+     */
+    COMPLETE;
+
+    /**
+     * Gets the XML value of this trigger status.
+     *
+     * @return the XML value (the enum name).
+     */
     public String value()
     {
         return name();
     }
 
+    /**
+     * Gets the trigger status corresponding to the specified XML value.
+     *
+     * @param v the XML value.
+     * @return the corresponding trigger status.
+     */
     public static TriggerStatus fromValue(String v)
     {
         return valueOf(v);

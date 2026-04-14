@@ -50,31 +50,61 @@ public class Technician extends LimsLinkBase<Researcher>
      */
     @Serial private static final long serialVersionUID = -8798198413338733052L;
 
+    /**
+     * The first name of the technician.
+     */
     @XmlElement(name = "first-name")
     protected String firstName;
 
+    /**
+     * The last name of the technician.
+     */
     @XmlElement(name = "last-name")
     protected String lastName;
 
+    /**
+     * The URI linking to the detailed representation of this technician in the system.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Constructs a new Technician with default values.
+     */
     public Technician()
     {
     }
 
+    /**
+     * Constructs a new Technician with the specified URI.
+     *
+     * @param uri the URI of the technician resource
+     */
     public Technician(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructs a new Technician from a linkable researcher object.
+     *
+     * @param link the linkable object containing the researcher URI
+     * @throws NullPointerException if link is null
+     */
     public Technician(Linkable<Researcher> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Constructs a new Technician from a Researcher object, copying the URI, 
+     * first name, and last name.
+     *
+     * @param researcher the researcher to copy details from
+     * @throws NullPointerException if researcher is null
+     */
     public Technician(Researcher researcher)
     {
         requireNonNull(researcher, "researcher cannot be null");
@@ -83,42 +113,82 @@ public class Technician extends LimsLinkBase<Researcher>
         lastName = researcher.getLastName();
     }
 
+    /**
+     * Gets the entity class that this link references.
+     *
+     * @return the Researcher class
+     */
     @Override
     public Class<Researcher> getEntityClass()
     {
         return Researcher.class;
     }
 
+    /**
+     * Gets the first name of the technician.
+     *
+     * @return the first name
+     */
     public String getFirstName()
     {
         return firstName;
     }
 
+    /**
+     * Sets the first name of the technician.
+     *
+     * @param firstName the first name to set
+     */
     public void setFirstName(String firstName)
     {
         this.firstName = firstName;
     }
 
+    /**
+     * Gets the last name of the technician.
+     *
+     * @return the last name
+     */
     public String getLastName()
     {
         return lastName;
     }
 
+    /**
+     * Sets the last name of the technician.
+     *
+     * @param lastName the last name to set
+     */
     public void setLastName(String lastName)
     {
         this.lastName = lastName;
     }
 
+    /**
+     * Gets the URI of this technician resource.
+     *
+     * @return the URI
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of this technician resource.
+     *
+     * @param uri the URI to set
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Returns a string representation of the technician in the format "firstName lastName".
+     *
+     * @return the full name of the technician
+     */
     @Override
     public String toString()
     {

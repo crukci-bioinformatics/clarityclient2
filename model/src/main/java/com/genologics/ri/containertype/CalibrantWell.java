@@ -44,43 +44,83 @@ public class CalibrantWell implements Serializable
      */
     @Serial private static final long serialVersionUID = 218110772739169852L;
 
+    /**
+     * The name of the calibrant well.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The value or content of the calibrant well.
+     */
     @XmlValue
     protected String value;
 
 
+    /**
+     * Default constructor for creating a new calibrant well.
+     */
     public CalibrantWell()
     {
     }
 
+    /**
+     * Constructor for creating a calibrant well with a specified name.
+     *
+     * @param name The name of the calibrant well.
+     */
     public CalibrantWell(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Constructor for creating a calibrant well with a specified name and value.
+     *
+     * @param name The name of the calibrant well.
+     * @param value The value or content of the calibrant well.
+     */
     public CalibrantWell(String name, String value)
     {
         this.name = name;
         this.value = value;
     }
 
+    /**
+     * Gets the value or content of the calibrant well.
+     *
+     * @return The calibrant well value.
+     */
     public String getValue()
     {
         return value;
     }
 
+    /**
+     * Sets the value or content of the calibrant well.
+     *
+     * @param value The calibrant well value to set.
+     */
     public void setValue(String value)
     {
         this.value = value;
     }
 
+    /**
+     * Gets the name of the calibrant well.
+     *
+     * @return The calibrant well name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the calibrant well.
+     *
+     * @param name The calibrant well name to set.
+     */
     public void setName(String name)
     {
         this.name = name;

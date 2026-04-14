@@ -44,8 +44,14 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory
 {
-
+    /**
+     * The qualified name for the project element.
+     */
     private final static QName _Project_QNAME = new QName(PROJECT_NAMESPACE, "project");
+
+    /**
+     * The qualified name for the projects element.
+     */
     private final static QName _Projects_QNAME = new QName(PROJECT_NAMESPACE, "projects");
 
     /**

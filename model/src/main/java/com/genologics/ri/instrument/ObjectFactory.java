@@ -44,15 +44,22 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory
 {
-
+    /**
+     * The qualified name for the instrument element.
+     */
     private final static QName _Instrument_QNAME = new QName(INSTRUMENT_NAMESPACE, "instrument");
+
+    /**
+     * The qualified name for the instruments element.
+     */
     private final static QName _Instruments_QNAME = new QName(INSTRUMENT_NAMESPACE, "instruments");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.instrument
      *
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
     /**
@@ -60,7 +67,8 @@ public class ObjectFactory
      *
      * @return A new Instrument instance.
      */
-    public Instrument createInstrument() {
+    public Instrument createInstrument()
+    {
         return new Instrument();
     }
 
@@ -69,7 +77,8 @@ public class ObjectFactory
      *
      * @return A new InstrumentLink instance.
      */
-    public InstrumentLink createInstrumentLink() {
+    public InstrumentLink createInstrumentLink()
+    {
         return new InstrumentLink();
     }
 
@@ -78,7 +87,8 @@ public class ObjectFactory
      *
      * @return A new Instruments instance.
      */
-    public Instruments createInstruments() {
+    public Instruments createInstruments()
+    {
         return new Instruments();
     }
 
@@ -89,7 +99,8 @@ public class ObjectFactory
      * @return A new JAXBElement wrapping the Instrument instance.
      */
     @XmlElementDecl(namespace = INSTRUMENT_NAMESPACE, name = "instrument")
-    public JAXBElement<Instrument> createInstrument(Instrument value) {
+    public JAXBElement<Instrument> createInstrument(Instrument value)
+    {
         return new JAXBElement<Instrument>(_Instrument_QNAME, Instrument.class, null, value);
     }
 
@@ -100,7 +111,8 @@ public class ObjectFactory
      * @return A new JAXBElement wrapping the Instruments instance.
      */
     @XmlElementDecl(namespace = INSTRUMENT_NAMESPACE, name = "instruments")
-    public JAXBElement<Instruments> createInstruments(Instruments value) {
+    public JAXBElement<Instruments> createInstruments(Instruments value)
+    {
         return new JAXBElement<Instruments>(_Instruments_QNAME, Instruments.class, null, value);
     }
 }

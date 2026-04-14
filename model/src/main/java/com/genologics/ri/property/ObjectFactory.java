@@ -44,7 +44,9 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory
 {
-
+    /**
+     * The qualified name for the properties root element in the property namespace.
+     */
     private final static QName _Properties_QNAME = new QName(PROPERTY_NAMESPACE, "properties");
 
     /**

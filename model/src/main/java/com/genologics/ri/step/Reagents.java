@@ -53,57 +53,110 @@ public class Reagents implements Linkable<Reagents>, Serializable
      */
     @Serial private static final long serialVersionUID = 4896945008573422890L;
 
+    /**
+     * Link to the step.
+     */
     @XmlElement(name = "step")
     protected Link step;
 
+    /**
+     * Configuration of the step.
+     */
     @XmlElement(name = "configuration")
     protected StepConfiguration configuration;
 
+    /**
+     * The reagent category for the step.
+     */
     @XmlElement(name = "reagent-category")
     protected String reagentCategory;
 
+    /**
+     * List of output reagents.
+     */
     @XmlElementWrapper(name = "output-reagents")
     @XmlElement(name = "output")
     protected List<Output> outputReagents;
 
+    /**
+     * URI of the reagents resource.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Default constructor.
+     */
     public Reagents()
     {
     }
 
+    /**
+     * Constructor with URI.
+     *
+     * @param uri The URI of the reagents resource.
+     */
     public Reagents(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the step link.
+     *
+     * @return The step link.
+     */
     public Link getStep()
     {
         return step;
     }
 
+    /**
+     * Sets the step link.
+     *
+     * @param step The step link.
+     */
     public void setStep(Link step)
     {
         this.step = step;
     }
 
+    /**
+     * Gets the step configuration.
+     *
+     * @return The step configuration.
+     */
     public StepConfiguration getConfiguration()
     {
         return configuration;
     }
 
+    /**
+     * Sets the step configuration.
+     *
+     * @param configuration The step configuration.
+     */
     public void setConfiguration(StepConfiguration configuration)
     {
         this.configuration = configuration;
     }
 
+    /**
+     * Gets the URI.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI.
+     *
+     * @param uri The URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
@@ -119,11 +172,21 @@ public class Reagents implements Linkable<Reagents>, Serializable
         return reagentCategory;
     }
 
+    /**
+     * Sets the reagent category.
+     *
+     * @param reagentCategory The reagent category.
+     */
     public void setReagentCategory(String reagentCategory)
     {
         this.reagentCategory = reagentCategory;
     }
 
+    /**
+     * Gets the list of output reagents, creating it if it doesn't exist.
+     *
+     * @return The list of output reagents.
+     */
     public List<Output> getOutputReagents()
     {
         if (outputReagents == null)
@@ -133,6 +196,12 @@ public class Reagents implements Linkable<Reagents>, Serializable
         return outputReagents;
     }
 
+    /**
+     * Adds an output reagent to the list.
+     *
+     * @param output The output reagent to add.
+     * @return The added output reagent.
+     */
     public Output addOutputReagent(Output output)
     {
         getOutputReagents().add(output);

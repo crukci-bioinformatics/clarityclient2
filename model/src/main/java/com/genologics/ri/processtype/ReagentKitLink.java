@@ -48,29 +48,52 @@ public class ReagentKitLink extends LimsLinkBase<ReagentKit>
      */
     @Serial private static final long serialVersionUID = 7746715136563752804L;
 
+    /**
+     * The name of the reagent kit.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The URI of the reagent kit.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
-
+    /**
+     * Constructs a new reagent kit link.
+     */
     public ReagentKitLink()
     {
     }
 
+    /**
+     * Constructs a new reagent kit link with the specified name.
+     *
+     * @param name the name of the reagent kit.
+     */
     public ReagentKitLink(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Constructs a new reagent kit link from a linkable object.
+     *
+     * @param link the linkable object providing the URI.
+     */
     public ReagentKitLink(Linkable<ReagentKit> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Constructs a new reagent kit link from a reagent kit entity.
+     *
+     * @param kit the reagent kit entity.
+     */
     public ReagentKitLink(ReagentKit kit)
     {
         requireNonNull(kit, "kit cannot be null");
@@ -78,27 +101,52 @@ public class ReagentKitLink extends LimsLinkBase<ReagentKit>
         name = kit.getName();
     }
 
+    /**
+     * Gets the name of the reagent kit.
+     *
+     * @return the reagent kit name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the reagent kit.
+     *
+     * @param name the reagent kit name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the URI of the reagent kit.
+     *
+     * @return the reagent kit URI.
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the reagent kit.
+     *
+     * @param uri the reagent kit URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return the ReagentKit class.
+     */
     @Override
     public Class<ReagentKit> getEntityClass()
     {

@@ -53,7 +53,8 @@ public class ObjectFactory
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.reagentkit
      *
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
     /**
@@ -61,7 +62,8 @@ public class ObjectFactory
      *
      * @return A new ReagentKit object.
      */
-    public ReagentKit createReagentKit() {
+    public ReagentKit createReagentKit()
+    {
         return new ReagentKit();
     }
 
@@ -70,7 +72,8 @@ public class ObjectFactory
      *
      * @return A new ReagentKits object.
      */
-    public ReagentKits createReagentKits() {
+    public ReagentKits createReagentKits()
+    {
         return new ReagentKits();
     }
 
@@ -79,7 +82,8 @@ public class ObjectFactory
      *
      * @return A new ReagentKitLink object.
      */
-    public ReagentKitLink createReagentKitLink() {
+    public ReagentKitLink createReagentKitLink()
+    {
         return new ReagentKitLink();
     }
 
@@ -91,7 +95,8 @@ public class ObjectFactory
      * @return A JAXBElement containing the ReagentKits.
      */
     @XmlElementDecl(namespace = REAGENT_KIT_NAMESPACE, name = "reagent-kits")
-    public JAXBElement<ReagentKits> createReagentKits(ReagentKits value) {
+    public JAXBElement<ReagentKits> createReagentKits(ReagentKits value)
+    {
         return new JAXBElement<ReagentKits>(_ReagentKits_QNAME, ReagentKits.class, null, value);
     }
 
@@ -103,7 +108,8 @@ public class ObjectFactory
      * @return A JAXBElement containing the ReagentKit.
      */
     @XmlElementDecl(namespace = REAGENT_KIT_NAMESPACE, name = "reagent-kit")
-    public JAXBElement<ReagentKit> createReagentKit(ReagentKit value) {
+    public JAXBElement<ReagentKit> createReagentKit(ReagentKit value)
+    {
         return new JAXBElement<ReagentKit>(_ReagentKit_QNAME, ReagentKit.class, null, value);
     }
 }

@@ -44,60 +44,69 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory
 {
-
+    /**
+     * The qualified name for the stage element in the JAXB context.
+     */
     private final static QName _Stage_QNAME = new QName(STAGE_NAMESPACE, "stage");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.stage
-     *
+     * Creates a new ObjectFactory that can be used to create new instances of
+     * schema derived classes for package: com.genologics.ri.stage.
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
     /**
-     * Create an instance of {@link ProtocolStepLink}
+     * Creates an instance of {@link ProtocolStepLink}.
      *
      * @return A new ProtocolStepLink instance.
      */
-    public ProtocolStepLink createProtocolStepLink() {
+    public ProtocolStepLink createProtocolStepLink()
+    {
         return new ProtocolStepLink();
     }
 
     /**
-     * Create an instance of {@link WorkflowLink}
+     * Creates an instance of {@link WorkflowLink}.
      *
      * @return A new WorkflowLink instance.
      */
-    public WorkflowLink createWorkflowLink() {
+    public WorkflowLink createWorkflowLink()
+    {
         return new WorkflowLink();
     }
 
     /**
-     * Create an instance of {@link Stage}
+     * Creates an instance of {@link Stage}.
      *
      * @return A new Stage instance.
      */
-    public Stage createStage() {
+    public Stage createStage()
+    {
         return new Stage();
     }
 
     /**
-     * Create an instance of {@link ProtocolLink}
+     * Creates an instance of {@link ProtocolLink}.
      *
      * @return A new ProtocolLink instance.
      */
-    public ProtocolLink createProtocolLink() {
+    public ProtocolLink createProtocolLink()
+    {
         return new ProtocolLink();
     }
 
     /**
-     * Create an instance of {@link JAXBElement}{@code <}{@link Stage}{@code >}
+     * Creates an instance of {@link JAXBElement}{@code <}{@link Stage}{@code >}.
      *
-     * @param value Java instance representing xml element's value.
-     * @return The new instance of {@link JAXBElement}{@code <}{@link Stage}{@code >}
+     * @param value The Java instance representing the XML element's value.
+     *
+     * @return The new instance of {@link JAXBElement}{@code <}{@link Stage}{@code >}.
      */
     @XmlElementDecl(namespace = STAGE_NAMESPACE, name = "stage")
-    public JAXBElement<Stage> createStage(Stage value) {
+    public JAXBElement<Stage> createStage(Stage value)
+    {
         return new JAXBElement<Stage>(_Stage_QNAME, Stage.class, null, value);
     }
 }

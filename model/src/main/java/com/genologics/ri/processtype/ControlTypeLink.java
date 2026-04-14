@@ -35,6 +35,10 @@ import com.genologics.ri.controltype.ControlType;
 
 
 /**
+ * Link to a control type within a process type configuration.
+ * Provides a URI linking to the detailed representation of a control type,
+ * along with its name.
+ *
  * @since 2.25
  */
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -46,35 +50,64 @@ public class ControlTypeLink extends LimsLinkBase<ControlType>
      */
     @Serial private static final long serialVersionUID = 3029231159973544772L;
 
+    /**
+     * The name of the control type.
+     */
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * The URI of the control type.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
-
+    /**
+     * Constructs a new control type link.
+     */
     public ControlTypeLink()
     {
     }
 
+    /**
+     * Constructs a new control type link with the specified URI.
+     *
+     * @param uri the URI of the control type.
+     */
     public ControlTypeLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructs a new control type link with the specified URI and name.
+     *
+     * @param uri the URI of the control type.
+     * @param name the name of the control type.
+     */
     public ControlTypeLink(URI uri, String name)
     {
         this.uri = uri;
         this.name = name;
     }
 
+    /**
+     * Constructs a new control type link from a linkable object.
+     *
+     * @param link the linkable object providing the URI.
+     */
     public ControlTypeLink(Linkable<ControlType> link)
     {
         requireNonNull(link, "link cannot be null");
         this.uri = link.getUri();
     }
 
+    /**
+     * Constructs a new control type link from a control type entity.
+     *
+     * @param controlType the control type entity.
+     */
     public ControlTypeLink(ControlType controlType)
     {
         requireNonNull(controlType, "controlType cannot be null");
@@ -82,26 +115,51 @@ public class ControlTypeLink extends LimsLinkBase<ControlType>
         this.name = controlType.getName();
     }
 
+    /**
+     * Gets the URI of the control type.
+     *
+     * @return the control type URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the control type.
+     *
+     * @param uri the control type URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the name of the control type.
+     *
+     * @return the control type name.
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Sets the name of the control type.
+     *
+     * @param name the control type name.
+     */
     public void setName(String name)
     {
         this.name = name;
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return the ControlType class.
+     */
     @Override
     public Class<ControlType> getEntityClass()
     {

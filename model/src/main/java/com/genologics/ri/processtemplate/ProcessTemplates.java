@@ -55,17 +55,36 @@ public class ProcessTemplates implements PaginatedBatch<ProcessTemplateLink>, Se
      */
     @Serial private static final long serialVersionUID = -1986524456179019901L;
 
+    /**
+     * The list of process template links.
+     */
     @XmlElement(name = "process-template")
     protected List<ProcessTemplateLink> processTemplates;
 
+    /**
+     * The link to the previous page of results.
+     */
     @XmlElement(name = "previous-page")
     protected Page previousPage;
 
+    /**
+     * The link to the next page of results.
+     */
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
-    public ProcessTemplates() {}
+    /**
+     * Default constructor.
+     */
+    public ProcessTemplates()
+    {
+    }
 
+    /**
+     * Gets the list of process template links.
+     *
+     * @return the list of process template links (never null).
+     */
     public List<ProcessTemplateLink> getProcessTemplates()
     {
         if (processTemplates == null)
@@ -75,33 +94,63 @@ public class ProcessTemplates implements PaginatedBatch<ProcessTemplateLink>, Se
         return processTemplates;
     }
 
+    /**
+     * Gets the list of process template links.
+     *
+     * @return the list of process template links.
+     */
     @Override
     public List<ProcessTemplateLink> getList()
     {
         return getProcessTemplates();
     }
 
+    /**
+     * Gets the number of process template links.
+     *
+     * @return the number of process template links in the list.
+     */
     @Override
     public int getSize()
     {
         return processTemplates == null ? 0 : processTemplates.size();
     }
 
+    /**
+     * Gets the previous page link.
+     *
+     * @return the previous page link.
+     */
     public Page getPreviousPage()
     {
         return previousPage;
     }
 
+    /**
+     * Sets the previous page link.
+     *
+     * @param previousPage the previous page link to set.
+     */
     public void setPreviousPage(Page previousPage)
     {
         this.previousPage = previousPage;
     }
 
+    /**
+     * Gets the next page link.
+     *
+     * @return the next page link.
+     */
     public Page getNextPage()
     {
         return nextPage;
     }
 
+    /**
+     * Sets the next page link.
+     *
+     * @param nextPage the next page link to set.
+     */
     public void setNextPage(Page nextPage)
     {
         this.nextPage = nextPage;

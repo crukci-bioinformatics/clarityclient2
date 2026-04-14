@@ -55,17 +55,36 @@ public class ProcessTypes implements PaginatedBatch<ProcessTypeLink>, Serializab
      */
     @Serial private static final long serialVersionUID = 747260766479912084L;
 
+    /**
+     * The list of process type links.
+     */
     @XmlElement(name = "process-type")
     protected List<ProcessTypeLink> processTypes;
 
+    /**
+     * Link to the previous page of results.
+     */
     @XmlElement(name = "previous-page")
     protected Page previousPage;
 
+    /**
+     * Link to the next page of results.
+     */
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
-    public ProcessTypes() {}
+    /**
+     * Constructs a new process types batch.
+     */
+    public ProcessTypes()
+    {
+    }
 
+    /**
+     * Gets the list of process type links.
+     *
+     * @return a list of process type links.
+     */
     public List<ProcessTypeLink> getProcessTypes()
     {
         if (processTypes == null)
@@ -75,33 +94,63 @@ public class ProcessTypes implements PaginatedBatch<ProcessTypeLink>, Serializab
         return processTypes;
     }
 
+    /**
+     * Gets the list of process type links.
+     *
+     * @return a list of process type links.
+     */
     @Override
     public List<ProcessTypeLink> getList()
     {
         return getProcessTypes();
     }
 
+    /**
+     * Gets the size of the process types list.
+     *
+     * @return the number of process types in this batch.
+     */
     @Override
     public int getSize()
     {
         return processTypes == null ? 0 : processTypes.size();
     }
 
+    /**
+     * Gets the link to the previous page of results.
+     *
+     * @return the previous page link, or null if on the first page.
+     */
     public Page getPreviousPage()
     {
         return previousPage;
     }
 
+    /**
+     * Sets the link to the previous page of results.
+     *
+     * @param previousPage the previous page link.
+     */
     public void setPreviousPage(Page previousPage)
     {
         this.previousPage = previousPage;
     }
 
+    /**
+     * Gets the link to the next page of results.
+     *
+     * @return the next page link, or null if on the last page.
+     */
     public Page getNextPage()
     {
         return nextPage;
     }
 
+    /**
+     * Sets the link to the next page of results.
+     *
+     * @param nextPage the next page link.
+     */
     public void setNextPage(Page nextPage)
     {
         this.nextPage = nextPage;

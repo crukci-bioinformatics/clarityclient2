@@ -45,44 +45,100 @@ import javax.xml.namespace.QName;
 public class ObjectFactory
 {
 
+    /**
+     * Qualified name for the container-type XML element.
+     */
     private final static QName _ContainerType_QNAME = new QName(CONTAINER_TYPE_NAMESPACE, "container-type");
+
+    /**
+     * Qualified name for the container-types XML element.
+     */
     private final static QName _ContainerTypes_QNAME = new QName(CONTAINER_TYPE_NAMESPACE, "container-types");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.containertype
      *
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
+    /**
+     * Creates a new instance of {@link CalibrantWell}.
+     *
+     * @return A new calibrant well object.
+     *
+     * @deprecated This method is no longer supported as CalibrantWell is deprecated.
+     */
     @Deprecated
-    public CalibrantWell createCalibrantWell() {
+    public CalibrantWell createCalibrantWell()
+    {
         return new CalibrantWell();
     }
 
-    public ContainerType createContainerType() {
+    /**
+     * Creates a new instance of {@link ContainerType}.
+     *
+     * @return A new container type object.
+     */
+    public ContainerType createContainerType()
+    {
         return new ContainerType();
     }
 
-    public ContainerTypes createContainerTypes() {
+    /**
+     * Creates a new instance of {@link ContainerTypes}.
+     *
+     * @return A new container types object.
+     */
+    public ContainerTypes createContainerTypes()
+    {
         return new ContainerTypes();
     }
 
-    public ContainerTypeLink createContainerTypeLink() {
+    /**
+     * Creates a new instance of {@link ContainerTypeLink}.
+     *
+     * @return A new container type link object.
+     */
+    public ContainerTypeLink createContainerTypeLink()
+    {
         return new ContainerTypeLink();
     }
 
-    public Dimension createDimension() {
+    /**
+     * Creates a new instance of {@link Dimension}.
+     *
+     * @return A new dimension object.
+     */
+    public Dimension createDimension()
+    {
         return new Dimension();
     }
 
+    /**
+     * Creates a JAXBElement for marshalling a {@link ContainerType} object.
+     *
+     * @param value The container type to wrap.
+     *
+     * @return A JAXBElement wrapping the container type.
+     */
     @XmlElementDecl(namespace = CONTAINER_TYPE_NAMESPACE, name = "container-type")
-    public JAXBElement<ContainerType> createContainerType(ContainerType value) {
+    public JAXBElement<ContainerType> createContainerType(ContainerType value)
+    {
         return new JAXBElement<ContainerType>(_ContainerType_QNAME, ContainerType.class, null, value);
     }
 
+    /**
+     * Creates a JAXBElement for marshalling a {@link ContainerTypes} object.
+     *
+     * @param value The container types list to wrap.
+     *
+     * @return A JAXBElement wrapping the container types list.
+     */
     @XmlElementDecl(namespace = CONTAINER_TYPE_NAMESPACE, name = "container-types")
-    public JAXBElement<ContainerTypes> createContainerTypes(ContainerTypes value) {
+    public JAXBElement<ContainerTypes> createContainerTypes(ContainerTypes value)
+    {
         return new JAXBElement<ContainerTypes>(_ContainerTypes_QNAME, ContainerTypes.class, null, value);
     }
 }

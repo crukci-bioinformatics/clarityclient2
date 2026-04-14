@@ -43,8 +43,14 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory
 {
-
+    /**
+     * The qualified name for the instrument-types element.
+     */
     private final static QName _InstrumentTypes_QNAME = new QName(INSTRUMENT_TYPE_NAMESPACE, "instrument-types");
+
+    /**
+     * The qualified name for the instrument-type element.
+     */
     private final static QName _InstrumentType_QNAME = new QName(INSTRUMENT_TYPE_NAMESPACE, "instrument-type");
 
     /**

@@ -27,7 +27,7 @@ import java.text.SimpleDateFormat;
 public class LongTimestampAdapter extends AbstractDateAdapter
 {
     /**
-     * Empty constructor.
+     * Default constructor.
      */
     public LongTimestampAdapter()
     {

@@ -30,13 +30,32 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum TriggerPoint
 {
-    BEFORE, AFTER;
+    /**
+     * The trigger executes before the step.
+     */
+    BEFORE,
 
+    /**
+     * The trigger executes after the step.
+     */
+    AFTER;
+
+    /**
+     * Gets the XML value of this trigger point.
+     *
+     * @return the XML value (the enum name).
+     */
     public String value()
     {
         return name();
     }
 
+    /**
+     * Gets the trigger point corresponding to the specified XML value.
+     *
+     * @param v the XML value.
+     * @return the corresponding trigger point.
+     */
     public static TriggerPoint fromValue(String v)
     {
         return valueOf(v);

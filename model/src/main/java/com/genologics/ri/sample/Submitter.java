@@ -47,31 +47,58 @@ public class Submitter extends LimsLinkBase<Researcher>
      */
     @Serial private static final long serialVersionUID = 1302200229944706575L;
 
+    /**
+     * The first name of the submitter.
+     */
     @XmlElement(name = "first-name")
     protected String firstName;
 
+    /**
+     * The last name of the submitter.
+     */
     @XmlElement(name = "last-name")
     protected String lastName;
 
+    /**
+     * The URI of the submitter.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * Constructor for an empty submitter.
+     */
     public Submitter()
     {
     }
 
+    /**
+     * Constructor for a submitter with a URI.
+     *
+     * @param uri The URI of the submitter.
+     */
     public Submitter(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor for a submitter from a linkable researcher.
+     *
+     * @param link The linkable researcher.
+     */
     public Submitter(Linkable<Researcher> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Constructor for a submitter from a researcher entity.
+     *
+     * @param researcher The researcher entity.
+     */
     public Submitter(Researcher researcher)
     {
         requireNonNull(researcher, "researcher cannot be null");
@@ -80,42 +107,82 @@ public class Submitter extends LimsLinkBase<Researcher>
         lastName = researcher.getLastName();
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The Researcher class.
+     */
     @Override
     public Class<Researcher> getEntityClass()
     {
         return Researcher.class;
     }
 
+    /**
+     * Gets the first name of the submitter.
+     *
+     * @return The first name.
+     */
     public String getFirstName()
     {
         return firstName;
     }
 
+    /**
+     * Sets the first name of the submitter.
+     *
+     * @param firstName The first name.
+     */
     public void setFirstName(String firstName)
     {
         this.firstName = firstName;
     }
 
+    /**
+     * Gets the last name of the submitter.
+     *
+     * @return The last name.
+     */
     public String getLastName()
     {
         return lastName;
     }
 
+    /**
+     * Sets the last name of the submitter.
+     *
+     * @param lastName The last name.
+     */
     public void setLastName(String lastName)
     {
         this.lastName = lastName;
     }
 
+    /**
+     * Gets the URI of the submitter.
+     *
+     * @return The submitter URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the submitter.
+     *
+     * @param uri The submitter URI.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Returns a string representation of this submitter.
+     *
+     * @return The first and last name.
+     */
     @Override
     public String toString()
     {

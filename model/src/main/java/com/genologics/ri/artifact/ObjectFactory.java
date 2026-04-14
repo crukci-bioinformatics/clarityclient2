@@ -74,7 +74,8 @@ public class ObjectFactory
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.genologics.ri.artifact
      *
      */
-    public ObjectFactory() {
+    public ObjectFactory()
+    {
     }
 
     /**
@@ -82,7 +83,8 @@ public class ObjectFactory
      *
      * @return A new DemuxDetails object.
      */
-    public DemuxDetails createDemuxDetails() {
+    public DemuxDetails createDemuxDetails()
+    {
         return new DemuxDetails();
     }
 
@@ -91,7 +93,8 @@ public class ObjectFactory
      *
      * @return A new PoolStep object.
      */
-    public PoolStep createPoolStep() {
+    public PoolStep createPoolStep()
+    {
         return new PoolStep();
     }
 
@@ -100,7 +103,8 @@ public class ObjectFactory
      *
      * @return A new ArtifactGroupLink object.
      */
-    public ArtifactGroupLink createArtifactgroup() {
+    public ArtifactGroupLink createArtifactgroup()
+    {
         return new ArtifactGroupLink();
     }
 
@@ -109,7 +113,8 @@ public class ObjectFactory
      *
      * @return A new SampleLink object.
      */
-    public SampleLink createSample() {
+    public SampleLink createSample()
+    {
         return new SampleLink();
     }
 
@@ -118,7 +123,8 @@ public class ObjectFactory
      *
      * @return A new Demux object.
      */
-    public Demux createDemux() {
+    public Demux createDemux()
+    {
         return new Demux();
     }
 
@@ -127,7 +133,8 @@ public class ObjectFactory
      *
      * @return A new ReagentLabel object.
      */
-    public ReagentLabel createReagentLabel() {
+    public ReagentLabel createReagentLabel()
+    {
         return new ReagentLabel();
     }
 
@@ -136,7 +143,8 @@ public class ObjectFactory
      *
      * @return A new DemuxSourceArtifact object.
      */
-    public DemuxSourceArtifact createDemuxSourceArtifact() {
+    public DemuxSourceArtifact createDemuxSourceArtifact()
+    {
         return new DemuxSourceArtifact();
     }
 
@@ -145,7 +153,8 @@ public class ObjectFactory
      *
      * @return A new DemuxLink object.
      */
-    public DemuxLink createDemuxLink() {
+    public DemuxLink createDemuxLink()
+    {
         return new DemuxLink();
     }
 
@@ -154,7 +163,8 @@ public class ObjectFactory
      *
      * @return A new DemuxArtifactSample object.
      */
-    public DemuxArtifactSample createDemuxArtifactSample() {
+    public DemuxArtifactSample createDemuxArtifactSample()
+    {
         return new DemuxArtifactSample();
     }
 
@@ -163,7 +173,8 @@ public class ObjectFactory
      *
      * @return A new DemuxArtifact object.
      */
-    public DemuxArtifact createDemuxArtifact() {
+    public DemuxArtifact createDemuxArtifact()
+    {
         return new DemuxArtifact();
     }
 
@@ -172,7 +183,8 @@ public class ObjectFactory
      *
      * @return A new ParentProcessLink object.
      */
-    public ParentProcessLink createParentProcess() {
+    public ParentProcessLink createParentProcess()
+    {
         return new ParentProcessLink();
     }
 
@@ -181,7 +193,8 @@ public class ObjectFactory
      *
      * @return A new Artifact object.
      */
-    public Artifact createArtifact() {
+    public Artifact createArtifact()
+    {
         return new Artifact();
     }
 
@@ -190,7 +203,8 @@ public class ObjectFactory
      *
      * @return A new ArtifactLink object.
      */
-    public ArtifactLink createArtifactLink() {
+    public ArtifactLink createArtifactLink()
+    {
         return new ArtifactLink();
     }
 
@@ -199,7 +213,8 @@ public class ObjectFactory
      *
      * @return A new ControlTypeLink object.
      */
-    public ControlTypeLink createControlTypeLink() {
+    public ControlTypeLink createControlTypeLink()
+    {
         return new ControlTypeLink();
     }
 
@@ -208,7 +223,8 @@ public class ObjectFactory
      *
      * @return A new ArtifactBatchFetchResult object.
      */
-    public ArtifactBatchFetchResult createDetails() {
+    public ArtifactBatchFetchResult createDetails()
+    {
         return new ArtifactBatchFetchResult();
     }
 
@@ -217,7 +233,8 @@ public class ObjectFactory
      *
      * @return A new Artifacts object.
      */
-    public Artifacts createArtifacts() {
+    public Artifacts createArtifacts()
+    {
         return new Artifacts();
     }
 
@@ -228,7 +245,8 @@ public class ObjectFactory
      * @return A JAXBElement wrapping the Artifacts object.
      */
     @XmlElementDecl(namespace = ARTIFACT_NAMESPACE, name = "artifacts")
-    public JAXBElement<Artifacts> createArtifacts(Artifacts value) {
+    public JAXBElement<Artifacts> createArtifacts(Artifacts value)
+    {
         return new JAXBElement<Artifacts>(_Artifacts_QNAME, Artifacts.class, null, value);
     }
 
@@ -239,7 +257,8 @@ public class ObjectFactory
      * @return A JAXBElement wrapping the ArtifactBatchFetchResult object.
      */
     @XmlElementDecl(namespace = ARTIFACT_NAMESPACE, name = "details")
-    public JAXBElement<ArtifactBatchFetchResult> createDetails(ArtifactBatchFetchResult value) {
+    public JAXBElement<ArtifactBatchFetchResult> createDetails(ArtifactBatchFetchResult value)
+    {
         return new JAXBElement<ArtifactBatchFetchResult>(_Details_QNAME, ArtifactBatchFetchResult.class, null, value);
     }
 
@@ -250,7 +269,8 @@ public class ObjectFactory
      * @return A JAXBElement wrapping the Artifact object.
      */
     @XmlElementDecl(namespace = ARTIFACT_NAMESPACE, name = "artifact")
-    public JAXBElement<Artifact> createArtifact(Artifact value) {
+    public JAXBElement<Artifact> createArtifact(Artifact value)
+    {
         return new JAXBElement<Artifact>(_Artifact_QNAME, Artifact.class, null, value);
     }
 
@@ -261,7 +281,8 @@ public class ObjectFactory
      * @return A JAXBElement wrapping the DemuxDetails object.
      */
     @XmlElementDecl(namespace = ARTIFACT_NAMESPACE, name = "demux-details")
-    public JAXBElement<DemuxDetails> createDemuxDetails(DemuxDetails value) {
+    public JAXBElement<DemuxDetails> createDemuxDetails(DemuxDetails value)
+    {
         return new JAXBElement<DemuxDetails>(_DemuxDetails_QNAME, DemuxDetails.class, null, value);
     }
 
@@ -272,7 +293,8 @@ public class ObjectFactory
      * @return A JAXBElement wrapping the Demux object.
      */
     @XmlElementDecl(namespace = "http://genologics.com/ri/artifact", name = "demux")
-    public JAXBElement<Demux> createDemux(Demux value) {
+    public JAXBElement<Demux> createDemux(Demux value)
+    {
         return new JAXBElement<Demux>(_Demux_QNAME, Demux.class, null, value);
     }
 }

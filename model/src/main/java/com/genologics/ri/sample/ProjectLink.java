@@ -47,34 +47,64 @@ public class ProjectLink extends LimsEntityLinkBase<Project>
      */
     @Serial private static final long serialVersionUID = -4874099265690719737L;
 
+    /**
+     * The URI of the project.
+     */
     @XmlAttribute(name = "uri")
     @XmlSchemaType(name = "anyURI")
     protected URI uri;
 
+    /**
+     * The LIMS id of the project.
+     */
     @XmlAttribute(name = "limsid")
     protected String limsid;
 
+    /**
+     * Constructor for an empty project link.
+     */
     public ProjectLink()
     {
     }
 
+    /**
+     * Constructor for a project link with a URI.
+     *
+     * @param uri The URI of the project.
+     */
     public ProjectLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Constructor for a project link with a URI and LIMS id.
+     *
+     * @param uri The URI of the project.
+     * @param limsid The LIMS id of the project.
+     */
     public ProjectLink(URI uri, String limsid)
     {
         this.uri = uri;
         this.limsid = limsid;
     }
 
+    /**
+     * Constructor for a project link from a linkable project.
+     *
+     * @param link The linkable project.
+     */
     public ProjectLink(Linkable<Project> link)
     {
         requireNonNull(link, "link cannot be null");
         uri = link.getUri();
     }
 
+    /**
+     * Constructor for a project link from a LIMS entity linkable project.
+     *
+     * @param link The LIMS entity linkable project.
+     */
     public ProjectLink(LimsEntityLinkable<Project> link)
     {
         requireNonNull(link, "link cannot be null");
@@ -82,31 +112,61 @@ public class ProjectLink extends LimsEntityLinkBase<Project>
         limsid = link.getLimsid();
     }
 
+    /**
+     * Gets the entity class for this link.
+     *
+     * @return The Project class.
+     */
     public Class<Project> getEntityClass()
     {
         return Project.class;
     }
 
+    /**
+     * Gets the URI of the project.
+     *
+     * @return The project URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the project.
+     *
+     * @param value The project URI.
+     */
     public void setUri(URI value)
     {
         this.uri = value;
     }
 
+    /**
+     * Gets the LIMS id of the project.
+     *
+     * @return The LIMS id.
+     */
     public String getLimsid()
     {
         return limsid;
     }
 
+    /**
+     * Sets the LIMS id of the project.
+     *
+     * @param value The LIMS id.
+     */
     public void setLimsid(String value)
     {
         this.limsid = value;
     }
 
+    /**
+     * Returns a string representation of this project link.
+     *
+     * @return The LIMS id.
+     */
     @Override
     public String toString()
     {

@@ -35,6 +35,11 @@ import com.genologics.ri.Linkable;
 /**
  * Control-type-link is a child element type of controlTypes and provides a URI
  * linking to the detailed representation of a ControlType.
+ * <p>
+ * This class serves as a lightweight reference to a full ControlType entity,
+ * containing only the essential information (URI and name) needed for linking
+ * purposes in API responses.
+ * </p>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "control-type-link")
@@ -131,24 +136,44 @@ public class ControlTypeLink extends LimsLinkBase<ControlType>
         this.name = name;
     }
 
+    /**
+     * Gets the URI of the control type.
+     *
+     * @return The URI of the control type resource.
+     */
     @Override
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the control type.
+     *
+     * @param uri The URI of the control type resource.
+     */
     @Override
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the entity class that this link refers to.
+     *
+     * @return The ControlType class.
+     */
     @Override
     public Class<ControlType> getEntityClass()
     {
         return ControlType.class;
     }
 
+    /**
+     * Returns a string representation of this control type link.
+     *
+     * @return The name of the control type.
+     */
     @Override
     public String toString()
     {

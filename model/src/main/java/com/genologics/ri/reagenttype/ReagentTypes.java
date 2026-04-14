@@ -55,17 +55,36 @@ public class ReagentTypes implements PaginatedBatch<ReagentTypeLink>, Serializab
      */
     @Serial private static final long serialVersionUID = -3173542275521810830L;
 
+    /**
+     * The list of reagent type links.
+     */
     @XmlElement(name = "reagent-type")
     protected List<ReagentTypeLink> reagentTypes;
 
+    /**
+     * Link to the previous page of results.
+     */
     @XmlElement(name = "previous-page")
     protected Page previousPage;
 
+    /**
+     * Link to the next page of results.
+     */
     @XmlElement(name = "next-page")
     protected Page nextPage;
 
-    public ReagentTypes() {}
+    /**
+     * Default constructor.
+     */
+    public ReagentTypes()
+    {
+    }
 
+    /**
+     * Gets the list of reagent type links.
+     *
+     * @return A list of reagent type links.
+     */
     public List<ReagentTypeLink> getReagentTypes()
     {
         if (reagentTypes == null)
@@ -75,33 +94,63 @@ public class ReagentTypes implements PaginatedBatch<ReagentTypeLink>, Serializab
         return reagentTypes;
     }
 
+    /**
+     * Gets the list of reagent type links for batch processing.
+     *
+     * @return A list of reagent type links.
+     */
     @Override
     public List<ReagentTypeLink> getList()
     {
         return getReagentTypes();
     }
 
+    /**
+     * Gets the size of the reagent types list.
+     *
+     * @return The number of reagent type links, or 0 if the list is null.
+     */
     @Override
     public int getSize()
     {
         return reagentTypes == null ? 0 : reagentTypes.size();
     }
 
+    /**
+     * Gets the link to the previous page of results.
+     *
+     * @return The previous page link, or null if on the first page.
+     */
     public Page getPreviousPage()
     {
         return previousPage;
     }
 
+    /**
+     * Sets the link to the previous page of results.
+     *
+     * @param previousPage The previous page link.
+     */
     public void setPreviousPage(Page previousPage)
     {
         this.previousPage = previousPage;
     }
 
+    /**
+     * Gets the link to the next page of results.
+     *
+     * @return The next page link, or null if on the last page.
+     */
     public Page getNextPage()
     {
         return nextPage;
     }
 
+    /**
+     * Sets the link to the next page of results.
+     *
+     * @param nextPage The next page link.
+     */
     public void setNextPage(Page nextPage)
     {
         this.nextPage = nextPage;

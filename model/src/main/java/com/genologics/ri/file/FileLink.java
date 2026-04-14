@@ -48,27 +48,55 @@ public class FileLink extends LimsLinkBase<ClarityFile>
      */
     @Serial private static final long serialVersionUID = -2151598768590902010L;
 
+    /**
+     * The URI of the file resource.
+     */
     @XmlAttribute(name = "uri")
     protected URI uri;
 
+    /**
+     * The LIMS id of the file.
+     */
     @XmlAttribute(name = "limsid")
     protected String limsid;
 
+    /**
+     * Creates a new, empty FileLink.
+     */
     public FileLink()
     {
     }
 
+    /**
+     * Creates a new FileLink with the specified URI.
+     *
+     * @param uri The URI of the file resource.
+     */
     public FileLink(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Creates a new FileLink with the specified URI and LIMS id.
+     *
+     * @param uri The URI of the file resource.
+     * @param limsid The LIMS id of the file.
+     */
     public FileLink(URI uri, String limsid)
     {
         this.uri = uri;
         this.limsid = limsid;
     }
 
+    /**
+     * Creates a new FileLink from a linkable entity that references a ClarityFile,
+     * copying its URI and LIMS id.
+     *
+     * @param link The linkable entity to create a link from.
+     *
+     * @throws NullPointerException if link is null.
+     */
     public FileLink(LimsEntityLinkable<ClarityFile> link)
     {
         requireNonNull(link, "link cannot be null");
@@ -76,27 +104,52 @@ public class FileLink extends LimsLinkBase<ClarityFile>
         this.limsid = link.getLimsid();
     }
 
+    /**
+     * Gets the entity class that this link references.
+     *
+     * @return The ClarityFile class.
+     */
     @Override
     public Class<ClarityFile> getEntityClass()
     {
         return ClarityFile.class;
     }
 
+    /**
+     * Gets the URI of the file resource.
+     *
+     * @return The URI.
+     */
     public URI getUri()
     {
         return uri;
     }
 
+    /**
+     * Sets the URI of the file resource.
+     *
+     * @param uri The URI to set.
+     */
     public void setUri(URI uri)
     {
         this.uri = uri;
     }
 
+    /**
+     * Gets the LIMS id of the file.
+     *
+     * @return The LIMS id.
+     */
     public String getLimsid()
     {
         return limsid;
     }
 
+    /**
+     * Sets the LIMS id of the file.
+     *
+     * @param limsid The LIMS id to set.
+     */
     public void setLimsid(String limsid)
     {
         this.limsid = limsid;
