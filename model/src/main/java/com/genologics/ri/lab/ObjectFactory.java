@@ -35,11 +35,6 @@ import javax.xml.namespace.QName;
  * package. Each factory method constructs new instances of schema-derived classes
  * that represent XML content structures.
  * </p>
- * <p>
- * The {@code @XmlRegistry} annotation marks this class as a JAXB object factory,
- * allowing JAXB to discover and use these factory methods during marshalling and
- * unmarshalling operations.
- * </p>
  */
 @XmlRegistry
 public class ObjectFactory

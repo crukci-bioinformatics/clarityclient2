@@ -31,7 +31,7 @@ import jakarta.xml.bind.annotation.XmlType;
 
 /**
  *
- * The root element for a routing API call
+ * The root element for a routing API call.
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "routing", propOrder = { "assignedRoutes", "unassignedRoutes" })
