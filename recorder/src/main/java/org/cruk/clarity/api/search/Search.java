@@ -66,7 +66,7 @@ public class Search<E extends Locatable> implements Serializable
     public static final String SEARCH_FILE_PATTERN = "search_{0}.xml";
 
     /**
-     * Serialization version.
+     * Class version for serialisation.
      */
     @Serial private static final long serialVersionUID = -6611443224550823943L;
 

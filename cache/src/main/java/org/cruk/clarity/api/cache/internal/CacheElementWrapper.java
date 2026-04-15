@@ -18,6 +18,7 @@
 
 package org.cruk.clarity.api.cache.internal;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import org.cruk.clarity.api.cache.ClarityAPICache;
@@ -31,15 +32,20 @@ import org.cruk.clarity.api.cache.ClarityAPICache;
  */
 public class CacheElementWrapper implements Serializable
 {
-    private static final long serialVersionUID = 5222412342746165964L;
+    /**
+     * Class version for serialisation.
+     */
+    @Serial private static final long serialVersionUID = 5222412342746165964L;
 
     /**
      * The actual entity in the cache.
+     * @serial
      */
     protected Object entity;
 
     /**
      * The version of this entity.
+     * @serial
      */
     protected long version = ClarityAPICache.NO_STATE_VALUE;
 

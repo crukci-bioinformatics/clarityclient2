@@ -37,17 +37,48 @@ import com.genologics.ri.stage.Stage;
 import com.genologics.ri.stepconfiguration.ProtocolStep;
 import com.genologics.ri.workflowconfiguration.Workflow;
 
+/**
+ * Spring configuration class for the Clarity API cache. Configures the EhCache
+ * cache manager with specific cache configurations for different entity types.
+ * Each cache is configured with appropriate heap size limits and time-to-idle
+ * expiry policies based on the expected usage patterns of different entity types.
+ *
+ * @since 2.31
+ */
 @Configuration
 @EnableAspectJAutoProxy(proxyTargetClass = false)
 @ComponentScan(basePackages = "org.cruk.clarity.api.cache", excludeFilters = @Filter(Configuration.class))
 public class ClarityClientCacheConfiguration
 {
+    /**
+     * Cache configuration for small heap (100 entries) with medium expiry (10 minutes).
+     */
     protected CacheConfiguration<String, CacheElementWrapper> smallMedium;
+
+    /**
+     * Cache configuration for small heap (100 entries) with long expiry (30 minutes).
+     */
     protected CacheConfiguration<String, CacheElementWrapper> smallLong;
+
+    /**
+     * Cache configuration for medium heap (250 entries) with short expiry (5 minutes).
+     */
     protected CacheConfiguration<String, CacheElementWrapper> mediumShort;
+
+    /**
+     * Cache configuration for medium heap (250 entries) with medium expiry (10 minutes).
+     */
     protected CacheConfiguration<String, CacheElementWrapper> mediumMedium;
+
+    /**
+     * Cache configuration for large heap (1800 entries) with short expiry (5 minutes).
+     */
     protected CacheConfiguration<String, CacheElementWrapper> largeShort;
 
+    /**
+     * Constructor. Initializes the pre-configured cache configurations with
+     * different combinations of heap size and expiry times.
+     */
     public ClarityClientCacheConfiguration()
     {
         smallMedium = cacheConfig(100, 10);
@@ -57,6 +88,14 @@ public class ClarityClientCacheConfiguration
         largeShort = cacheConfig(1800, 5);
     }
 
+    /**
+     * Creates a cache configuration with the specified heap size and time-to-idle expiry.
+     *
+     * @param number The maximum number of entries in the cache heap.
+     * @param expiry The time-to-idle expiry time in minutes.
+     *
+     * @return A configured cache configuration for String keys and CacheElementWrapper values.
+     */
     protected CacheConfiguration<String, CacheElementWrapper> cacheConfig(int number, int expiry)
     {
         var resourcePools = ResourcePoolsBuilder.newResourcePoolsBuilder().heap(number, EntryUnit.ENTRIES);
@@ -67,7 +106,15 @@ public class ClarityClientCacheConfiguration
                 .build();
     }
 
-    @Bean // Calls close() on destroy implicitly.
+    /**
+     * Creates and configures the EhCache cache manager for Clarity API entities.
+     * Registers separate caches for each entity type with appropriate size and
+     * expiry configurations based on usage patterns. The cache manager is
+     * automatically closed when the Spring context is destroyed.
+     *
+     * @return The configured cache manager, initialized and ready for use.
+     */
+    @Bean
     public CacheManager clarityCacheManager()
     {
         return CacheManagerBuilder.newCacheManagerBuilder()

@@ -33,6 +33,9 @@ import org.springframework.context.annotation.ComponentScan.Filter;
 @ComponentScan(basePackageClasses = ClarityAPIPlaybackAspect.class, excludeFilters = @Filter(Configuration.class))
 public class ClarityClientPlaybackConfiguration extends ClarityClientSearchConfiguration
 {
+    /**
+     * Constructor.
+     */
     public ClarityClientPlaybackConfiguration()
     {
     }

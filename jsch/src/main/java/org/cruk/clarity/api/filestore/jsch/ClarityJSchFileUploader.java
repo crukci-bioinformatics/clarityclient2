@@ -101,7 +101,11 @@ public class ClarityJSchFileUploader implements ClaritySFTPUploader
     }
 
     /**
-     * {@inheritDoc}
+     * Set the connection timeout for SFTP operations.
+     *
+     * @param timeout The timeout in milliseconds. Must be greater than or equal to zero.
+     *
+     * @throws IllegalArgumentException if timeout is negative.
      */
     @Override
     public void setTimeout(int timeout)
@@ -114,7 +118,12 @@ public class ClarityJSchFileUploader implements ClaritySFTPUploader
     }
 
     /**
-     * {@inheritDoc}
+     * Set the credentials for authenticating to the file store.
+     *
+     * @param username The username for authentication. Cannot be empty.
+     * @param password The password for authentication.
+     *
+     * @throws IllegalArgumentException if username is empty.
      */
     @Override
     public void setFilestoreCredentials(String username, String password)
@@ -128,7 +137,12 @@ public class ClarityJSchFileUploader implements ClaritySFTPUploader
     }
 
     /**
-     * {@inheritDoc}
+     * Upload a file to the Clarity file store via SFTP.
+     *
+     * @param fileURLResource The resource containing the file data to upload.
+     * @param targetFile The Clarity file object specifying the upload destination.
+     *
+     * @throws IOException if there is a problem with the file upload or SSH connection.
      */
     @Override
     public void upload(URLInputStreamResource fileURLResource, ClarityFile targetFile)
@@ -201,7 +215,11 @@ public class ClarityJSchFileUploader implements ClaritySFTPUploader
     }
 
     /**
-     * {@inheritDoc}
+     * Delete a file from the Clarity file store via SFTP.
+     *
+     * @param targetFile The Clarity file object specifying the file to delete.
+     *
+     * @throws IOException if there is a problem with the file deletion or SSH connection.
      */
     @Override
     public void delete(ClarityFile targetFile) throws IOException
@@ -334,10 +352,11 @@ public class ClarityJSchFileUploader implements ClaritySFTPUploader
     }
 
     /**
+     * Configure a JSch session with password authentication and relaxed host key checking.
      * Using the OpenSSHConfig configuration on the shared JSch object doesn't set
      * things correctly. This method sets them on a new Session object before connection.
      *
-     * @param session The JSch session.
+     * @param session The JSch session to configure.
      */
     private void setupSession(Session session)
     {

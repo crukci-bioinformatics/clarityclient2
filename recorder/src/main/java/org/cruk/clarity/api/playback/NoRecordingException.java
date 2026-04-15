@@ -18,6 +18,8 @@
 
 package org.cruk.clarity.api.playback;
 
+import java.io.Serial;
+
 /**
  * Exception thrown when an entity or search is requested that has no recording
  * in the playback message directory. This is an alternative to the previous
@@ -28,7 +30,10 @@ package org.cruk.clarity.api.playback;
  */
 public class NoRecordingException extends RuntimeException
 {
-    private static final long serialVersionUID = -8188977522747365074L;
+    /**
+     * Class version for serialisation.
+     */
+    @Serial private static final long serialVersionUID = -8188977522747365074L;
 
     /**
      * Constructor.

@@ -52,7 +52,7 @@ import com.genologics.ri.Locatable;
 public class SearchTerms<E extends Locatable> implements Serializable
 {
     /**
-     * Serialization version.
+     * Class version for serialisation.
      */
     @Serial private static final long serialVersionUID = 6086837837496759045L;
 

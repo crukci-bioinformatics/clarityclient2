@@ -35,19 +35,30 @@ public class LimsLinkAdapter extends XmlAdapter<Object, LimsLink<?>>
     }
 
     /**
-     * {@inheritDoc}
+     * Converts an XML object to a LimsLink object during unmarshalling.
+     *
+     * @param v The object value from XML.
+     *
+     * @return The LimsLink object.
+     *
+     * @throws ClassCastException if for some reason the {@code v} does
+     * not implement LimsLink.
      */
     @Override
-    public LimsLink<?> unmarshal(Object v) throws Exception
+    public LimsLink<?> unmarshal(Object v)
     {
         return LimsLink.class.cast(v);
     }
 
     /**
-     * {@inheritDoc}
+     * Converts a LimsLink object to an XML-compatible object during marshalling.
+     *
+     * @param v The LimsLink object to convert.
+     *
+     * @return {@code v}, unchanged.
      */
     @Override
-    public Object marshal(LimsLink<?> v) throws Exception
+    public Object marshal(LimsLink<?> v)
     {
         return v;
     }

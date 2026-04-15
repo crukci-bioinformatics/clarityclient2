@@ -33,6 +33,9 @@ import org.springframework.context.annotation.ComponentScan.Filter;
 @ComponentScan(basePackageClasses = ClarityAPIRecordingAspect.class, excludeFilters = @Filter(Configuration.class))
 public class ClarityClientRecordConfiguration extends ClarityClientSearchConfiguration
 {
+    /**
+     * Constructor.
+     */
     public ClarityClientRecordConfiguration()
     {
     }

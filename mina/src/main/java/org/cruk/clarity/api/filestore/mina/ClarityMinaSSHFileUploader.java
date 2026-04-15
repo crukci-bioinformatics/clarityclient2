@@ -109,12 +109,18 @@ public class ClarityMinaSSHFileUploader implements ClaritySFTPUploader
         this.sshClient = client;
     }
 
+    /**
+     * Start the SSH client.
+     */
     @PostConstruct
     public void start()
     {
         sshClient.start();
     }
 
+    /**
+     * Stop the SSH client.
+     */
     @PreDestroy
     public void stop()
     {
@@ -123,6 +129,8 @@ public class ClarityMinaSSHFileUploader implements ClaritySFTPUploader
 
     /**
      * {@inheritDoc}
+     *
+     * @throws IllegalArgumentException if {@code timeout} is negative.
      */
     @Override
     public void setTimeout(int timeout)
@@ -136,6 +144,8 @@ public class ClarityMinaSSHFileUploader implements ClaritySFTPUploader
 
     /**
      * {@inheritDoc}
+     *
+     * @throws IllegalArgumentException if {@code username} is empty.
      */
     @Override
     public void setFilestoreCredentials(String username, String password)
@@ -150,6 +160,10 @@ public class ClarityMinaSSHFileUploader implements ClaritySFTPUploader
 
     /**
      * {@inheritDoc}
+     *
+     * @throws UnsupportedOperationException if the target file's URI scheme is not "sftp".
+     * @throws IOException if there is a problem establishing the SSH session,
+     * creating remote directories, or transferring the file.
      */
     public void upload(URLInputStreamResource fileURLResource, ClarityFile targetFile)
     throws IOException
@@ -207,6 +221,10 @@ public class ClarityMinaSSHFileUploader implements ClaritySFTPUploader
 
     /**
      * {@inheritDoc}
+     *
+     * @throws UnsupportedOperationException if the target file's URI scheme is not "sftp".
+     * @throws IOException if there is a problem establishing the SSH session
+     * or deleting the file.
      */
     @Override
     public void delete(ClarityFile targetFile) throws IOException

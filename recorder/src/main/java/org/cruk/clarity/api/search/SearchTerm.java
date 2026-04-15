@@ -52,6 +52,9 @@ import org.springframework.util.CollectionUtils;
 @XmlType(name = "term", propOrder = { "param", "values" })
 public class SearchTerm implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
     @Serial private static final long serialVersionUID = -8406721186516589781L;
 
     /**
