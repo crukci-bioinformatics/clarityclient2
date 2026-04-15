@@ -44,6 +44,10 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
  * classes should themselves implement {@code hashCode()} and
  * {@code equals()} in the same way.
  * </p>
+ * <p>
+ * This interface also provides a {@link #toString(LimsLink) toString}
+ * implementation that can give a default string representation for any link.
+ * </p>
  *
  * @param <E> The type of entity that is at the end of the link.
  *
