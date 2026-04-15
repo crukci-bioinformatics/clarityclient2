@@ -44,21 +44,25 @@ public class ClarityException extends RuntimeException
 
     /**
      * Suggested actions to rectify the error, provided by the Clarity API.
+     * @serial
      */
     protected String suggestedActions;
 
     /**
      * The category of the error.
+     * @serial
      */
     protected String category;
 
     /**
      * The error code.
+     * @serial
      */
     protected String code;
 
     /**
      * The HTTP status code returned from the server.
+     * @serial
      */
     protected HttpStatusCode httpStatus;
 
