@@ -1,7 +1,7 @@
-<project xmlns="http://maven.apache.org/DECORATION/1.4.0"
+<project xmlns="http://maven.apache.org/DECORATION/1.6.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/DECORATION/1.4.0 http://maven.apache.org/xsd/decoration-1.4.0.xsd"
-         name="CRUK-CI Clarity API Client SFTP JCraft JSch Mina Implementation">
+         xsi:schemaLocation="http://maven.apache.org/DECORATION/1.6.0 http://maven.apache.org/xsd/decoration-1.6.0.xsd"
+         name="CRUK-CI Clarity API Client SFTP JCraft JSch Implementation">
 
     <body>
         <menu ref="reports"/>
