@@ -84,7 +84,6 @@ implements AuthenticatingClientHttpRequestFactory
         context.setAuthCache(authenticationCache);
     }
 
-
     /**
      * Constructor.
      */
@@ -151,6 +150,9 @@ implements AuthenticatingClientHttpRequestFactory
         return context;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public HttpHost getHost()
     {
@@ -158,12 +160,18 @@ implements AuthenticatingClientHttpRequestFactory
             new HttpHost(authenticationScope.getProtocol(), authenticationScope.getHost(), authenticationScope.getPort());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Credentials getCredentials()
     {
         return credentials;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setCredentials(URI uri, Credentials credentials)
     {
@@ -175,6 +183,9 @@ implements AuthenticatingClientHttpRequestFactory
         setCredentials(new HttpHost(uri.getScheme(), uri.getHost(), uri.getPort()), credentials);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setCredentials(HttpHost host, Credentials credentials)
     {

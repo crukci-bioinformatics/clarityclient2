@@ -18,6 +18,7 @@
 
 package org.cruk.clarity.api.automation;
 
+import java.io.Serial;
 
 /**
  * Runtime exception when there is a failure in automating a Clarity process.
@@ -26,17 +27,22 @@ package org.cruk.clarity.api.automation;
  */
 public class ClarityAutomationException extends RuntimeException
 {
-    private static final long serialVersionUID = 1609079834226439767L;
+    /**
+     * Class version for serialisation.
+     */
+    @Serial private static final long serialVersionUID = 1609079834226439767L;
 
     /**
-     * {@inheritDoc}
+     * Initialise with no details.
      */
     public ClarityAutomationException()
     {
     }
 
     /**
-     * {@inheritDoc}
+     * Initialise with an error message.
+     *
+     * @param message The error message.
      */
     public ClarityAutomationException(String message)
     {
@@ -44,7 +50,9 @@ public class ClarityAutomationException extends RuntimeException
     }
 
     /**
-     * {@inheritDoc}
+     * Initialise with a cause.
+     *
+     * @param cause The original exception causing this exception.
      */
     public ClarityAutomationException(Throwable cause)
     {
@@ -52,7 +60,10 @@ public class ClarityAutomationException extends RuntimeException
     }
 
     /**
-     * {@inheritDoc}
+     * Initialise with an error message and a cause.
+     *
+     * @param message The error message.
+     * @param cause The original exception causing this exception.
      */
     public ClarityAutomationException(String message, Throwable cause)
     {

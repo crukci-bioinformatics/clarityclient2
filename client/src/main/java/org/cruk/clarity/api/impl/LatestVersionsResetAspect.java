@@ -78,6 +78,11 @@ public class LatestVersionsResetAspect
     {
     }
 
+    /**
+     * Constructor with API reference.
+     *
+     * @param api The ClarityAPI implementation.
+     */
     public LatestVersionsResetAspect(ClarityAPIInternal api)
     {
         setClarityAPI(api);

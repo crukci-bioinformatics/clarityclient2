@@ -18,6 +18,7 @@
 
 package org.cruk.clarity.api;
 
+import java.io.Serial;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -43,7 +44,10 @@ import java.net.URL;
  */
 public class InvalidURIException extends IllegalArgumentException
 {
-    private static final long serialVersionUID = 6541624754969322769L;
+    /**
+     * Class version for serialisation.
+     */
+    @Serial private static final long serialVersionUID = 6541624754969322769L;
 
     /**
      * Construct a new InvalidURIException from a URISyntaxException.

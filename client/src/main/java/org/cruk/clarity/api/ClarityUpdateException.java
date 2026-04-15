@@ -18,6 +18,8 @@
 
 package org.cruk.clarity.api;
 
+import java.io.Serial;
+
 import com.genologics.ri.ClarityEntity;
 
 /**
@@ -29,7 +31,10 @@ import com.genologics.ri.ClarityEntity;
  */
 public class ClarityUpdateException extends RuntimeException
 {
-    private static final long serialVersionUID = -2679585761524242033L;
+    /**
+     * Class version for serialisation.
+     */
+    @Serial private static final long serialVersionUID = -2679585761524242033L;
 
     /**
      * Initialise with no details.

@@ -20,6 +20,9 @@ import com.genologics.ri.savedquery.SavedQuery;
  */
 public class SavedQuerySummary implements Serializable
 {
+    /**
+     * Class version for serialisation.
+     */
     @Serial private static final long serialVersionUID = 3011564738031403103L;
 
     /**
@@ -61,8 +64,9 @@ public class SavedQuerySummary implements Serializable
     }
 
     /**
-     * Get
-     * @return
+     * Get the media type and character set returned from the server.
+     *
+     * @return The media type and character set.
      */
     public MediaType getMediaType()
     {

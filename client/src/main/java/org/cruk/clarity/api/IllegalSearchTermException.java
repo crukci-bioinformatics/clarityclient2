@@ -18,6 +18,8 @@
 
 package org.cruk.clarity.api;
 
+import java.io.Serial;
+
 /**
  * Exception raised when a search for entities is provided with search
  * terms that are illegal. Terms can be illegal for a number of reasons:
@@ -51,6 +53,10 @@ package org.cruk.clarity.api;
  */
 public class IllegalSearchTermException extends IllegalArgumentException
 {
+    /**
+     * Class version for serialisation.
+     */
+    @Serial
     private static final long serialVersionUID = -1008444394159250460L;
 
     /**

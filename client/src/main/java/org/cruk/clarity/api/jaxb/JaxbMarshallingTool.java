@@ -45,10 +45,18 @@ public class JaxbMarshallingTool
      */
     private Marshaller marshaller;
 
+    /**
+     * Constructor.
+     */
     public JaxbMarshallingTool()
     {
     }
 
+    /**
+     * Constructor with marshaller.
+     *
+     * @param marshaller The JAXB marshaller.
+     */
     public JaxbMarshallingTool(Marshaller marshaller)
     {
         setMarshaller(marshaller);

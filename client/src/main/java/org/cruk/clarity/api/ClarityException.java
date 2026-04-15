@@ -18,6 +18,8 @@
 
 package org.cruk.clarity.api;
 
+import java.io.Serial;
+
 import org.apache.commons.lang3.StringUtils;
 import org.cruk.clarity.api.jaxb.JaxbUnmarshallingAspect;
 import org.springframework.http.HttpStatus;
@@ -35,14 +37,29 @@ import org.springframework.http.HttpStatusCode;
 @SuppressWarnings("exports")
 public class ClarityException extends RuntimeException
 {
-    private static final long serialVersionUID = 404952616991787238L;
+    /**
+     * Class version for serialisation.
+     */
+    @Serial private static final long serialVersionUID = 404952616991787238L;
 
+    /**
+     * Suggested actions to rectify the error, provided by the Clarity API.
+     */
     protected String suggestedActions;
 
+    /**
+     * The category of the error.
+     */
     protected String category;
 
+    /**
+     * The error code.
+     */
     protected String code;
 
+    /**
+     * The HTTP status code returned from the server.
+     */
     protected HttpStatusCode httpStatus;
 
     /**

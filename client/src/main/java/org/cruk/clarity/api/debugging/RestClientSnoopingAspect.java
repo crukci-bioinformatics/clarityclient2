@@ -45,6 +45,9 @@ import org.springframework.web.client.RestTemplate;
 @Component("clarityRestClientSnoopingAspect")
 public class RestClientSnoopingAspect
 {
+    /**
+     * Logger for the messages.
+     */
     private Logger logger = LoggerFactory.getLogger(RestClientSnoopingAspect.class);
 
     /**
@@ -53,10 +56,18 @@ public class RestClientSnoopingAspect
     private JaxbMarshallingTool marshaller;
 
 
+    /**
+     * Constructor.
+     */
     public RestClientSnoopingAspect()
     {
     }
 
+    /**
+     * Constructor with marshalling tool.
+     *
+     * @param marshaller The marshalling tool.
+     */
     public RestClientSnoopingAspect(JaxbMarshallingTool marshaller)
     {
         setMarshaller(marshaller);
