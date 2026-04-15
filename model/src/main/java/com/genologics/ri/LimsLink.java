@@ -29,8 +29,25 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 /**
  * Interface for classes that are links to real LIMS objects.
+ * <p>
+ * From release 2.34.2 onwards, all concrete implementations of
+ * {@code LimsLink} should have their {@code hashCode()} and
+ * {@code equals()} methods implemented so links pointing to the
+ * same entity class with the same core URI (scheme, host, port and path)
+ * are considered equal, even if the concrete classes are not the
+ * same or the URI differs only by a query part. To this end,
+ * the {@link LimsLinkBase} or {@link LimsEntityLinkBase} classes
+ * provide convenience superclasses whose {@code hashCode()} and
+ * {@code equals()} methods call the {@link #hashCode(LimsLink) hashCode}
+ * and {@link #equals(LimsLink, Object) equals} methods given on this
+ * interface. Those classes that cannot inherit from these base
+ * classes should themselves implement {@code hashCode()} and
+ * {@code equals()} in the same way.
+ * </p>
  *
  * @param <E> The type of entity that is at the end of the link.
+ *
+ * @see LimsLinkBase
  */
 public interface LimsLink<E extends Locatable> extends Linkable<E>
 {

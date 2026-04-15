@@ -47,6 +47,10 @@ import java.util.stream.Stream;
  * @param <E> The type of Locatable that is at the end of the link.
  *
  * @since 2.34.2
+ *
+ * @see LimsLink#hashCode(LimsLink)
+ * @see LimsLink#equals(LimsLink, Object)
+ * @see LimsLink#toString(LimsLink)
  */
 public abstract class LimsLinkBase<E extends Locatable> implements LimsLink<E>, Serializable
 {
