@@ -185,6 +185,34 @@ public class Artifact implements LimsEntity<Artifact>, UDFHolder, Serializable
     protected URI uri;
 
     /**
+     * Default constructor.
+     */
+    public Artifact()
+    {
+    }
+
+    /**
+     * Constructor with a URI.
+     *
+     * @param uri The artifact URI.
+    */
+    public Artifact(URI uri)
+    {
+    }
+
+    /**
+     * Constructor with URI and id.
+     *
+     * @param uri The artifact URI.
+     * @param name The artifact LIMS id.
+     */
+    public Artifact(URI uri, String limsid)
+    {
+        setUri(uri);
+        setLimsId(limsid);
+    }
+
+    /**
      * Gets the name of the artifact.
      *
      * @return The artifact name.

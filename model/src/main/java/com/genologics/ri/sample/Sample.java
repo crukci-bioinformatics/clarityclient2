@@ -19,6 +19,7 @@
 package com.genologics.ri.sample;
 
 import java.io.Serial;
+import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -53,6 +54,34 @@ public class Sample extends SampleBase implements LimsEntity<Sample>
      */
     //@XmlTransient
     private transient Location creationLocation;
+
+    /**
+     * Default constructor.
+     */
+    public Sample()
+    {
+    }
+
+    /**
+     * Constructor with a URI.
+     *
+     * @param uri The sample URI.
+    */
+    public Sample(URI uri)
+    {
+    }
+
+    /**
+     * Constructor with URI and id.
+     *
+     * @param uri The sample URI.
+     * @param name The sample LIMS id.
+     */
+    public Sample(URI uri, String limsid)
+    {
+        setUri(uri);
+        setLimsId(limsid);
+    }
 
     /**
      * Get the initial creation location for this sample.
