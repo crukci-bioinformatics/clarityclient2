@@ -106,6 +106,21 @@ public class ControlType implements Linkable<ControlType>, Serializable
     @XmlAttribute(name = "name")
     protected String name;
 
+    /**
+     * Default constructor.
+     */
+    public ControlType()
+    {
+    }
+
+    /**
+     * Constructor with a URI.
+     *
+     * @param uri The control type URI.
+    */
+    public ControlType(URI uri)
+    {
+    }
 
     /**
      * Gets the supplier of the control type.

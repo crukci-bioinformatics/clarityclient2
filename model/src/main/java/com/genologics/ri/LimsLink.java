@@ -229,7 +229,7 @@ public interface LimsLink<E extends Locatable> extends Linkable<E>
      * If it is not null but indicates no explcit port is set, try to return the default port for
      * its protocol.
      *
-     * @param uri THe URI to check.
+     * @param uri The URI to check.
      *
      * @return The port number if the URI has one set or a one can be determined from its scheme,
      * otherwise return -1 (including if {@code uri} is null).

@@ -21,7 +21,6 @@ package com.genologics.ri.artifact;
 import static java.util.Objects.requireNonNull;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.net.URI;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -30,7 +29,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
-import com.genologics.ri.LimsEntityLink;
 import com.genologics.ri.LimsEntityLinkBase;
 import com.genologics.ri.LimsEntityLinkable;
 import com.genologics.ri.Linkable;
