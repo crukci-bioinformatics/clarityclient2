@@ -135,15 +135,4 @@ public class ResearcherLink extends LimsEntityLinkBase<Researcher>
     {
         // Does nothing.
     }
-
-    /**
-     * Return a string representation of the researcher link.
-     *
-     * @return The LIMS id of the researcher.
-     */
-    @Override
-    public String toString()
-    {
-        return getLimsid();
-    }
 }

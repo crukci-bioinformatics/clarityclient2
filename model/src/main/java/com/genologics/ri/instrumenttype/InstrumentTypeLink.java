@@ -19,6 +19,7 @@
 package com.genologics.ri.instrumenttype;
 
 import static java.util.Objects.requireNonNull;
+import static org.apache.commons.lang3.StringUtils.SPACE;
 
 import java.io.Serial;
 import java.net.URI;
@@ -29,6 +30,10 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 
@@ -198,5 +203,19 @@ public class InstrumentTypeLink extends LimsLinkBase<InstrumentType>
     public Class<InstrumentType> getEntityClass()
     {
         return InstrumentType.class;
+    }
+
+    /**
+     * Returns a string representation of this link.
+     *
+     * @return The instrument type LIMS id and the name.
+     */
+    @Override
+    public String toString()
+    {
+        ToStringBuilder b = new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        b.append("instrumentType", LimsLink.toString(this));
+        b.append("name", name);
+        return b.toString();
     }
 }

@@ -150,15 +150,4 @@ public class PoolStep extends LimsLinkBase<ProcessStep>
     {
         return ProcessStep.class;
     }
-
-    /**
-     * Returns a string representation of this pool step.
-     *
-     * @return The name, or "null" if not set.
-     */
-    @Override
-    public String toString()
-    {
-        return name == null ? "null" : name;
-    }
 }

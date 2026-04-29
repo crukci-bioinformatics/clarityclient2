@@ -20,6 +20,7 @@ package com.genologics.ri.artifact;
 
 import static com.genologics.ri.Namespaces.FILE_NAMESPACE;
 import static com.genologics.ri.Namespaces.UDF_NAMESPACE;
+import static org.apache.commons.lang3.StringUtils.SPACE;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -658,7 +659,7 @@ public class Artifact implements LimsEntity<Artifact>, UDFHolder, Serializable
     public String toString()
     {
         StringBuilder sb = new StringBuilder();
-        sb.append(limsid).append(' ').append(type);
+        sb.append(limsid).append(SPACE).append(type);
         return sb.toString();
     }
 

@@ -117,5 +117,4 @@ public class ProtocolLink extends LimsLinkBase<Protocol>
     {
         this.uri = uri;
     }
-
 }

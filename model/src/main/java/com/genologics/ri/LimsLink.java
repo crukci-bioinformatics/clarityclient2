@@ -18,6 +18,7 @@
 
 package com.genologics.ri;
 
+import static com.genologics.ri.Link.UNSET;
 import static java.util.Objects.requireNonNull;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
@@ -216,7 +217,7 @@ public interface LimsLink<E extends Locatable> extends Linkable<E>
         }
         if (isEmpty(id))
         {
-            id = "unset";
+            id = UNSET;
         }
         StringBuilder b = new StringBuilder(64);
         b.append("LimsLink<").append(entity).append(">[").append(id).append(']');

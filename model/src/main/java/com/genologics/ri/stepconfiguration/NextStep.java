@@ -29,6 +29,10 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 
@@ -220,5 +224,19 @@ public class NextStep extends LimsLinkBase<ProtocolStep>
     public Class<ProtocolStep> getEntityClass()
     {
         return ProtocolStep.class;
+    }
+
+    /**
+     * Produces a string representation of this next action.
+     *
+     * @return A string representation.
+     */
+    @Override
+    public String toString()
+    {
+        ToStringBuilder b = new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        b.append("nextStep", LimsLink.toString(this));
+        b.append("name", name);
+        return b.toString();
     }
 }

@@ -29,6 +29,9 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.permission.Permission;
 
@@ -192,5 +195,20 @@ public class PermissionLink extends LimsLinkBase<Permission>
     public Class<Permission> getEntityClass()
     {
         return Permission.class;
+    }
+
+    /**
+     * Returns a string representation of this permission link.
+     *
+     * @return The permission URI, name and action.
+     */
+    @Override
+    public String toString()
+    {
+        ToStringBuilder b = new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        b.append("permission", uri);
+        b.append("name", name);
+        b.append("action", action);
+        return b.toString();
     }
 }

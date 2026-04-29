@@ -163,16 +163,4 @@ public class DemuxArtifactSample extends LimsEntityLinkBase<Sample>
     {
         return Sample.class;
     }
-
-    /**
-     * Returns a string representation of this sample.
-     *
-     * @return The LIMS id, or "null" if not set.
-     */
-    @Override
-    public String toString()
-    {
-        return limsid == null ? "null" : limsid;
-    }
-
 }

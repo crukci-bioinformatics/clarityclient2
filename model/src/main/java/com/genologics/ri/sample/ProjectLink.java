@@ -161,15 +161,4 @@ public class ProjectLink extends LimsEntityLinkBase<Project>
     {
         this.limsid = value;
     }
-
-    /**
-     * Returns a string representation of this project link.
-     *
-     * @return The LIMS id.
-     */
-    @Override
-    public String toString()
-    {
-        return limsid;
-    }
 }

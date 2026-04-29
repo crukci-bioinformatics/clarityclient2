@@ -29,6 +29,9 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 
@@ -165,11 +168,14 @@ public class ProcessTypeLink extends LimsLinkBase<ProcessType>
     /**
      * Returns a string representation of this process type link.
      *
-     * @return the process type name.
+     * @return The process type URI and name.
      */
     @Override
     public String toString()
     {
-        return name;
+        ToStringBuilder b = new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        b.append("processType", uri);
+        b.append("name", name);
+        return b.toString();
     }
 }

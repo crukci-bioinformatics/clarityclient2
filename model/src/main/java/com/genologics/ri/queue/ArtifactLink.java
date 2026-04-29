@@ -229,13 +229,4 @@ public class ArtifactLink extends LimsEntityLinkBase<Artifact>
     {
         return Artifact.class;
     }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String toString()
-    {
-        return limsid;
-    }
 }

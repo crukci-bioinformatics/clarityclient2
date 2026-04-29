@@ -161,15 +161,4 @@ public class ParentProcessLink extends LimsEntityLinkBase<ClarityProcess>
     {
         this.limsid = limsid;
     }
-
-    /**
-     * Returns a string representation of this object.
-     *
-     * @return the LIMS id as a string.
-     */
-    @Override
-    public String toString()
-    {
-        return limsid;
-    }
 }

@@ -29,7 +29,11 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import com.genologics.ri.LimsEntityLinkable;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.Location;
@@ -191,11 +195,14 @@ public class OutputPlacement extends LimsLinkBase<Artifact>
     /**
      * Returns a string representation of this output placement.
      *
-     * @return The string representation of the location, or null if no location is set.
+     * @return The artifact LIMS id and the location.
      */
     @Override
     public String toString()
     {
-        return location == null ? null : location.toString();
+        ToStringBuilder b = new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        b.append("artifact", LimsLink.toString(this));
+        b.append("location", location);
+        return b.toString();
     }
 }

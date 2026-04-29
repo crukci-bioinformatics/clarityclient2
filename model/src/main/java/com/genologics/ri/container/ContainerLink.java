@@ -19,6 +19,7 @@
 package com.genologics.ri.container;
 
 import static java.util.Objects.requireNonNull;
+import static org.apache.commons.lang3.StringUtils.SPACE;
 
 import java.io.Serial;
 import java.net.URI;
@@ -30,8 +31,12 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import com.genologics.ri.LimsEntityLinkBase;
 import com.genologics.ri.LimsEntityLinkable;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.Linkable;
 
 /**
@@ -219,11 +224,14 @@ public class ContainerLink extends LimsEntityLinkBase<Container>
     /**
      * Returns a string representation of the container link.
      *
-     * @return a string representation.
+     * @return The container LIMS id and name.
      */
     @Override
     public String toString()
     {
-        return limsid + " " + name;
+        ToStringBuilder b = new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        b.append("container", LimsLink.toString(this));
+        b.append("name", name);
+        return b.toString();
     }
 }

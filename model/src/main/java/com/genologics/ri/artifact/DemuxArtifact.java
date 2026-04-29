@@ -31,6 +31,9 @@ import jakarta.xml.bind.annotation.XmlElementWrapper;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import com.genologics.ri.LimsLinkBase;
 
 /**
@@ -180,17 +183,6 @@ public class DemuxArtifact extends LimsLinkBase<Artifact>
     }
 
     /**
-     * Returns a string representation of this demux artifact.
-     *
-     * @return The name, or "null" if not set.
-     */
-    @Override
-    public String toString()
-    {
-        return name == null ? "null" : name;
-    }
-
-    /**
      * Gets the entity class.
      *
      * @return The Artifact class.
@@ -199,5 +191,19 @@ public class DemuxArtifact extends LimsLinkBase<Artifact>
     public Class<Artifact> getEntityClass()
     {
         return Artifact.class;
+    }
+
+    /**
+     * Produces a string representation of this demux artifact.
+     *
+     * @return A string representation.
+     */
+    @Override
+    public String toString()
+    {
+        ToStringBuilder b = new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        b.append("artifact", uri);
+        b.append("name", name);
+        return b.toString();
     }
 }

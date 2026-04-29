@@ -126,7 +126,7 @@ public class GenericTypeLink implements Serializable
         sb.append(ClassUtils.getShortClassName(getClass()));
         if (value != null)
         {
-            sb.append(':').append(value);
+            sb.append('[').append(value).append(']');
         }
         return sb.toString();
     }

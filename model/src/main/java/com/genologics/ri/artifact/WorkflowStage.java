@@ -31,6 +31,10 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.stage.Stage;
@@ -272,11 +276,15 @@ public class WorkflowStage extends LimsLinkBase<Stage>
     /**
      * Returns a string representation of this workflow stage.
      *
-     * @return The name, status and URI.
+     * @return The stage URI, name and status.
      */
     @Override
     public String toString()
     {
-        return name + " " + status + " " + uri;
+        ToStringBuilder b = new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        b.append("researcher", LimsLink.toString(this));
+        b.append("name", name);
+        b.append("status", status);
+        return b.toString();
     }
 }

@@ -113,5 +113,4 @@ public class Technician extends LimsLinkBase<Researcher>
     {
         this.uri = value;
     }
-
 }

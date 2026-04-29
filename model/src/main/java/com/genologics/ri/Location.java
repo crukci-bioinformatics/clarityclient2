@@ -19,6 +19,7 @@
 package com.genologics.ri;
 
 import static java.util.Objects.requireNonNull;
+import static org.apache.commons.lang3.StringUtils.isBlank;
 
 import java.io.Serial;
 import java.net.URI;
@@ -29,9 +30,10 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 import com.genologics.ri.container.Container;
 
@@ -71,11 +73,6 @@ public class Location extends LimsEntityLinkBase<Container> implements Comparabl
      */
     @XmlElement(name = "value")
     private String wellPosition;
-
-    /**
-     * Cached hash code.
-     */
-    private transient Integer hc;
 
     /**
      * Default constructor.
@@ -129,7 +126,6 @@ public class Location extends LimsEntityLinkBase<Container> implements Comparabl
     public ContainerLink setContainer(LimsEntityLinkable<Container> link)
     {
         container = new ContainerLink(link);
-        hc = null;
         return container;
     }
 
@@ -151,7 +147,6 @@ public class Location extends LimsEntityLinkBase<Container> implements Comparabl
     public void setWellPosition(String wellPosition)
     {
         this.wellPosition = wellPosition;
-        hc = null;
     }
 
     /**
@@ -162,14 +157,10 @@ public class Location extends LimsEntityLinkBase<Container> implements Comparabl
     @Override
     public int hashCode()
     {
-        if (hc == null)
-        {
-            HashCodeBuilder b = new HashCodeBuilder();
-            b.append(container);
-            b.append(wellPosition);
-            hc = b.toHashCode();
-        }
-        return hc.intValue();
+        HashCodeBuilder b = new HashCodeBuilder();
+        b.append(container);
+        b.append(wellPosition);
+        return b.toHashCode();
     }
 
     /**
@@ -212,7 +203,7 @@ public class Location extends LimsEntityLinkBase<Container> implements Comparabl
             return 1;
         }
 
-        if (StringUtils.isBlank(wellPosition) || StringUtils.isBlank(o.wellPosition))
+        if (isBlank(wellPosition) || isBlank(o.wellPosition))
         {
             return 0;
         }
@@ -245,7 +236,10 @@ public class Location extends LimsEntityLinkBase<Container> implements Comparabl
     @Override
     public String toString()
     {
-        return container + " " + wellPosition;
+        ToStringBuilder b = new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        b.append("container", LimsLink.toString(this));
+        b.append("wellPosition", wellPosition);
+        return b.toString();
     }
 
     // Convenience methods to implement LimsEntityLink.

@@ -162,15 +162,4 @@ public class ArtifactLink extends LimsEntityLinkBase<Artifact>
     {
         this.limsid = value;
     }
-
-    /**
-     * Returns a string representation of this artifact link.
-     *
-     * @return The LIMS id.
-     */
-    @Override
-    public String toString()
-    {
-        return limsid;
-    }
 }

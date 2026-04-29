@@ -112,5 +112,4 @@ public class ReagentLotsLink extends LimsLinkBase<ReagentLots>
     {
         return ReagentLots.class;
     }
-
 }

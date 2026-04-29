@@ -111,5 +111,4 @@ public class ProgramStatusLink extends LimsLinkBase<ProgramStatus>
     {
         this.uri = uri;
     }
-
 }

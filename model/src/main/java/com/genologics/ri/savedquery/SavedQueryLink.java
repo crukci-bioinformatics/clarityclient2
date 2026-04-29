@@ -28,6 +28,10 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.LimsLinkBase;
 
 
@@ -153,13 +157,16 @@ public class SavedQueryLink extends LimsLinkBase<SavedQuery>
     }
 
     /**
-     * Returns the string representation of the saved query link.
+     * Returns a string representation of this saved query link.
      *
-     * @return The name of the saved query.
+     * @return The saved query URI and name.
      */
     @Override
     public String toString()
     {
-        return name;
+        ToStringBuilder b = new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        b.append("savedQuery", LimsLink.toString(this));
+        b.append("name", name);
+        return b.toString();
     }
 }

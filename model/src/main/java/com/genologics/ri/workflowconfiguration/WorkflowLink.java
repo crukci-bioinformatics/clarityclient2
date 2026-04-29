@@ -29,6 +29,10 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 
@@ -208,11 +212,14 @@ public class WorkflowLink extends LimsLinkBase<Workflow>
     /**
      * Returns a string representation of this workflow link.
      *
-     * @return The workflow name.
+     * @return The workflow LIMS id and name.
      */
     @Override
     public String toString()
     {
-        return name;
+        ToStringBuilder b = new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        b.append("workflow", LimsLink.toString(this));
+        b.append("name", name);
+        return b.toString();
     }
 }

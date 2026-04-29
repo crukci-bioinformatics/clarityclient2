@@ -288,15 +288,4 @@ public class ArtifactLink extends LimsEntityLinkBase<Artifact>
     {
         this.postProcessUri = postProcessUri;
     }
-
-    /**
-     * Returns a string representation of this object.
-     *
-     * @return the LIMS id as a string.
-     */
-    @Override
-    public String toString()
-    {
-        return limsid;
-    }
 }

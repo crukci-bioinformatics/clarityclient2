@@ -159,15 +159,6 @@ public class InstrumentLink extends LimsEntityLinkBase<Instrument>
      * {@inheritDoc}
      */
     @Override
-    public String toString()
-    {
-        return name;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     public String getLimsid()
     {
         return Link.limsIdFromUri(uri);

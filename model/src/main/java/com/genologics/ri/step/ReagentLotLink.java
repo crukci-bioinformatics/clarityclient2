@@ -164,15 +164,4 @@ public class ReagentLotLink extends LimsEntityLinkBase<ReagentLot>
     {
         return ReagentLot.class;
     }
-
-    /**
-     * Returns a string representation of the reagent lot link.
-     *
-     * @return the LIMS id.
-     */
-    @Override
-    public String toString()
-    {
-        return limsid;
-    }
 }

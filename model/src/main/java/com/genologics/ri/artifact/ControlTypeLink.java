@@ -114,5 +114,4 @@ public class ControlTypeLink extends LimsLinkBase<ControlType>
     {
         this.uri = value;
     }
-
 }

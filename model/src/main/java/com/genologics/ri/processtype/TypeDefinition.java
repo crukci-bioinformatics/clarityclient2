@@ -30,10 +30,14 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import org.apache.commons.beanutils.PropertyUtils;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.configuration.Field;
+import com.genologics.ri.researcher.Researcher;
 
 /**
  *
@@ -175,11 +179,14 @@ public class TypeDefinition extends LimsLinkBase<Field>
     /**
      * Returns a string representation of this type definition.
      *
-     * @return the field name.
+     * @return The field URI and name.
      */
     @Override
     public String toString()
     {
-        return name;
+        ToStringBuilder b = new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        b.append("field", LimsLink.toString(this));
+        b.append("name", name);
+        return b.toString();
     }
 }

@@ -18,6 +18,8 @@
 
 package com.genologics.ri.artifact;
 
+import static com.genologics.ri.Link.UNSET;
+
 import java.io.Serial;
 import java.io.Serializable;
 
@@ -85,11 +87,11 @@ public class ReagentLabel implements Serializable
     /**
      * Returns a string representation of this reagent label.
      *
-     * @return The name, or "null" if not set.
+     * @return The name, or "unset" if not set.
      */
     @Override
     public String toString()
     {
-        return name == null ? "null" : name;
+        return name == null ? UNSET : name;
     }
 }

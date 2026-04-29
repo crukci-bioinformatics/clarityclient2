@@ -29,6 +29,10 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 
@@ -161,13 +165,16 @@ public class ProtocolLink extends LimsLinkBase<Protocol>
     }
 
     /**
-     * Gets a string representation of the protocol link.
+     * Returns a string representation of this protocol link.
      *
-     * @return The protocol name, or "null" if the name is null.
+     * @return The protocol URI and name.
      */
     @Override
     public String toString()
     {
-        return name == null ? "null" : name;
+        ToStringBuilder b = new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        b.append("protocol", LimsLink.toString(this));
+        b.append("name", name);
+        return b.toString();
     }
 }

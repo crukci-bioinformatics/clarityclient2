@@ -29,6 +29,10 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.LimsLinkBase;
 
 /**
@@ -153,13 +157,16 @@ public class RoleLink extends LimsLinkBase<Role>
     }
 
     /**
-     * Returns a string representation of this link.
+     * Returns a string representation of this role link.
      *
-     * @return The name of the role.
+     * @return The role URI and name.
      */
     @Override
     public String toString()
     {
-        return name;
+        ToStringBuilder b = new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        b.append("role", LimsLink.toString(this));
+        b.append("name", name);
+        return b.toString();
     }
 }

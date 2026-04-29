@@ -116,6 +116,4 @@ public class StepSetupLink extends LimsLinkBase<StepSetup>
     {
         return StepSetup.class;
     }
-
-
 }

@@ -18,6 +18,8 @@
 
 package com.genologics.ri;
 
+import static com.genologics.ri.Link.UNSET;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
@@ -88,11 +90,13 @@ public class Page implements Locatable, Serializable
     /**
      * Gets a string representation of the page.
      *
-     * @return The URI as a string, or an empty string if the URI is null.
+     * @return The URI as a string, or "unset" if the URI is null.
      */
     @Override
     public String toString()
     {
-        return uri == null ? "" : uri.toString();
+        StringBuilder sb = new StringBuilder(80);
+        sb.append("Page[").append(uri == null ? UNSET : uri.toString()).append(']');
+        return sb.toString();
     }
 }

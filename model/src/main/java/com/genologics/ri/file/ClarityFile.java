@@ -318,15 +318,4 @@ public class ClarityFile extends LimsEntityLinkBase<ClarityFile> implements Lims
     {
         return ClarityFile.class;
     }
-
-    /**
-     * Returns a string representation of this file, which is its LIMS id.
-     *
-     * @return The LIMS id as a string.
-     */
-    @Override
-    public String toString()
-    {
-        return limsid;
-    }
 }

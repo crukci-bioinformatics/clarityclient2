@@ -114,5 +114,4 @@ public class StepDetailsLink extends LimsLinkBase<StepDetails>
     {
         return StepDetails.class;
     }
-
 }

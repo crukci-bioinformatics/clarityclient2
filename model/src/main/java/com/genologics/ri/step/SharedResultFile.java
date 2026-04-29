@@ -261,15 +261,4 @@ public class SharedResultFile extends LimsEntityLinkBase<Artifact>
     {
         return Artifact.class;
     }
-
-    /**
-     * Returns a string representation of the shared result file.
-     *
-     * @return The LIMS id of the artifact.
-     */
-    @Override
-    public String toString()
-    {
-        return limsid;
-    }
 }

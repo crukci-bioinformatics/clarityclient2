@@ -20,6 +20,7 @@ package com.genologics.ri.process;
 
 import static com.genologics.ri.Namespaces.FILE_NAMESPACE;
 import static com.genologics.ri.Namespaces.UDF_NAMESPACE;
+import static org.apache.commons.lang3.StringUtils.SPACE;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -453,7 +454,7 @@ public class ClarityProcess implements LimsEntity<ClarityProcess>, UDFHolder, Se
         sb.append(limsid);
         if (processType != null)
         {
-            sb.append(' ').append(processType.getName());
+            sb.append(SPACE).append(processType.getName());
         }
         return sb.toString();
     }

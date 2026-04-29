@@ -30,6 +30,10 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.researcher.Researcher;
@@ -180,13 +184,16 @@ public class Technician extends LimsLinkBase<Researcher>
     }
 
     /**
-     * Returns a string representation of this object.
+     * Returns a string representation of this technician.
      *
-     * @return the technician's full name.
+     * @return The researcher URI and name.
      */
     @Override
     public String toString()
     {
-        return firstName + " " + lastName;
+        ToStringBuilder b = new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        b.append("researcher", LimsLink.toString(this));
+        b.append("name", Researcher.makeFullName(firstName, lastName));
+        return b.toString();
     }
 }

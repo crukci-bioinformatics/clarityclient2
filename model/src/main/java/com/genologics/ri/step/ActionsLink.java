@@ -111,5 +111,4 @@ public class ActionsLink extends LimsLinkBase<Actions>
     {
         this.uri = uri;
     }
-
 }

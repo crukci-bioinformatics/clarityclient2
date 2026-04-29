@@ -18,6 +18,8 @@
 
 package com.genologics.ri.configuration;
 
+import static com.genologics.ri.Link.UNSET;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
@@ -241,11 +243,13 @@ public class FieldDynamicPresetDetails implements Locatable, Serializable
     /**
      * Returns the string representation of this object, which is the URI as a string.
      *
-     * @return The URI as a string, or null if the URI is null.
+     * @return The URI as a string, or "unset" if the URI is null.
      */
     @Override
     public String toString()
     {
-        return uri == null ? null : uri.toString();
+        StringBuilder sb = new StringBuilder(80);
+        sb.append("FieldDynamicPresetDetails[").append(uri == null ? UNSET : uri.toString()).append(']');
+        return sb.toString();
     }
 }

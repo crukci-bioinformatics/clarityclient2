@@ -47,6 +47,11 @@ public class Link implements Locatable, Serializable
     @Serial private static final long serialVersionUID = 7144458168274015747L;
 
     /**
+     * Shared constant for use throughout this library to indicate a field is not set.
+     */
+    public static final String UNSET = "unset";
+
+    /**
      * Pattern for splitting URI paths.
      */
     private static final Pattern PATH_SPLITTER = Pattern.compile("/+");
@@ -153,12 +158,14 @@ public class Link implements Locatable, Serializable
     /**
      * Gets a string representation of the link.
      *
-     * @return The URI as a string, or "Unset" if the URI is null.
+     * @return The URI as a string, or "unset" if the URI is null.
      */
     @Override
     public String toString()
     {
-        return uri == null ? "Unset" : uri.toString();
+        StringBuilder sb = new StringBuilder(80);
+        sb.append("Link[").append(uri == null ? UNSET : uri.toString()).append(']');
+        return sb.toString();
     }
 
     /**

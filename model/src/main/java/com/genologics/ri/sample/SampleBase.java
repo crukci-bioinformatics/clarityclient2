@@ -21,6 +21,7 @@ package com.genologics.ri.sample;
 import static com.genologics.ri.Namespaces.FILE_NAMESPACE;
 import static com.genologics.ri.Namespaces.ROOT_NAMESPACE;
 import static com.genologics.ri.Namespaces.UDF_NAMESPACE;
+import static org.apache.commons.lang3.StringUtils.SPACE;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
 import java.io.Serial;
@@ -527,7 +528,7 @@ public class SampleBase implements UDFHolder, Serializable
     public String toString()
     {
         StringBuilder sb = new StringBuilder();
-        sb.append(limsid).append(' ').append(name);
+        sb.append(limsid).append(SPACE).append(name);
         return sb.toString();
     }
 }

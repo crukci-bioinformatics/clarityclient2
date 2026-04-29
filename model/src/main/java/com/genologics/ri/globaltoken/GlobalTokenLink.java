@@ -135,15 +135,4 @@ public class GlobalTokenLink extends LimsLinkBase<GlobalToken>
     {
         return GlobalToken.class;
     }
-
-    /**
-     * Returns a string representation of this global token link.
-     *
-     * @return The token name.
-     */
-    @Override
-    public String toString()
-    {
-        return name;
-    }
 }

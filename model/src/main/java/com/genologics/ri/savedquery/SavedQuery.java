@@ -18,6 +18,8 @@
 
 package com.genologics.ri.savedquery;
 
+import static com.genologics.ri.Link.UNSET;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
@@ -160,11 +162,13 @@ public class SavedQuery implements Linkable<SavedQuery>, Serializable
     /**
      * Returns the string representation of the saved query.
      *
-     * @return The name of the saved query.
+     * @return The name of the saved query, or "unset" if name is null.
      */
     @Override
     public String toString()
     {
-        return name;
+        StringBuilder sb = new StringBuilder(80);
+        sb.append("SavedQuery[").append(name == null ? UNSET : name).append(']');
+        return sb.toString();
     }
 }

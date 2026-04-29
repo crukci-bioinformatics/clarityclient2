@@ -185,15 +185,4 @@ public class LabLink extends LimsEntityLinkBase<Lab>
     {
         // Does nothing.
     }
-
-    /**
-     * Returns a string representation of the lab link.
-     *
-     * @return the name of the lab.
-     */
-    @Override
-    public String toString()
-    {
-        return name;
-    }
 }

@@ -20,6 +20,7 @@ package com.genologics.ri.container;
 
 import static com.genologics.ri.Location.WELL_POSITION_SPLITTER;
 import static java.util.Objects.requireNonNull;
+import static org.apache.commons.lang3.StringUtils.SPACE;
 
 import java.io.Serial;
 import java.net.URI;
@@ -32,9 +33,12 @@ import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 import com.genologics.ri.LimsEntityLinkBase;
 import com.genologics.ri.LimsEntityLinkable;
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.artifact.Artifact;
 
 /**
@@ -272,6 +276,9 @@ public class Placement extends LimsEntityLinkBase<Artifact> implements Comparabl
     @Override
     public String toString()
     {
-        return limsid + " " + wellPosition;
+        ToStringBuilder b = new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        b.append("artifact", LimsLink.toString(this));
+        b.append("wellPosition", wellPosition);
+        return b.toString();
     }
 }

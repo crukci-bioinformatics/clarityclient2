@@ -18,6 +18,8 @@
 
 package com.genologics.ri.step;
 
+import static com.genologics.ri.Link.UNSET;
+
 import java.io.Serial;
 import java.io.Serializable;
 
@@ -35,7 +37,6 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlType(name = "reagent-label")
 public class ReagentLabel implements Serializable
 {
-
     /**
      * Class version for serialisation.
      */
@@ -88,11 +89,13 @@ public class ReagentLabel implements Serializable
     /**
      * Returns a string representation of the reagent label.
      *
-     * @return the name, or "null" if the name is null.
+     * @return the name, or "unset" if the name is null.
      */
     @Override
     public String toString()
     {
-        return name == null ? "null" : name;
+        StringBuilder sb = new StringBuilder(80);
+        sb.append("ReagentLabel[").append(name == null ? UNSET : name).append(']');
+        return sb.toString();
     }
 }

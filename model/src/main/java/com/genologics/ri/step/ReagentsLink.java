@@ -110,5 +110,4 @@ public class ReagentsLink extends LimsLinkBase<Reagents>
     {
         this.uri = uri;
     }
-
 }

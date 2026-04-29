@@ -30,6 +30,10 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.researcher.Researcher;
@@ -181,11 +185,14 @@ public class Submitter extends LimsLinkBase<Researcher>
     /**
      * Returns a string representation of this submitter.
      *
-     * @return The first and last name.
+     * @return The researcher URI and name.
      */
     @Override
     public String toString()
     {
-        return firstName + " " + lastName;
+        ToStringBuilder b = new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        b.append("researcher", LimsLink.toString(this));
+        b.append("name", Researcher.makeFullName(firstName, lastName));
+        return b.toString();
     }
 }

@@ -147,5 +147,4 @@ public class Output extends LimsLinkBase<Artifact>
     {
         return Artifact.class;
     }
-
 }

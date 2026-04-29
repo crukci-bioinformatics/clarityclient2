@@ -18,6 +18,8 @@
 
 package com.genologics.ri.reagentlot;
 
+import static org.apache.commons.lang3.StringUtils.SPACE;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.net.URI;
@@ -473,7 +475,7 @@ public class ReagentLot implements LimsEntity<ReagentLot>, Serializable
     public String toString()
     {
         StringBuilder sb = new StringBuilder();
-        sb.append(limsid).append(' ').append(name);
+        sb.append(limsid).append(SPACE).append(name);
         return sb.toString();
     }
 

@@ -30,6 +30,10 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+import com.genologics.ri.LimsLink;
 import com.genologics.ri.LimsLinkBase;
 
 /**
@@ -195,13 +199,18 @@ public class UdfConfigLink extends LimsLinkBase<Field>
     }
 
     /**
-     * Returns the string representation of this link, which is the field name.
+     * Returns a string representation of this UDF config link.
      *
-     * @return The field name.
+     * @return The field URI and name.
      */
     @Override
     public String toString()
     {
-        return name;
+        ToStringBuilder b = new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        b.append("field", LimsLink.toString(this));
+        b.append("name", name);
+        b.append("attachToCategory", attachToCategory);
+        b.append("attachToName", attachToName);
+        return b.toString();
     }
 }

@@ -163,15 +163,4 @@ public class SampleLink extends LimsEntityLinkBase<Sample>
     {
         this.uri = value;
     }
-
-    /**
-     * Returns a string representation of this link.
-     *
-     * @return The LIMS id.
-     */
-    @Override
-    public String toString()
-    {
-        return limsid;
-    }
 }
