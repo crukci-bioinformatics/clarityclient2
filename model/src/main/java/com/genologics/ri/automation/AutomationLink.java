@@ -19,7 +19,6 @@
 package com.genologics.ri.automation;
 
 import static java.util.Objects.requireNonNull;
-import static org.apache.commons.lang3.StringUtils.SPACE;
 
 import java.io.Serial;
 import java.net.URI;

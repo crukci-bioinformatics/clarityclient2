@@ -37,7 +37,6 @@ import com.genologics.ri.LimsLink;
 import com.genologics.ri.LimsLinkBase;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.configuration.Field;
-import com.genologics.ri.researcher.Researcher;
 
 /**
  *

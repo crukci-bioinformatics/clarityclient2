@@ -19,7 +19,6 @@
 package com.genologics.ri.processtemplate;
 
 import static java.util.Objects.requireNonNull;
-import static org.apache.commons.lang3.StringUtils.SPACE;
 
 import java.io.Serial;
 import java.net.URI;
@@ -166,6 +165,18 @@ public class Technician extends LimsLinkBase<Researcher>
     public void setLastName(String lastName)
     {
         this.lastName = lastName;
+    }
+
+    /**
+     * Convenience method for returning the full name of the technician.
+     *
+     * @return The full name.
+     *
+     * @since 2.34.2
+     */
+    public String getFullName()
+    {
+        return Researcher.makeFullName(firstName, lastName);
     }
 
     /**

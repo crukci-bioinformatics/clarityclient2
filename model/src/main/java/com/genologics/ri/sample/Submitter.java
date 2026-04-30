@@ -163,6 +163,18 @@ public class Submitter extends LimsLinkBase<Researcher>
     }
 
     /**
+     * Convenience method for returning the full name of the submitter.
+     *
+     * @return The full name.
+     *
+     * @since 2.34.2
+     */
+    public String getFullName()
+    {
+        return Researcher.makeFullName(firstName, lastName);
+    }
+
+    /**
      * Gets the URI of the submitter.
      *
      * @return The submitter URI.

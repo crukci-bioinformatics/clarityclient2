@@ -164,6 +164,18 @@ public class Technician extends LimsLinkBase<Researcher>
     }
 
     /**
+     * Convenience method for returning the full name of the technician.
+     *
+     * @return The full name.
+     *
+     * @since 2.34.2
+     */
+    public String getFullName()
+    {
+        return Researcher.makeFullName(firstName, lastName);
+    }
+
+    /**
      * Gets the URI.
      *
      * @return the URI.
