@@ -101,11 +101,11 @@ public class Link implements Locatable, Serializable
     /**
      * Constructor from a linkable object.
      *
-     * @param limsLink The linkable object.
+     * @param linkable The linkable object.
      */
-    public Link(Linkable<?> limsLink)
+    public Link(Linkable<?> linkable)
     {
-        uri = limsLink.getUri();
+        uri = linkable.getUri();
 
         String[] pathParts = PATH_SPLITTER.split(uri.getPath());
 

@@ -205,7 +205,7 @@ public class Artifact implements LimsEntity<Artifact>, UDFHolder, Serializable
      * Constructor with URI and id.
      *
      * @param uri The artifact URI.
-     * @param name The artifact LIMS id.
+     * @param limsid The artifact LIMS id.
      */
     public Artifact(URI uri, String limsid)
     {

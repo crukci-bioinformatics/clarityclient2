@@ -75,7 +75,7 @@ public class Sample extends SampleBase implements LimsEntity<Sample>
      * Constructor with URI and id.
      *
      * @param uri The sample URI.
-     * @param name The sample LIMS id.
+     * @param limsid The sample LIMS id.
      */
     public Sample(URI uri, String limsid)
     {
