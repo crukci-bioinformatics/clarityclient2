@@ -76,6 +76,16 @@ public class Demux implements Locatable, Serializable
     }
 
     /**
+     * Constructor with a URI.
+     *
+     * @param uri The demux URI.
+    */
+    public Demux(URI uri)
+    {
+        this.uri = uri;
+    }
+
+    /**
      * Gets the artifact.
      *
      * @return The demux source artifact.

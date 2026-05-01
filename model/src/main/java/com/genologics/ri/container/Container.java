@@ -126,6 +126,28 @@ public class Container implements LimsEntity<Container>, UDFHolder, Serializable
     }
 
     /**
+     * Constructor for Container with a URI.
+     *
+     * @param uri The URI of the container.
+     */
+    public Container(URI uri)
+    {
+        this.uri = uri;
+    }
+
+    /**
+     * Constructor for Container with a URI and LIMS id.
+     *
+     * @param uri The URI of the container.
+     * @param limsid The LIMS id of the container.
+     */
+    public Container(URI uri, String limsid)
+    {
+        this.uri = uri;
+        this.limsid = limsid;
+    }
+
+    /**
      * Constructor with container type link.
      *
      * @param containerType the container type link.
