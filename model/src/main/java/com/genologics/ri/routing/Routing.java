@@ -21,6 +21,7 @@ package com.genologics.ri.routing;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
@@ -44,6 +45,11 @@ public class Routing implements Serializable
     @Serial private static final long serialVersionUID = 4810146731548918326L;
 
     /**
+     * Platform dependent end of line string.
+     */
+    private static final String EOL = System.getProperty("line.separator");
+
+    /**
      * The list of artifact assignments to assign to workflows/stages.
      */
     @XmlElement(name = "assign")
@@ -64,7 +70,7 @@ public class Routing implements Serializable
     {
         if (assignedRoutes == null)
         {
-            assignedRoutes = new ArrayList<ExtArtifactAssignments>();
+            assignedRoutes = new ArrayList<>();
         }
         return assignedRoutes;
     }
@@ -78,9 +84,60 @@ public class Routing implements Serializable
     {
         if (unassignedRoutes == null)
         {
-            unassignedRoutes = new ArrayList<ExtArtifactAssignments>();
+            unassignedRoutes = new ArrayList<>();
         }
         return unassignedRoutes;
     }
 
+    /**
+     * Display the routings as configured for this object. Lists each of the assigned
+     * routes if present and unassigned routes if present.
+     *
+     * @return A string representation of the routing. This string includes line breaks.
+     *
+     * @see ExtArtifactAssignments#toString()
+     */
+    @Override
+    public String toString()
+    {
+        int assignedCount = collectionSize(assignedRoutes);
+        int unassignedCount = collectionSize(unassignedRoutes);
+
+        StringBuilder sb = new StringBuilder(256 * (assignedCount + unassignedCount + 1));
+        sb.append("Routing").append(EOL);
+        if (assignedCount == 0 && unassignedCount == 0)
+        {
+            sb.append("  No routes").append(EOL);
+        }
+        if (assignedCount > 0)
+        {
+            sb.append("  Assigned:").append(EOL);
+            for (var ext : assignedRoutes)
+            {
+                sb.append("    ").append(ext).append(EOL);
+            }
+        }
+        if (unassignedCount > 0)
+        {
+            sb.append("  Unassigned:").append(EOL);
+            for (var ext : unassignedRoutes)
+            {
+                sb.append("    ").append(ext).append(EOL);
+            }
+        }
+        return sb.toString();
+    }
+
+    /**
+     * Helper to classes in this package to get the null-safe size of a collection
+     * rather than have a dependency on commons-collections.
+     *
+     * @param collection The collection. May be null.
+     *
+     * @return The size of the collection, zero if it is null.
+     */
+    static int collectionSize(Collection<?> collection)
+    {
+        return collection == null ? 0 : collection.size();
+    }
 }

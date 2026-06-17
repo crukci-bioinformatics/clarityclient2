@@ -45,7 +45,7 @@ import com.genologics.ri.configuration.FieldType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "field")
-public class UDF implements Serializable
+public class UDF implements Serializable, Cloneable
 {
     /**
      * Class version for serialisation.
@@ -117,6 +117,22 @@ public class UDF implements Serializable
         setName(name);
         setType(type);
         setValue(value);
+    }
+
+    /**
+     * Clone this UDF to create an identical copy.
+     *
+     * @return A copy of this UDF.
+     */
+    @Override
+    public UDF clone()
+    {
+        UDF copy = new UDF();
+        copy.name = name;
+        copy.type = type;
+        copy.unit = unit;
+        copy.value = value;
+        return copy;
     }
 
     /**

@@ -32,6 +32,7 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 
+import com.genologics.ri.Link;
 import com.genologics.ri.Linkable;
 import com.genologics.ri.artifact.Artifact;
 import com.genologics.ri.stage.Stage;
@@ -170,4 +171,38 @@ public class ExtArtifactAssignments implements Serializable
         this.stageUri = stage.getUri();
     }
 
+    /**
+     * Give the stage or workflow these assignments are to or from plus the
+     * ids of the artifacts being moved.
+     *
+     * @return A textual representation of the stage address and artifact ids.
+     */
+    @Override
+    public String toString()
+    {
+        StringBuilder sb = new StringBuilder(256);
+        sb.append('[');
+        if (stageUri != null)
+        {
+            sb.append(stageUri).append(':');
+        }
+        else if (workflowUri != null)
+        {
+            sb.append(workflowUri).append(':');
+        }
+        if (Routing.collectionSize(artifacts) > 0)
+        {
+            var iter = artifacts.iterator();
+            while (iter.hasNext())
+            {
+                sb.append(Link.limsIdFromUri(iter.next().getUri()));
+                if (iter.hasNext())
+                {
+                    sb.append(',');
+                }
+            }
+        }
+        sb.append(']');
+        return sb.toString();
+    }
 }
